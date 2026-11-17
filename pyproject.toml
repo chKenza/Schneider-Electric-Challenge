@@ -6,8 +6,9 @@ readme = "README.md"
 authors = [
     { name = "Kenza Chaabouni", email = "kenza.chaabouni@hec.edu" },
     { name = "Hitaishi Dhoowooah", email = "hitaishi.dhoowooah@hec.edu"},
+    { name = "Ion de Merlis", email = "ion.goursaud-de-merlis@hec.edu"},
     { name = "Chloé Vacca", email = "chloe.vacca@hec.edu"},
-    { name = "Karin Yamakawa", email="karin.yamakawa@hec.edu"}
+    { name = "Karin Yamakawa", email = "karin.yamakawa@hec.edu"}
 ]
 requires-python = ">=3.12"
 dependencies = [
