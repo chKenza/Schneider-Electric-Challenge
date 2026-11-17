@@ -259,11 +259,12 @@ A small Streamlit app that turns Steps 2, 8 and 9 into a quote-time tool.
 
 ## Team split
 
-| Workstream | Steps |
-|---|---|
-| Data & cost model | 0, 1, 2 |
-| EDA & feature engineering | 3, 4 |
-| Forecasting & backtesting | 5, 6, 7 |
-| Risk simulation & pricing | 8, 9 |
-| Streamlit app | 11 |
-| Story (everyone) | 10 |
+| Workstream | Steps | Team Member |
+|---|---|---|
+| Data & cost model | 0, 1, 2 | Karin |
+| EDA & feature engineering | 3, 4 | Prisha |
+| Baselines | 5 | Chloe |
+| Forecasting & backtesting | 6, 7 | Kenza |
+| Risk simulation & pricing | 8, 9 | Ion |
+| Streamlit app | 11 | - |
+| Story | 10 | everyone |
