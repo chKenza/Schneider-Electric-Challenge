@@ -1,6 +1,6 @@
 # Step 0 – Framing the problem
 
-*Owner: Karin · Status: draft, to update after the client Q&A*
+*Owner: Karin · Status: final draft · Scope: Problem 1 only*
 
 ---
 
@@ -11,102 +11,136 @@ Schneider sells two medium-voltage switchgear units to data-centre customers:
 - **RM6**, made at **SFCME** in France
 - **RM AirSeT**, made at **Duna Smart Power Systems** in Hungary
 
-The price is **fixed for 3, 6 or 9 months**, but copper, steel and other materials keep moving, so every offer is a "margin gamble". AirSeT has a higher cost and a thinner margin, so it is the more exposed of the two.
+The price is **fixed for 3, 6 or 9 months**, but copper, steel and other materials keep moving, so every offer is a "margin gamble".
 
-**Our goal:** for each product and horizon, estimate how much material cost could rise. Then turn that into a **pricing rule**: a risk buffer, an indexation clause or a hedge that keeps the margin above target with a chosen confidence (e.g. 90 %).
+**Our goal:** forecast raw-material prices at 3, 6 and 9 months **with their uncertainty**, turn that into the raw-material cost of one unit of each product, and from there into a **quote rule** (risk buffer, quote validity, indexation trigger) that sales can use.
 
 ---
 
-## 2. The decision to frame
+## 2. What we deliver (from the client presentation)
 
-| Element | What we need to decide | Status |
+1. **A forecast CSV** (`<team>_forecast_202609.csv`):
+   - starting from the last data month, **September 2026**
+   - horizons **+3, +6, +9 months** (Dec 2026, Mar 2027, Jun 2027)
+   - **P10 / P50 / P90** for each row
+   - one row per priceable **material proxy** (e.g. D01 copper, S09 steel), for EU and worldwide (WW)
+   - one row per product for the **BOM cost index** (RM6 and RM AirSeT)
+2. **A repo** that reproduces the CSV with **one command**, a README (approach, data limits, AI tools used), pinned requirements and a backtest against a naive baseline.
+3. **A pricing recommendation** per horizon under upside / baseline / downside scenarios.
+4. **Expected level: a decision tool** that a non-coder can use (e.g. a Streamlit app).
+
+**How the forecasts are evaluated** (slides 14, 16, 17):
+- 3 / 6 / 9-month **forecast accuracy**, and the CSV is tracked against real prices after the jury.
+- **Uncertainty coverage**: does the P10–P90 range contain the real value about 80 % of the time?
+- A **rolling backtest per horizon** that **beats a naive baseline**: at least one horizon, all three is better.
+
+The exact metric isn't named, so we report the standard ones: error on P50 vs naive, pinball loss, coverage.
+
+Problem 2 (SF6-free strategy) is counted separately and is out of scope for this report.
+
+---
+
+## 3. How the pieces fit together
+
+| Piece | What it is | Source |
 |---|---|---|
-| Target margin | Margin to protect, per product | Unknown → Q2 |
-| Confidence level | How often a margin breach is acceptable (P80 / P90 / P95) | Unknown → Q5 |
-| Decision supported | Price buffer, indexation clause, hedging, or shorter validity | Unknown → Q4, Q5 |
-| Exposure period | Time from quote to material purchase, not the full validity | Unknown → Q3 |
+| **Recipe** | kg of each material in one unit (fixed: the design doesn't change within 9 months) | `bom_materials.csv` |
+| **Prices** | €/t of each material, or an index (% change vs a base period) | Price files (LME, MEPS/CRU, Eurostat, …) |
+| **Raw-material cost of one unit** | Σ kg × price over all materials | Computed |
+| **BOM cost index** | That cost ÷ its September 2026 value × 100 | Computed |
+
+- **Material rows** of the CSV: each material's price change on its own, e.g. "steel 120 at P90 = 10 % chance steel is more than 20 % higher".
+- **BOM rows**: the same for the whole recipe of one product. Materials count by their **euro value** in the product, not their weight, and they're simulated **together**, because they rarely all hit their worst case at the same time.
 
 ---
 
-## 3. What the data already tells us about purchasing
+## 4. How the answer will be phrased
 
-From `Copia de Europe Steel INDEXES.xlsx` (sheets *Reference to Index Mapping*, *Q4-2017*, *Q2-2018*, *UPDATE*):
+We don't need Schneider's target margin. Raw-material risk is measured in euros, so we express it in **margin points lost**:
 
-- Schneider buys steel **on an index**: each part (663 in total) is linked to a MEPS/CRU index (e.g. "CR Germany").
-- Purchase price = base price + the index change in €/t.
-- Prices were updated **monthly in 2017**, then **quarterly from 2018**.
-- **Lead time: 1 month** for most parts.
-- Hungarian plants are priced on **German indices**.
-- The price change passed on is **negotiated per plant**, not copied 1:1 from the index.
+> "For a 9-month RM6 quote, raw-material cost increases will not take away more than **X points of margin**, with 90 % probability. Add X % to the price to keep your target margin, whatever it is."
 
-⚠️ **Limit:** the file covers **2016–2018** and **does not include SFCME or Duna**. It shows how Schneider bought steel in general, not necessarily how these two plants buy it today (→ Q10).
+- **P90 is one-sided:** a 90 % chance of staying below. P10–P90 together form an 80 % range.
+- **The backtest adds a confidence interval** on that 90 %, e.g. "held 88 % of the time in past data (95 % CI: 80–94 %)". With about 13 independent 9-month windows, this interval will be wide, and we will show it.
 
 ---
 
-## 4. Other points the client needs to clarify
+## 5. What the data already tells us
 
-Each point comes from a first look at the files. The details are in the Step 1 and Step 2 notes.
+### Raw materials are a small share of the selling price
 
-| What we saw | Question |
+The selling-price file (`RMU_IQI_EU_Price_Benchmark…`) gives a **synthetic yearly price** for an RM6-type unit, by brand, 2017–2026. It has **no AirSeT price**.
+
+| | Value |
 |---|---|
-| The file with selling prices is locked ("Confidential – Internal to SE") | Q1 |
-| The two RM6 BOMs disagree on copper: 38.8 kg vs ≈ 10 kg | Q6 |
-| RM6: only 41 % of the mass has a material label | Q6 |
-| AirSeT lists no copper and has 13.6 % "Other" | Q7 |
-| The RM6 teardown cost breakdown can't be used to split fixed vs variable cost | Q8 |
-| The brief mentions electronics, but there is no data on them | Q9 |
+| Schneider P50 selling price, 2025 | **€8,740** |
+| RM6 raw-metal cost at current prices | ≈ **€790** (≈ 9 % of price) |
+| Effect of copper +30 % | ≈ **1.7 %** of the selling price |
+
+So the buffers will be small compared with the price. The point of the model is to size them correctly per horizon.
+
+### Selling prices are sticky
+
+- In **2021–22**, raw materials rose 40–100 %, but Schneider's price rose only about 7 % a year.
+- In **2023–25**, raw materials fell, but prices were never cut.
+
+Cost shocks therefore squeeze margin for about a year. That's the risk we price.
+
+### The 2026 price jump is the SF6 ban, not raw materials
+
+In 2026, the SF6 brands' prices jump by **+32 to +40 %**, while the SF6-free brand (Eaton) moves **+8 %**. The client's chart marks the SF6 change at that point. **2026 is left out of any margin backtest.**
+
+### Schneider buys steel on an index
+
+From `Copia de Europe Steel INDEXES.xlsx`:
+- purchase price = base price + the index change in €/t (MEPS/CRU)
+- updated monthly in 2017, quarterly from 2018
+- lead time of 1 month
+- Hungarian plants priced on German indices
+
+The file covers 2016–2018 and does not include SFCME or Duna.
+
+### The two RM6 recipes disagree on copper
+
+| Source | Copper in one RM6 | Copper share of raw-material cost | Copper +30 % → % of price |
+|---|---|---|---|
+| Schneider BOM (`bom_materials.csv`) | **38.8 kg** | 62 % | ≈ 1.7 % |
+| Benchmark "teardown" | **8.6–13.8 kg** | 27–37 % | ≈ 0.4–0.6 % |
+
+The teardown is **not a physical teardown**. A tool generated it, with masses marked "inferred" and "not supported by a source", and it contains errors such as 500 kg of screws. So Schneider's BOM is the more credible source, but this one number changes RM6's copper risk by **3–4×**.
 
 ---
 
-## 5. Working assumptions (until the client confirms)
+## 6. Handled by parameters, scenarios or assumptions
 
-| Topic | Assumption |
+Instead of asking the client, these are inputs the user can change, or assumptions we state:
+
+| Topic | How we handle it |
 |---|---|
-| Target margin | Kept as a parameter (e.g. 25 % RM6, 15 % AirSeT) |
-| Confidence level | P90 as the base case; P75 and P95 also shown |
-| Exposure | From quote to material purchase, roughly H minus 1 month |
-| Steel purchasing | On index, 1-month lag, monthly or quarterly updates |
-| Copper purchasing | LME price + a premium |
-| Customer contracts | No indexation clause and no hedging today |
-| BOM | RM6's unlabelled slice is carbon steel; AirSeT has no copper |
-| Scope | Raw materials only (no labour, plant energy or electronics) |
+| Target margin | Not needed: result given in margin points |
+| Time from signing to material purchase | Parameter (purchase-lag setting) |
+| Existing customer indexation or hedging | We compare all strategies (buffer, indexation, hedge, shorter validity) |
+| Steel index used in purchasing (MEPS vs CRU, 3–7 % apart) | We test both |
+| RM6 copper mass | Base 38.8 kg; low scenario from the teardown |
+| Unlabelled BOM slices | RM6's 45 % slice treated as carbon steel; AirSeT "Other" left out |
+| Plastics price level (no €/t, only a PPI) | Assumed starting price, with a low/high test (matters for AirSeT: ~25 kg) |
+| AirSeT selling price | Assumed from RM6 and the "higher cost structure" in the brief |
+| 2026 prices | Left out of the margin backtest (SF6 ban) |
+| Scope | Raw materials only: no labour, plant energy, electronics |
 
 ---
 
-## 6. Questions for the client
+## 7. Questions for the client
 
-### Top priority (these change the answer)
+Only questions that change **what we build** and can't be handled by a parameter:
 
-1. Can we get an **unlocked copy** of the RMU price benchmark file? What is in it?
-2. What is the **target margin** for RM6 and for AirSeT?
-3. How long after signing is the **material bought** or its price locked?
-4. Do customer contracts already have **indexation clauses**? Does Schneider **hedge** copper or nickel?
-5. What **confidence level** does sales want (P80 / P90 / P95), and in what form (a % added to the price, or a price)?
-
-### BOM and costs
-
-6. RM6 copper: is it **38.8 kg or about 10 kg**? Is the unlabelled 45 % carbon steel?
-7. AirSeT: really **no copper**? Where are the epoxy insulation and vacuum interrupters? What is the 13.6 % "Other"?
-8. What share of unit cost is **raw material** vs bought components, labour and overhead?
-9. The brief mentions **electronics**. Is that in scope? Is there data on it?
-
-### Purchasing
-
-10. Do **SFCME and Duna** buy steel with the same index system today? Which supplier and index?
-11. How is **copper** priced in purchases (which LME average, which premium)?
-12. Which is closer to what Schneider actually pays: **market prices** (LME/MEPS) or the **PPI** indices?
-
-### Deliverable
-
-13. Only these two products, or a method for all ETO products?
-14. Should the final output be a **tool for sales** (app), a report, or both?
-
-> **If time is short, ask 1, 3, 4 and 6.**
+1. **Reproducibility vs confidentiality:** how do we make the pipeline reproducible "from a clean start" (and run it on GitHub Actions) without committing the confidential BOM and the licensed MEPS/CRU data? Can licensed MEPS/CRU prices be used as model inputs?
+2. **RM6 copper:** is it 38.8 kg (internal BOM) or ≈ 9–14 kg (teardown)? It changes RM6's copper risk by 3–4×.
 
 ---
 
-## 7. Next steps
+## 8. Next steps
 
-- Update this report after the Q&A.
-- Step 1: data inventory and clean monthly panel (see `step1_notes.md`).
-- Step 2: cost formula per product (see `step2_notes.md`).
+- **Step 1** (done): one clean monthly panel, data dictionary, publication lags. See `step1_data_preparation.md`.
+- **Step 2**: cost formula per product, BOM cost index, scenarios (copper mass, plastics price).
+- Optional: check Schneider's public environmental profile for this RM6 (`ENVPEP1511010EN`). It lists material composition by mass and could settle the copper question without the client.
