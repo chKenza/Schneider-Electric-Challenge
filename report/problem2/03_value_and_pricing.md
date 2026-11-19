@@ -1,0 +1,1 @@
+Steps 6–8: value proposition, pricing, adoption levers
