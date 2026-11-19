@@ -39,6 +39,7 @@
 | 11 – (Optional) TCO tab in the app | ✅ Yes | P1 Step 11 (Streamlit app) | ❌ after P1 app |
 
 ---
+# Market and Regulation (step 0-3):
 
 ## Step 0 – Frame the question and the deliverables
 
@@ -110,6 +111,7 @@
 **Output:** scoring matrix, shortlist of target markets / segments with rationale.
 
 ---
+# Cost and TCO (step 4-5)
 
 ## Step 4 – Cost gap and TCO model
 
@@ -150,6 +152,7 @@ The client explicitly asks to "leverage RM price convergence" and "show how RM p
 **Output:** cost-gap outlook chart (RM6 vs AirSeT), one-sentence finding for the story.
 
 ---
+# Value and Pricing (step 6-8)
 
 ## Step 6 – Value proposition per target segment
 
@@ -203,6 +206,7 @@ For each priority segment from Step 3, one value proposition built on:
 **Output:** lever map per segment (lever, target decision-maker, expected effect, cost).
 
 ---
+# Strategy (step 9-10)
 
 ## Step 9 – Roadmap and win conditions
 
