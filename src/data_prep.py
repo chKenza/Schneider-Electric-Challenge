@@ -437,11 +437,16 @@ def _metadata() -> pd.DataFrame:
     ).set_index("series_id")
 
 
-def forecast_targets() -> dict[str, str]:
-    """Series to forecast in the submission CSV: the priceable BOM proxies, by region.
+# Targets not listed in bom_materials.csv. Client slide 16: forecast ALL raw-material
+# inputs, incl. insulating materials; the client confirmed insulation = epoxy (Q&A).
+EXTRA_TARGETS = {"EPOXY_EUR": "EU"}
 
-    Taken from bom_materials.csv (eu_series_ids / ww_series_ids); the licensed
-    L-series are empty and skipped.
+
+def forecast_targets() -> dict[str, str]:
+    """Series to forecast in the submission CSV, by region.
+
+    The priceable BOM proxies from bom_materials.csv (eu_series_ids / ww_series_ids;
+    the licensed L-series are empty and skipped), plus EXTRA_TARGETS.
     """
     bom = read_raw_csv("bom_materials.csv")
     targets = {}
@@ -450,7 +455,7 @@ def forecast_targets() -> dict[str, str]:
             for sid in ids.split(";"):
                 if not sid.startswith("L"):
                     targets[sid] = region
-    return targets
+    return targets | EXTRA_TARGETS
 
 
 DERIVED_INPUTS = {

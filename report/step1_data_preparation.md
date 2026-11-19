@@ -61,11 +61,14 @@ uv run python -m src.data_prep --origin 2026-06 # as if we were in an earlier mo
 | Stainless 304 – CRU | Base, alloy surcharge, total; Germany and France | EUR/t | Jan 2008 | Input |
 | Long steel – CRU | Merchant bar, Germany (long history) | EUR/t | Jan 1997 | Input |
 | LME copper and aluminium | Cash, 3-month, spread, stocks | USD/t, EUR/t, t | Jan 2016 | Input |
-| Epoxy | Epoxy resin and its inputs | EUR/t | Jan 2018 | Input |
+| Epoxy | Epoxy resin (EPOXY_EUR) | EUR/t | Jan 2018 | **Target (EU)** |
+| | Its inputs: benzene, acetone, epichlorohydrin, other costs | EUR/t | Jan 2018 | Input |
 
-**The 14 forecast targets** are the priceable BOM proxies listed in `bom_materials.csv`:
-- **EU:** D01, S07, D02, S08, S09, S10, S11
-- **WW:** S01, S02, S03, S04, S05, S12, S13
+**The 15 forecast targets:**
+- **The 14 priceable BOM proxies** listed in `bom_materials.csv`:
+  - **EU:** D01, S07, D02, S08, S09, S10, S11
+  - **WW:** S01, S02, S03, S04, S05, S12, S13
+- **Epoxy resin (EPOXY_EUR, EU).** It isn't in the BOM file, but slide 16 asks us to forecast "ALL raw-material inputs (… insulating materials …)", and the client confirmed in the Q&A that insulation = epoxy.
 
 All other series are inputs that help forecast them.
 
@@ -191,7 +194,7 @@ These choices were made while building this step and **have not been confirmed b
 
 | # | Current choice | Alternative | Why it matters |
 |---|---|---|---|
-| 1 | **14 targets**: both series wherever the BOM file lists two for one material (e.g. copper D01 *and* S07, aluminium D02 *and* S08) | Only the first-listed series per material | Changes how many forecasts we submit and backtest |
+| 1 | **15 targets**: both series wherever the BOM file lists two for one material (e.g. copper D01 *and* S07, aluminium D02 *and* S08), plus epoxy (slide 16 + Q&A) | Only the first-listed series per material | Changes how many forecasts we submit and backtest |
 | 2 | **Data stops at Sep 2026** (slide 17: "2026-09, last data used"), even though Oct 2026 exists for FX, LME, MEPS/CRU, epoxy and power | Use everything known today | We give up one fresher month for some inputs |
 | 3 | **May 2026 epichlorohydrin and epoxy treated as entry errors**, replaced by the Apr–Jun average | Keep the raw values, or ask the client | Modifies data the client gave us |
 | 4 | **Publication lags** measured on one snapshot (e.g. CRU stainless = 3 months) | Look up official release calendars | Decides what backtests are allowed to see |
