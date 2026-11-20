@@ -206,9 +206,9 @@ def lead_lag_plot(ll, n, out_dir, name="08_lead_lag"):
 
 # --------------------------------------------------------------------------- 3.3
 def cost_stack(costs: dict, regimes, out_dir, name="09_unit_rm_cost_history"):
-    fig, axes = plt.subplots(1, len(costs), figsize=(6.2 * len(costs), 3.4), squeeze=False)
+    fig, axes = plt.subplots(1, len(costs), figsize=(5.4 * len(costs), 3.4), squeeze=False)
     for ax, (prod, df) in zip(axes.flat, costs.items()):
-        mats = [c for c in df.columns if c not in ("rm_cost", "non_rm", "unit_cost")]
+        mats = [c for c in df.columns if c not in ("rm_cost", "bom_index", "non_rm", "unit_cost")]
         order = df[mats].mean().sort_values(ascending=False).index
         ax.stackplot(df.index, *[df[m] for m in order], labels=[m.replace("_", " ") for m in order],
                      colors=[MATERIAL_COLORS[material_family(m)] for m in order],
@@ -232,37 +232,44 @@ def cost_change_hist(costs: dict, horizons, out_dir, name="10_unit_cost_change_d
             ax.hist(vals[h], bins=bins, histtype="step", lw=1.8, color=SERIES[j], label=f"H = {h}m")
             ax.axvline(vals[h].quantile(.95), color=SERIES[j], ls="--", lw=1)
         ax.axvline(0, color=MUTED, lw=0.6)
-        ax.set_title(f"{prod} – H-month change of total unit cost (%)", loc="left")
+        ax.set_title(f"{prod} – H-month change of unit cost (%)", loc="left")
         ax.legend()
     fig.tight_layout()
     return _save(fig, out_dir, name)
 
 
-def risk_contribution_plot(contrib: pd.DataFrame, out_dir, name="11_risk_contribution"):
-    """contrib: index = (product, H), columns = materials (shares summing to 1).
-
-    Materials are grouped into families (plastics PBT/PET/ETP together, both carbon-steel
-    labels together) so each family keeps one fixed colour.
+def risk_contribution_plot(contribs: dict, out_dir, name="11_risk_contribution"):
+    """contribs: {panel title: DataFrame}, each with index = (case, H) and one column per
+    material (shares summing to 1). Materials are grouped into families so that each family
+    keeps one fixed colour across panels (e.g. stainless base + surcharge = stainless).
     """
-    fam = contrib.T.groupby(lambda m: material_family(m)).sum().T
-    fam = fam[[f for f in MATERIAL_COLORS if f in fam.columns and fam[f].abs().sum() > 0]]
-    labels = [f"{p}  H={h}m" for p, h in fam.index]
-    fig, ax = plt.subplots(figsize=(8.5, 0.42 * len(fam) + 1.6))
-    left = np.zeros(len(fam))
-    for f in fam.columns:
-        v = fam[f].clip(lower=0).values * 100
-        ax.barh(labels, v, left=left, color=MATERIAL_COLORS[f], label=f.replace("_", " "),
-                edgecolor=SURFACE, linewidth=1.5, height=0.7)
-        for k, (x, w) in enumerate(zip(left, v)):
-            if w >= 7:
-                ax.text(x + w / 2, k, f"{w:.0f}%", ha="center", va="center", fontsize=7, color="white")
-        left += v
-    ax.invert_yaxis()
-    ax.set_xlim(0, 100)
-    ax.set_xlabel("share of variance of the H-month € change of the raw-material basket (%)")
-    ax.legend(ncol=len(fam.columns), loc="upper center", bbox_to_anchor=(0.5, -0.2))
-    ax.grid(axis="y", visible=False)
-    ax.set_title("Which material drives unit-cost risk? (Euler variance decomposition)", loc="left")
+    fams = {t: c.T.groupby(lambda m: material_family(m)).sum().T for t, c in contribs.items()}
+    used = [f for f in MATERIAL_COLORS if any(f in d.columns and d[f].abs().sum() > 0 for d in fams.values())]
+    n = max(len(d) for d in fams.values())
+    fig, axes = plt.subplots(1, len(fams), figsize=(6.4 * len(fams), 0.42 * n + 1.8), squeeze=False)
+    for ax, (title, fam) in zip(axes.flat, fams.items()):
+        fam = fam.reindex(columns=used).fillna(0)
+        labels = [f"{p}  H={h}m" for p, h in fam.index]
+        left = np.zeros(len(fam))
+        for f in used:
+            v = fam[f].clip(lower=0).values * 100
+            ax.barh(labels, v, left=left, color=MATERIAL_COLORS[f], label=f.replace("_", " "),
+                    edgecolor=SURFACE, linewidth=1.5, height=0.7)
+            for k, (x, w) in enumerate(zip(left, v)):
+                if w >= 7:
+                    ax.text(x + w / 2, k, f"{w:.0f}%", ha="center", va="center", fontsize=7,
+                            color="white")
+            left += v
+        ax.set_xlim(0, 100)
+        ax.grid(axis="y", visible=False)
+        ax.set_title(title, loc="left")
+        ax.set_xlabel("share of the variance of the H-month € change (%)")
+        ax.invert_yaxis()
+    handles, lbls = axes.flat[0].get_legend_handles_labels()
+    fig.legend(handles, lbls, ncol=len(used), loc="lower center", bbox_to_anchor=(0.5, -0.06))
+    fig.suptitle("Which material drives raw-material cost risk? (Euler variance decomposition)",
+                 x=0.01, ha="left", fontsize=11)
+    fig.tight_layout()
     return _save(fig, out_dir, name)
 
 
@@ -288,14 +295,15 @@ def price_vs_cost_plot(idx: pd.DataFrame, out_dir, name="13_selling_price_vs_cos
     a = idx[["Schneider Electric", "RM6 RM basket", "RM6 unit cost"]]
     for j, c in enumerate(a.columns):
         axes[0].plot(a.index, a[c], marker="o", ms=4, color=SERIES[j], label=c)
-    axes[0].set_title("Schneider P50 selling price vs RM6 cost (2017 = 100)", loc="left")
+    base = int(idx.index[0])
+    axes[0].set_title(f"Schneider P50 selling price vs RM6 cost ({base} = 100)", loc="left")
     brands = [b for b in idx.columns if b not in ("RM6 RM basket", "RM6 unit cost")]
     eaton = "Eaton"
     others = [b for b in brands if b != eaton]
     axes[1].plot(idx.index, idx[others].mean(axis=1), marker="o", ms=4, color=SERIES[0],
                  label="SF6 brands (mean of 5)")
     axes[1].plot(idx.index, idx[eaton], marker="o", ms=4, color=SERIES[1], label="Eaton (SF6-free)")
-    axes[1].set_title("Selling-price P50 by insulation technology (2017 = 100)", loc="left")
+    axes[1].set_title(f"Selling-price P50 by insulation technology ({base} = 100)", loc="left")
     for ax in axes:
         ax.legend(loc="upper left")
         ax.axvline(2025.5, color=MUTED, ls=":", lw=1)

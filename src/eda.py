@@ -178,7 +178,8 @@ def cost_h_changes(cost: pd.DataFrame, horizons: list[int], col: str = "unit_cos
     rows = {}
     for h in horizons:
         ch = (cost[col].shift(-h) / cost[col] - 1).dropna()
-        rows[h] = {"n": len(ch), "q05_%": 100 * ch.quantile(.05), "q50_%": 100 * ch.quantile(.5),
+        rows[h] = {"n": len(ch), "q05_%": 100 * ch.quantile(.05), "q10_%": 100 * ch.quantile(.10),
+                   "q50_%": 100 * ch.quantile(.5), "q90_%": 100 * ch.quantile(.90),
                    "q95_%": 100 * ch.quantile(.95), "max_%": 100 * ch.max(), "P(rise)": (ch > 0).mean()}
     return pd.DataFrame(rows).T.rename_axis("H")
 
@@ -223,8 +224,10 @@ def margin_gamble_summary(cost: pd.DataFrame, horizons: list[int], target_margin
 
 
 def price_vs_cost(bench: pd.DataFrame, cost: pd.DataFrame) -> pd.DataFrame:
-    """Yearly selling-price P50 per brand (index 2017 = 100) vs RM6 yearly average costs."""
-    piv = bench.pivot(index="Year", columns="Brand", values="p50")
+    """Yearly selling-price P50 per brand vs RM6 yearly average costs, indexed to the first
+    year where the cost history exists (= 100). `bench` is Step 1's rmu_prices_yearly.csv."""
+    piv = bench.pivot(index="year", columns="brand", values="p50")
     yr = cost.groupby(cost.index.year)[["rm_cost", "unit_cost"]].mean()
     out = piv.join(yr.rename(columns={"rm_cost": "RM6 RM basket", "unit_cost": "RM6 unit cost"}))
-    return 100 * out / out.loc[2017]
+    base = int(yr.index.min())
+    return 100 * out.loc[base:] / out.loc[base]

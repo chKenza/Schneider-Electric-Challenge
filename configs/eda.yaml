@@ -1,18 +1,18 @@
 # Configuration for Step 3 – Exploratory Data Analysis.
 # All paths are relative to the repository root.
+#
+# The EDA reads the outputs of Step 1 and Step 2, so run these first:
+#   uv run python -m src.data_prep
+#   uv run python -m src.cost_model
 
 paths:
-  data_root: data/Data
-  rm_wide: data/Data/data/rm_prices_monthly_wide.csv
-  energy_wide: data/Data/data/energy_prices_monthly_wide.csv
-  bom: data/Data/data/bom_materials.csv
-  lme: data/Data/LME_Copper_Aluminium_EU_Monthly_2016_2026.xlsx
-  steel: data/Data/Copia de Europe Steel INDEXES.xlsx
-  epoxy: data/Data/Epoxy for student.xlsx
-  rmu_benchmark: data/Data/RMU_IQI_EU_Price_Benchmark_2017-2026_Synthetic.xlsx
-  teardown: data/Data/benchmark-modules-fonctionnels-rm6-ne-iqi-3-fonctions-400a-appareillage-isolement-et-coupure-dans-le-gaz-sf6.xlsx
-  plots: plots
-  tables: report/tables
+  panel: Data/processed/panel_monthly.csv          # Step 1 (Karin): cleaned monthly panel
+  dictionary: Data/processed/data_dictionary.csv   # Step 1: sources, lags, targets
+  rmu_prices: Data/processed/rmu_prices_yearly.csv # Step 1: synthetic selling prices
+  epoxy_raw: Data/Epoxy for student.xlsx           # raw file, only for the data-quality check
+  teardown: Data/benchmark-modules-fonctionnels-rm6-ne-iqi-3-fonctions-400a-appareillage-isolement-et-coupure-dans-le-gaz-sf6.xlsx
+  plots: plots/step3
+  tables: report/problem1/step3_tables
 
 horizons: [3, 6, 9]
 
@@ -21,54 +21,24 @@ regimes:
   COVID dip: ["2020-02", "2020-06"]
   Post-COVID surge: ["2020-07", "2021-12"]
   Energy shock / Ni squeeze: ["2022-01", "2022-12"]
-  Cu rally: ["2025-01", "2026-10"]
+  Cu rally: ["2025-01", "2026-09"]
 
 stress_window: ["2021-01", "2022-12"]
 
 # ---------------------------------------------------------------------------
-# Provisional cost model (Step 2 is owned by another workstream; this is the
-# minimum needed for the business EDA in 3.3). Every number below is an
-# ASSUMPTION unless it comes from bom_materials.csv or the teardown file.
+# Business EDA (3.3). The raw-material cost comes from Karin's Step 2 model
+# (src/cost_model.py: masses, €/t levels, drivers, cases). The settings below are
+# only the extra assumptions the margin simulation needs.
 # ---------------------------------------------------------------------------
-cost_model:
-  # €/t level assumed for polymers in 2021 (when Eurostat PPI S11 = 100);
-  # the level is then moved month by month with S11.
-  plastic_levels_2021_eur_t:
-    PBT: 2800
-    PET: 1400
-    ETP: 3000
-
-  # BOM per product: material -> (price series in the EUR panel, kg per unit)
-  products:
-    RM6:
-      plant: France (ETO_FR0900)
-      materials:
-        carbon_steel_unlabelled: {series: steel_cr_fr, kg: 139.5}  # ~45 % unlabelled slice, assumed CR carbon steel
-        stainless_304L:          {series: ss304_de,    kg: 55.8}
-        copper:                  {series: cu_eur,      kg: 38.8}
-        galvanised_HDG:          {series: steel_hdg_de, kg: 21.1}
-        PET:                     {series: PET,         kg: 5.6}
-        aluminium:               {series: al_eur,      kg: 5.0}
-      # Teardown should-cost of RM6 (EUR, generated Nov 2026) used to size the
-      # non-raw-material part of unit cost.
-      total_unit_cost_ref: 3009
-    RM_AirSeT:
-      plant: Hungary (ETO_HU1100)
-      materials:
-        carbon_steel_CR: {series: steel_cr_de, kg: 327.2}   # Hungarian plant indexes CR to "CR Germany" (Q4-2017 sheet)
-        stainless_304L:  {series: ss304_de,    kg: 102.6}
-        PBT:             {series: PBT,         kg: 13.8}
-        ETP:             {series: ETP,         kg: 11.3}
-        aluminium:       {series: al_eur,      kg: 5.0}
-      # No should-cost exists for AirSeT. ASSUMPTION: +20 % vs RM6
-      # ("higher cost structure" in the brief).
-      total_unit_cost_ref: 3610
-
-  # Alternative BOM scenarios for the risk decomposition (overrides of kg).
-  scenarios:
-    RM6_teardown_copper: {product: RM6, override: {copper: 8.6}}
-    RM_AirSeT_other_as_epoxy: {product: RM_AirSeT, add: {epoxy: {series: epoxy, kg: 85.6}}}
-
-  reference_month: "2026-08"   # last month where every cost series is observed
+business:
+  origin: "2026-09"
+  # Cases of the Step 2 model used here (src/cost_model.py CASES + nickel checks).
+  cases: ["RM6", "AirSeT epoxy low", "AirSeT epoxy high"]
+  nickel_check_cases: ["AirSeT epoxy low, nickel check", "AirSeT epoxy high, nickel check"]
+  # Total unit cost at the origin, used to add a constant non-raw-material cost.
+  # RM6: teardown should-cost. AirSeT: ASSUMPTION, RM6 + 20 % ("higher cost structure").
+  total_unit_cost:
+    RM6: 3009
+    AirSeT: 3610
   target_margin: 0.30          # ASSUMPTION – gross margin targeted at quote
   breach_tolerance_pts: 0.02   # erosion > 2 margin points counted as a breach

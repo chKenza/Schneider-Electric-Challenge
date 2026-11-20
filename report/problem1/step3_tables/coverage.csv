@@ -1,0 +1,26 @@
+series,step1_id,label,first,last,n_obs,internal_gaps
+cu_eur,LME_CU_CASH_EUR,Copper LME (EUR/t),2016-01,2026-09,129,0
+al_eur,LME_AL_CASH_EUR,Aluminium LME (EUR/t),2016-01,2026-09,129,0
+ni_eur,S03_EUR,Nickel LME (EUR/t),2016-11,2026-09,119,0
+zn_eur,S05_EUR,Zinc LME (EUR/t),2016-11,2026-09,119,0
+iron_ore_eur,S04_EUR,Iron ore 62% (EUR/t),2016-11,2026-09,119,0
+eurusd,S06,EUR/USD (USD per EUR),2016-11,2026-09,119,0
+steel_cr_de,MEPS_DE_CR,CR coil Germany MEPS (EUR/t),2012-11,2026-09,167,0
+steel_cr_fr,MEPS_FR_CR,CR coil France MEPS (EUR/t),2012-11,2026-09,167,0
+steel_hdg_de,MEPS_DE_HDG,HDG coil Germany MEPS (EUR/t),2012-11,2026-09,167,0
+steel_hr_de,MEPS_DE_HR,HR coil Germany MEPS (EUR/t),2012-11,2026-09,167,0
+ss304_de,CRU_SS304_DE_TOTAL,Stainless 304 Germany CRU (EUR/t),2008-01,2026-08,224,0
+epoxy,EPOXY_EUR,Epoxy resin (EUR/t),2018-01,2026-09,105,0
+benzene,BENZENE_EUR,Benzene Europe (EUR/t),2018-01,2026-09,105,0
+ppi_cu,S07,EU PPI copper S07,2016-11,2026-09,119,0
+ppi_al,S08,EU PPI aluminium S08,2016-11,2026-09,119,0
+ppi_steel,S09,EU PPI iron & steel S09,2016-11,2026-09,119,0
+ppi_steel_de,S10,DE PPI iron & steel S10,2016-11,2026-09,119,0
+ppi_plastics,S11,EU PPI plastics S11,2016-11,2026-09,119,0
+ppi_steel_us,S12,US PPI steel S12,2016-11,2026-09,119,0
+ppi_plastics_us,S13,US PPI plastics S13,2016-11,2026-09,119,0
+brent_eur,ED01,Brent (EUR/bbl),2016-11,2026-09,119,0
+ttf_eur,ED02,TTF gas (EUR/MWh),2016-11,2026-09,119,0
+power_de,E09,Power DE (EUR/MWh),2016-11,2026-09,119,0
+power_fr,E10,Power FR (EUR/MWh),2016-11,2026-09,119,0
+power_hu,E11,Power HU (EUR/MWh),2016-11,2026-09,119,0
