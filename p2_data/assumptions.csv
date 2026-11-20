@@ -1,0 +1,16 @@
+param,unit,pessimistic,base,optimistic,verified,source,notes
+sf6_kg_per_unit,kg,1.5,1.5,1.5,False,Teardown benchmark (E02),RM6 fill; inferred not measured. SM6 differs.
+gwp_sf6,t CO2e / t,22800,22800,25200,False,AR4 22800 (benchmark file); higher IPCC values to verify,Use the value the customer's reporting rule uses.
+leak_rate_pct_per_year,%/yr,0.05,0.1,0.5,False,PLACEHOLDER - IEC sealed-for-life spec vs field data to verify,
+asset_life_years,years,25,30,40,False,PLACEHOLDER - manufacturer docs / CIGRE,
+discount_rate_pct,%,10,8,6,False,PLACEHOLDER - customer WACC,Pessimistic for AirSeT = higher rate (future savings worth less).
+eol_recovery_cost_eur,EUR / unit,100,200,400,False,PLACEHOLDER - recycler quotes to find,End-of-life SF6 recovery and handling.
+eol_release_share,share of fill,0.0,0.1,0.3,False,PLACEHOLDER,Share of SF6 lost at end of life.
+internal_carbon_price_eur_t,EUR / t CO2e,25,100,200,False,PLACEHOLDER - hyperscaler/colo sustainability reports (Step 1 2.3),Used where no compliance price covers SF6 or it is lower.
+regulation_cost_if_hit_eur,EUR / unit,500,2000,4000,False,PLACEHOLDER,Cost to the customer if a rule hits installed SF6 equipment (retrofit / early replacement / extra compliance).
+reg_prob_status_0,probability over asset life,0.05,0.15,0.30,False,TEAM ASSUMPTION,Probability that a rule costly for installed SF6 arrives during the asset life.
+reg_prob_status_1,probability over asset life,0.20,0.40,0.60,False,TEAM ASSUMPTION,
+reg_prob_status_2,probability over asset life,0.50,0.75,0.90,False,TEAM ASSUMPTION,
+reg_prob_status_3,probability over asset life,1.0,1.0,1.0,False,TEAM ASSUMPTION,In force: not a voluntary market.
+price_premium_pct,% of SF6 price,25,20,15,False,E01 Eaton +22% (2025); Schneider 15-20%,Upfront AirSeT premium over RM6 outside the EU. Pessimistic = bigger gap.
+rm6_price_eur,EUR / unit,8740,8740,8740,False,Price benchmark Schneider P50 2025 (synthetic),Converts the % premium into EUR.

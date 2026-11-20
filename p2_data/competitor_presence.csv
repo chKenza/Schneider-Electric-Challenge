@@ -1,0 +1,5 @@
+country_id,competitor_id,sf6_free_sold,sf6_still_sold,local_plant,source_url,notes
+AE,lucy,unknown,unknown,True,,From PDF: Lucy offices/manufacturing in UAE
+SA,lucy,unknown,unknown,True,,From PDF: Lucy offices/manufacturing in Saudi Arabia
+IN,lucy,unknown,unknown,True,,From PDF: Lucy offices/manufacturing in India
+BR,lucy,unknown,unknown,True,,From PDF: Lucy offices/manufacturing in Brazil

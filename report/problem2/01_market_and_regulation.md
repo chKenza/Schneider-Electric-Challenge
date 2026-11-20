@@ -135,46 +135,64 @@ One row per fact. Keep it here, or in `report/problem2/evidence.csv` if it gets 
 
 
 
-### Regulation map
 
-One row per candidate country (not "APAC"). Status levels:
+## 1. SF6 regulation by country / region
 
-**0** no regulation or discussion · **1** under discussion / consultation · **2** announced / adopted, not yet in force · **3** in force
+**Legend used in the PDF**
+- **Yes**: highly regulated or no ban
+- **No**: complete ban or phasing out
 
-| Country / state | Status (0–3) | What is covered (voltage, new vs installed) | Key dates | Source |
-|---|---|---|---|---|
-| EU (reference) | | | | E1 |
-| USA – California | | | | E2 |
-| USA – other states / federal | | | | E2 |
-| Canada | | | | E3 |
-| UK | | | | E3 |
-| Japan · South Korea · Australia · Singapore · India · China | | | | E3 |
-| UAE · Saudi Arabia | | | | E3 |
-| Brazil · Mexico | | | | E3 |
+> Note: some regions may be in the process of phasing out SF6. The status of these regions is automatically assumed as "No" (no use allowed).
 
-**What to look for:** places with status 1–2 are the best "future-proof" story. A customer buying SF6 equipment in 2027 owns it until about 2060 (I4), so any rule in that window is a risk to them. If California is confirmed as status 2–3, "the Americas have no SF6 regulation" is not fully true, and we should say so.
+**Status scale (0–3)** — replaces the Yes/No column for the analysis, because Yes/No mixes "heavily regulated" with "nothing at all" and hides the countries where regulation is coming (the "future-proof" argument, H2):
 
-**Map output:** one world-map slide coloured by status (simple choropleth, e.g. plotly), plus the table.
+| Status | Meaning | What it means for Problem 2 |
+|---|---|---|
+| **0** | No SF6 rule and no discussion (at most broad GHG rules or voluntary action) | Voluntary market: sell ESG and risk |
+| **1** | Under discussion / consultation, or SF6-specific rules short of a ban (handling, reporting, quotas) | Voluntary market: "regulation is coming" |
+| **2** | Phase-out announced / adopted, not yet in force | Voluntary for now, best future-proof story |
+| **3** | Ban or phase-out in force for new MV equipment | Not voluntary: reference market only |
 
+- A range (e.g. **0–1**) means the current source is too weak to decide. The low end is used in the pessimistic scenario, the high end in the optimistic one (same as `status_min` / `status_max` in `data/regulation.csv`).
+- Every status is **to verify** against a primary source (research rules, section 3). Most current sources are vendor or gas-seller blogs (reliability Low).
 
-### Competitive landscape
+SF6 regulation by US state: <https://www.climatepolicydashboard.org/policies/industry-materials-waste/sf6-regulations>
 
-| Competitor | SF6-free MV product | Technology | Markets where sold | Price positioning (if known) | Still pushing SF6 there? | Source |
+| Country / region | Is SF6 allowed? (PDF) | Status (0–3) | Why this status / what to verify | Key dates | Details / notes | Source |
 |---|---|---|---|---|---|---|
-| Schneider | RM AirSeT / SM AirSeT | Pure air + vacuum (shunt vacuum interruption) *(to verify wording)* | | | | |
-| Eaton | Xiria | Air-insulated, vacuum (I6) | | ≈ +20 % vs SF6 in EU (I1) | | |
-| ABB · Siemens · Hitachi Energy · Ormazabal · Lucy · local makers | | | | | | E9 |
+| EU | No | **3** | In force. "By 2032" is likely the HV end date; for MV ≤ 24 kV (RM6, SM6) the ban on new equipment should be 2026, 24–52 kV 2030. Verify on EUR-Lex 2024/573. Reference only. | By 2032 | Getting phased out | <https://www.milesgroup.fr/en/blog/fin-sf6-appareillage-electrique-reglementation> |
+| USA – California | No | **3** | CARB phase-out started 2025. Verify the dates by voltage tier. "The Americas have no SF6 regulation" is therefore not fully true. | Start 2025 | Getting phased out, allowed for very specific use | <https://www.climatepolicydashboard.org/policies/industry-materials-waste/sf6-regulations> |
+| USA – federal | Yes | **0** | No federal ban found; check EPA reporting (GHGRP Subpart DD). Other states (incl. data-centre hotspots Virginia, Texas, Arizona, Ohio) to score from the state dashboard. | | Seems like there is no blanket regulation, no clear source on this !! | |
+| Canada | Yes | **1** | SF6 is on the CEPA toxic list, which allows regulation; check whether a switchgear-specific rule or proposal exists, and what "a certain amount" refers to. | | Highly regulated, can only use a certain amount | <https://www.canada.ca/en/environment-climate-change/services/management-toxic-substances/list-canadian-environmental-protection-act/sulphur-hexafluoride.html> |
+| UK | Yes | **1–2** | F-gas review covers SF6 in switchgear: check on gov.uk (DEFRA) whether the phase-out is adopted (→ 2) or only consulted on (→ 1). | | Regulated | <https://www.nuventura.com/news/sf6-regulations-whats-changing-2026-2035-and-where> |
+| Japan | Yes | **0** | Voluntary reduction only. Check whether mandatory GHG reporting covers SF6. | | No regulations but voluntary reduction of SF6 use | <https://aktif.net/en/the-changing-landscape-of-sf6-regulation-a-global-overview/> |
+| China | Yes | **0–1** | No phase-out; handling standards exist. 1 if SF6-specific rules are confirmed by a government source. | | No phase-out program but regulated | <https://www.sf6relations.com/china-sf6-gas-management-and-sf6-standard/> |
+| South Korea | Yes | **0** | No SF6 rule. Check whether K-ETS covers SF6 (would make leaks cost real money: TCO argument). | | No official regulations but voluntary transition away from SF6 | <https://aktif.net/en/the-changing-landscape-of-sf6-regulation-a-global-overview/> |
+| Australia | Yes | **0** | Reporting only (NGER). Check the synthetic-GHG import levy. | | Must report | <https://www.nuventura.com/news/sf6-regulations-whats-changing-2026-2035-and-where> |
+| Singapore | Yes | **0–1** | Source is the NDC (a target, not a rule). Check whether the carbon tax covers SF6 and its price path. | | Highly regulated | <https://www.fao.org/faolex/fr/documents/LEX-FAOC219309/singapore-s-second-update-of-its-first-nationally-determined-sgp-2021> |
+| India | No | **0–1** | Re-coded from "No": the only source is a vendor blog on potential carbon credits, and no ban was found. Coding it as banned would wrongly drop a data-centre hotspot from our voluntary scope. Check MoEFCC / CEA. | Reduce by 2030 | Phasing out | <https://www.nuventura.com/news/environmental-advantages-and-potential-carbon-credits-to-sf6-free-switchgear-in-the-indian-context> |
+| UAE | Yes | **0–1** | "Increasing regulation" from a gas trader's article. Check the Ministry of Climate Change & Environment. | | Increasing regulation | <https://starfreighttrading.com/sf6-gas-in-uae-how-it-improves-high-voltage-equipment-performance/> |
+| Saudi Arabia | Yes | **0–1** | Broad GHG rules only; no SF6-specific rule found. | | Some broad regulation on greenhouse gases | <https://albuad.sa/en/sf6-emissions-management/> |
+| Brazil | Yes | **1** | New national ETS (SBCE) under way; check whether it covers SF6 and from when. | | Some broad regulation on greenhouse gases | <https://climatepolicydatabase.org/policies/brazilian-greenhouse-gas-emissions-trading-system-sbce> |
+| Mexico | Yes | **0–1** | Broad GHG rules; pilot ETS status to check. Weak source (SF6 seller). | | Some broad regulation on greenhouse gases | <https://www.sulphurhexafluoride.com/blog/586.html> |
 
-**Key question:** in which candidate countries is Schneider the **only** or **first** SF6-free supplier? Being first is a reason to prioritise; strong local SF6 competitors on price are a reason to wait.
+**Missing rows to add** (named in section 2.1 / 2.4 but not yet researched): US data-centre states (Virginia, Texas, Arizona, Ohio), Malaysia (Johor), Chile, Switzerland.
 
-### Customer landscape
 
-| Segment | Examples | SF6 / switchgear policy found? (E6–E7) | Applies globally? | Decision-makers |
-|---|---|---|---|---|
-| Hyperscalers | Microsoft, Google, AWS, Meta, Oracle | | | Global design standards team, sustainability |
-| Colocation (global) | Equinix, Digital Realty, NTT GDC | | | Design, tenant requirements |
-| Colocation (regional) | APAC / Middle East players | | | |
-| Utilities | Per country | | | Regulator, network planning |
-| Industry / infrastructure | Later target | | | |
+---
 
-**Test for H1:** count how many of the top 5 hyperscalers and top 5 colos explicitly mention SF6 or SF6-free switchgear in a document that applies worldwide. 3+ out of 10 → H1 holds; 0–1 → H1 is dropped and the "carry the EU win abroad" argument goes.
+## 2. Competition – SF6-free medium-voltage offers
+
+The PDF contains this table twice: a first, partly filled draft (section 2b) and a complete version (section 2a). The complete version is the one to use.
+
+### 2a. Complete version
+
+| Competitor | SF6-free product | Technology | Markets where sold | Price positioning | Still pushing SF6 there? | Source |
+|---|---|---|---|---|---|---|
+| **Schneider** | RM AirSeT / SM AirSeT | Pure-air insulation with vacuum interruption (Shunt Vacuum Interruption); solid insulation in selected ranges; IoT / digital monitoring | Global offering; primary and secondary distribution, utilities, industry, data centres, infrastructure and commercial buildings; up to 36 kV | Premium at initial purchase; positioned around sustainability, digitalisation and lower lifecycle cost / TCO; vendor data cited a roughly 15–20 % CAPEX premium for comparable SF6-free equipment | No, illegal | SE themselves |
+| **Eaton** | Xiria / Xiria 630 / Xiria NGX; Power Xpert FMX, UX, UX36 | Vacuum switching with solid epoxy-resin insulation; compact air-GIS approach for secondary distribution | Sold in more than 60 countries; more than 3,000 reference sites; utility, industrial and critical-power applications; up to 24 kV for Xiria | ≈ +20 % vs SF6 in EU (I1) | | |
+| **ABB** | SafeRing Air & SafePlus Air | Dry-air insulation with vacuum interruption; GWP = 0; same interface / footprint / operation as comparable SF6 versions | Global portfolio; secondary distribution up to 24 kV, with ZX0 up to 12 kV; targeted at most 6–24 kV switching applications | Likely premium upfront versus SF6 equivalents, but positioned as a like-for-like replacement with compliance and sustainability benefits; ABB continues selling both SF6 and SF6-free during transition | | |
+| **Siemens** | Blue GIS portfolio: 8DAB 12, NXPLUS C 24; Siemens Energy 8VM1 / 8VM3 Blue GIS | "Clean Air" insulation (nitrogen / oxygen mixture) plus vacuum interrupters; zero-GWP, zero-toxicity insulation medium | Siemens Smart Infrastructure: public and industrial grids, secondary distribution, 12–24 kV. Siemens Energy: transmission / offshore wind and high-voltage applications, including 72.5 kV and 145 kV deployments | Premium technology positioning, emphasising compactness, reliability, low maintenance and zero-GWP clean-air insulation; commercial pricing is project / tender based | | |
+| **Hitachi Energy** | EconiQ portfolio, including ELK-04 145 kV GIS, ELK-14 300 kV GIS, and EconiQ circuit breakers | Eco-efficient gas mixtures and vacuum-based interruption; scalable SF6-free high-voltage GIS and breakers | Global high-voltage transmission and large utility / grid markets; more than 4,000 units ordered across 40 countries; products span 72.5 kV to 550 kV | Premium, high-voltage / transmission-oriented offering; emphasises lifecycle carbon reduction, reliability, and compatibility with conventional SF6 equipment footprints | | |
+| **Ormazabal** | cgm.zero24 and F-gas-free primary / secondary distribution ranges | Natural-origin gas / air-based insulation; F-gas-free GIS for primary and secondary networks up to 24 kV | Primarily public distribution networks; portfolio completed for primary and secondary distribution up to 24 kV; European / regional utility focus is implied by its F-gas transition messaging | Value-led, utility-focused positioning around accessible natural-origin gas and lower environmental impact; no public list pricing identified | | |
+| **Lucy** | Sabre EcoTec; Aegis EcoTec; Nuventura-based primary dry-air GIS | Synthetic-air insulation for RMUs; dry-air technology from Nuventura for primary switchgear; vacuum interruption | Global MV distribution business active in more than 50 countries; offices / manufacturing in UK, UAE, Saudi Arabia, India, Thailand, South Africa and Brazil; utilities, renewables and grid infrastructure | Cost-effective performance and future-proofing positioning; no public list prices — sold through regional sales and project tenders | | |
