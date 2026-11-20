@@ -132,3 +132,49 @@ One row per fact. Keep it here, or in `report/problem2/evidence.csv` if it gets 
 | E05 | … | | | | | | |
 
 **Reliability:** High = official or primary source · Medium = reputable secondary source or Schneider data · Low = estimate or single unverified source.
+
+
+
+### Regulation map
+
+One row per candidate country (not "APAC"). Status levels:
+
+**0** no regulation or discussion · **1** under discussion / consultation · **2** announced / adopted, not yet in force · **3** in force
+
+| Country / state | Status (0–3) | What is covered (voltage, new vs installed) | Key dates | Source |
+|---|---|---|---|---|
+| EU (reference) | | | | E1 |
+| USA – California | | | | E2 |
+| USA – other states / federal | | | | E2 |
+| Canada | | | | E3 |
+| UK | | | | E3 |
+| Japan · South Korea · Australia · Singapore · India · China | | | | E3 |
+| UAE · Saudi Arabia | | | | E3 |
+| Brazil · Mexico | | | | E3 |
+
+**What to look for:** places with status 1–2 are the best "future-proof" story. A customer buying SF6 equipment in 2027 owns it until about 2060 (I4), so any rule in that window is a risk to them. If California is confirmed as status 2–3, "the Americas have no SF6 regulation" is not fully true, and we should say so.
+
+**Map output:** one world-map slide coloured by status (simple choropleth, e.g. plotly), plus the table.
+
+
+### Competitive landscape
+
+| Competitor | SF6-free MV product | Technology | Markets where sold | Price positioning (if known) | Still pushing SF6 there? | Source |
+|---|---|---|---|---|---|---|
+| Schneider | RM AirSeT / SM AirSeT | Pure air + vacuum (shunt vacuum interruption) *(to verify wording)* | | | | |
+| Eaton | Xiria | Air-insulated, vacuum (I6) | | ≈ +20 % vs SF6 in EU (I1) | | |
+| ABB · Siemens · Hitachi Energy · Ormazabal · Lucy · local makers | | | | | | E9 |
+
+**Key question:** in which candidate countries is Schneider the **only** or **first** SF6-free supplier? Being first is a reason to prioritise; strong local SF6 competitors on price are a reason to wait.
+
+### Customer landscape
+
+| Segment | Examples | SF6 / switchgear policy found? (E6–E7) | Applies globally? | Decision-makers |
+|---|---|---|---|---|
+| Hyperscalers | Microsoft, Google, AWS, Meta, Oracle | | | Global design standards team, sustainability |
+| Colocation (global) | Equinix, Digital Realty, NTT GDC | | | Design, tenant requirements |
+| Colocation (regional) | APAC / Middle East players | | | |
+| Utilities | Per country | | | Regulator, network planning |
+| Industry / infrastructure | Later target | | | |
+
+**Test for H1:** count how many of the top 5 hyperscalers and top 5 colos explicitly mention SF6 or SF6-free switchgear in a document that applies worldwide. 3+ out of 10 → H1 holds; 0–1 → H1 is dropped and the "carry the EU win abroad" argument goes.
