@@ -1,0 +1,46 @@
+target,horizon,selected,shortlist_only
+S01,3,(none: historical quantiles),
+S01,6,(none: historical quantiles),
+S01,9,(none: historical quantiles),
+D01,3,own_pos_12m_range,
+D01,6,(none: historical quantiles),own_chg_1m
+D01,9,(none: historical quantiles),
+S07,3,(none: historical quantiles),own_chg_3m
+S07,6,(none: historical quantiles),
+S07,9,(none: historical quantiles),
+S02,3,(none: historical quantiles),own_vs_12m_avg
+S02,6,(none: historical quantiles),
+S02,9,(none: historical quantiles),
+D02,3,(none: historical quantiles),own_pos_12m_range
+D02,6,(none: historical quantiles),own_vol_12m
+D02,9,own_chg_1m,own_vol_12m
+S08,3,"own_chg_1m, d02_chg_1m",
+S08,6,own_chg_1m,
+S08,9,d02_chg_1m,own_chg_1m
+S03,3,"own_chg_3m, own_chg_1m",
+S03,6,(none: historical quantiles),
+S03,9,(none: historical quantiles),own_vol_12m
+S04,3,(none: historical quantiles),"own_vs_12m_avg, own_chg_1m"
+S04,6,own_chg_3m,
+S04,9,(none: historical quantiles),own_chg_1m
+S05,3,(none: historical quantiles),own_vol_12m
+S05,6,own_chg_3m,
+S05,9,(none: historical quantiles),
+S09,3,own_chg_1m,"own_pos_12m_range, eua_chg_3m"
+S09,6,(none: historical quantiles),own_chg_1m
+S09,9,(none: historical quantiles),own_pos_12m_range
+S10,3,own_chg_1m,"eua_chg_3m, meps_hr_chg_1m"
+S10,6,(none: historical quantiles),own_chg_1m
+S10,9,(none: historical quantiles),own_pos_12m_range
+S11,3,"own_chg_3m, brent_eur_chg_1m",
+S11,6,own_chg_1m,
+S11,9,brent_eur_chg_1m,own_chg_1m
+S12,3,iron_ore_usd_chg_3m,own_pos_12m_range
+S12,6,(none: historical quantiles),own_pos_12m_range
+S12,9,(none: historical quantiles),
+S13,3,(none: historical quantiles),
+S13,6,"own_vs_12m_avg, wti_chg_1m",
+S13,9,own_chg_1m,
+EPOXY_EUR,3,(none: historical quantiles),"own_vs_12m_avg, own_chg_3m, brent_eur_chg_1m"
+EPOXY_EUR,6,brent_eur_chg_1m,own_vol_12m
+EPOXY_EUR,9,(none: historical quantiles),own_chg_3m
