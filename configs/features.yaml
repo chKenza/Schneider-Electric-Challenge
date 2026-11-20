@@ -1,0 +1,435 @@
+# Step 4 – feature catalogue and selection settings.
+#
+# Each feature is computed at a forecast origin o (the last month of the target that
+# we know) from data that was published by then. See src/features.py.
+#
+# kind:
+#   change      log(x[L]) - log(x[L - months])       L = last month of x known at o
+#   vs_avg      log(x[L]) - log(mean of x over the last `months` months)
+#   range_pos   (x[L] - min) / (max - min) over the last `months` months, 0..1
+#   vol         std of monthly log changes over the last `months` months
+#   level       x[L]
+#   spread_pct  series[L] / base[L]   (LME 3-month minus cash, as a share of cash)
+#   gap         change(other, months) - change(series, months)
+#   steo_change log(F[o+H]) - log(F[o]) from the EIA STEO released in month o
+#
+# sign: the direction we expect from economics (+ / - / 0 = no prior).
+# It is checked against the fitted model; a driver with the wrong sign is dropped.
+
+settings:
+  # A forecast at origin o is made when the slowest target (2-month lag) has published
+  # month o, i.e. at the start of month o + 2. Nothing after month o is ever used.
+  quote_gap_months: 2
+  # Data older than this at the origin is treated as missing (no stale carry-forward).
+  max_staleness_months: 6
+  horizons: [3, 6, 9]
+
+selection:
+  # The last 18 months are kept for the final hold-out of Step 7 and never used here.
+  select_end: "2025-03"
+  # A second, shorter window to check that decisions are stable.
+  early_select_end: "2023-06"
+  min_train_months: 48
+  refit_every: 3
+  quantiles: [0.1, 0.5, 0.9]
+  # L1 penalty of the quantile regression, relative to the typical size of y.
+  alpha_rel: 0.02
+  # A feature must lower the backtest pinball loss by at least 1 % to be kept.
+  gain_threshold: -0.01
+  # Granger test: lags 1..3 tested jointly; Holm-adjusted p-value threshold.
+  granger_lags: 3
+  holm_threshold: 0.10
+  max_own: 4
+  max_drivers: 4
+  # Final robustness gate. Each kept feature, tested last, must help in at least this
+  # share of block-bootstrap resamples of the backtest (otherwise it is dropped).
+  p_helps_min: 0.80
+
+# --------------------------------------------------------------------------- own price
+# Computed on the target series itself.
+own_features:
+  own_chg_1m:
+    kind: change
+    months: 1
+    label: Change of the price over the last month
+    why: >-
+      Momentum. Producer price indices and steel prices are revised slowly (contracts,
+      monthly surveys), so a rise last month tends to continue next month. Kept as a
+      candidate only if the partial autocorrelation at lag 1 is significant.
+    sign: "+"
+    delay: 1 month
+  own_chg_3m:
+    kind: change
+    months: 3
+    label: Change of the price over the last 3 months
+    why: >-
+      Medium-term momentum. Many steel and chemical contracts are reset each quarter,
+      so a move that started in the last quarter is often not finished.
+    sign: "+"
+    delay: 1-3 months
+  own_vs_12m_avg:
+    kind: vs_avg
+    months: 12
+    label: Price compared with its own 12-month average (log gap)
+    why: >-
+      Mean reversion. A price far above its 12-month average often comes back down
+      (new supply, buyers delaying orders), and a price far below it often recovers.
+    sign: "-"
+    delay: 3-9 months
+  own_pos_12m_range:
+    kind: range_pos
+    months: 12
+    label: Position of the price between its 12-month low (0) and high (1)
+    why: >-
+      Same idea as the gap to the average but robust to a single spike: a price at the
+      top of its 12-month range has more room to fall than to rise.
+    sign: "-"
+    delay: 3-9 months
+  own_vol_12m:
+    kind: vol
+    months: 12
+    label: Volatility of monthly price changes over the last 12 months
+    why: >-
+      Not a direction signal. When recent volatility is high, the next months are
+      usually volatile too (volatility clustering, Step 3), so the P10-P90 band should
+      be wider. It mostly helps the P10 and P90 quantiles.
+    sign: "0"
+    delay: none
+
+# --------------------------------------------------------------------------- drivers
+drivers:
+  cu_spread:
+    kind: spread_pct
+    series: LME_CU_SPREAD_EUR
+    base: LME_CU_CASH_EUR
+    label: LME copper 3-month price minus cash price, as % of cash
+    why: >-
+      When the cash price is above the 3-month price (backwardation, negative value),
+      buyers pay a premium to get metal now: stocks are short and prices tend to stay
+      firm. A large positive spread (contango) means metal is plentiful.
+    sign: "-"
+    delay: 1-3 months
+  cu_stocks_chg_3m:
+    kind: change
+    series: LME_CU_STOCKS
+    months: 3
+    label: Change of LME copper warehouse stocks over 3 months
+    why: >-
+      Stocks rise when mines and smelters produce more than buyers take. Rising stocks
+      put pressure on the price; falling stocks support it.
+    sign: "-"
+    delay: 1-3 months
+  al_spread:
+    kind: spread_pct
+    series: LME_AL_SPREAD_EUR
+    base: LME_AL_CASH_EUR
+    label: LME aluminium 3-month price minus cash price, as % of cash
+    why: Same logic as copper - backwardation signals tight supply, contango a surplus.
+    sign: "-"
+    delay: 1-3 months
+  al_stocks_chg_3m:
+    kind: change
+    series: LME_AL_STOCKS
+    months: 3
+    label: Change of LME aluminium warehouse stocks over 3 months
+    why: Same logic as copper - rising stocks mean supply exceeds demand.
+    sign: "-"
+    delay: 1-3 months
+  eurusd_chg_3m:
+    kind: change
+    series: S06
+    months: 3
+    label: Change of the euro against the dollar over 3 months
+    why: >-
+      Metals are traded in dollars, so the euro price is the dollar price divided by
+      EUR/USD. The euro tends to keep moving in the same direction for a few months
+      (lag-1 autocorrelation 0.32 in Step 3), so a euro that has been rising keeps
+      lowering the euro price of metals.
+    sign: "-"
+    delay: 0-3 months
+  d01_chg_1m:
+    kind: change
+    series: D01
+    months: 1
+    label: Change of LME copper in euros over the last month
+    why: >-
+      The EU copper PPI is what EU copper producers invoice. Their prices are set off
+      the LME price, with a short delay for contracts and invoicing.
+    sign: "+"
+    delay: 1 month
+  cu_gap_3m:
+    kind: gap
+    series: S07
+    other: D01
+    months: 3
+    label: 3-month change of LME copper (EUR) minus 3-month change of the copper PPI
+    why: >-
+      If the market price moved more than the PPI over the last quarter, the PPI still
+      has to catch up. A positive gap means the PPI should rise.
+    sign: "+"
+    delay: 1-3 months
+  d02_chg_1m:
+    kind: change
+    series: D02
+    months: 1
+    label: Change of LME aluminium in euros over the last month
+    why: >-
+      The EU aluminium PPI follows the LME price with about one month of delay
+      (correlation 0.63 at one month in Step 3).
+    sign: "+"
+    delay: 1 month
+  al_gap_3m:
+    kind: gap
+    series: S08
+    other: D02
+    months: 3
+    label: 3-month change of LME aluminium (EUR) minus 3-month change of the aluminium PPI
+    why: Catch-up of the PPI to the market price, as for copper.
+    sign: "+"
+    delay: 1-3 months
+  meps_hr_chg_1m:
+    kind: change
+    series: MEPS_DE_HR
+    months: 1
+    label: Change of the MEPS hot-rolled coil price (Germany) over the last month
+    why: >-
+      MEPS is a survey of what steel actually trades at each month. The steel PPI is
+      built from producers' invoices, which follow contract prices agreed one to three
+      months earlier. So the market price moves first (correlation 0.69 one month
+      ahead in Step 3).
+    sign: "+"
+    delay: 1-2 months
+  steel_gap_3m_s09:
+    kind: gap
+    series: S09
+    other: MEPS_DE_HR
+    months: 3
+    label: 3-month change of MEPS hot-rolled coil minus 3-month change of the EU steel PPI
+    why: Catch-up of the PPI to the market price. A positive gap means the PPI should rise.
+    sign: "+"
+    delay: 1-3 months
+  steel_gap_3m_s10:
+    kind: gap
+    series: S10
+    other: MEPS_DE_HR
+    months: 3
+    label: 3-month change of MEPS hot-rolled coil minus 3-month change of the German steel PPI
+    why: Catch-up of the PPI to the market price. A positive gap means the PPI should rise.
+    sign: "+"
+    delay: 1-3 months
+  iron_ore_eur_chg_3m:
+    kind: change
+    series: S04_EUR
+    months: 3
+    label: Change of the iron ore price in euros over 3 months
+    why: >-
+      Iron ore is the main raw material of blast-furnace steel (about 1.6 t of ore per
+      t of steel). Mills pass a higher ore cost to steel buyers after one to three
+      months.
+    sign: "+"
+    delay: 1-3 months
+  iron_ore_usd_chg_3m:
+    kind: change
+    series: S04
+    months: 3
+    label: Change of the iron ore price in dollars over 3 months
+    why: Same as above, for the US steel PPI.
+    sign: "+"
+    delay: 1-3 months
+  nickel_eur_chg_1m:
+    kind: change
+    series: S03_EUR
+    months: 1
+    label: Change of the nickel price in euros over the last month
+    why: >-
+      The EU steel PPI also covers stainless steel and ferro-alloys. Stainless mills
+      set next month's alloy surcharge from this month's nickel price (304 grade is
+      about 8 % nickel), so nickel moves reach the index about a month later.
+    sign: "+"
+    delay: 1-2 months
+  ss_base_chg_3m:
+    kind: change
+    series: CRU_SS304_DE_BASE
+    months: 3
+    label: Change of the stainless 304 base price (Germany, CRU) over 3 months
+    why: >-
+      About two thirds of nickel goes into stainless steel. When stainless mills manage
+      to raise their base price (the part without the nickel surcharge), stainless
+      demand is strong and they buy more nickel.
+    sign: "+"
+    delay: 1-3 months
+  hdg_chg_3m:
+    kind: change
+    series: MEPS_DE_HDG
+    months: 3
+    label: Change of the MEPS galvanised coil price (Germany) over 3 months
+    why: >-
+      About half of all zinc is used to galvanise steel. A rising galvanised-steel
+      price signals strong demand for zinc coating.
+    sign: "+"
+    delay: 1-3 months
+  coal_chg_3m:
+    kind: change
+    series: E08
+    months: 3
+    label: Change of the Australian thermal coal price over 3 months
+    why: >-
+      Coal and iron ore are both bought mostly by Chinese heavy industry. A rise in
+      coal is used here as a sign of stronger Chinese industrial activity, which also
+      lifts iron ore demand. This is a shared cause, not a direct cost link.
+    sign: "+"
+    delay: 1-3 months
+  ttf_chg_3m:
+    kind: change
+    series: ED02
+    months: 3
+    label: Change of the European gas price (TTF, EUR/MWh) over 3 months
+    why: >-
+      Gas sets the European power price most of the time. Aluminium smelting (about
+      14 MWh per tonne), zinc smelting, steel reheating and plastics production all use
+      a lot of energy, so producers raise prices or cut output when gas rises.
+    sign: "+"
+    delay: 1-6 months
+  power_de_chg_3m:
+    kind: change
+    series: E09
+    months: 3
+    label: Change of the German wholesale power price over 3 months
+    why: >-
+      German steel mills, especially electric-arc furnaces, buy large amounts of
+      power. Higher power prices raise their cost and, after contract resets, their
+      selling prices.
+    sign: "+"
+    delay: 1-6 months
+  eua_chg_3m:
+    kind: change
+    series: EUA_EUR
+    months: 3
+    label: Change of the EU carbon allowance price (EUA) over 3 months
+    why: >-
+      EU steel and aluminium producers pay for their CO2 emissions, directly (steel) or
+      through the power price (aluminium). A higher carbon price raises their cost.
+      Data starts in January 2018.
+    sign: "+"
+    delay: 1-6 months
+  brent_eur_chg_1m:
+    kind: change
+    series: ED01
+    months: 1
+    label: Change of the Brent oil price in euros over the last month
+    why: >-
+      Plastics and epoxy are made from oil products (naphtha, benzene, propylene).
+      Producers pass the oil cost on with about a month of delay (correlation 0.60
+      with the plastics PPI one month later in Step 3).
+    sign: "+"
+    delay: 1 month
+  benzene_chg_1m:
+    kind: change
+    series: BENZENE_EUR
+    months: 1
+    label: Change of the European benzene price over the last month
+    why: >-
+      Benzene is the starting point of bisphenol A, the largest ingredient of epoxy
+      resin, and of several engineering plastics.
+    sign: "+"
+    delay: 0-1 month
+  ech_chg_1m:
+    kind: change
+    series: ECH_EUR
+    months: 1
+    label: Change of the European epichlorohydrin price over the last month
+    why: Epichlorohydrin is the second main ingredient of epoxy resin.
+    sign: "+"
+    delay: 0-1 month
+  wti_chg_1m:
+    kind: change
+    series: E02
+    months: 1
+    label: Change of the WTI oil price over the last month
+    why: Oil cost passed into US plastic resin prices, as for Brent in Europe.
+    sign: "+"
+    delay: 1 month
+  hh_chg_3m:
+    kind: change
+    series: E06
+    months: 3
+    label: Change of the US natural gas price (Henry Hub) over 3 months
+    why: >-
+      Most US plastics are made from ethane, which comes from natural gas, and US steel
+      mills are mostly electric-arc furnaces that depend on gas-fired power.
+    sign: "+"
+    delay: 1-3 months
+  steo_brent:
+    kind: steo_change
+    steo: brent
+    label: EIA forecast of the Brent price change from the origin to the target month
+    why: >-
+      The US Energy Information Administration publishes a forecast of the oil price
+      every month. If it expects oil to rise over our horizon, plastic and epoxy costs
+      should follow. Only the release of the origin month is used, so it was public at
+      the time.
+    sign: "+"
+    delay: matches the horizon
+  steo_wti:
+    kind: steo_change
+    steo: wti
+    label: EIA forecast of the WTI price change from the origin to the target month
+    why: Same as Brent, for US plastics.
+    sign: "+"
+    delay: matches the horizon
+  gscpi:
+    kind: level
+    series: GSCPI
+    label: NY Fed Global Supply Chain Pressure Index (0 = normal)
+    why: >-
+      Measures delivery delays, freight costs and backlogs. When supply chains are
+      stressed, buyers order more than they need and suppliers gain pricing power, as
+      in 2021. We use the value of the month before the origin, because the latest
+      value is revised in the next release.
+    sign: "+"
+    delay: 1-6 months
+  epu_global_chg_3m:
+    kind: change
+    series: EPU_GLOBAL
+    months: 3
+    label: Change of the Global Economic Policy Uncertainty index over 3 months
+    why: >-
+      When policy uncertainty rises (trade wars, elections, sanctions), companies delay
+      investment and orders, so demand for industrial metals weakens.
+    sign: "-"
+    delay: 1-6 months
+  epu_europe_chg_3m:
+    kind: change
+    series: EPU_EUROPE
+    months: 3
+    label: Change of the European Economic Policy Uncertainty index over 3 months
+    why: Same logic as the global index, for European demand.
+    sign: "-"
+    delay: 1-6 months
+  epu_us_chg_3m:
+    kind: change
+    series: EPU_US
+    months: 3
+    label: Change of the US Economic Policy Uncertainty index over 3 months
+    why: Same logic as the global index, for US demand.
+    sign: "-"
+    delay: 1-6 months
+
+# --------------------------------------------------------------------------- targets
+# Candidate drivers per target (own features are added automatically).
+targets:
+  S01: {name: "Copper, LME (USD)", region: WW, drivers: [cu_spread, cu_stocks_chg_3m, gscpi, epu_global_chg_3m]}
+  D01: {name: "Copper, LME (EUR)", region: EU, drivers: [cu_spread, cu_stocks_chg_3m, eurusd_chg_3m, gscpi, epu_global_chg_3m]}
+  S07: {name: "EU copper PPI", region: EU, drivers: [d01_chg_1m, cu_gap_3m, cu_spread, epu_europe_chg_3m]}
+  S02: {name: "Aluminium, LME (USD)", region: WW, drivers: [al_spread, al_stocks_chg_3m, ttf_chg_3m, gscpi, epu_global_chg_3m]}
+  D02: {name: "Aluminium, LME (EUR)", region: EU, drivers: [al_spread, al_stocks_chg_3m, eurusd_chg_3m, ttf_chg_3m, eua_chg_3m, gscpi]}
+  S08: {name: "EU aluminium PPI", region: EU, drivers: [d02_chg_1m, al_gap_3m, ttf_chg_3m, eua_chg_3m]}
+  S03: {name: "Nickel, LME (USD)", region: WW, drivers: [ss_base_chg_3m, gscpi, epu_global_chg_3m]}
+  S04: {name: "Iron ore (USD)", region: WW, drivers: [coal_chg_3m, gscpi, epu_global_chg_3m]}
+  S05: {name: "Zinc, LME (USD)", region: WW, drivers: [hdg_chg_3m, ttf_chg_3m, gscpi, epu_global_chg_3m]}
+  S09: {name: "EU steel PPI", region: EU, drivers: [meps_hr_chg_1m, steel_gap_3m_s09, iron_ore_eur_chg_3m, nickel_eur_chg_1m, ttf_chg_3m, eua_chg_3m, gscpi]}
+  S10: {name: "German steel PPI", region: EU, drivers: [meps_hr_chg_1m, steel_gap_3m_s10, iron_ore_eur_chg_3m, power_de_chg_3m, eua_chg_3m, gscpi]}
+  S11: {name: "EU plastics PPI", region: EU, drivers: [brent_eur_chg_1m, benzene_chg_1m, ttf_chg_3m, steo_brent, gscpi]}
+  S12: {name: "US steel PPI", region: WW, drivers: [iron_ore_usd_chg_3m, hh_chg_3m, epu_us_chg_3m, gscpi]}
+  S13: {name: "US plastics PPI", region: WW, drivers: [wti_chg_1m, hh_chg_3m, steo_wti, gscpi]}
+  EPOXY_EUR: {name: "Epoxy resin (EUR/t)", region: EU, drivers: [brent_eur_chg_1m, benzene_chg_1m, ech_chg_1m, steo_brent]}
