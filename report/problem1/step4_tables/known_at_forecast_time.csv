@@ -1,0 +1,287 @@
+origin,quote_month,target,feature,series,source,lag_months,latest_allowed,last_month_used,rule_ok
+2022-06,2022-08,S01,own_chg_1m,S01,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S01,own_chg_3m,S01,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S01,own_vs_12m_avg,S01,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S01,own_pos_12m_range,S01,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S01,own_vol_12m,S01,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S01,cu_spread,LME_CU_SPREAD_EUR,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,S01,cu_stocks_chg_3m,LME_CU_STOCKS,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,S01,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S01,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2022-04,2022-04,True
+2022-06,2022-08,D01,own_chg_1m,D01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D01,own_chg_3m,D01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D01,own_vs_12m_avg,D01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D01,own_pos_12m_range,D01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D01,own_vol_12m,D01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D01,cu_spread,LME_CU_SPREAD_EUR,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,D01,cu_stocks_chg_3m,LME_CU_STOCKS,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,D01,eurusd_chg_3m,S06,ECB,1,2022-06,2022-06,True
+2022-06,2022-08,D01,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,D01,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2022-04,2022-04,True
+2022-06,2022-08,S07,own_chg_1m,S07,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S07,own_chg_3m,S07,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S07,own_vs_12m_avg,S07,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S07,own_pos_12m_range,S07,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S07,own_vol_12m,S07,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S07,d01_chg_1m,D01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S07,cu_gap_3m,S07,Eurostat PPI,2,2022-06,2022-06 / 2022-06,True
+2022-06,2022-08,S07,cu_spread,LME_CU_SPREAD_EUR,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,S07,epu_europe_chg_3m,EPU_EUROPE,"Baker, Bloom & Davis – policyuncertainty.com",1,2022-06,2022-06,True
+2022-06,2022-08,S02,own_chg_1m,S02,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S02,own_chg_3m,S02,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S02,own_vs_12m_avg,S02,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S02,own_pos_12m_range,S02,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S02,own_vol_12m,S02,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S02,al_spread,LME_AL_SPREAD_EUR,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,S02,al_stocks_chg_3m,LME_AL_STOCKS,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,S02,ttf_chg_3m,ED02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S02,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S02,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2022-04,2022-04,True
+2022-06,2022-08,D02,own_chg_1m,D02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D02,own_chg_3m,D02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D02,own_vs_12m_avg,D02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D02,own_pos_12m_range,D02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D02,own_vol_12m,D02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D02,al_spread,LME_AL_SPREAD_EUR,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,D02,al_stocks_chg_3m,LME_AL_STOCKS,LME (Westmetall),1,2022-06,2022-06,True
+2022-06,2022-08,D02,eurusd_chg_3m,S06,ECB,1,2022-06,2022-06,True
+2022-06,2022-08,D02,ttf_chg_3m,ED02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,D02,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2022-06,2022-06,True
+2022-06,2022-08,D02,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S08,own_chg_1m,S08,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S08,own_chg_3m,S08,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S08,own_vs_12m_avg,S08,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S08,own_pos_12m_range,S08,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S08,own_vol_12m,S08,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S08,d02_chg_1m,D02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S08,al_gap_3m,S08,Eurostat PPI,2,2022-06,2022-06 / 2022-06,True
+2022-06,2022-08,S08,ttf_chg_3m,ED02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S08,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2022-06,2022-06,True
+2022-06,2022-08,S03,own_chg_1m,S03,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S03,own_chg_3m,S03,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S03,own_vs_12m_avg,S03,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S03,own_pos_12m_range,S03,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S03,own_vol_12m,S03,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S03,ss_base_chg_3m,CRU_SS304_DE_BASE,CRU Stainless,3,2022-05,2022-05,True
+2022-06,2022-08,S03,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S03,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2022-04,2022-04,True
+2022-06,2022-08,S04,own_chg_1m,S04,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S04,own_chg_3m,S04,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S04,own_vs_12m_avg,S04,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S04,own_pos_12m_range,S04,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S04,own_vol_12m,S04,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S04,coal_chg_3m,E08,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S04,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S04,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2022-04,2022-04,True
+2022-06,2022-08,S05,own_chg_1m,S05,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S05,own_chg_3m,S05,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S05,own_vs_12m_avg,S05,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S05,own_pos_12m_range,S05,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S05,own_vol_12m,S05,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S05,hdg_chg_3m,MEPS_DE_HDG,MEPS,1,2022-06,2022-06,True
+2022-06,2022-08,S05,ttf_chg_3m,ED02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S05,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S05,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2022-04,2022-04,True
+2022-06,2022-08,S09,own_chg_1m,S09,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S09,own_chg_3m,S09,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S09,own_vs_12m_avg,S09,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S09,own_pos_12m_range,S09,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S09,own_vol_12m,S09,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S09,meps_hr_chg_1m,MEPS_DE_HR,MEPS,1,2022-06,2022-06,True
+2022-06,2022-08,S09,steel_gap_3m_s09,S09,Eurostat PPI,2,2022-06,2022-06 / 2022-06,True
+2022-06,2022-08,S09,iron_ore_eur_chg_3m,S04_EUR,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S09,nickel_eur_chg_1m,S03_EUR,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S09,ttf_chg_3m,ED02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S09,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2022-06,2022-06,True
+2022-06,2022-08,S09,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S10,own_chg_1m,S10,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S10,own_chg_3m,S10,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S10,own_vs_12m_avg,S10,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S10,own_pos_12m_range,S10,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S10,own_vol_12m,S10,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S10,meps_hr_chg_1m,MEPS_DE_HR,MEPS,1,2022-06,2022-06,True
+2022-06,2022-08,S10,steel_gap_3m_s10,S10,Eurostat PPI,2,2022-06,2022-06 / 2022-06,True
+2022-06,2022-08,S10,iron_ore_eur_chg_3m,S04_EUR,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S10,power_de_chg_3m,E09,Ember,1,2022-06,2022-06,True
+2022-06,2022-08,S10,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2022-06,2022-06,True
+2022-06,2022-08,S10,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S11,own_chg_1m,S11,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S11,own_chg_3m,S11,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S11,own_vs_12m_avg,S11,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S11,own_pos_12m_range,S11,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S11,own_vol_12m,S11,Eurostat PPI,2,2022-06,2022-06,True
+2022-06,2022-08,S11,brent_eur_chg_1m,ED01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S11,benzene_chg_1m,BENZENE_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,S11,ttf_chg_3m,ED02,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,S11,steo_brent,STEO brent,US Energy Information Administration,0,2022-06,STEO release 2022-06,True
+2022-06,2022-08,S11,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S12,own_chg_1m,S12,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S12,own_chg_3m,S12,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S12,own_vs_12m_avg,S12,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S12,own_pos_12m_range,S12,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S12,own_vol_12m,S12,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S12,iron_ore_usd_chg_3m,S04,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S12,hh_chg_3m,E06,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S12,epu_us_chg_3m,EPU_US,"Baker, Bloom & Davis – policyuncertainty.com",1,2022-06,2022-06,True
+2022-06,2022-08,S12,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,S13,own_chg_1m,S13,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S13,own_chg_3m,S13,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S13,own_vs_12m_avg,S13,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S13,own_pos_12m_range,S13,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S13,own_vol_12m,S13,US BLS via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S13,wti_chg_1m,E02,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S13,hh_chg_3m,E06,IMF via FRED,2,2022-06,2022-06,True
+2022-06,2022-08,S13,steo_wti,STEO wti,US Energy Information Administration,0,2022-06,STEO release 2022-06,True
+2022-06,2022-08,S13,gscpi,GSCPI,Federal Reserve Bank of New York,3,2022-05,2022-05,True
+2022-06,2022-08,EPOXY_EUR,own_chg_1m,EPOXY_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,own_chg_3m,EPOXY_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,own_vs_12m_avg,EPOXY_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,own_pos_12m_range,EPOXY_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,own_vol_12m,EPOXY_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,brent_eur_chg_1m,ED01,Derived,2,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,benzene_chg_1m,BENZENE_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,ech_chg_1m,ECH_EUR,Epoxy file,1,2022-06,2022-06,True
+2022-06,2022-08,EPOXY_EUR,steo_brent,STEO brent,US Energy Information Administration,0,2022-06,STEO release 2022-06,True
+2026-09,2026-11,S01,own_chg_1m,S01,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S01,own_chg_3m,S01,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S01,own_vs_12m_avg,S01,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S01,own_pos_12m_range,S01,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S01,own_vol_12m,S01,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S01,cu_spread,LME_CU_SPREAD_EUR,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,S01,cu_stocks_chg_3m,LME_CU_STOCKS,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,S01,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S01,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2026-07,2026-07,True
+2026-09,2026-11,D01,own_chg_1m,D01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D01,own_chg_3m,D01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D01,own_vs_12m_avg,D01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D01,own_pos_12m_range,D01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D01,own_vol_12m,D01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D01,cu_spread,LME_CU_SPREAD_EUR,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,D01,cu_stocks_chg_3m,LME_CU_STOCKS,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,D01,eurusd_chg_3m,S06,ECB,1,2026-09,2026-09,True
+2026-09,2026-11,D01,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,D01,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2026-07,2026-07,True
+2026-09,2026-11,S07,own_chg_1m,S07,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S07,own_chg_3m,S07,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S07,own_vs_12m_avg,S07,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S07,own_pos_12m_range,S07,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S07,own_vol_12m,S07,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S07,d01_chg_1m,D01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S07,cu_gap_3m,S07,Eurostat PPI,2,2026-09,2026-09 / 2026-09,True
+2026-09,2026-11,S07,cu_spread,LME_CU_SPREAD_EUR,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,S07,epu_europe_chg_3m,EPU_EUROPE,"Baker, Bloom & Davis – policyuncertainty.com",1,2026-09,2026-09,True
+2026-09,2026-11,S02,own_chg_1m,S02,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S02,own_chg_3m,S02,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S02,own_vs_12m_avg,S02,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S02,own_pos_12m_range,S02,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S02,own_vol_12m,S02,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S02,al_spread,LME_AL_SPREAD_EUR,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,S02,al_stocks_chg_3m,LME_AL_STOCKS,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,S02,ttf_chg_3m,ED02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S02,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S02,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2026-07,2026-07,True
+2026-09,2026-11,D02,own_chg_1m,D02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D02,own_chg_3m,D02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D02,own_vs_12m_avg,D02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D02,own_pos_12m_range,D02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D02,own_vol_12m,D02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D02,al_spread,LME_AL_SPREAD_EUR,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,D02,al_stocks_chg_3m,LME_AL_STOCKS,LME (Westmetall),1,2026-09,2026-09,True
+2026-09,2026-11,D02,eurusd_chg_3m,S06,ECB,1,2026-09,2026-09,True
+2026-09,2026-11,D02,ttf_chg_3m,ED02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,D02,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2026-09,2026-09,True
+2026-09,2026-11,D02,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S08,own_chg_1m,S08,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S08,own_chg_3m,S08,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S08,own_vs_12m_avg,S08,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S08,own_pos_12m_range,S08,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S08,own_vol_12m,S08,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S08,d02_chg_1m,D02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S08,al_gap_3m,S08,Eurostat PPI,2,2026-09,2026-09 / 2026-09,True
+2026-09,2026-11,S08,ttf_chg_3m,ED02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S08,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2026-09,2026-09,True
+2026-09,2026-11,S03,own_chg_1m,S03,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S03,own_chg_3m,S03,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S03,own_vs_12m_avg,S03,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S03,own_pos_12m_range,S03,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S03,own_vol_12m,S03,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S03,ss_base_chg_3m,CRU_SS304_DE_BASE,CRU Stainless,3,2026-08,2026-08,True
+2026-09,2026-11,S03,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S03,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2026-07,2026-07,True
+2026-09,2026-11,S04,own_chg_1m,S04,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S04,own_chg_3m,S04,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S04,own_vs_12m_avg,S04,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S04,own_pos_12m_range,S04,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S04,own_vol_12m,S04,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S04,coal_chg_3m,E08,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S04,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S04,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2026-07,2026-07,True
+2026-09,2026-11,S05,own_chg_1m,S05,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S05,own_chg_3m,S05,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S05,own_vs_12m_avg,S05,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S05,own_pos_12m_range,S05,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S05,own_vol_12m,S05,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S05,hdg_chg_3m,MEPS_DE_HDG,MEPS,1,2026-09,2026-09,True
+2026-09,2026-11,S05,ttf_chg_3m,ED02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S05,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S05,epu_global_chg_3m,EPU_GLOBAL,"Baker, Bloom & Davis – policyuncertainty.com",4,2026-07,2026-07,True
+2026-09,2026-11,S09,own_chg_1m,S09,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S09,own_chg_3m,S09,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S09,own_vs_12m_avg,S09,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S09,own_pos_12m_range,S09,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S09,own_vol_12m,S09,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S09,meps_hr_chg_1m,MEPS_DE_HR,MEPS,1,2026-09,2026-09,True
+2026-09,2026-11,S09,steel_gap_3m_s09,S09,Eurostat PPI,2,2026-09,2026-09 / 2026-09,True
+2026-09,2026-11,S09,iron_ore_eur_chg_3m,S04_EUR,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S09,nickel_eur_chg_1m,S03_EUR,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S09,ttf_chg_3m,ED02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S09,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2026-09,2026-09,True
+2026-09,2026-11,S09,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S10,own_chg_1m,S10,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S10,own_chg_3m,S10,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S10,own_vs_12m_avg,S10,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S10,own_pos_12m_range,S10,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S10,own_vol_12m,S10,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S10,meps_hr_chg_1m,MEPS_DE_HR,MEPS,1,2026-09,2026-09,True
+2026-09,2026-11,S10,steel_gap_3m_s10,S10,Eurostat PPI,2,2026-09,2026-09 / 2026-09,True
+2026-09,2026-11,S10,iron_ore_eur_chg_3m,S04_EUR,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S10,power_de_chg_3m,E09,Ember,1,2026-09,2026-09,True
+2026-09,2026-11,S10,eua_chg_3m,EUA_EUR,Ember – Carbon Price Viewer ('ETS prices – EU only' chart data),1,2026-09,2026-09,True
+2026-09,2026-11,S10,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S11,own_chg_1m,S11,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S11,own_chg_3m,S11,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S11,own_vs_12m_avg,S11,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S11,own_pos_12m_range,S11,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S11,own_vol_12m,S11,Eurostat PPI,2,2026-09,2026-09,True
+2026-09,2026-11,S11,brent_eur_chg_1m,ED01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S11,benzene_chg_1m,BENZENE_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,S11,ttf_chg_3m,ED02,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,S11,steo_brent,STEO brent,US Energy Information Administration,0,2026-09,STEO release 2026-09,True
+2026-09,2026-11,S11,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S12,own_chg_1m,S12,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S12,own_chg_3m,S12,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S12,own_vs_12m_avg,S12,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S12,own_pos_12m_range,S12,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S12,own_vol_12m,S12,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S12,iron_ore_usd_chg_3m,S04,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S12,hh_chg_3m,E06,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S12,epu_us_chg_3m,EPU_US,"Baker, Bloom & Davis – policyuncertainty.com",1,2026-09,2026-09,True
+2026-09,2026-11,S12,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,S13,own_chg_1m,S13,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S13,own_chg_3m,S13,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S13,own_vs_12m_avg,S13,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S13,own_pos_12m_range,S13,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S13,own_vol_12m,S13,US BLS via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S13,wti_chg_1m,E02,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S13,hh_chg_3m,E06,IMF via FRED,2,2026-09,2026-09,True
+2026-09,2026-11,S13,steo_wti,STEO wti,US Energy Information Administration,0,2026-09,STEO release 2026-09,True
+2026-09,2026-11,S13,gscpi,GSCPI,Federal Reserve Bank of New York,3,2026-08,2026-08,True
+2026-09,2026-11,EPOXY_EUR,own_chg_1m,EPOXY_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,own_chg_3m,EPOXY_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,own_vs_12m_avg,EPOXY_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,own_pos_12m_range,EPOXY_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,own_vol_12m,EPOXY_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,brent_eur_chg_1m,ED01,Derived,2,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,benzene_chg_1m,BENZENE_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,ech_chg_1m,ECH_EUR,Epoxy file,1,2026-09,2026-09,True
+2026-09,2026-11,EPOXY_EUR,steo_brent,STEO brent,US Energy Information Administration,0,2026-09,STEO release 2026-09,True

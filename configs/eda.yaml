@@ -1,0 +1,44 @@
+# Configuration for Step 3 – Exploratory Data Analysis.
+# All paths are relative to the repository root.
+#
+# The EDA reads the outputs of Step 1 and Step 2, so run these first:
+#   uv run python -m src.data_prep
+#   uv run python -m src.cost_model
+
+paths:
+  panel: Data/processed/panel_monthly.csv          # Step 1 (Karin): cleaned monthly panel
+  dictionary: Data/processed/data_dictionary.csv   # Step 1: sources, lags, targets
+  rmu_prices: Data/processed/rmu_prices_yearly.csv # Step 1: synthetic selling prices
+  epoxy_raw: Data/Epoxy for student.xlsx           # raw file, only for the data-quality check
+  teardown: Data/benchmark-modules-fonctionnels-rm6-ne-iqi-3-fonctions-400a-appareillage-isolement-et-coupure-dans-le-gaz-sf6.xlsx
+  plots: plots/step3
+  tables: report/problem1/step3_tables
+
+horizons: [3, 6, 9]
+
+# Market regimes shaded on the time-series plots (inclusive month ranges).
+regimes:
+  COVID dip: ["2020-02", "2020-06"]
+  Post-COVID surge: ["2020-07", "2021-12"]
+  Energy shock / Ni squeeze: ["2022-01", "2022-12"]
+  Cu rally: ["2025-01", "2026-09"]
+
+stress_window: ["2021-01", "2022-12"]
+
+# ---------------------------------------------------------------------------
+# Business EDA (3.3). The raw-material cost comes from Karin's Step 2 model
+# (src/cost_model.py: masses, €/t levels, drivers, cases). The settings below are
+# only the extra assumptions the margin simulation needs.
+# ---------------------------------------------------------------------------
+business:
+  origin: "2026-09"
+  # Cases of the Step 2 model used here (src/cost_model.py CASES + nickel checks).
+  cases: ["RM6", "AirSeT epoxy low", "AirSeT epoxy high"]
+  nickel_check_cases: ["AirSeT epoxy low, nickel check", "AirSeT epoxy high, nickel check"]
+  # Total unit cost at the origin, used to add a constant non-raw-material cost.
+  # RM6: teardown should-cost. AirSeT: ASSUMPTION, RM6 + 20 % ("higher cost structure").
+  total_unit_cost:
+    RM6: 3009
+    AirSeT: 3610
+  target_margin: 0.30          # ASSUMPTION – gross margin targeted at quote
+  breach_tolerance_pts: 0.02   # erosion > 2 margin points counted as a breach

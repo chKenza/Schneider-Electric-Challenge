@@ -1,0 +1,430 @@
+target,horizon,feature,group,sign_expected,spearman,band,granger_p_holm,stat_signal,gain_alone,gain_when_added,coef_median_std,decision,reason
+S01,3,own_chg_1m,own,+,0.06035190339166941,0.3660728101424379,,,0.025648893563725794,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,3,own_chg_3m,own,+,-0.0034624274729940087,0.3660728101424379,,,0.02289880985053072,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,3,own_vs_12m_avg,own,-,-0.07397518750884476,0.3660728101424379,,,0.03137389470269447,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,3,own_pos_12m_range,own,-,-0.04054340093276107,0.3660728101424379,,,0.004852772739478262,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,3,own_vol_12m,own,0,0.2494551629793858,0.3660728101424379,,,0.41433880653395105,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,3,cu_spread,driver,-,-0.0010849568375866786,0.3660728101424379,1.0,False,0.036353531406510875,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,3,cu_stocks_chg_3m,driver,-,-0.12727958865984243,0.3660728101424379,1.0,False,0.05025157859717799,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,3,gscpi,driver,+,0.1555073352516628,0.3660728101424379,1.0,False,0.1473230408035313,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,3,epu_global_chg_3m,driver,-,0.19292419453747817,0.3660728101424379,1.0,False,-0.0019618604854648725,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,6,own_chg_1m,own,+,0.10446664707610931,0.5269782007791076,,,0.017777964106435062,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,6,own_chg_3m,own,+,-0.059212459594475464,0.5269782007791076,,,0.010061155473676031,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,6,own_vs_12m_avg,own,-,-0.08994164812560346,0.5269782007791076,,,0.029249495126606462,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,6,own_pos_12m_range,own,-,-0.07727110743402775,0.5269782007791076,,,0.02848854192156014,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,6,own_vol_12m,own,0,0.28651190126359094,0.5269782007791076,,,0.6995043464410637,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,6,cu_spread,driver,-,0.02224927584904076,0.5269782007791076,1.0,False,0.07755550888074314,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,6,cu_stocks_chg_3m,driver,-,0.037194072457075684,0.5269782007791076,1.0,False,0.025788756209824903,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,6,gscpi,driver,+,0.07268796440115864,0.5269782007791076,1.0,False,0.3764828642992215,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,6,epu_global_chg_3m,driver,-,0.03532597288107132,0.5269782007791076,1.0,False,0.004133540354217313,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,9,own_chg_1m,own,+,0.025949367088607598,0.6574039853849382,,,0.047452732336660475,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,9,own_chg_3m,own,+,0.008251289263947493,0.6574039853849382,,,0.1320242193505028,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,9,own_vs_12m_avg,own,-,-0.11401781528363807,0.6574039853849382,,,0.08578125323901098,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,9,own_pos_12m_range,own,-,-0.11275586500074028,0.6574039853849382,,,0.0744551129266211,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,9,own_vol_12m,own,0,0.18595874355368025,0.6574039853849382,,,0.48755400611457733,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S01,9,cu_spread,driver,-,0.12721518987341773,0.6574039853849382,1.0,False,0.21426127706611697,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,9,cu_stocks_chg_3m,driver,-,0.0849507735583685,0.6574039853849382,1.0,False,0.12681343044282767,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,9,gscpi,driver,+,-0.07573839662447258,0.6574039853849382,1.0,False,0.8989354327442716,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S01,9,epu_global_chg_3m,driver,-,-0.08176277543366152,0.6574039853849382,1.0,False,-0.0036744200516933834,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,3,own_chg_1m,own,+,0.008349450445775744,0.3660728101424379,,,0.016018819585539745,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,3,own_chg_3m,own,+,-0.07614510118401811,0.3660728101424379,,,-0.031688455041052555,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,3,own_vs_12m_avg,own,-,-0.07012594933723289,0.3660728101424379,,,-0.02600859309071979,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,3,own_pos_12m_range,own,-,-0.07197563684482838,0.3660728101424379,,,-0.03503213288320395,-0.03503213288320395,0.0,kept,
+D01,3,own_vol_12m,own,0,0.20194348790037264,0.3660728101424379,,,0.38795786052818837,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,3,cu_spread,driver,-,-0.00997216849851408,0.3660728101424379,1.0,False,0.07840350744199398,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,3,cu_stocks_chg_3m,driver,-,-0.06722015189395726,0.3660728101424379,1.0,False,0.07826794381445534,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,3,eurusd_chg_3m,driver,-,0.129506108778716,0.3660728101424379,1.0,False,0.13344464899207087,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,3,gscpi,driver,+,0.21773668569272134,0.3660728101424379,1.0,False,0.25253229222536255,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,3,epu_global_chg_3m,driver,-,0.26036133779895276,0.3660728101424379,1.0,False,-0.0415302899749993,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,6,own_chg_1m,own,+,0.03704714327694051,0.5269782007791076,,,-0.014340392373645372,-0.014340392373645372,,shortlist,"won forward selection but not robust: tested last: loss change -1.4%, helps in 72% of resamples"
+D01,6,own_chg_3m,own,+,-0.0857646614331892,0.5269782007791076,,,0.017923354845510442,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,6,own_vs_12m_avg,own,-,-0.0316317534948155,0.5269782007791076,,,0.07755497894743901,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,6,own_pos_12m_range,own,-,-0.08690516356506428,0.5269782007791076,,,0.04019840608543723,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,6,own_vol_12m,own,0,0.16063557365349898,0.5269782007791076,,,0.5929083472348105,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,6,cu_spread,driver,-,0.017064774778556734,0.5269782007791076,1.0,False,0.18721982710951068,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,6,cu_stocks_chg_3m,driver,-,0.11164518701985642,0.5269782007791076,1.0,False,0.015884193325780505,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,6,eurusd_chg_3m,driver,-,0.19123882288736826,0.5269782007791076,1.0,False,0.17558637159474588,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,6,gscpi,driver,+,0.1376306620209059,0.5269782007791076,1.0,False,0.650338875506393,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,6,epu_global_chg_3m,driver,-,0.027013979261995714,0.5269782007791076,1.0,False,0.020591445355323534,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,9,own_chg_1m,own,+,-2.344116268166901e-05,0.6574039853849382,,,0.02523767415285838,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,9,own_chg_3m,own,+,-0.004781997187060479,0.6574039853849382,,,0.08068676191509194,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,9,own_vs_12m_avg,own,-,-0.04800750117205813,0.6574039853849382,,,0.055158360386696303,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,9,own_pos_12m_range,own,-,-0.14797297201123033,0.6574039853849382,,,0.001108575932788236,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,9,own_vol_12m,own,0,0.018354430379746836,0.6574039853849382,,,0.5428486719697359,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D01,9,cu_spread,driver,-,0.1557430848570089,0.6574039853849382,1.0,False,0.19971223119661996,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,9,cu_stocks_chg_3m,driver,-,0.1304735114861697,0.6574039853849382,1.0,False,0.027627804397707845,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,9,eurusd_chg_3m,driver,-,0.2337318330989217,0.6574039853849382,1.0,False,0.04699783807500091,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,9,gscpi,driver,+,-0.015893108298171588,0.6574039853849382,1.0,False,1.1819408130586266,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D01,9,epu_global_chg_3m,driver,-,-0.07435536802625412,0.6574039853849382,1.0,False,-0.042031544490257144,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S07,3,own_chg_1m,own,+,0.10039342222499921,0.3660728101424379,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+S07,3,own_chg_3m,own,+,0.05463671443801832,0.3660728101424379,,,-0.020724033888665505,-0.020724033888665505,,shortlist,"won forward selection but not robust: tested last: loss change -2.1%, helps in 72% of resamples"
+S07,3,own_vs_12m_avg,own,-,0.015048163560649726,0.3660728101424379,,,0.03876167624472826,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,3,own_pos_12m_range,own,-,0.052326048601091794,0.3660728101424379,,,0.035520451918490625,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,3,own_vol_12m,own,0,0.10011038466586472,0.3660728101424379,,,0.26744715478087233,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,3,d01_chg_1m,driver,+,0.14571717002773354,0.3660728101424379,0.01491710223839634,True,0.02091562232864641,,,dropped,does not lower the backtest loss by 1 %
+S07,3,cu_gap_3m,driver,+,0.05588104875845037,0.3660728101424379,0.0030317727961897503,True,0.048526174256871,,,dropped,does not lower the backtest loss by 1 %
+S07,3,cu_spread,driver,-,-0.10022359968951852,0.3660728101424379,1.0,False,0.03891041385021321,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S07,3,epu_europe_chg_3m,driver,-,0.024671440571221965,0.3660728101424379,1.0,False,0.027488871022631978,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S07,6,own_chg_1m,own,+,0.028273372234582924,0.5269782007791076,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+S07,6,own_chg_3m,own,+,-0.006548980921238693,0.5269782007791076,,,0.0841802737185311,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,6,own_vs_12m_avg,own,-,-0.03738298140296376,0.5269782007791076,,,0.15264939615936401,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,6,own_pos_12m_range,own,-,-0.028573386644362615,0.5269782007791076,,,0.13608982424493887,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,6,own_vol_12m,own,0,0.07510180093195079,0.5269782007791076,,,0.3962091694209491,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,6,d01_chg_1m,driver,+,0.09065530414340287,0.5269782007791076,0.01491710223839634,True,0.029078543946311264,,,dropped,does not lower the backtest loss by 1 %
+S07,6,cu_gap_3m,driver,+,0.039439989924856214,0.5269782007791076,0.0030317727961897503,True,0.035772357832897894,,,dropped,does not lower the backtest loss by 1 %
+S07,6,cu_spread,driver,-,-0.05325133285756266,0.5269782007791076,1.0,False,0.23898088976776144,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S07,6,epu_europe_chg_3m,driver,-,0.015196675202552369,0.5269782007791076,1.0,False,0.06291573122131178,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S07,9,own_chg_1m,own,+,0.021894045944678853,0.6574039853849382,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+S07,9,own_chg_3m,own,+,0.04929792073367434,0.6574039853849382,,,0.20527489452796166,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,9,own_vs_12m_avg,own,-,-0.04329582747304266,0.6574039853849382,,,0.22252194812574744,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,9,own_pos_12m_range,own,-,-0.057175388280054563,0.6574039853849382,,,0.12022201793447818,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,9,own_vol_12m,own,0,-0.014064697609001406,0.6574039853849382,,,0.3373047308011836,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S07,9,d01_chg_1m,driver,+,0.0735349273323957,0.6574039853849382,0.01491710223839634,True,0.04331106285970554,,,dropped,does not lower the backtest loss by 1 %
+S07,9,cu_gap_3m,driver,+,0.15133614627285513,0.6574039853849382,0.0030317727961897503,True,0.06306402188827498,,,dropped,does not lower the backtest loss by 1 %
+S07,9,cu_spread,driver,-,0.027144866385372717,0.6574039853849382,1.0,False,0.3261271227540088,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S07,9,epu_europe_chg_3m,driver,-,-0.035232067510548526,0.6574039853849382,1.0,False,0.001739267680947787,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,3,own_chg_1m,own,+,0.13543091655266756,0.3660728101424379,,,-0.005392317120817558,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,3,own_chg_3m,own,+,0.08807019199018823,0.3660728101424379,,,0.051071249424739396,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,3,own_vs_12m_avg,own,-,0.17271569413651586,0.3660728101424379,,,-0.011701074051664317,-0.011701074051664317,,shortlist,"won forward selection but not robust: tested last: loss change -1.2%, helps in 54% of resamples"
+S02,3,own_pos_12m_range,own,-,0.20392810906891687,0.3660728101424379,,,0.03151188038708308,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,3,own_vol_12m,own,0,-0.10261804802113307,0.3660728101424379,,,0.13691942624353182,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,3,al_spread,driver,-,0.15962073682720881,0.3660728101424379,1.0,False,0.029973544873153957,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,3,al_stocks_chg_3m,driver,-,0.10644841737817821,0.3660728101424379,1.0,False,0.11865997331805334,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,3,ttf_chg_3m,driver,+,0.16443228454172365,0.3660728101424379,1.0,False,0.036153703182082,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,3,gscpi,driver,+,0.1814896929100429,0.3660728101424379,1.0,False,0.2881201085574714,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,3,epu_global_chg_3m,driver,-,0.06159724515307326,0.3660728101424379,1.0,False,0.05053423209305774,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,6,own_chg_1m,own,+,0.21319424037613868,0.5269782007791076,,,0.10352164623707716,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,6,own_chg_3m,own,+,0.1772175811258973,0.5269782007791076,,,0.08514113167575266,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,6,own_vs_12m_avg,own,-,0.21583896561857183,0.5269782007791076,,,0.09380146848976123,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,6,own_pos_12m_range,own,-,0.2525086156159187,0.5269782007791076,,,0.07698088188360686,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,6,own_vol_12m,own,0,-0.15979597833844086,0.5269782007791076,,,0.35313832893231645,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,6,al_spread,driver,-,0.2915074933881869,0.5269782007791076,1.0,False,-0.07007853014080734,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,6,al_stocks_chg_3m,driver,-,0.10394190000419797,0.5269782007791076,1.0,False,0.07071063195859217,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,6,ttf_chg_3m,driver,+,0.23412115360396288,0.5269782007791076,1.0,False,0.07250399350318726,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,6,gscpi,driver,+,0.11076361193904537,0.5269782007791076,1.0,False,0.7184624029338831,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,6,epu_global_chg_3m,driver,-,-0.09984887284328953,0.5269782007791076,1.0,False,0.0002828431247947627,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,9,own_chg_1m,own,+,0.11901078293483358,0.6574039853849382,,,0.09089915354033362,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,9,own_chg_3m,own,+,0.1543131739334271,0.6574039853849382,,,0.15927369112202627,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,9,own_vs_12m_avg,own,-,0.0755039849976559,0.6574039853849382,,,0.06883057959404604,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,9,own_pos_12m_range,own,-,0.10356137740461938,0.6574039853849382,,,0.10467173402767904,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,9,own_vol_12m,own,0,-0.19983591186122834,0.6574039853849382,,,0.62557752400684,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S02,9,al_spread,driver,-,0.38272386310361,0.6574039853849382,1.0,False,-0.12243022950808635,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,9,al_stocks_chg_3m,driver,-,0.3358884200656353,0.6574039853849382,1.0,False,0.016176696298614512,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,9,ttf_chg_3m,driver,+,0.0882090951711205,0.6574039853849382,1.0,False,0.059853493249462986,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,9,gscpi,driver,+,-0.055039849976558836,0.6574039853849382,1.0,False,1.4256430999011953,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S02,9,epu_global_chg_3m,driver,-,-0.25269573370839193,0.6574039853849382,1.0,False,0.009173942534340007,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,3,own_chg_1m,own,+,0.1628473041181188,0.3660728101424379,,,0.009060186588684793,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,3,own_chg_3m,own,+,0.07467333364781356,0.3660728101424379,,,0.02754137347624419,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,3,own_vs_12m_avg,own,-,0.19441483088824943,0.3660728101424379,,,0.01332270525137158,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,3,own_pos_12m_range,own,-,0.2123043614163835,0.3660728101424379,,,-0.025845525788235624,-0.025845525788235624,,shortlist,"won forward selection but not robust: tested last: loss change -2.6%, helps in 63% of resamples"
+D02,3,own_vol_12m,own,0,-0.2583423746403132,0.3660728101424379,,,0.07221589295594577,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,3,al_spread,driver,-,0.07616396999858482,0.3660728101424379,1.0,False,0.05063006677800419,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,3,al_stocks_chg_3m,driver,-,0.030350488230576914,0.3660728101424379,1.0,False,0.15340377539902383,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,3,eurusd_chg_3m,driver,-,0.27694702580310393,0.3660728101424379,1.0,False,0.21234937482100036,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,3,ttf_chg_3m,driver,+,0.2294730883532242,0.3660728101424379,1.0,False,0.07956966845002111,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,3,eua_chg_3m,driver,+,0.04013098464317977,0.3772021758705555,1.0,False,0.06548062586063086,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,3,gscpi,driver,+,0.17356479079201848,0.3660728101424379,1.0,False,0.2705828864455977,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,6,own_chg_1m,own,+,0.2239830401746358,0.5269782007791076,,,0.09562781784958196,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,6,own_chg_3m,own,+,0.2179379539062172,0.5269782007791076,,,0.052241983411968285,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,6,own_vs_12m_avg,own,-,0.2609462239200705,0.5269782007791076,,,0.11792761349594372,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,6,own_pos_12m_range,own,-,0.295918563376584,0.5269782007791076,,,0.010731843018868759,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,6,own_vol_12m,own,0,-0.36589563830233823,0.5269782007791076,,,-0.09821657714586207,-0.09821657714586207,,shortlist,"won forward selection but not robust: tested last: loss change -9.8%, helps in 100% of resamples; P90 minus P10 effect -0.045"
+D02,6,al_spread,driver,-,0.22335334368834223,0.5269782007791076,1.0,False,-0.03068180916716834,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,6,al_stocks_chg_3m,driver,-,0.06830107887997984,0.5269782007791076,1.0,False,0.01853992105018243,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,6,eurusd_chg_3m,driver,-,0.2806557239410604,0.5269782007791076,1.0,False,0.21458732440011707,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,6,ttf_chg_3m,driver,+,0.3353553587170983,0.5269782007791076,1.0,False,-0.01626792132998811,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,6,eua_chg_3m,driver,+,0.05198598869484945,0.5436061923007246,1.0,False,0.09015914890141596,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,6,gscpi,driver,+,0.09546198732211073,0.5269782007791076,1.0,False,0.9904954963057613,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,9,own_chg_1m,own,+,0.1649789029535865,0.6574039853849382,,,-0.04974052952634189,-0.045864405762416904,0.031243836923216903,kept,
+D02,9,own_chg_3m,own,+,0.24031879981247067,0.6574039853849382,,,0.05074071212864628,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,9,own_vs_12m_avg,own,-,0.15018752930145338,0.6574039853849382,,,0.09569956056547424,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,9,own_pos_12m_range,own,-,0.17632505705807483,0.6574039853849382,,,0.07887847368613543,,,dropped,does not lower the backtest loss by 1 % once better features are in
+D02,9,own_vol_12m,own,0,-0.44024847632442576,0.6574039853849382,,,-0.0697168002688584,-0.0697168002688584,,shortlist,"won forward selection but not robust: tested last: loss change -6.6%, helps in 100% of resamples; P90 minus P10 effect -0.061"
+D02,9,al_spread,driver,-,0.3093530239099859,0.6574039853849382,1.0,False,0.0343297777492797,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,9,al_stocks_chg_3m,driver,-,0.2643225503984998,0.6574039853849382,1.0,False,-0.052056868797252354,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,9,eurusd_chg_3m,driver,-,0.4234411626816691,0.6574039853849382,1.0,False,0.1999896049535992,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,9,ttf_chg_3m,driver,+,0.1909282700421941,0.6574039853849382,1.0,False,0.12756745438041883,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,9,eua_chg_3m,driver,+,0.0034423897581792318,0.6789639165669998,1.0,False,0.1808946972668528,,,dropped,no statistical signal (Granger and lead-lag both weak)
+D02,9,gscpi,driver,+,-0.0037974683544303796,0.6574039853849382,1.0,False,1.4607143511422067,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S08,3,own_chg_1m,own,+,0.7183210213273906,0.3660728101424379,,,-0.24960847327737423,-0.24960847327737423,0.027384407485916983,kept,
+S08,3,own_chg_3m,own,+,0.708759847162602,0.3660728101424379,,,-0.17599879344106462,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,3,own_vs_12m_avg,own,-,0.5259587716401717,0.3660728101424379,,,0.12078608066028207,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,3,own_pos_12m_range,own,-,0.5541808507353647,0.3660728101424379,,,-0.04615312807413796,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,3,own_vol_12m,own,0,0.07178640501910467,0.3660728101424379,,,0.4940068299851319,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,3,d02_chg_1m,driver,+,0.5881881220812302,0.3660728101424379,1.0816273548716232e-10,True,-0.06272010601212674,-0.06272010601212674,0.014927481477561885,kept,
+S08,3,al_gap_3m,driver,+,0.41482145384216235,0.3660728101424379,7.725906254659082e-10,True,0.07816193173848052,,,dropped,does not lower the backtest loss by 1 %
+S08,3,ttf_chg_3m,driver,+,0.5080522666163498,0.3660728101424379,1.0,True,0.08862456273192043,,,dropped,does not lower the backtest loss by 1 %
+S08,3,eua_chg_3m,driver,+,0.34943541102077685,0.3772021758705555,1.0,False,0.0752382739867723,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S08,6,own_chg_1m,own,+,0.6270859135320703,0.5269782007791076,,,-0.19190192555764685,-0.19190192555764685,0.06325409649797642,kept,
+S08,6,own_chg_3m,own,+,0.5875907812434406,0.5269782007791076,,,-0.11723672917603856,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,6,own_vs_12m_avg,own,-,0.38699047059317404,0.5269782007791076,,,0.32045539375995946,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,6,own_pos_12m_range,own,-,0.4394941272622337,0.5269782007791076,,,-0.011185299120384795,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,6,own_vol_12m,own,0,-0.048192771084337345,0.5269782007791076,,,0.7121615989796157,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,6,d02_chg_1m,driver,+,0.5430922295453591,0.5269782007791076,1.0816273548716232e-10,True,-0.005811054664578097,,,dropped,does not lower the backtest loss by 1 %
+S08,6,al_gap_3m,driver,+,0.35833928046681496,0.5269782007791076,7.725906254659082e-10,True,0.10652500515066077,,,dropped,does not lower the backtest loss by 1 %
+S08,6,ttf_chg_3m,driver,+,0.4720414760085638,0.5269782007791076,1.0,False,0.007001689201845185,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S08,6,eua_chg_3m,driver,+,0.3100570315760189,0.5436061923007246,1.0,False,0.07206259238368684,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S08,9,own_chg_1m,own,+,0.5811449903111413,0.6574039853849382,,,-0.09277649373055885,-0.09277649373055885,,shortlist,"won forward selection but not robust: tested last: loss change -6.4%, helps in 67% of resamples"
+S08,9,own_chg_3m,own,+,0.5323488045007033,0.6574039853849382,,,-0.009109643209204044,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,9,own_vs_12m_avg,own,-,0.27843413033286457,0.6574039853849382,,,0.336381974184891,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,9,own_pos_12m_range,own,-,0.33306654321474566,0.6574039853849382,,,0.008789003436895593,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,9,own_vol_12m,own,0,-0.14885138302859824,0.6574039853849382,,,0.7021295292647751,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S08,9,d02_chg_1m,driver,+,0.5056962025316456,0.6574039853849382,1.0816273548716232e-10,True,-0.04989895511701048,-0.04989895511701048,0.036747888078888,kept,
+S08,9,al_gap_3m,driver,+,0.40459446788560716,0.6574039853849382,7.725906254659082e-10,True,-0.025246291783309505,,,dropped,does not lower the backtest loss by 1 %
+S08,9,ttf_chg_3m,driver,+,0.4320206282231599,0.6574039853849382,1.0,False,-0.06569038492309232,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S08,9,eua_chg_3m,driver,+,0.2778378378378378,0.6789639165669998,1.0,False,-0.0024031165679423427,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,3,own_chg_1m,own,+,0.201301948205104,0.3660728101424379,,,0.004496014132646442,-0.08041460880544826,0.07780440084242783,kept,
+S03,3,own_chg_3m,own,+,-0.08291900561347233,0.3660728101424379,,,-0.014248736577441523,-0.014248736577441523,-0.0821784974171833,kept,
+S03,3,own_vs_12m_avg,own,-,-0.1438841454785603,0.3660728101424379,,,0.07067179433004855,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,3,own_pos_12m_range,own,-,0.03468855342473358,0.3660728101424379,,,0.053133774722859295,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,3,own_vol_12m,own,0,-0.24379451860936838,0.3660728101424379,,,0.175679968553617,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,3,ss_base_chg_3m,driver,+,0.18167174576609316,0.37489510728124287,1.0,False,-0.011619700983305004,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,3,gscpi,driver,+,0.31855276192273224,0.3660728101424379,1.0,False,-0.011470301555237206,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,3,epu_global_chg_3m,driver,-,0.07437143261474598,0.3660728101424379,1.0,False,-0.019896722587618765,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,6,own_chg_1m,own,+,0.015595482977204984,0.5269782007791076,,,0.0041781332303394425,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,6,own_chg_3m,own,+,-0.17096259602871414,0.5269782007791076,,,0.01643834536907729,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,6,own_vs_12m_avg,own,-,-0.20028546240711978,0.5269782007791076,,,0.3415208655740274,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,6,own_pos_12m_range,own,-,-0.02269498707913238,0.5269782007791076,,,0.3438663885838329,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,6,own_vol_12m,own,0,-0.23710171697241927,0.5269782007791076,,,0.010684874748507989,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,6,ss_base_chg_3m,driver,+,0.3620784089655853,0.5401546895173593,1.0,False,-0.013751023152783648,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,6,gscpi,driver,+,0.45585827631081816,0.5269782007791076,1.0,False,0.12748946257969052,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,6,epu_global_chg_3m,driver,-,0.0304563200537341,0.5269782007791076,1.0,False,-0.016300488518654954,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,9,own_chg_1m,own,+,-0.006024378809188937,0.6574039853849382,,,0.03161866736118846,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,9,own_chg_3m,own,+,-0.18047351148616972,0.6574039853849382,,,0.11999983271741455,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,9,own_vs_12m_avg,own,-,-0.15986872948898267,0.6574039853849382,,,0.5489950245437079,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,9,own_pos_12m_range,own,-,-0.03699343507156559,0.6574039853849382,,,0.453746296189792,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S03,9,own_vol_12m,own,0,-0.3209329582747304,0.6574039853849382,,,-0.04613682754994142,-0.04613682754994142,,shortlist,"won forward selection but not robust: tested last: loss change -4.6%, helps in 76% of resamples"
+S03,9,ss_base_chg_3m,driver,+,0.391734678569463,0.6744822575794516,1.0,False,0.030561889640465356,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,9,gscpi,driver,+,0.48675574308485703,0.6574039853849382,1.0,False,0.3950102199412038,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S03,9,epu_global_chg_3m,driver,-,-0.07215189873417721,0.6574039853849382,1.0,False,-0.017390606436320954,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,3,own_chg_1m,own,+,0.04935138449926883,0.3660728101424379,,,0.00966672858010198,-0.01771598116909212,,shortlist,"won forward selection but not robust: tested last: loss change +1.0%, helps in 40% of resamples"
+S04,3,own_chg_3m,own,+,-0.12143025614415774,0.3660728101424379,,,-0.010415586992608139,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,3,own_vs_12m_avg,own,-,-0.13775178074437475,0.3660728101424379,,,-0.035770519557900116,-0.035770519557900116,,shortlist,"won forward selection but not robust: tested last: loss change -6.2%, helps in 63% of resamples"
+S04,3,own_pos_12m_range,own,-,-0.140292408258701,0.3660728101424379,,,0.02421057019895545,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,3,own_vol_12m,own,0,-0.10380678333883672,0.3660728101424379,,,0.16014038661290675,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,3,coal_chg_3m,driver,+,-0.17473465729515542,0.3660728101424379,1.0,False,0.19256344940518666,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,3,gscpi,driver,+,0.11752441152884571,0.3660728101424379,1.0,False,-0.013937244273234617,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,3,epu_global_chg_3m,driver,-,0.0680126421057597,0.3660728101424379,1.0,False,0.08720896704593661,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,6,own_chg_1m,own,+,-0.09350992821460055,0.5269782007791076,,,-0.005277568673302313,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,6,own_chg_3m,own,+,-0.2548381680030225,0.5269782007791076,,,-0.08091491841985832,-0.08091491841985832,-0.07545700440943467,kept,
+S04,6,own_vs_12m_avg,own,-,-0.2301120859745602,0.5269782007791076,,,0.14622943152335854,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,6,own_pos_12m_range,own,-,-0.26887514173757165,0.5269782007791076,,,0.1353177832048047,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,6,own_vol_12m,own,0,-0.02258511397506402,0.5269782007791076,,,0.36283373097728844,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,6,coal_chg_3m,driver,+,-0.17549641073002814,0.5269782007791076,1.0,False,0.08500404299438724,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,6,gscpi,driver,+,0.03967087863649721,0.5269782007791076,1.0,False,0.13752209349142341,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,6,epu_global_chg_3m,driver,-,0.20887032450358928,0.5269782007791076,1.0,False,0.08428597132900584,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,9,own_chg_1m,own,+,-0.22967651195499297,0.6574039853849382,,,-0.0413298072709084,-0.0413298072709084,,shortlist,"won forward selection but not robust: tested last: loss change -4.1%, helps in 78% of resamples"
+S04,9,own_chg_3m,own,+,-0.32969995311767464,0.6574039853849382,,,-0.007476287531236081,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,9,own_vs_12m_avg,own,-,-0.32102672292545714,0.6574039853849382,,,0.5902581123615582,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,9,own_pos_12m_range,own,-,-0.36792454759373405,0.6574039853849382,,,0.24846354577766228,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,9,own_vol_12m,own,0,0.014463197374589782,0.6574039853849382,,,0.4242152328293698,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S04,9,coal_chg_3m,driver,+,-0.33082512892639476,0.6574039853849382,1.0,False,0.10971330435884985,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,9,gscpi,driver,+,-0.05016408813877169,0.6574039853849382,1.0,False,0.44090799070807596,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S04,9,epu_global_chg_3m,driver,-,0.13989685888420067,0.6574039853849382,1.0,False,0.06036182045408567,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,3,own_chg_1m,own,+,0.040596254540308505,0.3660728101424379,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+S05,3,own_chg_3m,own,+,0.02091608094721449,0.3660728101424379,,,0.02333521932763727,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,3,own_vs_12m_avg,own,-,-0.00978348035284683,0.3660728101424379,,,0.03703822411226132,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,3,own_pos_12m_range,own,-,0.03170574863386787,0.3660728101424379,,,0.02718878857417506,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,3,own_vol_12m,own,0,-0.2123024670975046,0.3660728101424379,,,-0.03870061389911161,-0.03870061389911161,,shortlist,"won forward selection but not robust: tested last: loss change -3.9%, helps in 86% of resamples; P90 minus P10 effect -0.002"
+S05,3,hdg_chg_3m,driver,+,-0.010595239225969265,0.3660728101424379,1.0,False,0.11559829255915255,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,3,ttf_chg_3m,driver,+,0.06688051323175621,0.3660728101424379,1.0,False,0.1186714659452417,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,3,gscpi,driver,+,0.28547572998726356,0.3660728101424379,1.0,False,0.48081701504185026,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,3,epu_global_chg_3m,driver,-,0.2171894900702863,0.3660728101424379,1.0,False,0.01034962572454079,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,6,own_chg_1m,own,+,0.04088829184333151,0.5269782007791076,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+S05,6,own_chg_3m,own,+,0.036837244448175974,0.5269782007791076,,,-0.05301986909683498,-0.05301986909683498,0.027994457714693614,kept,
+S05,6,own_vs_12m_avg,own,-,-0.015049746022417192,0.5269782007791076,,,0.008577014554607132,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,6,own_pos_12m_range,own,-,0.0492147788886286,0.5269782007791076,,,-0.01017182244183823,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,6,own_vol_12m,own,0,-0.2047772973426808,0.5269782007791076,,,0.075442872438233,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,6,hdg_chg_3m,driver,+,0.16093618821906688,0.5269782007791076,1.0,False,0.15724551212249782,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,6,ttf_chg_3m,driver,+,0.23603123294572012,0.5269782007791076,1.0,False,-0.08501621080881216,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,6,gscpi,driver,+,0.17318752361361822,0.5269782007791076,1.0,False,0.9943566354320907,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,6,epu_global_chg_3m,driver,-,0.0036942193862558245,0.5269782007791076,1.0,False,0.03430425622741473,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,9,own_chg_1m,own,+,0.016643225503984997,0.6574039853849382,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+S05,9,own_chg_3m,own,+,-0.005602437880918894,0.6574039853849382,,,0.008642849739042058,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,9,own_vs_12m_avg,own,-,-0.09852320675105486,0.6574039853849382,,,0.10859528269582608,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,9,own_pos_12m_range,own,-,-0.06549198693729152,0.6574039853849382,,,0.02274845383124502,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,9,own_vol_12m,own,0,-0.19943741209563995,0.6574039853849382,,,0.11293438934376177,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S05,9,hdg_chg_3m,driver,+,0.26905855906546683,0.6574039853849382,1.0,False,0.019297160349533993,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,9,ttf_chg_3m,driver,+,0.10447726207219879,0.6574039853849382,1.0,False,-0.002545238352236745,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,9,gscpi,driver,+,0.07030004688232537,0.6574039853849382,1.0,False,1.0861788863181099,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S05,9,epu_global_chg_3m,driver,-,-0.06699484294421003,0.6574039853849382,1.0,False,-0.050855455854095455,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,3,own_chg_1m,own,+,0.7041971144997455,0.3660728101424379,,,-0.1962910898675373,-0.1962910898675373,0.03795398195657688,kept,
+S09,3,own_chg_3m,own,+,0.62589391852369,0.3660728101424379,,,-0.10907842994526429,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,3,own_vs_12m_avg,own,-,0.48720452476849796,0.3660728101424379,,,-0.1473573380446649,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,3,own_pos_12m_range,own,-,0.5688160228490362,0.3660728101424379,,,-0.17065312073634864,-0.06244019481111496,,shortlist,"won forward selection but not robust: tested last: loss change -0.6%, helps in 51% of resamples"
+S09,3,own_vol_12m,own,0,0.03811518522229879,0.3660728101424379,,,0.4851182772760987,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,3,meps_hr_chg_1m,driver,+,0.5096217893567878,0.3660728101424379,0.0007184987649548756,True,0.12163535685949722,,,dropped,does not lower the backtest loss by 1 %
+S09,3,steel_gap_3m_s09,driver,+,0.283458103961378,0.3660728101424379,0.031931330958089615,True,0.3431823806541989,,,dropped,does not lower the backtest loss by 1 %
+S09,3,iron_ore_eur_chg_3m,driver,+,0.37946308535299,0.3660728101424379,0.012143549386316323,True,-0.054873730861281556,,,dropped,does not lower the backtest loss by 1 %
+S09,3,nickel_eur_chg_1m,driver,+,0.29417564119220263,0.3660728101424379,1.0,False,-0.00705427495851263,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,3,ttf_chg_3m,driver,+,0.5031298793861317,0.3660728101424379,1.0,True,0.06930918181163426,,,dropped,does not lower the backtest loss by 1 %
+S09,3,eua_chg_3m,driver,+,0.47085857531563086,0.3772021758705555,0.8506262349756091,True,-0.061147650489382976,-0.061147650489382976,0.006746014719208497,shortlist,"won forward selection but not robust: tested last: loss change -5.7%, helps in 72% of resamples"
+S09,3,gscpi,driver,+,0.3967753043834153,0.3660728101424379,1.0,True,0.07001403542710127,,,dropped,does not lower the backtest loss by 1 %
+S09,6,own_chg_1m,own,+,0.6363975090668758,0.5269782007791076,,,-0.13077069460816992,-0.13077069460816992,,shortlist,"won forward selection but not robust: tested last: loss change -13.1%, helps in 71% of resamples"
+S09,6,own_chg_3m,own,+,0.5829581352392348,0.5269782007791076,,,-0.0741432464500178,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,6,own_vs_12m_avg,own,-,0.4396144138342601,0.5269782007791076,,,0.024322689166871747,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,6,own_pos_12m_range,own,-,0.4954173013497516,0.5269782007791076,,,-0.05615537024094597,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,6,own_vol_12m,own,0,-0.047279959280064496,0.5269782007791076,,,1.0190720399578965,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,6,meps_hr_chg_1m,driver,+,0.37085119487597196,0.5269782007791076,0.0007184987649548756,True,0.09014906464047745,,,dropped,does not lower the backtest loss by 1 %
+S09,6,steel_gap_3m_s09,driver,+,0.23387050224127798,0.5269782007791076,0.031931330958089615,True,0.15951009351864998,,,dropped,does not lower the backtest loss by 1 %
+S09,6,iron_ore_eur_chg_3m,driver,+,0.262469367732549,0.5269782007791076,0.012143549386316323,True,0.0842188265129229,,,dropped,does not lower the backtest loss by 1 %
+S09,6,nickel_eur_chg_1m,driver,+,0.3023713444656911,0.5269782007791076,1.0,False,-0.051705305800977874,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,6,ttf_chg_3m,driver,+,0.49090346178135785,0.5269782007791076,1.0,False,-0.019633096867659572,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,6,eua_chg_3m,driver,+,0.35200465361073385,0.5436061923007246,0.8506262349756091,False,0.0305598579671853,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,6,gscpi,driver,+,0.41566483179716635,0.5269782007791076,1.0,False,0.1682868433218343,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,9,own_chg_1m,own,+,0.5816210523966091,0.6574039853849382,,,0.020116170843797354,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,9,own_chg_3m,own,+,0.5204085818688863,0.6574039853849382,,,0.13703969419665651,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,9,own_vs_12m_avg,own,-,0.3477496483825598,0.6574039853849382,,,0.18513343365959578,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,9,own_pos_12m_range,own,-,0.3716805451774271,0.6574039853849382,,,-0.041343805931051136,-0.041343805931051136,,shortlist,"won forward selection but not robust: tested last: loss change -4.1%, helps in 78% of resamples"
+S09,9,own_vol_12m,own,0,-0.11830754805438351,0.6574039853849382,,,1.7378844945056002,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S09,9,meps_hr_chg_1m,driver,+,0.361001400235727,0.6574039853849382,0.0007184987649548756,True,0.03824768209721641,,,dropped,does not lower the backtest loss by 1 %
+S09,9,steel_gap_3m_s09,driver,+,0.23363806844819504,0.6574039853849382,0.031931330958089615,True,0.2447019831819941,,,dropped,does not lower the backtest loss by 1 %
+S09,9,iron_ore_eur_chg_3m,driver,+,0.20443037974683548,0.6574039853849382,0.012143549386316323,True,0.04260437453250021,,,dropped,does not lower the backtest loss by 1 %
+S09,9,nickel_eur_chg_1m,driver,+,0.21640881387716832,0.6574039853849382,1.0,False,0.00201589333889185,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,9,ttf_chg_3m,driver,+,0.47008907641819037,0.6574039853849382,1.0,False,-0.021046997946129853,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,9,eua_chg_3m,driver,+,0.3532859174964438,0.6789639165669998,0.8506262349756091,False,0.08124038395070787,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S09,9,gscpi,driver,+,0.3306610407876231,0.6574039853849382,1.0,False,0.7203045209025178,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,3,own_chg_1m,own,+,0.6072742718333739,0.3660728101424379,,,-0.21725714081905734,-0.21725714081905734,0.03850029737791249,kept,
+S10,3,own_chg_3m,own,+,0.6132459078258409,0.3660728101424379,,,-0.039020845143359906,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,3,own_vs_12m_avg,own,-,0.4897872541157602,0.3660728101424379,,,-0.1921920495033015,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,3,own_pos_12m_range,own,-,0.5554718406357134,0.3660728101424379,,,-0.17704279690223257,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,3,own_vol_12m,own,0,0.05467239020708524,0.3660728101424379,,,0.4732997697475325,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,3,meps_hr_chg_1m,driver,+,0.43473067350179073,0.3660728101424379,0.5420450781990558,True,0.10015867915848387,-0.05742216510434328,0.005684579648195635,shortlist,"won forward selection but not robust: tested last: loss change +10.0%, helps in 28% of resamples"
+S10,3,steel_gap_3m_s10,driver,+,0.2574178027265437,0.3660728101424379,1.0,False,0.25926214168229245,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,3,iron_ore_eur_chg_3m,driver,+,0.392971366573895,0.3660728101424379,0.1713930772477195,True,0.016082097971793274,,-0.0016186690994118478,dropped,fitted effect has the wrong sign (or is zero)
+S10,3,power_de_chg_3m,driver,+,0.4182367092787395,0.3660728101424379,1.0,True,0.026875235490276816,,,dropped,does not lower the backtest loss by 1 %
+S10,3,eua_chg_3m,driver,+,0.5431571815718157,0.3772021758705555,0.47412339947763316,True,-0.06502153310701697,-0.06502153310701697,0.009120506599912273,shortlist,"won forward selection but not robust: tested last: loss change -4.3%, helps in 70% of resamples"
+S10,3,gscpi,driver,+,0.4702014245954998,0.3660728101424379,1.0,True,0.06192296127118224,,,dropped,does not lower the backtest loss by 1 %
+S10,6,own_chg_1m,own,+,0.5935830568947441,0.5269782007791076,,,-0.10321362442747883,-0.10321362442747883,,shortlist,"won forward selection but not robust: tested last: loss change -10.3%, helps in 69% of resamples"
+S10,6,own_chg_3m,own,+,0.6010033164014944,0.5269782007791076,,,-0.02341579188362697,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,6,own_vs_12m_avg,own,-,0.4404517022795012,0.5269782007791076,,,0.04274193840531959,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,6,own_pos_12m_range,own,-,0.47026263496897397,0.5269782007791076,,,-0.057330009951970684,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,6,own_vol_12m,own,0,-0.06017799420679232,0.5269782007791076,,,1.046956659347169,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,6,meps_hr_chg_1m,driver,+,0.35972860643679183,0.5269782007791076,0.5420450781990558,False,0.14660983851044285,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,6,steel_gap_3m_s10,driver,+,0.232274043910835,0.5269782007791076,1.0,False,0.1610952470172755,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,6,iron_ore_eur_chg_3m,driver,+,0.29499181394567814,0.5269782007791076,0.1713930772477195,False,0.07864035219200938,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,6,power_de_chg_3m,driver,+,0.4582511229587338,0.5269782007791076,1.0,False,-0.03506185007867024,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,6,eua_chg_3m,driver,+,0.4335537879841677,0.5436061923007246,0.47412339947763316,False,0.04626485984942441,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,6,gscpi,driver,+,0.471726627765417,0.5269782007791076,1.0,False,0.12119084351015497,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,9,own_chg_1m,own,+,0.5520834563779989,0.6574039853849382,,,0.08457903276970624,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,9,own_chg_3m,own,+,0.5146741678387248,0.6574039853849382,,,0.1915311812180296,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,9,own_vs_12m_avg,own,-,0.33966244725738404,0.6574039853849382,,,0.27847448221744187,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,9,own_pos_12m_range,own,-,0.3433910067653576,0.6574039853849382,,,-0.06116884899959707,-0.06116884899959707,,shortlist,"won forward selection but not robust: tested last: loss change -6.1%, helps in 72% of resamples"
+S10,9,own_vol_12m,own,0,-0.14334270979840602,0.6574039853849382,,,1.7236777351779087,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S10,9,meps_hr_chg_1m,driver,+,0.37215066324690843,0.6574039853849382,0.5420450781990558,False,0.21022984807899503,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,9,steel_gap_3m_s10,driver,+,0.27004219409282704,0.6574039853849382,1.0,False,0.4094598101271034,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,9,iron_ore_eur_chg_3m,driver,+,0.239803094233474,0.6574039853849382,0.1713930772477195,False,0.08168119505025961,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,9,power_de_chg_3m,driver,+,0.4572902015939991,0.6574039853849382,1.0,False,-0.02402044659086422,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,9,eua_chg_3m,driver,+,0.39524893314366993,0.6789639165669998,0.47412339947763316,False,0.07019660113103843,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S10,9,gscpi,driver,+,0.39641350210970466,0.6574039853849382,1.0,False,0.6288786167011675,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,3,own_chg_1m,own,+,0.6791804854714946,0.3660728101424379,,,-0.21711356629319378,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,3,own_chg_3m,own,+,0.5976187331358379,0.3660728101424379,,,-0.22097343132900116,-0.22097343132900116,0.020122902281364576,kept,
+S11,3,own_vs_12m_avg,own,-,0.4316733415461092,0.3660728101424379,,,-0.06736149924697488,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,3,own_pos_12m_range,own,-,0.46325613806634225,0.3660728101424379,,,-0.10704966066739852,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,3,own_vol_12m,own,0,0.26274948228738154,0.3660728101424379,,,0.2541505974079803,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,3,brent_eur_chg_1m,driver,+,0.49675218997764814,0.3660728101424379,0.003000273111214603,True,-0.042442470615277506,-0.042442470615277506,0.013549791058476297,kept,
+S11,3,benzene_chg_1m,driver,+,0.14850420062439793,0.372629859308393,1.0,False,0.007263956359925938,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,3,ttf_chg_3m,driver,+,0.4448438362417353,0.3660728101424379,1.0,True,-0.005240127071382217,,,dropped,does not lower the backtest loss by 1 %
+S11,3,steo_brent,driver,+,-0.18636279019692134,0.3660728101424379,,False,0.08855460770917478,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,3,gscpi,driver,+,0.42016331036511795,0.3660728101424379,1.0,True,0.14945110897609282,,,dropped,does not lower the backtest loss by 1 %
+S11,6,own_chg_1m,own,+,0.6639868185760854,0.5269782007791076,,,-0.1949876242528238,-0.1949876242528238,0.045457602915618844,kept,
+S11,6,own_chg_3m,own,+,0.5496124722614201,0.5269782007791076,,,-0.136530096735325,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,6,own_vs_12m_avg,own,-,0.33222786616850675,0.5269782007791076,,,0.14694710902170804,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,6,own_pos_12m_range,own,-,0.423507390296122,0.5269782007791076,,,0.02209539048442921,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,6,own_vol_12m,own,0,0.22272364720204857,0.5269782007791076,,,0.48819415420505186,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,6,brent_eur_chg_1m,driver,+,0.3754670248940011,0.5269782007791076,0.003000273111214603,True,0.007684003134392103,,,dropped,does not lower the backtest loss by 1 %
+S11,6,benzene_chg_1m,driver,+,0.12147210501640883,0.5367681063550628,1.0,False,-0.03416649751356382,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,6,ttf_chg_3m,driver,+,0.4799336719701104,0.5269782007791076,1.0,False,-0.025511466177444042,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,6,steo_brent,driver,+,-0.1380681998983372,0.5269782007791076,,False,-0.05416215001677571,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,6,gscpi,driver,+,0.40413920490323657,0.5269782007791076,1.0,False,0.27328714682178235,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,9,own_chg_1m,own,+,0.5399563985636969,0.6574039853849382,,,-0.035122989573279306,-0.035122989573279306,,shortlist,"won forward selection but not robust: tested last: loss change +0.3%, helps in 55% of resamples"
+S11,9,own_chg_3m,own,+,0.432843605513794,0.6574039853849382,,,0.05158633923533218,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,9,own_vs_12m_avg,own,-,0.18197374589779652,0.6574039853849382,,,0.2900914513905275,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,9,own_pos_12m_range,own,-,0.30730550809409285,0.6574039853849382,,,0.1068968865485771,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,9,own_vol_12m,own,0,0.1696671354899203,0.6574039853849382,,,1.2704660469449083,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S11,9,brent_eur_chg_1m,driver,+,0.35030473511486165,0.6574039853849382,0.003000273111214603,True,-0.015672850689292583,-0.015672850689292583,0.015451357755685902,kept,
+S11,9,benzene_chg_1m,driver,+,0.06251643093748356,0.6700881895826711,1.0,False,0.01571691852177226,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,9,ttf_chg_3m,driver,+,0.4586497890295359,0.6574039853849382,1.0,False,-0.07499839356348292,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,9,steo_brent,driver,+,0.0034008425181414354,0.6574039853849382,,False,-0.1444370075791236,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S11,9,gscpi,driver,+,0.35691514299109234,0.6574039853849382,1.0,False,1.0331260395681054,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,3,own_chg_1m,own,+,0.4050285390820321,0.3660728101424379,,,0.20717638146630502,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,3,own_chg_3m,own,+,0.25454974291240157,0.3660728101424379,,,0.20328286399458295,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,3,own_vs_12m_avg,own,-,0.2336619651870371,0.3660728101424379,,,0.05521530238537231,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,3,own_pos_12m_range,own,-,0.30117758614061463,0.3660728101424379,,,-0.017355737710963215,-0.017355737710963215,,shortlist,"won forward selection but not robust: tested last: loss change +5.3%, helps in 47% of resamples"
+S12,3,own_vol_12m,own,0,-0.056106420114156334,0.3660728101424379,,,0.27988798816968163,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,3,iron_ore_usd_chg_3m,driver,+,0.4485777631020331,0.3660728101424379,0.2487289194270372,True,-0.10211042323005004,-0.10211042323005004,0.0351618280318252,kept,
+S12,3,hh_chg_3m,driver,+,0.1289966507854144,0.3660728101424379,1.0,False,0.21557143502643727,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,3,epu_us_chg_3m,driver,-,-0.1436577197037596,0.3660728101424379,1.0,False,0.02463383985741352,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,3,gscpi,driver,+,0.2175291287324874,0.3660728101424379,1.0,False,0.1149899575962321,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,6,own_chg_1m,own,+,0.26833466269258216,0.5269782007791076,,,0.04455504415243827,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,6,own_chg_3m,own,+,0.14948994584610217,0.5269782007791076,,,0.0361810081674363,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,6,own_vs_12m_avg,own,-,0.12604424667310354,0.5269782007791076,,,0.09458296064123384,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,6,own_pos_12m_range,own,-,0.14536169077356995,0.5269782007791076,,,-0.018334582846688097,-0.018334582846688097,,shortlist,"won forward selection but not robust: tested last: loss change -1.8%, helps in 80% of resamples"
+S12,6,own_vol_12m,own,0,-0.19648629360648165,0.5269782007791076,,,0.5278909217857037,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,6,iron_ore_usd_chg_3m,driver,+,0.39324545569035724,0.5269782007791076,0.2487289194270372,False,-0.08008694068566036,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,6,hh_chg_3m,driver,+,0.04831871038159606,0.5269782007791076,1.0,False,0.16491818558766158,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,6,epu_us_chg_3m,driver,-,-0.23622014189160823,0.5269782007791076,1.0,False,-0.0011892711703264114,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,6,gscpi,driver,+,0.18750262373535953,0.5269782007791076,1.0,False,0.43538589967345964,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,9,own_chg_1m,own,+,0.3320440693858415,0.6574039853849382,,,0.007077769703801362,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,9,own_chg_3m,own,+,0.22536333802156586,0.6574039853849382,,,0.03136062668990425,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,9,own_vs_12m_avg,own,-,0.05935302390998594,0.6574039853849382,,,0.007194265699434599,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,9,own_pos_12m_range,own,-,0.03266664812787991,0.6574039853849382,,,-0.0005876421563714151,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,9,own_vol_12m,own,0,-0.29416315049226444,0.6574039853849382,,,0.2884889083286031,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S12,9,iron_ore_usd_chg_3m,driver,+,0.18560712611345526,0.6574039853849382,0.2487289194270372,False,-0.01768390518579377,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,9,hh_chg_3m,driver,+,0.06715893108298172,0.6574039853849382,1.0,False,0.07750907609089364,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,9,epu_us_chg_3m,driver,-,-0.08155180496952649,0.6574039853849382,1.0,False,-0.010715787332101323,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S12,9,gscpi,driver,+,0.13994374120956402,0.6574039853849382,1.0,False,0.9115860904861948,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,3,own_chg_1m,own,+,0.33894995046936177,0.3660728101424379,,,0.04625487266102568,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,3,own_chg_3m,own,+,0.19599981131185432,0.3660728101424379,,,0.06702211501885014,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,3,own_vs_12m_avg,own,-,0.13224208689089106,0.3660728101424379,,,0.029688893490356083,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,3,own_pos_12m_range,own,-,0.16680872374972588,0.3660728101424379,,,0.0315773929771177,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,3,own_vol_12m,own,0,0.3201377423463371,0.3660728101424379,,,0.40736405690537025,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,3,wti_chg_1m,driver,+,0.44314354450681637,0.3660728101424379,0.004035525465125502,True,0.0002088822925481182,,,dropped,does not lower the backtest loss by 1 %
+S13,3,hh_chg_3m,driver,+,-0.013953488372093021,0.3660728101424379,1.0,False,0.06671113366470127,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,3,steo_wti,driver,+,-0.011871788919497389,0.3660728101424379,,False,0.022054914104019607,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,3,gscpi,driver,+,0.2115477145148356,0.3660728101424379,1.0,False,0.12024933346530897,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,6,own_chg_1m,own,+,0.1745938457663406,0.5269782007791076,,,0.03186886337697259,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,6,own_chg_3m,own,+,0.05990512572939843,0.5269782007791076,,,0.009748485304845955,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,6,own_vs_12m_avg,own,-,0.10001679190630115,0.5269782007791076,,,-0.06326884779014064,-0.06326884779014064,0.008575419901154797,kept,
+S13,6,own_pos_12m_range,own,-,0.1293860113378534,0.5269782007791076,,,-0.03531447471283855,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,6,own_vol_12m,own,0,0.31438646572352125,0.5269782007791076,,,0.6603917639931562,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,6,wti_chg_1m,driver,+,0.32954116116032073,0.5269782007791076,0.004035525465125502,True,-0.026451771615933373,-0.026451771615933373,0.018739247045247962,kept,
+S13,6,hh_chg_3m,driver,+,-0.10572604004869653,0.5269782007791076,1.0,False,-0.013442247875484203,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,6,steo_wti,driver,+,0.15828885990660818,0.5269782007791076,,False,-0.12581021476635956,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,6,gscpi,driver,+,0.2234792829856009,0.5269782007791076,1.0,False,0.6939880553879099,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,9,own_chg_1m,own,+,0.21540084388185657,0.6574039853849382,,,-0.0526200343925074,-0.0526200343925074,0.01898499632774842,kept,
+S13,9,own_chg_3m,own,+,0.1770979840600094,0.6574039853849382,,,-0.010861704206511558,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,9,own_vs_12m_avg,own,-,0.14034224097515235,0.6574039853849382,,,0.039679223106424244,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,9,own_pos_12m_range,own,-,0.1579624771085517,0.6574039853849382,,,0.016145168752914163,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,9,own_vol_12m,own,0,0.14177215189873418,0.6574039853849382,,,1.266975333811604,,,dropped,does not lower the backtest loss by 1 % once better features are in
+S13,9,wti_chg_1m,driver,+,0.20928270042194094,0.6574039853849382,0.004035525465125502,True,0.012647219968894508,,,dropped,does not lower the backtest loss by 1 %
+S13,9,hh_chg_3m,driver,+,0.07552742616033756,0.6574039853849382,1.0,False,0.08495211584232676,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,9,steo_wti,driver,+,0.32557267846365173,0.6574039853849382,,False,0.07498147023024071,,,dropped,no statistical signal (Granger and lead-lag both weak)
+S13,9,gscpi,driver,+,0.09045944678856073,0.6574039853849382,1.0,False,1.1200013920251637,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,3,own_chg_1m,own,+,0.2918837224258795,0.4000833246545858,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+EPOXY_EUR,3,own_chg_3m,own,+,0.45652453533989334,0.4000833246545858,,,-0.1047878680365879,-0.010140194868828334,,shortlist,"won forward selection but not robust: tested last: loss change -1.0%, helps in 52% of resamples"
+EPOXY_EUR,3,own_vs_12m_avg,own,-,0.3349733101807191,0.4000833246545858,,,-0.10574706869938166,-0.10574706869938166,,shortlist,"won forward selection but not robust: tested last: loss change -10.6%, helps in 78% of resamples"
+EPOXY_EUR,3,own_pos_12m_range,own,-,0.2895032549859311,0.4000833246545858,,,-0.047094175766401625,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,3,own_vol_12m,own,0,0.3548459708019809,0.4000833246545858,,,0.004755116971091766,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,3,brent_eur_chg_1m,driver,+,0.46716830664351416,0.4000833246545858,0.00024965642458685223,True,-0.018005828650848432,-0.018005828650848432,0.017246535000006974,shortlist,"won forward selection but not robust: tested last: loss change -1.8%, helps in 67% of resamples"
+EPOXY_EUR,3,benzene_chg_1m,driver,+,0.07431346067271208,0.4000833246545858,1.0,False,0.036822732428844596,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,3,ech_chg_1m,driver,+,0.32616245417711753,0.4000833246545858,1.0,False,-0.025958764370859755,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,3,steo_brent,driver,+,-0.1619578215093327,0.4000833246545858,,False,0.007041972252676443,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,6,own_chg_1m,own,+,0.3119839240043844,0.5779724681271967,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+EPOXY_EUR,6,own_chg_3m,own,+,0.4575812933869201,0.5779724681271967,,,-0.014221212124345683,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,6,own_vs_12m_avg,own,-,0.2576178297405919,0.5779724681271967,,,0.14380880694851195,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,6,own_pos_12m_range,own,-,0.22139764926737968,0.5779724681271967,,,0.12345405388908448,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,6,own_vol_12m,own,0,0.35699671172816955,0.5779724681271967,,,-0.02070209343056373,-0.02070209343056373,,shortlist,"won forward selection but not robust: tested last: loss change +10.1%, helps in 24% of resamples"
+EPOXY_EUR,6,brent_eur_chg_1m,driver,+,0.39440993788819884,0.5779724681271967,0.00024965642458685223,True,-0.0348196719544539,-0.0348196719544539,0.0187059767849542,kept,
+EPOXY_EUR,6,benzene_chg_1m,driver,+,0.10727073438070883,0.5779724681271967,1.0,False,0.03996131982265805,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,6,ech_chg_1m,driver,+,0.29291194738765075,0.5779724681271967,1.0,False,-0.02132849398960346,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,6,steo_brent,driver,+,-0.07294816175683322,0.5779724681271967,,False,-0.0664360179817085,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,9,own_chg_1m,own,+,0.23427617158960443,0.7237779669584765,,,,,,not a candidate,lag-1 partial autocorrelation not significant
+EPOXY_EUR,9,own_chg_3m,own,+,0.3312597849911283,0.7237779669584765,,,-0.18830136577072998,-0.18830136577072998,,shortlist,"won forward selection but not robust: tested last: loss change -18.8%, helps in 54% of resamples"
+EPOXY_EUR,9,own_vs_12m_avg,own,-,0.10685732178269493,0.7237779669584765,,,-0.06688073874156542,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,9,own_pos_12m_range,own,-,0.0900005249628419,0.7237779669584765,,,0.010607725843820415,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,9,own_vol_12m,own,0,0.3023692725185263,0.7237779669584765,,,-0.041373804033259964,,,dropped,does not lower the backtest loss by 1 % once better features are in
+EPOXY_EUR,9,brent_eur_chg_1m,driver,+,0.3523849285043315,0.7237779669584765,0.00024965642458685223,True,0.12730156929141545,,,dropped,does not lower the backtest loss by 1 %
+EPOXY_EUR,9,benzene_chg_1m,driver,+,0.07621333889990607,0.7237779669584765,1.0,False,0.06621863629876934,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,9,ech_chg_1m,driver,+,0.22951675190481163,0.7237779669584765,1.0,False,0.06435637536081651,,,dropped,no statistical signal (Granger and lead-lag both weak)
+EPOXY_EUR,9,steo_brent,driver,+,0.03634541431236901,0.7237779669584765,,False,0.08157881300826042,,,dropped,no statistical signal (Granger and lead-lag both weak)
