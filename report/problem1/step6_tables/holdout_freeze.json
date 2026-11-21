@@ -1,0 +1,90 @@
+{
+  "final_model": "conformal_combo",
+  "select_end": "2025-03",
+  "settings": {
+    "ewma_lambda": 0.97,
+    "ewma_lambdas_to_compare": [
+      0.94,
+      0.97
+    ],
+    "garch_min_obs": 60,
+    "garch_o": 0,
+    "garch_dist": "t",
+    "ets_max_order": 2,
+    "chronos_model": "amazon/chronos-bolt-small",
+    "chronos_revision": "772f3d25d38aec6d914c8949dab4462e2d46f5d8",
+    "chronos_device": "cpu",
+    "conformal_gammas": [
+      0.0,
+      0.02,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "combo_sizes": [
+      3,
+      4
+    ],
+    "combo_coverage_tol": 0.1,
+    "feature_median_cells": null,
+    "features_band": "residual",
+    "features_alpha_rel": 0.02,
+    "pooled_groups": {
+      "market": [
+        "S01",
+        "D01",
+        "S02",
+        "D02",
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "ppi": [
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "epoxy": [
+        "EPOXY_EUR"
+      ]
+    },
+    "pooled_alpha_rel": 0.02,
+    "pooled_pools": [
+      [
+        "market",
+        "ppi",
+        "epoxy"
+      ]
+    ],
+    "seed": 0
+  },
+  "files": {
+    "predictions_auto_arima.csv": "abb44f674d5c29065cf28d900426b4b5a66b8b1815e9de3490dccf0a6a6212e9",
+    "predictions_auto_ets.csv": "8cace342f1a6e8ffce8d3507c399948c13c439ee113d2195fab78c9e52f72b4b",
+    "predictions_auto_theta.csv": "41fa2c4c24d403fa63e44188e6cd208b818ffef1c43bf1f466a1b40335db2cdc",
+    "predictions_chronos_bolt.csv": "3f7317d3fbe2d4d332b0c384a30e8f3367b427df64a1f38c37a3672b64a857d0",
+    "predictions_combo.csv": "c367cf107c144e8148653aed520f47daac56ac2cc140e73ef74df8debb9f204b",
+    "predictions_conformal_auto_arima.csv": "857195db2a29ce239e8733ca44776947466bceda865b3581ac0ed24c386788ca",
+    "predictions_conformal_auto_ets.csv": "345bf8e2263c1b9cb4071d5dfe91ee4634a5438b53cafecef3f91f48ad1edcca",
+    "predictions_conformal_auto_theta.csv": "6a52349d9f64f14b739c9a06fe0015dc050a5d3a63d9aa37345e96c7f0b1f7a3",
+    "predictions_conformal_chronos_bolt.csv": "5871681e4630277c516f40358c9994785d67c40f3ada49a3a4b39671f741dafc",
+    "predictions_conformal_combo.csv": "5b925cc2e562ed08dd7db2b028f4211d9fe40ff9d7523822cd85c4efdc9bd226",
+    "predictions_conformal_ewma_fhs.csv": "35de3dc099a2468ac6ad1b1ced025e0927e9391fbc37fb0f134d47ff59b07866",
+    "predictions_conformal_features_scaled.csv": "13fcc1b81ebc53cdc8d83b610a9a7f009376b3397df53c55dceb0837a6967aba",
+    "predictions_conformal_garch_fhs.csv": "7a0598f80289d87e448c3b88817e0d52d45f45b2796165daffa09181c1c69ced",
+    "predictions_conformal_gjr_fhs.csv": "8b74e17dbb407b7b11bb7b1b65792eb35efba0d73f1522672d5e3df9658254dd",
+    "predictions_conformal_pooled_qr.csv": "1a6e1d9e3cd1cda3691dfeffa42cf541db29935eca086a29c4d6ebd0192cbc2c",
+    "predictions_ewma_fhs.csv": "d0f6cf8cd527eea78042c363acf1b24139d2fd13419b7ab400fd32ffcb10af6f",
+    "predictions_features_scaled.csv": "c1d8326eff18a7ab4a56f31beeedcbb2f41ab9cafb10f201768b1759de384431",
+    "predictions_garch_fhs.csv": "c0bc02c6feab00cd4ce09b9d9f566fb9b48ce9b63833aa7f8e6076e3b627358c",
+    "predictions_gjr_fhs.csv": "cf325fe5288dc3d4737e5cb8e3930d1ac92bf94c6dfdc656865a4335305616fb",
+    "predictions_pooled_qr.csv": "3eb63f6e083c55b1ed0cc98434d44104a6f70f9cd1c78902add5865c4f44a4db",
+    "predictions.csv": "27ea2f8160f94d002b8880227ae0d0e5aec12a25f0d152ff13943bf377f1a534",
+    "combo_selection.csv": "f407b16873bce8dd4c69c8f3c2d9f85f6adba07f110cd1b6670cf9d0670758ff",
+    "conformal_gamma.csv": "b6eac070d0cae0c10f9a4fac546e937b3f43205d914f83d2297d538985befcc0"
+  }
+}
