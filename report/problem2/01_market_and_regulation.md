@@ -1,198 +1,438 @@
 # Problem 2 – Market & Regulation (Steps 1–3)
 
-*Owners: Kenza, Chloe · Status: Step 1 plan written, research to do · Steps 2–3 to come*
+*Owners: Kenza, Chloe · Status: Steps 1–3 done*
+
+> **Sources:** E-numbers (e.g. E20) refer to rows of [`market_evidence/evidence.csv`](../../market_evidence/evidence.csv), where each fact has its source, link, date and reliability. "E63 +5" means E63 is the main source and 5 more rows back the same entry.
+>
+> **Hypotheses:** H1, H2, … refer to the hypotheses in the [problem framing](00_problem_framing.md) (§6, "Hypotheses to test").
 
 ---
 
 # Step 1 – Evidence inventory
 
-**Goal:** gather every fact the strategy rests on, each one with a **source and a date**, before building the regulation map (Step 2), the market scoring (Step 3) and the lifetime-cost model (Step 4).
+**Goal:** collect every fact the strategy rests on, each with a source and a date. **Result:** 125 sourced facts in [`market_evidence/`](../../market_evidence/) (guide: [`market_evidence.md`](market_evidence.md)), covering 25 jurisdictions, 25 data-centre markets, 16 customers, 17 competitors and the lifetime-cost inputs. 3 rows remain unverified (§11).
 
-**Output:** one evidence table (section 4), filled in by the end of **Sat 21 Nov**.
+## 1. Summary of findings
+
+1. **SF6 costs a data centre almost nothing today.** Leaks are small (0.2 %/yr of a 1.5 kg fill) and no adopted rule forces replacement of installed units. In the base case, AirSeT saves the customer about **€31 per unit** over its life, against a **€1,921** premium.
+2. **The carbon argument works only if the whole SF6 fill is valued.** AirSeT pays back at **€54/t CO₂e** if the whole fill counts, **€681/t** for leaks only. Prices that actually reach a data centre are **€10–22/t**.
+3. **H1 not supported:** 9 of 11 data-centre operators never mention SF6, and Google declares it out of scope. All 11 have hard Scope 1 targets for 2030–2050, so the lever is to **get SF6 into their Scope 1 accounting**. AirTrunk (APAC) already counts SF6: a natural lead customer. Outside the EU, only **utilities** are switching (SCE, ElectraNet, Chubu, Kansai, SEC).
+4. **H2 partly supported:**
+   - **Bans on new MV equipment:** only the EU, Switzerland and California.
+   - **Phase-out adopted:** New York (from 2027).
+   - **SF6 rules short of a ban:** the UK, Australia, Massachusetts, Oregon.
+   - **No SF6 rule:** the other 17, including every Asian and Middle East hotspot.
+5. **Where to play:**
+   - **Largest voluntary markets:** the US states (Virginia, Texas, Ohio), India, Malaysia/Johor and Japan.
+   - **Fastest growing:** Saudi Arabia (≈ 59 % a year) and Latin America (≈ 41 %).
+6. **Who competes:**
+   - **Outside Japan:** Eaton is the visible SF6-free rival.
+   - **In the US:** the incumbents S&C and G&W sell gas-free solid-dielectric gear.
+   - **Price threat:** Chinese dry-air RMUs (CHINT, Rockwill).
+   - **The premium AirSeT must justify depends on the rival:** +3 % vs Siemens, +22 % vs RM6, ≈ +50 % vs low-cost SF6 brands.
+7. **No industry standard asks for SF6-free switchgear** (iMasons, the Climate Neutral Data Centre Pact, LEED, BREEAM). But iMasons already makes members ask suppliers for environmental declarations, where an SF6 disclosure would fit.
+
+## 2. Method
+
+- **One source table:** every fact is a row of `evidence.csv` (source, link, dates, reliability), and the other tables cite those rows by id. The loader refuses a value without a source.
+- **Reliability:**
+  - **High:** an official or primary source, read directly.
+  - **Medium:** a reputable secondary source, Schneider data, or an official source read through a search summary.
+  - **Low:** a vendor blog or an unconfirmed estimate.
+- **Primary sources first:** laws, regulators, IPCC tables and company reports, downloaded and searched where possible. The first research pass (20 Nov) was fact-checked on 22 Nov (§10).
+- **AI use:** Claude helped in searching and reading sources, building the data files and coding, and drafting this report. Every figure was checked against its cited source.
+- **Confidential material** (procurement deck, BOM, price benchmark) stays out of the repo, cited as "Schneider internal".
+
+## 3. Internal data
+
+| Source | What it gives Problem 2 |
+|---|---|
+| Price benchmark (synthetic) | SF6-free premium (Eaton vs Schneider): +38 % (2017), +22 % or €1,921 (2025), −5 % (2026, after the EU ban) |
+| Teardown benchmark | SF6 fill per unit (inferred): RM6 1.5 kg, Ormazabal 1.2, Siemens 8DJH 2.5, ABB SafePlus 3.24, Eaton Xiria 0 |
+| BOM and Problem 1 cost model | Raw-material cost per unit: RM6 €795 vs AirSeT €583–981; copper-heavy RM6, steel-heavy AirSeT |
+| Problem 1 EDA | AirSeT's raw-material risk is ≈ 95 % steel and stainless, so a steel indexation clause covers most of it |
+| Schneider raw-materials update, Oct 2026 (internal) | Copper easing from record highs with an upward bias; steel prices driven by trade policy |
+| Supplier balance sheets (PitchBook, 9 suppliers) | Supplier health, for "can the supply base scale AirSeT?" |
+| Client slides | Data-centre market $584B in 2026, $1.32T by 2030. The slide's "25.7 % CAGR" is the 2025→26 growth; the rate to 2030 is 22.7 % (E38) |
+
+## 4. SF6 lifecycle facts
+
+Inputs of the lifetime-cost (TCO) model. Pessimistic / base / optimistic are from AirSeT's point of view.
+
+| Input | Pessimistic / base / optimistic | Sources |
+|---|---|---|
+| GWP of SF6 | 22,800 / 23,500 / 24,300 (IPCC AR4 / AR5 / AR6) | E05, E06 |
+| SF6 fill of an RM6 | 0.72 / 1.5 / 2.5 kg (RM6's own mass is not published; range = comparable RMUs) | E02, E11, E37, E106 |
+| Leak rate | 0.1 / 0.2 / 0.7 %/yr (IEC design value / IPCC Europe / IPCC Japan) | E08, E09 |
+| Asset life | 60 / 40 / 30 years (a longer life lowers AirSeT's value) | E09, E10, E11 |
+| SF6 released at end of life | 1.5 / 10 / 40 % of the fill | E10 |
+| End-of-life recovery cost | €35 / €80 / €1,000 per unit | E11, E12 |
+| Cost of a rule on an installed RM6 | €0: adopted rules target new equipment; repairs and extensions stay allowed | E61, E19, E21 |
+| Customer's discount rate | 10.7 / 7.0 / 5.3 % (Damodaran, Jan 2026) | E60 |
+| Internal carbon price | €13 / €22 / €170 per t (Microsoft / CDP median / US EPA social cost of carbon) | E56, E58, E75 |
+| AirSeT price premium | 27 / 22 / 3 % of the RM6 price | E01, E36 |
+
+**Emissions accounting** (E13, E14): an operator's switchgear leaks count in its **Scope 1**, but SF6 released when a contractor disposes of the unit is **Scope 3**. So most of a unit's 35 t CO₂e is Scope 3 or an end-of-life liability, not Scope 1.
+
+## 5. Regulation
+
+Full country table in Step 2 (§2.1).
+
+| Status | Jurisdictions |
+|---|---|
+| **3** Ban in force for new MV equipment | EU (≤ 24 kV from 2026, 24–52 kV 2030), Switzerland (same), California (≤ 38 kV from 2025) |
+| **2** Phase-out adopted | New York (from 2027, any owner of SF6 equipment) |
+| **1** Rules short of a ban, or under discussion | UK (under discussion), Australia (import licence and levy), Massachusetts (leak cap), Oregon (utility reporting) |
+| **0** No SF6 rule | US federal and other states, Canada, Japan, Korea, China, Singapore, Malaysia, India, UAE, Saudi Arabia, Brazil, Mexico, Chile |
+
+**Carbon prices that reach a data centre's SF6:**
+- **Korea:** large operators are in its carbon market, ≈ €8–11/t.
+- **UAE:** reporting only.
+- **Everywhere else:** none. Singapore's tax and Japan's reporting have thresholds far above a data centre.
+
+**Saudi Arabia:** the state utility's RMU specification still requires SF6, a barrier for utility sales, not for private data centres.
+
+## 6. Carbon prices against the break-even
+
+![Carbon prices vs AirSeT break-even](../../plots/problem2/01_carbon_prices_vs_break_even.png)
+
+**Prices collected:**
+- **13 compliance schemes:** World Bank data, Apr 2024; 2026 values for the EU, Korea and Singapore (E73, E74).
+- **Internal prices:** Microsoft (US$15/t on operations, the only data-centre operator that discloses one) and the CDP median (US$25/t) (E75, E56).
+- **Upper reference:** the US EPA social cost of CO₂ (US$190/t, E58).
+
+| What the customer counts | Break-even | Real prices that reach it |
+|---|---|---|
+| The whole SF6 fill | **€54/t** | EU ETS (€75) and the social cost of carbon (€170), neither applying to a non-EU data centre |
+| Leaks only (0.2 %/yr over 40 years) | **€681/t** | None |
+| Lifetime model (leaks + end of life, discounted at 7 %) | **€1,630/t** | None |
+
+## 7. Customer commitments (H1) and industry standards
+
+Each operator's latest sustainability report was searched in full for "SF6", "sulfur hexafluoride", "switchgear" and "F-gas" (E77–E85, E110–E111).
+
+| Operator | Scope 1 (and 2) target | SF6 mentioned? |
+|---|---|---|
+| Microsoft | Carbon negative by 2030 | No |
+| Google | Net zero by 2030 | **Only to exclude it** ("isn't emitted as a result of our operations") |
+| AWS / Amazon | Net zero by 2040 | No |
+| Meta | −42 % by 2031 | No |
+| Oracle | Halved by 2030, net zero 2050 | No |
+| Equinix | −50 % by 2030, −90 % by 2040 | No |
+| Digital Realty | −42 % by 2030 (−68 % already) | No |
+| NTT GDC | −90 % by 2030, net zero 2040 | F-gases tracked; SF6 not named |
+| STACK Infrastructure | Net zero by 2050 | No |
+| Iron Mountain Data Centers | Net-zero operations by 2030 | No |
+| **AirTrunk** (APAC only) | Net zero by 2030 | **Yes**: counts SF6 in Scope 1, exploring SF6-free equipment |
+
+**H1 verdict: not supported.** No operator applies an SF6-free standard worldwide. No supplier code requires it, and no SF6-free data-centre project exists outside Europe.
+
+**Utilities lead outside the EU** (E126): SCE (California, MV from 2027, because of the ban); ElectraNet (Australia), Chubu and Kansai (Japan) and SEC (Saudi Arabia) voluntarily, at high voltage first. No SF6-free MV project at an industrial or infrastructure site outside Europe was found.
+
+**Industry standards** (E113–E116): the iMasons Climate Accord (embodied carbon, supplier declarations), the Climate Neutral Data Centre Pact (energy, water, heat), LEED v5 (HVAC refrigerants) and BREEAM (cooling refrigerants) contain **no SF6 requirement**.
+
+**What it means:**
+- **The lever is to get SF6 into operators' Scope 1 accounting.** Once leaks count against a 2030 target, an SF6-free unit removes a line nobody wants to manage.
+- **The channel already exists:** iMasons' supplier-disclosure process, with which Schneider already shares product profiles.
+- **Lead customer:** AirTrunk.
+
+## 8. Data-centre markets
+
+MW = operational + under construction ([`markets.csv`](../../market_evidence/markets.csv)). Massachusetts is not a tracked market.
+
+| Market | MW | Growth (% / yr) |
+|---|---|---|
+| China | ~44,000 (estimates vary 15×) | – |
+| USA (all tracked markets) | 30,500 | +33 |
+| – Texas / Virginia / Ohio | 7,800 / 6,900 / 5,500 | +33 |
+| India | 2,000 | – |
+| Malaysia (Johor) | 1,700 | – |
+| UK | 1,650 | +21 |
+| Japan | 1,600 | +13 |
+| Arizona | 1,300 | +33 |
+| Singapore | 1,100 | +13 |
+| Australia | 1,060 (+2,018 planned in Sydney) | +13 |
+| Brazil / Korea / Canada | 910 / 890 / 730 | +41 / – / – |
+| UAE | 720 | – |
+| Oregon / California | 660 / 650 | +33 |
+| Mexico | 580 | +41 |
+| Saudi Arabia | 440 (1.8 GW targeted by 2030) | ≈ +59 |
+| Chile / New York / Switzerland | 400 / 330 / 210 | +41 / +33 / – |
+
+**Sources:** datacentres.com Nov 2026, from CBRE and Cushman & Wakefield (E54); CBRE growth (E87, E88); Saudi telecom ministry (E89); SemiAnalysis for China (E90).
+
+**Not available:** the Colliers 2026 report (blocks download) and the $584B split by region (paid; North America is the largest, E93).
+
+## 9. Competitors
+
+Full table in Step 2 (§2.2).
+- **Direct RM AirSeT rivals:** Eaton Xiria (dry air), ABB SafeRing/SafePlus Air, Siemens 8DJH Blue GIS (clean air), Lucy EcoTec (synthetic air), Ormazabal (EU utilities).
+- **US incumbents:**
+  - **S&C Electric:** sells its Vista switchgear in SF6, in an F-gas mix (Vista Green) and in solid dielectric (Vista SD).
+  - **G&W Electric:** solid-dielectric Trident (E124, E125).
+- **Asia:**
+  - **Meidensha:** a 24 kV dry-air unit.
+  - **Mitsubishi:** dry air only as an option.
+  - **CHINT and Rockwill:** SF6-free RMUs sold next to their SF6 ones.
+  - **Toshiba, Hyundai, LS Electric:** none at MV.
+
+| Hotspot | SF6-free MV sold | Still sells SF6 | Local plant |
+|---|---|---|---|
+| USA | S&C, G&W; Schneider in California (from 2027) | S&C | Eaton (2027, Low) |
+| Japan | Meidensha, Mitsubishi (option) | Mitsubishi | – |
+| India | Eaton | – | Lucy |
+| Malaysia | Schneider | – | – |
+| Singapore | Schneider, Eaton | – | – |
+| Australia | Eaton | – | – |
+| UAE | Schneider | – | Lucy |
+| Saudi Arabia | Schneider | – | Lucy |
+
+*Vendors' own country pages. "–" means nothing found, not absent.*
+
+**Schneider:**
+- **SF6:** still sells the RM6 outside the EU (South Africa, Vietnam).
+- **In the US:** a 38 kV AirSeT piloted with Equinix and an SCE contract (E94, E121, E122).
+- **Public AirSeT claims:** pure air plus vacuum, sealed for life, "maintenance-free", digital monitoring.
+- **Not published:** any lifetime-cost, footprint or rating figure (E117).
+
+## 10. Corrections to the first research pass
+
+The team's first pass (20 Nov) was checked against primary sources on 22 Nov:
+
+| Item | First pass | Corrected |
+|---|---|---|
+| EU ban date | "By 2032" | ≤ 24 kV from **2026**, 24–52 kV 2030 (2032 is > 145 kV) (E63) |
+| US federal | "Reporting" | Only utilities report; nothing applies to a data centre (E62) |
+| US states | Not researched | California, New York, Massachusetts, Oregon have rules; Virginia, Texas, Arizona, Ohio none (E21, E43) |
+| Canada, Singapore, China, India, Saudi Arabia, Brazil, UAE, Mexico | 0–1, some "priced" | No SF6 rule; Singapore's tax does not reach data centres → 0 |
+| UK / Australia / Japan / Korea | 1–2 / 0 / reporting / priced, no price | 1 (under discussion) / 1 (levy) / none for data centres / ≈ €8–11/t |
+| Eaton technology | Solid epoxy | Dry air + vacuum (E31) |
+| Schneider | Up to 36 kV; "15–20 % premium"; no SF6 sold | Up to **24 kV**; premium unsourced; RM6 still sold outside the EU (E30, E94) |
+| Siemens / Ormazabal | MV panels only / "cgm.zero24" | 8DJH 12/24 RMUs are the rivals / name not found (E33, E107) |
+| Price premium | ≈ +20 % | +22 % vs Schneider, +3 % vs Siemens, ≈ +50 % vs low-cost SF6 brands (E36) |
+| GWP (optimistic) | 25,200 | A draft value; final AR6 is 24,300 (E05, E07) |
+
+## 11. Open items
+
+- **Unverified:** the RM6 SF6 fill (inferred), Malaysia's regulation (press only), LS Electric (nothing found).
+- **To open by hand** (sites block automated reading):
+  - **Most useful:** the RM6 and RM AirSeT environmental profiles. They would settle the SF6 fill and Problem 1's copper question.
+  - **Legal texts:** EU Regulation 2024/573, New York's Part 495 text, Massachusetts 310 CMR 7.72, India's CEA report, the Korean ETS Act.
+- **Not researched (low priority):** MV units per MW of data centre (needed in Step 4), Schneider's own SF6 targets, national climate plans.
 
 ---
 
-## 1. What we already have (internal)
+# Step 2 – Regulation and market landscape
 
-| Source | What it gives Problem 2 | Used in |
-|---|---|---|
-| Price benchmark (`RMU_IQI_EU_Price_Benchmark…`, synthetic) | Selling prices for 6 brands, 2017–2026. The SF6-free premium (Eaton vs Schneider) was +38 % in 2017, +22 % in 2025 and −5 % in 2026, after the EU ban. | Price gap (Steps 4, 7) |
-| Teardown benchmark (`benchmark-…rm6-ne-iqi…xlsx`) | SF6 fill per unit: RM6 1.5 kg, Ormazabal 1.2 kg, Siemens 2.5 kg, ABB 3.24 kg, Eaton 0 kg (estimated, not measured). Insulation technology of each competitor; GWP 22,800. | Lifetime cost (Step 4), competitors (Step 2) |
-| BOM (`bom_materials.csv`) and the Problem 1 cost model | Raw-material cost per unit: RM6 €795 vs AirSeT €583–981. Copper-heavy RM6 vs steel-heavy AirSeT. | Cost gap (Steps 4–5) |
-| Problem 1 EDA | AirSeT's raw-material risk is ≈ 95 % steel and stainless, so a steel indexation clause covers most of it. | Pricing (Step 7) |
-| Schneider raw-materials update, Oct 2026 (`2026-10 Cu, Al, Ag, Steel and Plastics.pptx`, internal) | Procurement's view: copper pulling back from record highs with an upward medium-term bias; steel prices now set by trade policy (EU quotas, 50 % out-of-quota duty, CBAM), US rising, China soft. | Raw-material outlook (Step 5), regional story (Step 2) |
-| `Supplier_balancesheet/` (PitchBook, 9 suppliers) | Financial health of suppliers, for the question "can the supply base scale AirSeT?" | Optional, barriers (Step 8) |
-| Client slides | Data-centre market $584B in 2026, 25.7 % CAGR, $1.32T by 2030; 90 %+ of new capacity pre-leased. | Market size (Step 3) |
+**Goal:** a picture per region of where SF6 is regulated, how big each data-centre market is, who competes and who the customers are, as the input to Step 3.
 
-**Gaps that external research must fill:** everything outside the EU (regulation, prices, market size), SF6 lifecycle costs, carbon prices, customer commitments, and competitors' SF6-free offers.
+![Regulation and data-centre market by jurisdiction](../../plots/problem2/02_regulation_and_market.png)
 
----
+| Group | Rule | Jurisdictions | Pitch it calls for |
+|---|---|---|---|
+| Nothing forces it | Status 0, no SF6 price | 16, incl. Texas, Virginia, Ohio, China, India, Malaysia, Japan, Singapore, UAE, Saudi Arabia | Customer ESG and risk |
+| SF6 priced | A carbon price reaches a data centre's SF6 | Korea | Lifetime cost |
+| SF6 rules apply | Rules short of a ban in force | Australia, Massachusetts, Oregon | No SF6 paperwork |
+| Regulation coming | Phase-out adopted or under discussion | New York, UK | Future-proof |
+| Reference | Ban in force for new MV equipment | EU, Switzerland, California | Not voluntary: shows what happens once SF6 is banned |
 
-## 2. External research to collect
+## 2.1 SF6 regulation by country
 
-Priority: **A** = needed for the core argument (do first), **B** = strengthens it, **C** = nice to have.
+**Status scale:**
+- **0:** no SF6 rule.
+- **1:** under discussion, or SF6 rules short of a ban (reporting, levies, leak caps).
+- **2:** phase-out adopted.
+- **3:** ban in force for new MV equipment.
 
-### 2.1 SF6 regulation by region (tests H2: "regulation is coming")
+"SF6 priced for a data centre?" is from the customer's side. Generated from [`regulation.csv`](../../market_evidence/regulation.csv): edit the CSV, not the table.
 
-| What to find | Where to look | Priority |
-|---|---|---|
-| **EU reference:** the F-gas Regulation (EU) 2024/573 dates for SF6 in new medium-voltage switchgear (≤ 24 kV and ≤ 52 kV) | EUR-Lex (the regulation text), European Commission F-gas page | A |
-| **United States:** federal rules on SF6 (EPA reporting rules for electrical equipment); state rules, especially **California (CARB regulation on SF6 in gas-insulated equipment, with its phase-out dates)** and any other state with SF6 rules or proposals | CARB website, EPA website (Greenhouse Gas Reporting Program, SF6 Emission Reduction Partnership), state environment agencies | A |
-| **Other target countries:** any SF6 rule, proposal or consultation in Canada, UK and Switzerland (as non-EU references); **Japan, South Korea, Australia, Singapore, India, China; Saudi Arabia, UAE**; Brazil, Mexico, Chile | National environment ministries; search "[country] SF6 regulation switchgear"; IEA policy database; trade press (T&D World, Power Engineering International) | A |
-| **Climate commitments that could lead to SF6 rules:** national net-zero targets, emissions trading schemes that cover SF6, F-gas reporting duties | UNFCCC national climate plans (NDCs), ICAP status report | B |
-
-→ **For each country, record:** status (none / under discussion / announced / in force), date, voltage scope, source.
-
-### 2.2 SF6 lifecycle and technical facts (tests H3: lifetime cost)
-
-| What to find | Where to look | Priority |
-|---|---|---|
-| **GWP of SF6:** values from IPCC AR4 (22,800, used in the benchmark), AR5 and AR6; which one reporting rules use | IPCC AR6 Working Group I, chapter 7 (GWP tables); GHG Protocol | A |
-| **Leak rates:** the standard maximum for sealed-for-life equipment and real-world rates measured on installed equipment | IEC 62271-1 / 62271-200 (via summaries or manufacturer docs); EPA SF6 Partnership reports; CIGRE technical brochures on SF6 handling | A |
-| **End of life:** cost of recovering and recycling SF6 per kg or per unit; how much is actually recovered; rules on handling (certified staff) | IEC 62271-4 (SF6 handling); SF6 recycler price lists or case studies; T&D Europe / NEMA guides | A |
-| **Emissions reporting:** whether SF6 leaks from switchgear the operator owns count in its **own direct emissions (Scope 1)** | GHG Protocol Corporate Standard; SBTi guidance | A |
-| **SF6 gas price** per kg (for repairs and refills) | Industry price reports, distributors | C |
-| **Product life** of MV switchgear (often quoted 30–40 years) | Manufacturer documentation, CIGRE | B |
-
-### 2.3 Carbon prices (tests H3: break-even carbon price)
-
-| What to find | Where to look | Priority |
-|---|---|---|
-| **Compliance carbon prices** by country or region (EU ETS as reference; California cap-and-trade; Canada; UK; South Korea; China national ETS; Japan; Singapore carbon tax) | World Bank "State and Trends of Carbon Pricing" and Carbon Pricing Dashboard; ICAP status report | A |
-| **Internal carbon prices** used by data-centre operators and large tech companies | Company sustainability reports; CDP disclosures | A |
-| **Social cost of carbon** as an upper reference (e.g. US EPA estimate) | US EPA | B |
-
-→ **What we need:** compare these prices with the break-even computed in Step 0 (≈ €56 / t CO₂e if the full SF6 content is counted; ≈ €1,900 / t if only leaks are counted).
-
-### 2.4 Data-centre market by region (Step 3: where to play)
-
-| What to find | Where to look | Priority |
-|---|---|---|
-| **Capacity under construction and planned (MW) by country**, growth rates, vacancy | Colliers 2026 Data Center Marketplace Report (slide reference [5], free); CBRE Global Data Center Trends; JLL Data Center Outlook | A |
-| **Market value by region** (to split the $584B) | Research and Markets 2026 report (slide reference [4], free summary page) | A |
-| **Electricity demand from data centres by region** | IEA "Energy and AI" report | B |
-| **Hot spots** to check: US (Northern Virginia, Texas, Arizona, Ohio), Japan, Singapore, Malaysia (Johor), India, Australia, Saudi Arabia, UAE, Brazil, Mexico | The same reports; trade press (DatacenterDynamics, Data Center Frontier) | A |
-
-### 2.5 Customer commitments (tests H1: "global operators apply one standard")
-
-| What to find | Where to look | Priority |
-|---|---|---|
-| **Hyperscalers' climate targets** (net zero, Scope 1 targets) and whether they **mention SF6** or switchgear | Sustainability reports and supplier codes of conduct of Microsoft, Google, Amazon (AWS), Meta, Oracle; search the PDFs for "SF6" and "sulfur hexafluoride" | A |
-| **Colocation providers:** same check | Equinix, Digital Realty, NTT, STACK, AirTrunk, Iron Mountain sustainability reports | A |
-| **Industry pledges and standards** that could include SF6 | iMasons Climate Accord, Climate Neutral Data Centre Pact (EU, as reference), Open Compute Project, LEED / BREEAM credits for low-GWP equipment | B |
-| **Announced SF6-free projects** by data-centre operators (any region) | Press releases; Schneider, Siemens, ABB and Hitachi Energy case studies | A |
-
-→ **For each company, record:** target, year, whether SF6 is mentioned, whether it applies worldwide or only in the EU.
-
-### 2.6 Competitors' SF6-free offers (tests H6, Step 2)
-
-| What to find | Where to look | Priority |
-|---|---|---|
-| **Who sells SF6-free medium-voltage switchgear**, in which regions, at which voltages: ABB, Siemens, Hitachi Energy, Eaton, Ormazabal (Velatia), Lucy Electric, Mitsubishi Electric, Toshiba, Meidensha, LS Electric, Hyundai Electric, and Chinese makers | Company product pages and press releases; trade press | A |
-| **Their technology** (pure air, dry air, other gas mixtures) and their **price or lifetime-cost claims** | Brochures, white papers | B |
-| **Who still pushes SF6** in the target regions (low-cost competitors) | Distributor catalogues, tenders | B |
-
-### 2.7 Schneider's own public material
-
-| What to find | Where to look | Priority |
-|---|---|---|
-| **Environmental profiles (PEPs)** of RM AirSeT, SM AirSeT and SM6: material composition, **SF6 per panel for SM6** | Schneider PEP ecopassport library (se.com); RM6 profile ENVPEP1511010 already used in Step 2 | A |
-| **AirSeT claims:** lifetime cost, digital features, footprint, data-centre case studies outside the EU | se.com product pages, white papers, press releases | A |
-| **Schneider's SF6-free commitments** and targets | Schneider sustainability report | B |
-| **What RMX is** (named on the "References" slide) | se.com, press | C |
-
-### 2.8 Project economics (to scale per-unit figures to a data centre)
-
-| What to find | Where to look | Priority |
-|---|---|---|
-| **How many MV units or panels a data centre needs per MW**, and medium-voltage switchgear's share of data-centre construction cost | Schneider data-centre reference designs and white papers; Turner & Townsend Data Centre Cost Index; Uptime Institute | B |
-
----
-
-## 3. Research rules
-
-- **Primary sources first:** the regulation text, the company report, the IPCC table. A news article is only a pointer to the primary source.
-- **Record the date** of every figure. Prices and regulations change; the presentation is on 27 Nov 2026.
-- **Give ranges** where sources disagree (leak rates, recovery costs, carbon prices). Step 4 uses the ranges for its sensitivity analysis.
-- **Disclose AI tools** used for searching or summarising (slide "What good looks like", point 7), and check every AI-found fact against its source.
-- **Confidential material stays out of the repo:** the Oct 2026 procurement deck, the BOM and the price benchmark. Cite them as "Schneider internal".
-
----
-
-## 4. Evidence table (to fill)
-
-One row per fact. Keep it here, or in `report/problem2/evidence.csv` if it gets long.
-
-| ID | Fact | Value | Region | Source (link) | Date | Reliability | Used in |
-|---|---|---|---|---|---|---|---|
-| E01 | SF6-free price premium, Eaton vs Schneider, 2025 | +22 % (+€1,921) | EU | Price benchmark (Schneider, synthetic) | 2025 | Medium (synthetic) | Steps 4, 7 |
-| E02 | SF6 fill, RM6 | 1.5 kg | – | Teardown benchmark (inferred) | 2026 | Low (estimated) | Step 4 |
-| E03 | GWP of SF6 (AR4) | 22,800 | – | Teardown benchmark; to confirm in IPCC | – | To verify | Step 4 |
-| E04 | Raw-material cost per unit, RM6 vs AirSeT | €795 vs €583–981 | – | Problem 1 Step 2 | Sep 2026 | Medium | Steps 4–5 |
-| E05 | … | | | | | | |
-
-**Reliability:** High = official or primary source · Medium = reputable secondary source or Schneider data · Low = estimate or single unverified source.
-
-
-
-
-## 1. SF6 regulation by country / region
-
-**Legend used in the PDF**
-- **Yes**: highly regulated or no ban
-- **No**: complete ban or phasing out
-
-> Note: some regions may be in the process of phasing out SF6. The status of these regions is automatically assumed as "No" (no use allowed).
-
-**Status scale (0–3)** — replaces the Yes/No column for the analysis, because Yes/No mixes "heavily regulated" with "nothing at all" and hides the countries where regulation is coming (the "future-proof" argument, H2):
-
-| Status | Meaning | What it means for Problem 2 |
-|---|---|---|
-| **0** | No SF6 rule and no discussion (at most broad GHG rules or voluntary action) | Voluntary market: sell ESG and risk |
-| **1** | Under discussion / consultation, or SF6-specific rules short of a ban (handling, reporting, quotas) | Voluntary market: "regulation is coming" |
-| **2** | Phase-out announced / adopted, not yet in force | Voluntary for now, best future-proof story |
-| **3** | Ban or phase-out in force for new MV equipment | Not voluntary: reference market only |
-
-- A range (e.g. **0–1**) means the current source is too weak to decide. The low end is used in the pessimistic scenario, the high end in the optimistic one (same as `status_min` / `status_max` in `data/regulation.csv`).
-- Every status is **to verify** against a primary source (research rules, section 3). Most current sources are vendor or gas-seller blogs (reliability Low).
-
-SF6 regulation by US state: <https://www.climatepolicydashboard.org/policies/industry-materials-waste/sf6-regulations>
-
-| Country / region | Is SF6 allowed? (PDF) | Status (0–3) | Why this status / what to verify | Key dates | Details / notes | Source |
+<!-- BEGIN:regulation -->
+| Country | Status | MV ban | SF6 priced for a data centre? | Summary | Source | Reliability |
 |---|---|---|---|---|---|---|
-| EU | No | **3** | In force. "By 2032" is likely the HV end date; for MV ≤ 24 kV (RM6, SM6) the ban on new equipment should be 2026, 24–52 kV 2030. Verify on EUR-Lex 2024/573. Reference only. | By 2032 | Getting phased out | <https://www.milesgroup.fr/en/blog/fin-sf6-appareillage-electrique-reglementation> |
-| USA – California | No | **3** | CARB phase-out started 2025. Verify the dates by voltage tier. "The Americas have no SF6 regulation" is therefore not fully true. | Start 2025 | Getting phased out, allowed for very specific use | <https://www.climatepolicydashboard.org/policies/industry-materials-waste/sf6-regulations> |
-| USA – federal | Yes | **0** | No federal ban found; check EPA reporting (GHGRP Subpart DD). Other states (incl. data-centre hotspots Virginia, Texas, Arizona, Ohio) to score from the state dashboard. | | Seems like there is no blanket regulation, no clear source on this !! | |
-| Canada | Yes | **1** | SF6 is on the CEPA toxic list, which allows regulation; check whether a switchgear-specific rule or proposal exists, and what "a certain amount" refers to. | | Highly regulated, can only use a certain amount | <https://www.canada.ca/en/environment-climate-change/services/management-toxic-substances/list-canadian-environmental-protection-act/sulphur-hexafluoride.html> |
-| UK | Yes | **1–2** | F-gas review covers SF6 in switchgear: check on gov.uk (DEFRA) whether the phase-out is adopted (→ 2) or only consulted on (→ 1). | | Regulated | <https://www.nuventura.com/news/sf6-regulations-whats-changing-2026-2035-and-where> |
-| Japan | Yes | **0** | Voluntary reduction only. Check whether mandatory GHG reporting covers SF6. | | No regulations but voluntary reduction of SF6 use | <https://aktif.net/en/the-changing-landscape-of-sf6-regulation-a-global-overview/> |
-| China | Yes | **0–1** | No phase-out; handling standards exist. 1 if SF6-specific rules are confirmed by a government source. | | No phase-out program but regulated | <https://www.sf6relations.com/china-sf6-gas-management-and-sf6-standard/> |
-| South Korea | Yes | **0** | No SF6 rule. Check whether K-ETS covers SF6 (would make leaks cost real money: TCO argument). | | No official regulations but voluntary transition away from SF6 | <https://aktif.net/en/the-changing-landscape-of-sf6-regulation-a-global-overview/> |
-| Australia | Yes | **0** | Reporting only (NGER). Check the synthetic-GHG import levy. | | Must report | <https://www.nuventura.com/news/sf6-regulations-whats-changing-2026-2035-and-where> |
-| Singapore | Yes | **0–1** | Source is the NDC (a target, not a rule). Check whether the carbon tax covers SF6 and its price path. | | Highly regulated | <https://www.fao.org/faolex/fr/documents/LEX-FAOC219309/singapore-s-second-update-of-its-first-nationally-determined-sgp-2021> |
-| India | No | **0–1** | Re-coded from "No": the only source is a vendor blog on potential carbon credits, and no ban was found. Coding it as banned would wrongly drop a data-centre hotspot from our voluntary scope. Check MoEFCC / CEA. | Reduce by 2030 | Phasing out | <https://www.nuventura.com/news/environmental-advantages-and-potential-carbon-credits-to-sf6-free-switchgear-in-the-indian-context> |
-| UAE | Yes | **0–1** | "Increasing regulation" from a gas trader's article. Check the Ministry of Climate Change & Environment. | | Increasing regulation | <https://starfreighttrading.com/sf6-gas-in-uae-how-it-improves-high-voltage-equipment-performance/> |
-| Saudi Arabia | Yes | **0–1** | Broad GHG rules only; no SF6-specific rule found. | | Some broad regulation on greenhouse gases | <https://albuad.sa/en/sf6-emissions-management/> |
-| Brazil | Yes | **1** | New national ETS (SBCE) under way; check whether it covers SF6 and from when. | | Some broad regulation on greenhouse gases | <https://climatepolicydatabase.org/policies/brazilian-greenhouse-gas-emissions-trading-system-sbce> |
-| Mexico | Yes | **0–1** | Broad GHG rules; pilot ETS status to check. Weak source (SF6 seller). | | Some broad regulation on greenhouse gases | <https://www.sulphurhexafluoride.com/blog/586.html> |
+| European Union | **3** | 2026 | No | Ban on new F-gas MV gear: ≤ 24 kV from 2026, 24–52 kV from 2030 | E63 +5 | High |
+| USA - California | **3** | 2025 | No | New SF6 gear ≤ 38 kV banned from 2025, sealed units included | E19 +2 | High |
+| USA - federal | **0** | – | No | No rule; reporting only for large utilities | E62 +1 | High |
+| USA - Virginia | **0** | – | No | No SF6 rule | E21 +1 | Medium |
+| USA - Texas | **0** | – | No | No SF6 rule | E21 +1 | Medium |
+| USA - Arizona | **0** | – | No | No SF6 rule | E21 +1 | Medium |
+| USA - Ohio | **0** | – | No | No SF6 rule | E21 +1 | Medium |
+| Canada | **0** | – | No | No switchgear rule; SF6 only listed under CEPA | E39 +2 | High |
+| United Kingdom | **1** | – | No | Phase-out under study; no proposal yet | E71 +4 | High |
+| Japan | **0** | – | No | No rule; voluntary industry action since 1998 | E65 +4 | High |
+| South Korea | **0** | – | Yes | No rule; carbon market prices SF6 for large operators (≈ €8–11/t) | E24 +3 | High |
+| China | **0** | – | No | No rule; national carbon market excludes SF6 | E66 +4 | High |
+| Australia | **1** | – | Reporting | Import licence and levy on SF6 equipment | E25 +3 | High |
+| Singapore | **0** | – | No | No rule; carbon tax does not reach data centres | E26 +4 | High |
+| Malaysia | **0** | – | No | No SF6 rule found (press reports only) | E70 | Low (unverified) |
+| India | **0** | – | No | No MV rule; SF6-free plan for ≥ 132 kV only | E27 +2 | Medium |
+| United Arab Emirates | **0** | – | Reporting | No rule; every entity must report its emissions | E69 +2 | Medium |
+| Saudi Arabia | **0** | – | No | No rule; utility's RMU spec still requires SF6 | E28 +1 | Medium |
+| Brazil | **0** | – | No | No rule; carbon-market thresholds far above a data centre | E67 +2 | Medium |
+| Mexico | **0** | – | No | No rule; ETS pilot covered CO₂ only | E42 +4 | High |
+| Chile | **0** | – | No | No rule; green tax excludes SF6 | E68 +2 | High |
+| USA - New York | **2** | – | No | Phase-out adopted, from 2027, any owner | E64 +3 | High |
+| USA - Massachusetts | **1** | – | No | Leak cap of 1 %/yr for SF6 switchgear | E21 +2 | High |
+| USA - Oregon | **1** | – | No | SF6 reporting for utilities only | E43 | Medium |
+| Switzerland | **3** | 2026 | – | Mirrors the EU: ≤ 24 kV from 2026, 24–52 kV from 2030 | E112 | High |
+<!-- END:regulation -->
 
-**Missing rows to add** (named in section 2.1 / 2.4 but not yet researched): US data-centre states (Virginia, Texas, Arizona, Ohio), Malaysia (Johor), Chile, Switzerland.
+**Where regulation is likely to come (H2):**
 
+| Where | Signal |
+|---|---|
+| **US states** | Spreading: California (ban 2025) → New York (from 2027); Massachusetts, Oregon and Colorado already act on SF6 (E19, E64, E43) |
+| **UK** | A government-commissioned study recommends a phase-out; no proposal yet (E71) |
+| **India** | Phased SF6-free plan, ≥ 132 kV only (E27) |
+| **Saudi Arabia** | Utility-led SF6-free pilots; its RMU specification still requires SF6 (E28) |
+| **Japan, Korea, China** | Local makers building SF6-free high-voltage lines; no MV rule (E99, E100, E40) |
+
+**H2 verdict: partly supported.** "Regulation is coming" is credible in US states and the UK. In Asia and the Middle East, regulators move at high voltage and through utilities first, with no MV rule for data centres before 2030 on current evidence.
+
+## 2.2 Competition: SF6-free medium-voltage offers
+
+Generated from [`competitors.csv`](../../market_evidence/competitors.csv).
+
+<!-- BEGIN:competitors -->
+| Competitor | SF6-free MV offer | Max kV | RM AirSeT rival? | Summary | Source | Reliability |
+|---|---|---|---|---|---|---|
+| **Schneider Electric** | RM AirSeT (pure air) | 24 | Yes | Still sells the SF6 RM6 outside the EU | E30 +8 | Medium |
+| **Eaton** | Xiria (dry air) | 24 | Yes | Most direct data-centre rival; sold in Singapore, India, Australia | E31 +4 | Medium |
+| **ABB** | SafeRing Air (dry air) | 24 | Yes | Same footprint as its SF6 units; sells SF6 in parallel | E32 +2 | Medium |
+| **Siemens Smart Infrastructure** | 8DJH 12 / 8DJH 24 Blue GIS RMU (clean air) | 24 | Yes | 8DJH 12/24 clean-air RMUs: direct rivals | E33 +1 | Medium |
+| **Siemens Energy** | 8VN1 Blue GIS 145 kV (clean air) | 145 | No (HV) | High voltage only | E44 +1 | Medium |
+| **Hitachi Energy** | EconiQ (245-550 kV GIS and breakers) (gas mix) | 550 | No (HV) | High voltage only | E34 +1 | Medium |
+| **Ormazabal (Velatia)** | F-gas-free 24 kV range (natural-origin gas) | 24 | Yes | EU utility focus | E44 +1 | Medium |
+| **Lucy Electric** | Sabre EcoTec (synthetic air) | 24 | Yes | Plants in the UAE, Saudi Arabia, India, UK and others | E35 +2 | Medium |
+| **Mitsubishi Electric** | HS-X 24 kV (dry-air option, 630 A only) (dry air) | 24 | Yes | SF6 by default; dry air only as an option | E98 | Medium |
+| **Toshiba** | AEROXIA natural-origin gas GIS (high voltage, launch FY2028) | 300 | No (HV) | High voltage only; launch FY2028 | E99 | Medium |
+| **Meidensha** | 24 kV Eco C-GIS (dry air) | 24 | Yes | 24 kV dry-air unit, Japan | E97 | Medium |
+| **LS Electric** | – | – | ? | No SF6-free MV product found | E103 | Low (unverified) |
+| **Hyundai Electric** | GREENTRIC SF6-free GIS 72.5-420 kV (dry air) | 420 | Yes | Mostly high voltage | E100 | Medium |
+| **CHINT** | NGH7-24 2.0 RMU (dry air, 24 kV) | 40 | Yes | Low-cost; sells an SF6 RMU in parallel | E101 | Medium |
+| **Rockwill** | 12/24/36 kV pure-air / nitrogen RMU (air or nitrogen) | 36 | Yes | Low-cost; sells SF6 RMUs in parallel | E102 | Medium |
+| **S&C Electric** | Vista SD (solid dielectric) | 38 | Yes | US incumbent: SF6, F-gas mix and solid dielectric | E124 | Medium |
+| **G&W Electric** | Trident-S solid-dielectric switchgear (up to 38 kV) (solid dielectric) | 38 | Yes | US incumbent: solid dielectric | E125 | Medium |
+<!-- END:competitors -->
+
+*"Still sells SF6" is sourced only for Schneider, Mitsubishi and S&C; most makers sell SF6 RMUs everywhere outside the EU.*
+
+## 2.3 Market attractiveness by region
+
+| Region | Data-centre MW | Growth | Grid investment 2026 (IEA, E120) | MV switchgear demand (E119) |
+|---|---|---|---|---|
+| **Asia-Pacific** | ≈ 52,000 (China 44,000) | +13 % (core markets) | China ≈ USD 140bn, India 26bn, Southeast Asia 15bn | Largest region, 35–46 % of the world |
+| **Americas** | ≈ 33,000 (US 30,500) | US +33 %, Latin America +41 % | Latin America ≈ USD 25bn (US: chart only) | North America ≈ 23 % |
+| **Europe** (reference) | ≈ 7,900 | +19–21 % | Chart only | – |
+| **Middle East** | ≈ 1,200 | Saudi Arabia ≈ +59 % | USD 10bn (+35 % since 2020) | Fastest-growing (with Africa) |
+
+World grid investment is about USD 550bn in 2026 (E118).
+
+## 2.4 Customer landscape
+
+See Step 1 §7 for the evidence.
+- **Hyperscalers and colocation:** no SF6 policy, except **AirTrunk** (APAC), which counts SF6 and is exploring SF6-free. Reachable through iMasons' supplier disclosures.
+- **Utilities:** the only buyers already switching outside the EU. SCE is forced by California's ban; ElectraNet, Chubu, Kansai and SEC switch voluntarily at high voltage. They are credibility references in their countries.
+- **Industry and infrastructure:** no SF6-free MV project found outside Europe.
+
+## 2.5 Regional overview
+
+| Region | Regulation | Market | Competition | Takeaway |
+|---|---|---|---|---|
+| **Americas** | Spreading state by state | Largest voluntary pool | S&C, G&W (solid dielectric) | Big, but incumbents already gas-free |
+| **Asia-Pacific** | None, except Australia and Korea | Largest overall | Eaton, Japanese and Chinese makers | Largest demand, price pressure; lead customer AirTrunk |
+| **Middle East** | None; UAE emissions reporting | Small, fastest-growing | Schneider present | Early mover: AI campuses, utility pilots |
+| **Europe** (reference) | Ban in force | – | All rivals SF6-free | Proof point: SF6-free becomes cheaper once banned |
 
 ---
 
-## 2. Competition – SF6-free medium-voltage offers
+# Step 3 – Segmentation and target markets
 
-The PDF contains this table twice: a first, partly filled draft (section 2b) and a complete version (section 2a). The complete version is the one to use.
+**Goal:** 2–3 priority targets and 1–2 later ones, with explicit weights and a check that the ranking does not flip.
 
-### 2a. Complete version
+## 3.1 Scope
 
-| Competitor | SF6-free product | Technology | Markets where sold | Price positioning | Still pushing SF6 there? | Source |
-|---|---|---|---|---|---|---|
-| **Schneider** | RM AirSeT / SM AirSeT | Pure-air insulation with vacuum interruption (Shunt Vacuum Interruption); solid insulation in selected ranges; IoT / digital monitoring | Global offering; primary and secondary distribution, utilities, industry, data centres, infrastructure and commercial buildings; up to 36 kV | Premium at initial purchase; positioned around sustainability, digitalisation and lower lifecycle cost / TCO; vendor data cited a roughly 15–20 % CAPEX premium for comparable SF6-free equipment | No, illegal | SE themselves |
-| **Eaton** | Xiria / Xiria 630 / Xiria NGX; Power Xpert FMX, UX, UX36 | Vacuum switching with solid epoxy-resin insulation; compact air-GIS approach for secondary distribution | Sold in more than 60 countries; more than 3,000 reference sites; utility, industrial and critical-power applications; up to 24 kV for Xiria | ≈ +20 % vs SF6 in EU (I1) | | |
-| **ABB** | SafeRing Air & SafePlus Air | Dry-air insulation with vacuum interruption; GWP = 0; same interface / footprint / operation as comparable SF6 versions | Global portfolio; secondary distribution up to 24 kV, with ZX0 up to 12 kV; targeted at most 6–24 kV switching applications | Likely premium upfront versus SF6 equivalents, but positioned as a like-for-like replacement with compliance and sustainability benefits; ABB continues selling both SF6 and SF6-free during transition | | |
-| **Siemens** | Blue GIS portfolio: 8DAB 12, NXPLUS C 24; Siemens Energy 8VM1 / 8VM3 Blue GIS | "Clean Air" insulation (nitrogen / oxygen mixture) plus vacuum interrupters; zero-GWP, zero-toxicity insulation medium | Siemens Smart Infrastructure: public and industrial grids, secondary distribution, 12–24 kV. Siemens Energy: transmission / offshore wind and high-voltage applications, including 72.5 kV and 145 kV deployments | Premium technology positioning, emphasising compactness, reliability, low maintenance and zero-GWP clean-air insulation; commercial pricing is project / tender based | | |
-| **Hitachi Energy** | EconiQ portfolio, including ELK-04 145 kV GIS, ELK-14 300 kV GIS, and EconiQ circuit breakers | Eco-efficient gas mixtures and vacuum-based interruption; scalable SF6-free high-voltage GIS and breakers | Global high-voltage transmission and large utility / grid markets; more than 4,000 units ordered across 40 countries; products span 72.5 kV to 550 kV | Premium, high-voltage / transmission-oriented offering; emphasises lifecycle carbon reduction, reliability, and compatibility with conventional SF6 equipment footprints | | |
-| **Ormazabal** | cgm.zero24 and F-gas-free primary / secondary distribution ranges | Natural-origin gas / air-based insulation; F-gas-free GIS for primary and secondary networks up to 24 kV | Primarily public distribution networks; portfolio completed for primary and secondary distribution up to 24 kV; European / regional utility focus is implied by its F-gas transition messaging | Value-led, utility-focused positioning around accessible natural-origin gas and lower environmental impact; no public list pricing identified | | |
-| **Lucy** | Sabre EcoTec; Aegis EcoTec; Nuventura-based primary dry-air GIS | Synthetic-air insulation for RMUs; dry-air technology from Nuventura for primary switchgear; vacuum interruption | Global MV distribution business active in more than 50 countries; offices / manufacturing in UK, UAE, Saudi Arabia, India, Thailand, South Africa and Brazil; utilities, renewables and grid infrastructure | Cost-effective performance and future-proofing positioning; no public list prices — sold through regional sales and project tenders | | |
+- **Scored:** hyperscale and colocation data centres (the framing's "data centres first"), in the 21 voluntary jurisdictions. Utilities enter as a criterion.
+- **Excluded:**
+  - the reference markets (EU, Switzerland, California), where the switch is forced;
+  - the US total, which double-counts the states.
+- **Not scored:** industry and infrastructure, because Step 2 found no evidence to score them on.
+
+## 3.2 Criteria and weights
+
+Computed from the sourced CSVs by [`src/market_scoring.py`](../../src/market_scoring.py), each scaled 0–1 (1 = more attractive).
+
+| Criterion | Measure | Weight |
+|---|---|---|
+| Market size | Data-centre MW (log scale) | 25 % |
+| Growth | Inventory growth, % per year | 15 % |
+| Regulatory trajectory | Status 0 / 1 / 2 → 0 / 0.5 / 1 | 15 % |
+| ESG pressure (customer pull) | An operator counts SF6 there (0.5) + a utility switching voluntarily (0.5) | 15 % |
+| Carbon price | SF6 cost reaching a data centre: priced 1, reporting 0.5, none 0 | 10 % |
+| Competitive intensity | Fewer SF6-free rivals present = higher | 10 % |
+| Schneider presence | Schneider already sells SF6-free there | 10 % |
+
+**Notes:**
+- **Price sensitivity** (in the plan) is dropped: there is no country-level price data.
+- **Missing data** (growth not published, competitors not researched) scores neutral (0.5), never best or worst.
+
+## 3.3 Results
+
+![Target market scores](../../plots/problem2/03_target_market_scores.png)
+
+| Rank | Jurisdiction | Score | Rank range | Top-5 share |
+|---|---|---|---|---|
+| 1 | Saudi Arabia | **0.49** | 1–3 | 100% |
+| 2 | Malaysia | **0.47** | 1–3 | 100% |
+| 3 | Australia | **0.42** | 1–5 | 98% |
+| 4 | United Arab Emirates | **0.41** | 3–5 | 98% |
+| 5 | China | **0.38** | 3–7 | 78% |
+| 6 | Singapore | **0.32** | 5–11 | 12% |
+| 7 | United Kingdom | **0.32** | 6–9 | 2% |
+| 8 | South Korea | **0.32** | 5–12 | 8% |
+| 9 | Brazil | **0.28** | 7–12 | 0% |
+| 10 | Japan | **0.26** | 7–19 | 2% |
+
+*Rank range and top-5 share: over 2,000 weight sets with each weight moved about ±30 %. All 21 jurisdictions and criterion scores: [`01_tables/scoring_matrix.csv`](01_tables/scoring_matrix.csv).*
+
+**Robustness:**
+- **Stable top 4:** Saudi Arabia, Malaysia, Australia and the UAE stay in the top 5 in 98–100 % of weight sets, and are the top 4 under equal weights.
+- **Dropping any one criterion:** none of the four falls below 8th.
+- **US states:** Texas, Virginia and Ohio rank 16th–18th (no customer pull, entrenched incumbents, no Schneider SF6-free sales yet). Texas enters the top 6 only if size gets 60 % of the weight.
+
+## 3.4 Target markets
+
+**Priority targets:**
+1. **Johor–Singapore data-centre corridor (Malaysia #2, Singapore #6).**
+   - **Market:** 2.8 GW.
+   - **Customer pull:** AirTrunk counts SF6 and operates in both.
+   - **Position:** Schneider already sells AirSeT in both. No SF6-free rival was found in Malaysia; Eaton is present in Singapore.
+   - **Lead customer:** AirTrunk.
+2. **The Gulf: Saudi Arabia (#1) and UAE (#4), data-centre and AI campuses.**
+   - **Market:** the fastest growth.
+   - **Utility reference:** SEC's SF6-free pilots.
+   - **Position:** Schneider present in both; UAE emissions reporting.
+   - **Barrier:** lead with data centres, because SEC's RMU specification still requires SF6.
+3. **Australia (#3): colocation and utilities.**
+   - **Customers:** AirTrunk's home market; ElectraNet switching voluntarily.
+   - **Pitch:** SF6 rules (licence, levy) already apply, so "no SF6 paperwork".
+   - **Competition:** Eaton.
+
+**Later targets:**
+- **US data-centre states:**
+  - **Why not now:** the largest market, but gas-free incumbents, no customer pull yet, and Schneider's SF6-free offer arriving in 2027–28.
+  - **Triggers to move up:** another state adopting a phase-out, or a US operator counting SF6.
+- **China:** large but dominated by local makers, with highly uncertain size. Opportunistic only.
+
+**Second segment in the priority countries:** utilities, which already switch voluntarily at high voltage (Australia, Saudi Arabia, Japan).
+
+## 3.5 Limits
+
+- **Partial presence data:** competitor and Schneider presence come from vendors' public country pages.
+- **Saudi Arabia's lead** rests on growth and presence from a small 440 MW base; the UAE's growth is not published.
+- **Capacity** comes mostly from one compiler (datacentres.com).
+
+**Rebuild everything:**
+- `uv run python src/market_evidence.py --write-report` (tables)
+- `uv run python src/market_evidence_plots.py` (charts 01–02)
+- `uv run python src/market_scoring.py` (scores, chart 03)
+- `uv run pytest tests/test_market_evidence.py tests/test_market_scoring.py`
