@@ -1,0 +1,22 @@
+country_id,country,region,group,dc_mw,growth_pct,rivals,growth_known,size,growth,regulation,sf6_cost,customer,presence_known,competition,schneider,score,base_rank,rank_p05,rank_p95,top5_share,rank_equal_weights,worst_rank_drop_one
+SA,Saudi Arabia,Middle East,nothing_forces,440.0,59.0,0,True,0.243,1.0,0.0,0.0,0.5,True,1.0,1.0,0.486,1.0,1.0,3.0,1.0,1.0,3.0
+MY,Malaysia,APAC,nothing_forces,1712.0,,0,False,0.467,0.5,0.0,0.0,0.5,True,1.0,1.0,0.467,2.0,1.0,3.0,1.0,2.0,4.0
+AU,Australia,APAC,sf6_rules_apply,1064.0,13.4,1,True,0.388,0.0,0.5,0.5,1.0,True,0.5,0.0,0.422,3.0,1.0,5.0,0.983,4.0,8.0
+AE,United Arab Emirates,Middle East,nothing_forces,717.0,,0,False,0.324,0.5,0.0,0.5,0.0,True,1.0,1.0,0.406,4.0,3.0,5.0,0.976,3.0,6.0
+CN,China,APAC,nothing_forces,44000.0,,1,False,1.0,0.5,0.0,0.0,0.0,True,0.5,0.0,0.375,5.0,3.0,7.0,0.778,8.0,16.5
+SG,Singapore,APAC,nothing_forces,1093.0,13.4,1,True,0.393,0.0,0.0,0.0,0.5,True,0.5,1.0,0.323,6.0,5.0,11.0,0.124,5.0,15.0
+GB,United Kingdom,Europe,regulation_coming,1654.0,21.0,0,True,0.461,0.167,0.5,0.0,0.0,False,0.5,0.5,0.315,7.0,6.0,9.0,0.024,7.0,15.0
+KR,South Korea,APAC,leaks_cost_money,894.0,,1,False,0.36,0.5,0.0,1.0,0.0,True,0.5,0.0,0.315,8.0,5.0,12.0,0.078,6.0,19.0
+BR,Brazil,Americas,nothing_forces,911.0,41.3,0,True,0.363,0.612,0.0,0.0,0.0,False,0.5,0.5,0.283,9.0,7.0,12.0,0.002,9.0,13.0
+JP,Japan,APAC,nothing_forces,1617.0,13.4,2,True,0.457,0.0,0.0,0.0,1.0,True,0.0,0.0,0.264,10.0,7.0,19.0,0.016,15.0,21.0
+MX,Mexico,Americas,nothing_forces,580.0,41.3,0,True,0.289,0.612,0.0,0.0,0.0,False,0.5,0.5,0.264,11.0,9.0,16.0,0.0,10.0,17.0
+US-NY,USA - New York,Americas,regulation_coming,332.0,33.0,2,True,0.197,0.43,1.0,0.0,0.0,True,0.0,0.0,0.264,12.0,7.0,18.0,0.02,13.0,20.0
+CA,Canada,Americas,nothing_forces,727.0,,0,False,0.326,0.5,0.0,0.0,0.0,False,0.5,0.5,0.256,13.0,11.0,17.0,0.0,12.0,18.0
+CL,Chile,Americas,nothing_forces,404.0,41.3,0,True,0.229,0.612,0.0,0.0,0.0,False,0.5,0.5,0.249,14.0,11.0,19.0,0.0,11.0,19.0
+IN,India,APAC,nothing_forces,2032.0,,1,False,0.495,0.5,0.0,0.0,0.0,True,0.5,0.0,0.249,15.0,11.0,17.0,0.0,14.0,19.0
+US-TX,USA - Texas,Americas,nothing_forces,7810.0,33.0,2,True,0.716,0.43,0.0,0.0,0.0,True,0.0,0.0,0.243,16.0,9.0,17.0,0.0,17.0,19.5
+US-VA,USA - Virginia,Americas,nothing_forces,6917.0,33.0,2,True,0.696,0.43,0.0,0.0,0.0,True,0.0,0.0,0.238,17.0,11.0,18.0,0.0,18.0,19.5
+US-OH,USA - Ohio,Americas,nothing_forces,5531.0,33.0,2,True,0.659,0.43,0.0,0.0,0.0,True,0.0,0.0,0.229,18.0,13.0,19.0,0.0,19.0,19.5
+US-OR,USA - Oregon,Americas,sf6_rules_apply,661.0,33.0,2,True,0.31,0.43,0.5,0.0,0.0,True,0.0,0.0,0.217,19.0,13.0,19.0,0.0,16.0,19.0
+US-AZ,USA - Arizona,Americas,nothing_forces,1317.0,33.0,2,True,0.424,0.43,0.0,0.0,0.0,True,0.0,0.0,0.17,20.0,20.0,21.0,0.0,21.0,20.0
+US-MA,USA - Massachusetts,Americas,sf6_rules_apply,,,2,False,0.0,0.5,0.5,0.0,0.0,True,0.0,0.0,0.15,21.0,20.0,21.0,0.0,20.0,21.0
