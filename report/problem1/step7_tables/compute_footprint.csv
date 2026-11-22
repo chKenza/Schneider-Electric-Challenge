@@ -1,0 +1,13 @@
+model,approach,forecasts,wall_seconds,cpu_seconds,ms_per_forecast,energy_wh,co2_g_france,co2_g_eu_average,power_w_assumed
+Step 5 baselines (all 5),direct,9780.0,8.47,8.4703,0.8661,0.0471,0.0024,0.0118,20.0
+ewma_fhs,direct,2388.0,2.4844,2.4843,1.0404,0.0138,0.0007,0.0035,20.0
+garch_fhs,direct,2388.0,11.1009,11.1008,4.6486,0.0617,0.0031,0.0154,20.0
+gjr_fhs,direct,2388.0,13.9396,13.9347,5.8373,0.0774,0.0039,0.0194,20.0
+features_scaled,direct,913.0,4.198,4.198,4.598,0.0233,0.0012,0.0058,20.0
+auto_ets,recursive,2388.0,4.5659,4.5658,1.912,0.0254,0.0013,0.0063,20.0
+auto_arima,recursive,2388.0,51.159,51.1244,21.4234,0.2842,0.0142,0.0711,20.0
+auto_theta,recursive,2388.0,2.7938,2.7854,1.1699,0.0155,0.0008,0.0039,20.0
+chronos_bolt,direct,2388.0,16.1055,14.7467,6.7443,0.0895,0.0045,0.0224,20.0
+pooled_qr,direct,2388.0,75.6505,75.6321,31.6795,0.4203,0.021,0.1051,20.0
+combination + conformal (post-processing),-,2388.0,0.7411,0.7188,0.3103,0.0041,0.0002,0.001,20.0
+TOTAL (one full Step 5 + 6 run),,32185.0,191.2086,189.7612,,1.0623,0.0531,0.2656,20.0
