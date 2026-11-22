@@ -244,9 +244,8 @@ The team's first pass (20 Nov) was checked against primary sources on 22 Nov:
 - **2:** phase-out adopted.
 - **3:** ban in force for new MV equipment.
 
-"SF6 priced for a data centre?" is from the customer's side. Generated from [`regulation.csv`](../../market_evidence/regulation.csv): edit the CSV, not the table.
+"SF6 priced for a data centre?" is from the customer's side. Short version of [`regulation.csv`](../../market_evidence/regulation.csv), which has the full notes.
 
-<!-- BEGIN:regulation -->
 | Country | Status | MV ban | SF6 priced for a data centre? | Summary | Source | Reliability |
 |---|---|---|---|---|---|---|
 | European Union | **3** | 2026 | No | Ban on new F-gas MV gear: ≤ 24 kV from 2026, 24–52 kV from 2030 | E63 +5 | High |
@@ -274,7 +273,6 @@ The team's first pass (20 Nov) was checked against primary sources on 22 Nov:
 | USA - Massachusetts | **1** | – | No | Leak cap of 1 %/yr for SF6 switchgear | E21 +2 | High |
 | USA - Oregon | **1** | – | No | SF6 reporting for utilities only | E43 | Medium |
 | Switzerland | **3** | 2026 | – | Mirrors the EU: ≤ 24 kV from 2026, 24–52 kV from 2030 | E112 | High |
-<!-- END:regulation -->
 
 **Where regulation is likely to come (H2):**
 
@@ -290,9 +288,8 @@ The team's first pass (20 Nov) was checked against primary sources on 22 Nov:
 
 ## 2.2 Competition: SF6-free medium-voltage offers
 
-Generated from [`competitors.csv`](../../market_evidence/competitors.csv).
+Short version of [`competitors.csv`](../../market_evidence/competitors.csv), which has the full notes.
 
-<!-- BEGIN:competitors -->
 | Competitor | SF6-free MV offer | Max kV | RM AirSeT rival? | Summary | Source | Reliability |
 |---|---|---|---|---|---|---|
 | **Schneider Electric** | RM AirSeT (pure air) | 24 | Yes | Still sells the SF6 RM6 outside the EU | E30 +8 | Medium |
@@ -312,7 +309,6 @@ Generated from [`competitors.csv`](../../market_evidence/competitors.csv).
 | **Rockwill** | 12/24/36 kV pure-air / nitrogen RMU (air or nitrogen) | 36 | Yes | Low-cost; sells SF6 RMUs in parallel | E102 | Medium |
 | **S&C Electric** | Vista SD (solid dielectric) | 38 | Yes | US incumbent: SF6, F-gas mix and solid dielectric | E124 | Medium |
 | **G&W Electric** | Trident-S solid-dielectric switchgear (up to 38 kV) (solid dielectric) | 38 | Yes | US incumbent: solid dielectric | E125 | Medium |
-<!-- END:competitors -->
 
 *"Still sells SF6" is sourced only for Schneider, Mitsubishi and S&C; most makers sell SF6 RMUs everywhere outside the EU.*
 
@@ -432,7 +428,7 @@ Computed from the sourced CSVs by [`src/market_scoring.py`](../../src/market_sco
 - **Capacity** comes mostly from one compiler (datacentres.com).
 
 **Rebuild everything:**
-- `uv run python src/market_evidence.py --write-report` (tables)
+- `uv run python src/market_evidence.py` (checks the data and prints the pricing tables)
 - `uv run python src/market_evidence_plots.py` (charts 01–02)
 - `uv run python src/market_scoring.py` (scores, chart 03)
 - `uv run pytest tests/test_market_evidence.py tests/test_market_scoring.py`
