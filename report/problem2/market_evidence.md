@@ -18,13 +18,13 @@ Every table except `evidence.csv` ends with `evidence_ids, verified, notes`.
 ## How to add a fact
 
 1. **Add a row to `evidence.csv`** with the next free id (`E46`, `E47`, …), the source, its link, the publication date, the date you read it, and its reliability:
-   - **High:** official or primary source (law, regulator, IPCC, company's own report).
-   - **Medium:** reputable secondary source, or Schneider data.
+   - **High:** official or primary source (law, regulator, IPCC, company's own report), including the data Schneider provided for the challenge.
+   - **Medium:** reputable secondary source, or an official source read through a search summary.
    - **Low:** estimate, vendor or trader blog, single unverified source.
    - **To verify:** found but not read yet.
 2. **Put the value in the table it belongs to**, and add the id to that row's `evidence_ids` (separate several with `;`). Every row that holds a value must cite at least one source: the loader refuses rows with values but no `evidence_ids`. No value is a placeholder or a team guess: if a value cannot be sourced yet, leave the cell empty. When a better source replaces a weaker one, **keep the old evidence row and its id in `evidence_ids`** (mark it "superseded by …"); never delete a source.
 3. **Set `verified=True`** only when the row is settled. The loader refuses `verified=True` unless at least one cited source is High or Medium, and refuses ids that are not in `evidence.csv`.
-4. **Run** `uv run python src/market_evidence.py --write-report` from the repo root. It validates everything, re-checks the framing's €54/t break-even, refreshes the generated tables in [`01_market_and_regulation.md`](01_market_and_regulation.md), and prints the per-country tables. Never edit the tables between `<!-- BEGIN -->` / `<!-- END -->` markers by hand.
+4. **Run** `uv run python src/market_evidence.py` from the repo root. It validates everything, re-checks the framing's €54/t break-even and prints the per-country tables. Add `--write-report` to also write the regulation and competitor tables, generated from the CSVs, to [`01_tables/`](01_tables/) (`regulation_table.md`, `competitors_table.md`). The tables in [`01_market_and_regulation.md`](01_market_and_regulation.md) are a frozen, edited copy: the Market & Regulation report is final and is not regenerated.
 5. `uv run pytest tests/test_market_evidence.py` checks the rules.
 
 `compliance_carbon_price_eur_t` holds the price of the jurisdiction's main carbon pricing scheme, whether or not it reaches a data centre; the model uses it only where `sf6_pricing` = priced. Allowed values: `sf6_pricing` = none / reporting / priced / unknown (from the **data-centre customer's** side: a carbon price that exists but does not reach a data centre is `none`); `mentions_sf6` = yes / no / unknown; `sf6_policy_scope` = worldwide / eu_only / none / unknown; `schneider_presence` = high / medium / low / unknown; `type` = hyperscaler / colocation / utility / industrial / enterprise / other. Use a range (`status_min` < `status_max`) while the evidence cannot decide: pessimistic uses the low end, optimistic the high end.

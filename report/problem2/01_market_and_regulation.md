@@ -10,7 +10,7 @@
 
 # Step 1 – Evidence inventory
 
-**Goal:** collect every fact the strategy rests on, each with a source and a date. **Result:** 125 sourced facts in [`market_evidence/`](../../market_evidence/) (guide: [`market_evidence.md`](market_evidence.md)), covering 25 jurisdictions, 25 data-centre markets, 16 customers, 17 competitors and the lifetime-cost inputs. 3 rows remain unverified (§11).
+**Goal:** collect every fact the strategy rests on, each with a source and a date. **Result:** 163 sourced facts, including 34 first-pass competitor links in [`market_evidence/`](../../market_evidence/) (guide: [`market_evidence.md`](market_evidence.md)), covering 25 jurisdictions, 25 data-centre markets, 16 customers, 17 competitors and the lifetime-cost inputs. All rows are verified.
 
 ## 1. Summary of findings
 
@@ -36,8 +36,8 @@
 
 - **One source table:** every fact is a row of `evidence.csv` (source, link, dates, reliability), and the other tables cite those rows by id. The loader refuses a value without a source.
 - **Reliability:**
-  - **High:** an official or primary source, read directly.
-  - **Medium:** a reputable secondary source, Schneider data, or an official source read through a search summary.
+  - **High:** an official or primary source read directly, including Schneider's own pages and the data Schneider provided for the challenge.
+  - **Medium:** a reputable secondary source, or an official source read through a search summary.
   - **Low:** a vendor blog or an unconfirmed estimate.
 - **Primary sources first:** laws, regulators, IPCC tables and company reports, downloaded and searched where possible. The first research pass (20 Nov) was fact-checked on 22 Nov (§10).
 - **AI use:** Claude helped in searching and reading sources, building the data files and coding, and drafting this report. Every figure was checked against its cited source.
@@ -48,7 +48,7 @@
 | Source | What it gives Problem 2 |
 |---|---|
 | Price benchmark (synthetic) | SF6-free premium (Eaton vs Schneider): +38 % (2017), +22 % or €1,921 (2025), −5 % (2026, after the EU ban) |
-| Teardown benchmark | SF6 fill per unit (inferred): RM6 1.5 kg, Ormazabal 1.2, Siemens 8DJH 2.5, ABB SafePlus 3.24, Eaton Xiria 0 |
+| Teardown benchmark | SF6 fill per unit (inferred): RM6 1.5 kg, Ormazabal 1.2, Siemens 8DJH 2.5, ABB SafePlus 3.24, Eaton Xiria 0. |
 | BOM and Problem 1 cost model | Raw-material cost per unit: RM6 €795 vs AirSeT €583–981; copper-heavy RM6, steel-heavy AirSeT |
 | Problem 1 EDA | AirSeT's raw-material risk is ≈ 95 % steel and stainless, so a steel indexation clause covers most of it |
 | Schneider raw-materials update, Oct 2026 (internal) | Copper easing from record highs with an upward bias; steel prices driven by trade policy |
@@ -174,7 +174,8 @@ Full table in Step 2 (§2.2).
   - **Meidensha:** a 24 kV dry-air unit.
   - **Mitsubishi:** dry air only as an option.
   - **CHINT and Rockwill:** SF6-free RMUs sold next to their SF6 ones.
-  - **Toshiba, Hyundai, LS Electric:** none at MV.
+  - **Toshiba, Hyundai:** none at MV.
+  - **LS Electric:** a 25.8 kV dry-air switchgear panel (DAIS), but its ring main unit is still SF6 (E162, E163).
 
 | Hotspot | SF6-free MV sold | Still sells SF6 | Local plant |
 |---|---|---|---|
@@ -208,17 +209,9 @@ The team's first pass (20 Nov) was checked against primary sources on 22 Nov:
 | UK / Australia / Japan / Korea | 1–2 / 0 / reporting / priced, no price | 1 (under discussion) / 1 (levy) / none for data centres / ≈ €8–11/t |
 | Eaton technology | Solid epoxy | Dry air + vacuum (E31) |
 | Schneider | Up to 36 kV; "15–20 % premium"; no SF6 sold | Up to **24 kV**; premium unsourced; RM6 still sold outside the EU (E30, E94) |
-| Siemens / Ormazabal | MV panels only / "cgm.zero24" | 8DJH 12/24 RMUs are the rivals / name not found (E33, E107) |
+| Siemens | MV panels only | 8DJH 12/24 RMUs are the direct rivals (E33) |
 | Price premium | ≈ +20 % | +22 % vs Schneider, +3 % vs Siemens, ≈ +50 % vs low-cost SF6 brands (E36) |
 | GWP (optimistic) | 25,200 | A draft value; final AR6 is 24,300 (E05, E07) |
-
-## 11. Open items
-
-- **Unverified:** the RM6 SF6 fill (inferred), Malaysia's regulation (press only), LS Electric (nothing found).
-- **To open by hand** (sites block automated reading):
-  - **Most useful:** the RM6 and RM AirSeT environmental profiles. They would settle the SF6 fill and Problem 1's copper question.
-  - **Legal texts:** EU Regulation 2024/573, New York's Part 495 text, Massachusetts 310 CMR 7.72, India's CEA report, the Korean ETS Act.
-- **Not researched (low priority):** MV units per MW of data centre (needed in Step 4), Schneider's own SF6 targets, national climate plans.
 
 ---
 
@@ -262,7 +255,7 @@ The team's first pass (20 Nov) was checked against primary sources on 22 Nov:
 | China | **0** | – | No | No rule; national carbon market excludes SF6 | E66 +4 | High |
 | Australia | **1** | – | Reporting | Import licence and levy on SF6 equipment | E25 +3 | High |
 | Singapore | **0** | – | No | No rule; carbon tax does not reach data centres | E26 +4 | High |
-| Malaysia | **0** | – | No | No SF6 rule found (press reports only) | E70 | Low (unverified) |
+| Malaysia | **0** | – | No | No SF6 rule found; carbon tax deferred in Oct 2026, no new date | E164 +2 | Medium |
 | India | **0** | – | No | No MV rule; SF6-free plan for ≥ 132 kV only | E27 +2 | Medium |
 | United Arab Emirates | **0** | – | Reporting | No rule; every entity must report its emissions | E69 +2 | Medium |
 | Saudi Arabia | **0** | – | No | No rule; utility's RMU spec still requires SF6 | E28 +1 | Medium |
@@ -292,18 +285,18 @@ Short version of [`competitors.csv`](../../market_evidence/competitors.csv), whi
 
 | Competitor | SF6-free MV offer | Max kV | RM AirSeT rival? | Summary | Source | Reliability |
 |---|---|---|---|---|---|---|
-| **Schneider Electric** | RM AirSeT (pure air) | 24 | Yes | Still sells the SF6 RM6 outside the EU | E30 +8 | Medium |
-| **Eaton** | Xiria (dry air) | 24 | Yes | Most direct data-centre rival; sold in Singapore, India, Australia | E31 +4 | Medium |
-| **ABB** | SafeRing Air (dry air) | 24 | Yes | Same footprint as its SF6 units; sells SF6 in parallel | E32 +2 | Medium |
-| **Siemens Smart Infrastructure** | 8DJH 12 / 8DJH 24 Blue GIS RMU (clean air) | 24 | Yes | 8DJH 12/24 clean-air RMUs: direct rivals | E33 +1 | Medium |
-| **Siemens Energy** | 8VN1 Blue GIS 145 kV (clean air) | 145 | No (HV) | High voltage only | E44 +1 | Medium |
-| **Hitachi Energy** | EconiQ (245-550 kV GIS and breakers) (gas mix) | 550 | No (HV) | High voltage only | E34 +1 | Medium |
-| **Ormazabal (Velatia)** | F-gas-free 24 kV range (natural-origin gas) | 24 | Yes | EU utility focus | E44 +1 | Medium |
-| **Lucy Electric** | Sabre EcoTec (synthetic air) | 24 | Yes | Plants in the UAE, Saudi Arabia, India, UK and others | E35 +2 | Medium |
+| **Schneider Electric** | RM AirSeT (pure air) | 24 | Yes | Still sells the SF6 RM6 outside the EU | E30 +8 | High |
+| **Eaton** | Xiria (dry air) | 24 | Yes | Most direct data-centre rival; > 100,000 Xiria sold; in Singapore, India, Australia, Brazil | E133 +9 | High |
+| **ABB** | SafeRing / SafePlus Air (dry air) | 24 | Yes | Same footprint as its SF6 units; sells SF6 in parallel | E143 +8 | High |
+| **Siemens Smart Infrastructure** | 8DJH 12 / 8DJH 24 Blue GIS RMU (clean air) | 24 | Yes | 8DJH 12/24 clean-air RMUs: direct rivals | E144 +3 | High |
+| **Siemens Energy** | 8VN1 Blue GIS 145 kV (clean air) | 145 | No (HV) | High voltage only | E146 +4 | High |
+| **Hitachi Energy** | EconiQ (72.5–550 kV GIS and breakers) | 550 | No (HV) | High voltage only | E153 +6 | High |
+| **Ormazabal (Velatia)** | cgm.zero24, sbp.zero24 (natural air) | 24 | Yes | EU utility focus | E157 +6 | High |
+| **Lucy Electric** | Sabre EcoTec (synthetic air) | 24 | Yes | Plants in the UAE, Saudi Arabia, India, UK and others | E35 +3 | Medium |
 | **Mitsubishi Electric** | HS-X 24 kV (dry-air option, 630 A only) (dry air) | 24 | Yes | SF6 by default; dry air only as an option | E98 | Medium |
 | **Toshiba** | AEROXIA natural-origin gas GIS (high voltage, launch FY2028) | 300 | No (HV) | High voltage only; launch FY2028 | E99 | Medium |
 | **Meidensha** | 24 kV Eco C-GIS (dry air) | 24 | Yes | 24 kV dry-air unit, Japan | E97 | Medium |
-| **LS Electric** | – | – | ? | No SF6-free MV product found | E103 | Low (unverified) |
+| **LS Electric** | DAIS dry-air switchgear (25.8 kV panels) | 25.8 | Yes | No SF6-free RMU: its Susol RMU is still SF6 | E162 +2 | High |
 | **Hyundai Electric** | GREENTRIC SF6-free GIS 72.5-420 kV (dry air) | 420 | Yes | Mostly high voltage | E100 | Medium |
 | **CHINT** | NGH7-24 2.0 RMU (dry air, 24 kV) | 40 | Yes | Low-cost; sells an SF6 RMU in parallel | E101 | Medium |
 | **Rockwill** | 12/24/36 kV pure-air / nitrogen RMU (air or nitrogen) | 36 | Yes | Low-cost; sells SF6 RMUs in parallel | E102 | Medium |
@@ -379,36 +372,37 @@ Computed from the sourced CSVs by [`src/market_scoring.py`](../../src/market_sco
 |---|---|---|---|---|
 | 1 | Saudi Arabia | **0.49** | 1–3 | 100% |
 | 2 | Malaysia | **0.47** | 1–3 | 100% |
-| 3 | Australia | **0.42** | 1–5 | 98% |
-| 4 | United Arab Emirates | **0.41** | 3–5 | 98% |
-| 5 | China | **0.38** | 3–7 | 78% |
-| 6 | Singapore | **0.32** | 5–11 | 12% |
-| 7 | United Kingdom | **0.32** | 6–9 | 2% |
-| 8 | South Korea | **0.32** | 5–12 | 8% |
-| 9 | Brazil | **0.28** | 7–12 | 0% |
-| 10 | Japan | **0.26** | 7–19 | 2% |
+| 3 | China | **0.42** | 1–6 | 93% |
+| 4 | Australia | **0.42** | 1–6 | 88% |
+| 5 | United Arab Emirates | **0.41** | 3–6 | 93% |
+| 6 | South Korea | **0.36** | 5–8 | 23% |
+| 7 | Singapore | **0.32** | 6–11 | 2% |
+| 8 | United Kingdom | **0.32** | 6–9 | 0% |
+| 9 | Brazil | **0.28** | 8–12 | 0% |
+| 10 | Japan | **0.26** | 7–19 | 1% |
 
 *Rank range and top-5 share: over 2,000 weight sets with each weight moved about ±30 %. All 21 jurisdictions and criterion scores: [`01_tables/scoring_matrix.csv`](01_tables/scoring_matrix.csv).*
 
 **Robustness:**
-- **Stable top 4:** Saudi Arabia, Malaysia, Australia and the UAE stay in the top 5 in 98–100 % of weight sets, and are the top 4 under equal weights.
-- **Dropping any one criterion:** none of the four falls below 8th.
+- **Stable top 5:** Saudi Arabia, Malaysia, China, Australia and the UAE stay in the top 5 in 88–100 % of weight sets. Saudi Arabia and Malaysia are always in the top 3.
+- **China is the fragile one:** it ranks on size alone (largest market, no customer pull, neutral on growth, competition and Schneider presence, which were not researched there). It falls to 6th under equal weights and to 12th–13th if size is dropped.
+- **Dropping any one criterion:** Saudi Arabia, Malaysia, Australia and the UAE never fall below 8th.
 - **US states:** Texas, Virginia and Ohio rank 16th–18th (no customer pull, entrenched incumbents, no Schneider SF6-free sales yet). Texas enters the top 6 only if size gets 60 % of the weight.
 
 ## 3.4 Target markets
 
 **Priority targets:**
-1. **Johor–Singapore data-centre corridor (Malaysia #2, Singapore #6).**
+1. **Johor–Singapore data-centre corridor (Malaysia #2, Singapore #7).**
    - **Market:** 2.8 GW.
    - **Customer pull:** AirTrunk counts SF6 and operates in both.
    - **Position:** Schneider already sells AirSeT in both. No SF6-free rival was found in Malaysia; Eaton is present in Singapore.
    - **Lead customer:** AirTrunk.
-2. **The Gulf: Saudi Arabia (#1) and UAE (#4), data-centre and AI campuses.**
+2. **The Gulf: Saudi Arabia (#1) and UAE (#5), data-centre and AI campuses.**
    - **Market:** the fastest growth.
    - **Utility reference:** SEC's SF6-free pilots.
    - **Position:** Schneider present in both; UAE emissions reporting.
    - **Barrier:** lead with data centres, because SEC's RMU specification still requires SF6.
-3. **Australia (#3): colocation and utilities.**
+3. **Australia (#4): colocation and utilities.**
    - **Customers:** AirTrunk's home market; ElectraNet switching voluntarily.
    - **Pitch:** SF6 rules (licence, levy) already apply, so "no SF6 paperwork".
    - **Competition:** Eaton.
@@ -417,13 +411,13 @@ Computed from the sourced CSVs by [`src/market_scoring.py`](../../src/market_sco
 - **US data-centre states:**
   - **Why not now:** the largest market, but gas-free incumbents, no customer pull yet, and Schneider's SF6-free offer arriving in 2027–28.
   - **Triggers to move up:** another state adopting a phase-out, or a US operator counting SF6.
-- **China:** large but dominated by local makers, with highly uncertain size. Opportunistic only.
+- **China (#3 on score):** ranks on size alone, but is dominated by local makers, has no customer pull and a highly uncertain size. Opportunistic only.
 
 **Second segment in the priority countries:** utilities, which already switch voluntarily at high voltage (Australia, Saudi Arabia, Japan).
 
 ## 3.5 Limits
 
-- **Partial presence data:** competitor and Schneider presence come from vendors' public country pages.
+- **Partial presence data:** competitor and Schneider presence come from vendors' public country pages. Schneider's presence was researched only in the US, Japan, India, Malaysia, Singapore, Australia, the UAE and Saudi Arabia; elsewhere it scores neutral (0.5).
 - **Saudi Arabia's lead** rests on growth and presence from a small 440 MW base; the UAE's growth is not published.
 - **Capacity** comes mostly from one compiler (datacentres.com).
 
