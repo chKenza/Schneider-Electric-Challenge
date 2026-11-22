@@ -32,13 +32,12 @@ Usage:
 
 Command line (from the repo root):
     uv run python src/market_evidence.py                 # validate + print the tables
-    uv run python src/market_evidence.py --write-report  # refresh the generated report tables
+    uv run python src/market_evidence.py --write-report  # also write the regulation and competitor tables (markdown)
 """
 from __future__ import annotations
 
 import argparse
 import dataclasses
-import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -47,7 +46,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "market_evidence"
-REPORT = ROOT / "report" / "problem2" / "01_market_and_regulation.md"
+TABLE_DIR = ROOT / "report" / "problem2" / "01_tables"
 SCENARIOS = ("pessimistic", "base", "optimistic")
 RELIABILITY = ("high", "medium", "low", "to verify")  # best first
 EVIDENCE_OK = {"high", "medium"}                      # can back verified=True
@@ -437,16 +436,18 @@ class MarketEvidence:
                          f"{cell(x.technology_family)} | {kv} | {scope} | {cell(x.notes)} | {self._cite(x)} |")
         return "\n".join(lines)
 
-    def write_report_tables(self, path: Path = REPORT) -> None:
-        """Replace the text between <!-- BEGIN:name --> and <!-- END:name --> markers."""
-        text = path.read_text()
+    def write_report_tables(self, out: Path = TABLE_DIR) -> list[Path]:
+        """Write the regulation and competitor tables, generated from the CSVs, as
+        markdown files in report/problem2/01_tables/. The report itself is not
+        touched: its tables are an edited, frozen copy of these."""
+        out.mkdir(parents=True, exist_ok=True)
+        paths = []
         for name, table in (("regulation", self.regulation_markdown()),
                             ("competitors", self.competitors_markdown())):
-            pattern = re.compile(rf"(<!-- BEGIN:{name} -->\n).*?(\n<!-- END:{name} -->)", re.DOTALL)
-            if not pattern.search(text):
-                raise ValueError(f"markers for '{name}' not found in {path}")
-            text = pattern.sub(lambda m, t=table: m.group(1) + t + m.group(2), text)
-        path.write_text(text)
+            path = out / f"{name}_table.md"
+            path.write_text(table + "\n")
+            paths.append(path)
+        return paths
 
 
 # ---------------------------------------------------------------- self-check
@@ -467,13 +468,13 @@ def _sanity_check(p2: MarketEvidence) -> None:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--write-report", action="store_true",
-                    help="refresh the generated tables in 01_market_and_regulation.md")
+                    help="also write the regulation and competitor tables to report/problem2/01_tables/")
     args = ap.parse_args()
     p2 = MarketEvidence.load()
     _sanity_check(p2)
     if args.write_report:
-        p2.write_report_tables()
-        print(f"Report tables refreshed in {REPORT.relative_to(ROOT)}")
+        for path in p2.write_report_tables():
+            print(f"Wrote {path.relative_to(ROOT)}")
     pd.set_option("display.width", 200, "display.max_columns", 30)
     cols = ["group", "status_range", "carbon_price_eur_t", "regulation_prob",
             "total_value_pv", "premium_eur", "headroom_eur",

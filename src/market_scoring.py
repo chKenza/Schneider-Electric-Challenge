@@ -88,8 +88,11 @@ def criteria_table(p2: MarketEvidence) -> pd.DataFrame:
     researched = pd.Series([c in PRESENCE_RESEARCHED or c.startswith("US-") or rv > 0 for c, rv in r.items()], index=r.index)
     out["rivals"], out["presence_known"] = r, researched
     out["competition"] = np.where(researched, 1 - r / max(r.max(), 1), 0.5)
+    # Schneider's own presence was only researched in PRESENCE_RESEARCHED and the US: a rival found
+    # elsewhere says nothing about Schneider, so it stays neutral unless Schneider is recorded there.
     sch = pd.Series(out.index.isin(list(schneider)).astype(float), index=out.index)
-    out["schneider"] = np.where(researched, sch, 0.5)
+    sch_researched = pd.Series([c in PRESENCE_RESEARCHED or c.startswith("US-") for c in out.index], index=out.index)
+    out["schneider"] = np.where(sch_researched | (sch > 0), sch, 0.5)
     return out
 
 
@@ -159,7 +162,7 @@ def scoring_chart(res: pd.DataFrame, out: Path = PLOT_DIR) -> Path:
     ax.set_axisbelow(True)
     labels = [f"{k} ({w:.0%})" for k, (w, _) in CRITERIA.items()]
     ax.legend(labels=labels, loc="upper center", bbox_to_anchor=(0.45, -0.08), ncol=4, frameon=False, fontsize=8)
-    fig.suptitle("Saudi Arabia, Malaysia, Australia and the UAE lead under every reasonable weighting",
+    fig.suptitle("Saudi Arabia and Malaysia lead under every reasonable weighting; China, Australia and the UAE follow",
                  x=0.02, ha="left", fontsize=12, color=INK)
     fig.text(0.02, 0.935, "Voluntary jurisdictions only (EU, Switzerland, California excluded). Rank range = 5th-95th percentile over "
              "2,000 weight sets\n(each weight moved about ±30 %).  * growth not published, † competitor presence not researched: "
