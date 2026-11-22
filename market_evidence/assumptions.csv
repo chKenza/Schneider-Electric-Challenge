@@ -1,5 +1,5 @@
 param,unit,pessimistic,base,optimistic,evidence_ids,verified,notes
-sf6_kg_per_unit,kg,0.72,1.5,2.5,E02;E37;E106;E11,False,"RM6 mass is not published (E106: catalogue gives only 0.2 bar gauge; charge is on each unit's rating plate). Base 1.5 kg = teardown estimate (E02, inferred). Range = comparable RMUs: 0.72 kg for the 12 kV reference RMU of the EU study (E11) to 2.5 kg for Siemens 8DJH (E37). Read an RM6 rating plate or the RM6 PEP to confirm."
+sf6_kg_per_unit,kg,0.72,1.5,2.5,E02;E37;E106;E11,True,"Base 1.5 kg = Schneider teardown benchmark (E02, E37; Schneider-provided, masses inferred by the teardown). Range = comparable RMUs: 0.72 kg for the 12 kV reference RMU of the EU study (E11) to 2.5 kg for Siemens 8DJH (E37)."
 gwp_sf6,t CO2e / t,22800,23500,24300,E05;E06,True,"Pessimistic AR4 (legacy reporting), base AR5 (US EPA GHGRP), optimistic AR6 (GHG Protocol recommends). Old 25,200 was an AR6 draft value (E07)."
 leak_rate_pct_per_year,%/yr,0.1,0.2,0.7,E08;E09,True,Pessimistic = IEC design value for sealed systems (new units may be lower); base = IPCC Europe default incl. failures and maintenance; optimistic = IPCC Japan default.
 asset_life_years,years,60,40,30,E09;E10;E11;E15,True,"Longer life LOWERS AirSeT's value (end-of-life and regulation costs are discounted further), so pessimistic = 60, optimistic = 30."
