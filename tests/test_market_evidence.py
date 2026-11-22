@@ -35,9 +35,9 @@ def test_every_verified_row_cites_a_high_or_medium_source():
 
 
 def test_verified_without_good_source_is_rejected(data_copy):
-    # MY cites only E70 (Low): it cannot back verified=True
+    # E70 alone is Low: it cannot back verified=True
     def fn(d):
-        d.loc[d.country_id == "MY", "verified"] = "True"
+        d.loc[d.country_id == "MY", ["evidence_ids", "verified"]] = ["E70", "True"]
     _edit(data_copy, "regulation.csv", fn)
     with pytest.raises(ValueError, match="verified=True without a High/Medium source"):
         MarketEvidence.load(data_copy)

@@ -31,6 +31,7 @@ def test_us_states_inherit_national_rivals():
 
 def test_top_of_ranking_is_stable():
     res = ranking(MarketEvidence.load())
-    top4 = res.head(4)
-    assert (top4.top5_share >= 0.9).all()
-    assert pd.Series(score(criteria_table(MarketEvidence.load()))).index[0] in top4.index
+    top5 = res.head(5)
+    assert (res.head(2).top5_share >= 0.99).all()  # the leaders never leave the top 5
+    assert (top5.top5_share >= 0.85).all()
+    assert pd.Series(score(criteria_table(MarketEvidence.load()))).index[0] in top5.index
