@@ -1,14 +1,14 @@
 # Problem 2 – Framing the problem
 
-*Owners: Kenza, Chloe · Status: draft*
+*Owners: Kenza, Chloe · Status: done*
 
 ---
 
 ## 1. The problem in one paragraph
 
-Schneider leads in **SF6-free medium-voltage switchgear**. In the EU, regulation is phasing SF6 out of new equipment, so customers there must switch. In markets with **no SF6 regulation (APAC, Middle East, Americas)**, nothing forces them to. The SF6-free product has a **higher upfront cost and a thinner margin**, so it has to win on its own merits.
+Schneider leads in **SF6-free medium-voltage switchgear**. In the EU, regulation is phasing SF6 out of new equipment, so customers there must switch. In markets with **no SF6 regulation (most of APAC, the Middle East and the Americas)**, nothing forces them to. Exceptions: California has banned new SF6 equipment up to 38 kV since 2025 and New York phases it out from 2027, so both are treated as regulated reference markets, not voluntary ones. The SF6-free product has a **higher upfront cost and a thinner margin**, so it has to win on its own merits.
 
-**Our goal:** recommend **which markets to target, with what value proposition, at what price and through which levers**, so that customers switch voluntarily from **SM6 (SF6) to SM AirSeT (SF6-free)**, and so that Schneider stays **profitable** doing it. The client also asks us to **show how the raw-material forecast (Problem 1) supports the argument**.
+**Our goal:** recommend **which markets to target, with what value proposition, at what price and through which levers**, so that customers switch voluntarily from **RM6 (SF6) to RM AirSeT (SF6-free)**, and so that Schneider stays **profitable** doing it. The client also asks us to **show how the raw-material forecast (Problem 1) supports the argument**.
 
 ---
 
@@ -36,9 +36,9 @@ Schneider leads in **SF6-free medium-voltage switchgear**. In the EU, regulation
 
 | Topic | Decision | Why |
 |---|---|---|
-| **Products** | The slides name **SM6 → SM AirSeT** for Problem 2, but the headline question is about "winning **RM AirSeT** proposals" and all our data is on **RM6 / RM AirSeT**. Until the organisers answer (section 8, question 1), every number is for **RM6 / RM AirSeT**. The qualitative strategy (markets, value proposition, levers) applies to both families; the figures (SF6 per unit, cost gap, price gap) do **not** transfer to SM without SM data. | RM6 is a compact ring main unit with all functions in one SF6 tank; SM6 is a line-up of air-insulated panels with SF6 only in each switch. Same SF6-free technology (pure air + vacuum; the client slide says "solid insulation, vacuum interruption") and same customers, but different SF6 amounts and cost structure. |
+| **Products** | **RM6 → RM AirSeT** (ring main units), the same products as Problem 1. The "SM6 → SM AirSeT" on the Problem 2 slides is a typo (confirmed). | All our data (BOM, teardown, price benchmark) is on RM6 / RM AirSeT, so every figure applies directly, with no product proxy. |
 | **Markets** | **APAC, Middle East, Americas.** The EU is used only as the reference: what happens to prices and demand once SF6 is regulated. | Slide "Three questions", question 3. |
-| **Customers** | **Data centres first**, other segments (utilities, industry, infrastructure) as later targets. | The whole case is framed on the data-centre boom: $584B market in 2026, 25.7 % CAGR, and every new data centre needs medium-voltage switchgear. |
+| **Customers** | **Data centres first**, other segments (utilities, industry, infrastructure) as later targets. | The whole case is framed on the data-centre boom: $584B market in 2026 (+25.7 % on 2025), $1.32T by 2030 (22.7 % a year), per The Business Research Company (E38), and every new data centre needs medium-voltage switchgear. |
 | **Point of view** | Two sides: the **customer** (TCO, ESG, risk) and **Schneider** (margin, measured in margin points as in Problem 1). | "Accelerate the switch **profitably**". |
 | **Time horizon** | Offers signed **2027** (Problem 1 forecasts run to Jun 2027); strategy roadmap **2027–2030**. | Matches Problem 1 and the 2030 market projection on the slides. |
 | **External facts** | Every regulation date, GWP value, carbon price or market figure gets a **source and a date**. Values we have not yet checked are marked *(to verify)*. | Slide "What good looks like": state data limits; disclose AI tools, including for research. |
@@ -59,8 +59,8 @@ The synthetic price benchmark (`RMU_IQI_EU_Price_Benchmark…`) has no AirSeT pr
 
 - **Before the EU ban**, the premium shrank from 38 % to 22 % in eight years.
 - **In 2026**, SF6 brands jump +32 to +40 % (the client's chart marks the SF6 change) while Eaton moves +8 %. In the EU, SF6-free is now the cheaper option.
-- **Outside the EU** no such jump is forced, so **the 2025 gap (≈ +20 %, ≈ €1,900 per unit) is the hurdle our strategy has to overcome**.
-- Caveats: the panel is **synthetic**, EU-only and yearly, and Eaton is a competitor proxy, not AirSeT.
+- **Outside the EU** no such jump is forced, so **the 2025 gap (+22 %, ≈ €1,900 per unit) is the hurdle our strategy has to overcome**.
+- Caveats: the panel is **synthetic**, EU-only and yearly, and Eaton is a competitor proxy, not AirSeT. The +22 % is Eaton vs **Schneider**; vs Siemens it is only +3 %, vs low-cost SF6 brands ≈ +50 % (E36), so the hurdle depends on the rival in the tender.
 
 ### Raw materials alone cannot close that gap
 
@@ -87,19 +87,19 @@ The teardown benchmark gives the SF6 fill per unit (masses are tool-inferred, no
 | Schneider RM6 | 1.5 kg |
 | Ormazabal CGMCOSMOS | 1.2 kg |
 | Siemens 8DJH | 2.5 kg |
-| ABB SafePlus | 3.2 kg |
+| ABB SafePlus | 3.24 kg |
 | Eaton Xiria | **None** (air / vacuum) |
 
-**Illustration for one RM6** (GWP 22,800, as used in the benchmark file; newer IPCC reports give higher values):
-- **Full SF6 content:** 1.5 kg × 22,800 ≈ **34 t CO₂e**.
-- **Leaks only** (≈ 0.1 %/yr for sealed-for-life equipment *(to verify)*, over 30 years ≈ 3 %): ≈ **1 t CO₂e**.
+**Illustration for one RM6** (GWP 23,500, IPCC AR5, used by US EPA reporting; AR4 22,800 and AR6 24,300 move the results by ±3 %, E05–E06):
+- **Full SF6 content:** 1.5 kg × 23,500 ≈ **35 t CO₂e**.
+- **Leaks only** (0.2 %/yr, the IPCC default for sealed MV switchgear, over a 40-year life ≈ 8 %, E09): ≈ **2.8 t CO₂e**.
 
-| What the customer counts | Carbon price at which AirSeT's €1,921 premium pays back |
+| What the customer counts | Carbon price at which AirSeT's €1,921 premium pays back (undiscounted) |
 |---|---|
-| Full content (lost at end of life, or valued as a liability) | ≈ **€56 / t CO₂e** |
-| Leaks only | ≈ **€1,900 / t CO₂e** |
+| Full content (lost at end of life, or valued as a liability) | ≈ **€54 / t CO₂e** |
+| Leaks only | ≈ **€680 / t CO₂e** |
 
-→ **Framing consequence:** leak carbon alone will **not** win the case. It wins only if we value the **whole SF6 content**: end-of-life recovery cost and risk, future regulation that strands SF6 assets, and SF6 counted in the operator's own emissions reporting *(to verify)*. This is the central question of Step 4 (TCO).
+→ **Framing consequence:** leak carbon alone will **not** win the case. It wins only if we value the **whole SF6 content**: end-of-life recovery cost and risk, future regulation that strands SF6 assets, and the operator's emissions reporting. Checked (E13–E14): leaks from switchgear the operator owns count in its **Scope 1**, but SF6 released when a contractor disposes of the unit is **Scope 3**, so most of the 35 t reaches the operator's books as Scope 3 or as an end-of-life liability, not as Scope 1. This is the central question of Step 4 (TCO).
 
 ### Margin protection is possible on AirSeT
 
@@ -116,10 +116,9 @@ From the Problem 1 EDA: **AirSeT's raw-material risk is almost entirely carbon s
 | Missing | How we handle it |
 |---|---|
 | The two product cost overviews cited on the "References" slide ("RM AirSeT and RM6 Product and Cost Overview", "RM AirSeT vs RMX Product Cost Overview") | Ask the organisers (section 8). Meanwhile, use the Step 2 cost model and the Eaton price proxy. |
-| Any SM6 / SM AirSeT data | RM used as the proxy (section 3). |
-| AirSeT selling price and margin | Range from the Eaton premium (+20 %) and "thinner margin" in the brief; tested in the sensitivity analysis. |
-| Prices outside the EU | Assume the 2025 EU gap holds where SF6 is not regulated; test ±10 points. |
-| Market sizes per region, customer commitments, regulation status, carbon prices | External research in Steps 1–2, each fact sourced and dated. |
+| AirSeT selling price and margin | Range from the Eaton premium in 2025: +3 % vs Siemens, +22 % vs Schneider, +27 % vs the SF6 average (E36), and "thinner margin" in the brief; tested in the sensitivity analysis. |
+| Prices outside the EU | Assume the 2025 EU gap holds where SF6 is not regulated; test +3 % to +27 % (the spread across SF6 rivals, E36). |
+| Market sizes per region, customer commitments, regulation status, carbon prices | **Done (22 Nov):** researched in Steps 1–2, each fact sourced and dated in `market_evidence/` ([01](01_market_and_regulation.md)). |
 | Product configurations (1F–4F, mentioned on the "Your challenge" slide) | Not in the data; we work on the single 3-function unit, as in Problem 1. |
 | Customer interviews | None possible; stated as a limitation. |
 
@@ -131,11 +130,11 @@ The strategy is built by testing these hypotheses. Each one is either confirmed 
 
 | # | Hypothesis | Tested in | It is wrong if… |
 |---|---|---|---|
-| H1 | **Global data-centre operators apply one SF6-free standard worldwide**, so an EU win carries over to their sites in APAC, the Middle East and the Americas. | Step 2 | Their procurement or ESG policies don't mention SF6 or switchgear. |
-| H2 | **Some non-EU markets are likely to regulate SF6 soon**, so "future-proof" is a real argument there. | Step 2 | No regulation is discussed or announced in the target regions. |
-| H3 | **TCO favours AirSeT once the whole SF6 content is valued** at a realistic or internal carbon price. | Step 4 | Break-even needs a carbon price far above what customers use. |
+| H1 | **Global data-centre operators apply one SF6-free standard worldwide**, so an EU win carries over to their sites in APAC, the Middle East and the Americas. | Step 2 | Their procurement or ESG policies don't mention SF6 or switchgear. **Result (22 Nov): not supported**: 9 of 11 operators never mention SF6, Google excludes it, only AirTrunk (APAC) counts it and explores SF6-free gear ([01 §7](01_market_and_regulation.md)). |
+| H2 | **Some non-EU markets are likely to regulate SF6 soon**, so "future-proof" is a real argument there. | Step 2 | No regulation is discussed or announced in the target regions. **Result (22 Nov): partly supported**: credible in US states (New York phase-out from 2027, after California) and the UK (phase-out under study); in Asia and the Middle East regulators move at high voltage and through utilities first, with no MV rule in sight before 2030 ([01 §2.1](01_market_and_regulation.md)). |
+| H3 | **TCO favours AirSeT once the whole SF6 content is valued** at a realistic or internal carbon price. | Step 4 | Break-even needs a carbon price far above what customers use. **Provisional result (22 Nov): only if the whole fill is valued**: break-even €54/t for the whole SF6 fill (EU ETS €75 and the social cost of carbon €170 exceed it, but neither applies to a non-EU data centre), €681/t for leaks only, far above the €10–22/t that actually reaches customers ([01 §6](01_market_and_regulation.md)). Step 4 does the full TCO. |
 | H4 | **The raw-material outlook narrows the cost gap** (copper rising faster than steel). | Step 5 (needs P1 Step 8) | Problem 1 forecasts show steel or stainless rising faster than copper. |
-| H5 | **AirSeT can be priced closer to SM6 without losing margin**, thanks to steel indexation and volume. | Step 7 (needs P1 Steps 8–9) | The margin left after the risk buffer falls below the floor. |
+| H5 | **AirSeT can be priced closer to RM6 without losing margin**, thanks to steel indexation and volume. | Step 7 (needs P1 Steps 8–9) | The margin left after the risk buffer falls below the floor. |
 | H6 | **The EU price convergence (2026) will repeat elsewhere** as volume grows and regulation spreads. | Steps 2, 5 | Gap drivers are structural (components, process), not volume or regulation. |
 
 ---
@@ -157,6 +156,7 @@ The strategy is built by testing these hypotheses. Each one is either confirmed 
 
 Only questions that change **what we build**:
 
-1. **Which product is Problem 2 about?** The Problem 2 slides say **SM6 → SM AirSeT**, but the headline question ("winning **RM AirSeT** proposals") and all the data are about **RM6 / RM AirSeT**. Is Problem 2 meant to be about RM (and SM is a slip), or about SM? If SM, is there SM data (SF6 per panel, cost gap, prices) we should have?
-2. **Missing documents:** can we get the two product cost overviews listed on the "References" slide? They would replace our proxies for the AirSeT cost gap.
-3. **AirSeT price gap:** is the order of magnitude of the SF6-free premium in the synthetic benchmark (≈ +20 % before 2026) representative of AirSeT outside the EU?
+*Answered:* Problem 2 is about **RM6 → RM AirSeT**; "SM6 / SM AirSeT" on the slides was a typo.
+
+1. **Missing documents:** can we get the two product cost overviews listed on the "References" slide? They would replace our proxies for the AirSeT cost gap.
+2. **AirSeT price gap:** is the order of magnitude of the SF6-free premium in the synthetic benchmark (+22 % in 2025, Eaton vs Schneider) representative of AirSeT outside the EU?
