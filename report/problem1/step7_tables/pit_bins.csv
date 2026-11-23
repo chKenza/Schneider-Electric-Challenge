@@ -1,0 +1,229 @@
+window,model,horizon,bin,observed,expected,n
+backtest,auto_theta,3,below P10,0.1781,0.1,556
+backtest,auto_theta,3,P10-P50,0.4604,0.4,556
+backtest,auto_theta,3,P50-P90,0.2572,0.4,556
+backtest,auto_theta,3,P90-P95,0.0342,0.05,556
+backtest,auto_theta,3,above P95,0.0701,0.05,556
+backtest,auto_theta,6,below P10,0.2583,0.1,511
+backtest,auto_theta,6,P10-P50,0.4325,0.4,511
+backtest,auto_theta,6,P50-P90,0.2622,0.4,511
+backtest,auto_theta,6,P90-P95,0.0117,0.05,511
+backtest,auto_theta,6,above P95,0.0352,0.05,511
+backtest,auto_theta,9,below P10,0.2511,0.1,466
+backtest,auto_theta,9,P10-P50,0.5086,0.4,466
+backtest,auto_theta,9,P50-P90,0.221,0.4,466
+backtest,auto_theta,9,P90-P95,0.0021,0.05,466
+backtest,auto_theta,9,above P95,0.0172,0.05,466
+backtest,chronos_bolt,3,below P10,0.0989,0.1,556
+backtest,chronos_bolt,3,P10-P50,0.4317,0.4,556
+backtest,chronos_bolt,3,P50-P90,0.3885,0.4,556
+backtest,chronos_bolt,3,P90-P95,0.0342,0.05,556
+backtest,chronos_bolt,3,above P95,0.0468,0.05,556
+backtest,chronos_bolt,6,below P10,0.0959,0.1,511
+backtest,chronos_bolt,6,P10-P50,0.4775,0.4,511
+backtest,chronos_bolt,6,P50-P90,0.4012,0.4,511
+backtest,chronos_bolt,6,P90-P95,0.0176,0.05,511
+backtest,chronos_bolt,6,above P95,0.0078,0.05,511
+backtest,chronos_bolt,9,below P10,0.0966,0.1,466
+backtest,chronos_bolt,9,P10-P50,0.5193,0.4,466
+backtest,chronos_bolt,9,P50-P90,0.3777,0.4,466
+backtest,chronos_bolt,9,P90-P95,0.0043,0.05,466
+backtest,chronos_bolt,9,above P95,0.0021,0.05,466
+backtest,conformal_combo,3,below P10,0.0647,0.1,556
+backtest,conformal_combo,3,P10-P50,0.5468,0.4,556
+backtest,conformal_combo,3,P50-P90,0.2896,0.4,556
+backtest,conformal_combo,3,P90-P95,0.0072,0.05,556
+backtest,conformal_combo,3,above P95,0.0917,0.05,556
+backtest,conformal_combo,6,below P10,0.1018,0.1,511
+backtest,conformal_combo,6,P10-P50,0.5421,0.4,511
+backtest,conformal_combo,6,P50-P90,0.3229,0.4,511
+backtest,conformal_combo,6,P90-P95,0.0059,0.05,511
+backtest,conformal_combo,6,above P95,0.0274,0.05,511
+backtest,conformal_combo,9,below P10,0.0923,0.1,466
+backtest,conformal_combo,9,P10-P50,0.6116,0.4,466
+backtest,conformal_combo,9,P50-P90,0.2918,0.4,466
+backtest,conformal_combo,9,P90-P95,0.0021,0.05,466
+backtest,conformal_combo,9,above P95,0.0021,0.05,466
+backtest,ewma_fhs,3,below P10,0.0863,0.1,556
+backtest,ewma_fhs,3,P10-P50,0.5,0.4,556
+backtest,ewma_fhs,3,P50-P90,0.304,0.4,556
+backtest,ewma_fhs,3,P90-P95,0.0036,0.05,556
+backtest,ewma_fhs,3,above P95,0.1061,0.05,556
+backtest,ewma_fhs,6,below P10,0.0861,0.1,511
+backtest,ewma_fhs,6,P10-P50,0.5342,0.4,511
+backtest,ewma_fhs,6,P50-P90,0.3464,0.4,511
+backtest,ewma_fhs,6,P90-P95,0.002,0.05,511
+backtest,ewma_fhs,6,above P95,0.0313,0.05,511
+backtest,ewma_fhs,9,below P10,0.0815,0.1,466
+backtest,ewma_fhs,9,P10-P50,0.6073,0.4,466
+backtest,ewma_fhs,9,P50-P90,0.3112,0.4,466
+backtest,ewma_fhs,9,P90-P95,0.0,0.05,466
+backtest,ewma_fhs,9,above P95,0.0,0.05,466
+backtest,features_qr,3,below P10,0.1637,0.1,556
+backtest,features_qr,3,P10-P50,0.4227,0.4,556
+backtest,features_qr,3,P50-P90,0.3327,0.4,556
+backtest,features_qr,3,above P90,0.0809,0.1,556
+backtest,features_qr,6,below P10,0.2329,0.1,511
+backtest,features_qr,6,P10-P50,0.3816,0.4,511
+backtest,features_qr,6,P50-P90,0.3679,0.4,511
+backtest,features_qr,6,above P90,0.0176,0.1,511
+backtest,features_qr,9,below P10,0.2446,0.1,466
+backtest,features_qr,9,P10-P50,0.4335,0.4,466
+backtest,features_qr,9,P50-P90,0.3197,0.4,466
+backtest,features_qr,9,above P90,0.0021,0.1,466
+backtest,features_scaled,3,below P10,0.0564,0.1,266
+backtest,features_scaled,3,P10-P50,0.5376,0.4,266
+backtest,features_scaled,3,P50-P90,0.3383,0.4,266
+backtest,features_scaled,3,P90-P95,0.015,0.05,266
+backtest,features_scaled,3,above P95,0.0526,0.05,266
+backtest,features_scaled,6,below P10,0.1173,0.1,196
+backtest,features_scaled,6,P10-P50,0.4847,0.4,196
+backtest,features_scaled,6,P50-P90,0.3724,0.4,196
+backtest,features_scaled,6,P90-P95,0.0153,0.05,196
+backtest,features_scaled,6,above P95,0.0102,0.05,196
+backtest,features_scaled,9,below P10,0.0547,0.1,128
+backtest,features_scaled,9,P10-P50,0.5469,0.4,128
+backtest,features_scaled,9,P50-P90,0.375,0.4,128
+backtest,features_scaled,9,P90-P95,0.0,0.05,128
+backtest,features_scaled,9,above P95,0.0234,0.05,128
+backtest,gjr_fhs,3,below P10,0.1295,0.1,556
+backtest,gjr_fhs,3,P10-P50,0.4568,0.4,556
+backtest,gjr_fhs,3,P50-P90,0.295,0.4,556
+backtest,gjr_fhs,3,P90-P95,0.0018,0.05,556
+backtest,gjr_fhs,3,above P95,0.1169,0.05,556
+backtest,gjr_fhs,6,below P10,0.1331,0.1,511
+backtest,gjr_fhs,6,P10-P50,0.4873,0.4,511
+backtest,gjr_fhs,6,P50-P90,0.3464,0.4,511
+backtest,gjr_fhs,6,P90-P95,0.0098,0.05,511
+backtest,gjr_fhs,6,above P95,0.0235,0.05,511
+backtest,gjr_fhs,9,below P10,0.1438,0.1,466
+backtest,gjr_fhs,9,P10-P50,0.5451,0.4,466
+backtest,gjr_fhs,9,P50-P90,0.3069,0.4,466
+backtest,gjr_fhs,9,P90-P95,0.0,0.05,466
+backtest,gjr_fhs,9,above P95,0.0043,0.05,466
+backtest,random_walk,3,below P10,0.1583,0.1,556
+backtest,random_walk,3,P10-P50,0.4281,0.4,556
+backtest,random_walk,3,P50-P90,0.3273,0.4,556
+backtest,random_walk,3,above P90,0.0863,0.1,556
+backtest,random_walk,6,below P10,0.2074,0.1,511
+backtest,random_walk,6,P10-P50,0.4129,0.4,511
+backtest,random_walk,6,P50-P90,0.3601,0.4,511
+backtest,random_walk,6,above P90,0.0196,0.1,511
+backtest,random_walk,9,below P10,0.2639,0.1,466
+backtest,random_walk,9,P10-P50,0.4249,0.4,466
+backtest,random_walk,9,P50-P90,0.3112,0.4,466
+backtest,random_walk,9,above P90,0.0,0.1,466
+holdout,auto_theta,3,below P10,0.0444,0.1,270
+holdout,auto_theta,3,P10-P50,0.3741,0.4,270
+holdout,auto_theta,3,P50-P90,0.4481,0.4,270
+holdout,auto_theta,3,P90-P95,0.0259,0.05,270
+holdout,auto_theta,3,above P95,0.1074,0.05,270
+holdout,auto_theta,6,below P10,0.0333,0.1,270
+holdout,auto_theta,6,P10-P50,0.4148,0.4,270
+holdout,auto_theta,6,P50-P90,0.3333,0.4,270
+holdout,auto_theta,6,P90-P95,0.0778,0.05,270
+holdout,auto_theta,6,above P95,0.1407,0.05,270
+holdout,auto_theta,9,below P10,0.0148,0.1,270
+holdout,auto_theta,9,P10-P50,0.4481,0.4,270
+holdout,auto_theta,9,P50-P90,0.337,0.4,270
+holdout,auto_theta,9,P90-P95,0.0259,0.05,270
+holdout,auto_theta,9,above P95,0.1741,0.05,270
+holdout,chronos_bolt,3,below P10,0.0444,0.1,270
+holdout,chronos_bolt,3,P10-P50,0.3407,0.4,270
+holdout,chronos_bolt,3,P50-P90,0.4815,0.4,270
+holdout,chronos_bolt,3,P90-P95,0.0333,0.05,270
+holdout,chronos_bolt,3,above P95,0.1,0.05,270
+holdout,chronos_bolt,6,below P10,0.0148,0.1,270
+holdout,chronos_bolt,6,P10-P50,0.3,0.4,270
+holdout,chronos_bolt,6,P50-P90,0.5074,0.4,270
+holdout,chronos_bolt,6,P90-P95,0.0815,0.05,270
+holdout,chronos_bolt,6,above P95,0.0963,0.05,270
+holdout,chronos_bolt,9,below P10,0.0,0.1,270
+holdout,chronos_bolt,9,P10-P50,0.3741,0.4,270
+holdout,chronos_bolt,9,P50-P90,0.4148,0.4,270
+holdout,chronos_bolt,9,P90-P95,0.0593,0.05,270
+holdout,chronos_bolt,9,above P95,0.1519,0.05,270
+holdout,conformal_combo,3,below P10,0.0185,0.1,270
+holdout,conformal_combo,3,P10-P50,0.3556,0.4,270
+holdout,conformal_combo,3,P50-P90,0.4815,0.4,270
+holdout,conformal_combo,3,P90-P95,0.0259,0.05,270
+holdout,conformal_combo,3,above P95,0.1185,0.05,270
+holdout,conformal_combo,6,below P10,0.0185,0.1,270
+holdout,conformal_combo,6,P10-P50,0.3889,0.4,270
+holdout,conformal_combo,6,P50-P90,0.4074,0.4,270
+holdout,conformal_combo,6,P90-P95,0.0407,0.05,270
+holdout,conformal_combo,6,above P95,0.1444,0.05,270
+holdout,conformal_combo,9,below P10,0.0185,0.1,270
+holdout,conformal_combo,9,P10-P50,0.3778,0.4,270
+holdout,conformal_combo,9,P50-P90,0.4407,0.4,270
+holdout,conformal_combo,9,P90-P95,0.0444,0.05,270
+holdout,conformal_combo,9,above P95,0.1185,0.05,270
+holdout,ewma_fhs,3,below P10,0.0556,0.1,270
+holdout,ewma_fhs,3,P10-P50,0.3074,0.4,270
+holdout,ewma_fhs,3,P50-P90,0.4852,0.4,270
+holdout,ewma_fhs,3,P90-P95,0.0185,0.05,270
+holdout,ewma_fhs,3,above P95,0.1333,0.05,270
+holdout,ewma_fhs,6,below P10,0.0222,0.1,270
+holdout,ewma_fhs,6,P10-P50,0.3593,0.4,270
+holdout,ewma_fhs,6,P50-P90,0.4519,0.4,270
+holdout,ewma_fhs,6,P90-P95,0.0296,0.05,270
+holdout,ewma_fhs,6,above P95,0.137,0.05,270
+holdout,ewma_fhs,9,below P10,0.0296,0.1,270
+holdout,ewma_fhs,9,P10-P50,0.3407,0.4,270
+holdout,ewma_fhs,9,P50-P90,0.4889,0.4,270
+holdout,ewma_fhs,9,P90-P95,0.0667,0.05,270
+holdout,ewma_fhs,9,above P95,0.0741,0.05,270
+holdout,features_qr,3,below P10,0.0481,0.1,270
+holdout,features_qr,3,P10-P50,0.3519,0.4,270
+holdout,features_qr,3,P50-P90,0.4778,0.4,270
+holdout,features_qr,3,above P90,0.1222,0.1,270
+holdout,features_qr,6,below P10,0.0037,0.1,270
+holdout,features_qr,6,P10-P50,0.3222,0.4,270
+holdout,features_qr,6,P50-P90,0.5519,0.4,270
+holdout,features_qr,6,above P90,0.1222,0.1,270
+holdout,features_qr,9,below P10,0.0,0.1,270
+holdout,features_qr,9,P10-P50,0.2593,0.4,270
+holdout,features_qr,9,P50-P90,0.6519,0.4,270
+holdout,features_qr,9,above P90,0.0889,0.1,270
+holdout,features_scaled,3,below P10,0.0159,0.1,126
+holdout,features_scaled,3,P10-P50,0.3571,0.4,126
+holdout,features_scaled,3,P50-P90,0.5317,0.4,126
+holdout,features_scaled,3,P90-P95,0.0317,0.05,126
+holdout,features_scaled,3,above P95,0.0635,0.05,126
+holdout,features_scaled,6,below P10,0.0,0.1,108
+holdout,features_scaled,6,P10-P50,0.3981,0.4,108
+holdout,features_scaled,6,P50-P90,0.4167,0.4,108
+holdout,features_scaled,6,P90-P95,0.0556,0.05,108
+holdout,features_scaled,6,above P95,0.1296,0.05,108
+holdout,features_scaled,9,below P10,0.0139,0.1,72
+holdout,features_scaled,9,P10-P50,0.3889,0.4,72
+holdout,features_scaled,9,P50-P90,0.3889,0.4,72
+holdout,features_scaled,9,P90-P95,0.0417,0.05,72
+holdout,features_scaled,9,above P95,0.1667,0.05,72
+holdout,gjr_fhs,3,below P10,0.063,0.1,270
+holdout,gjr_fhs,3,P10-P50,0.3,0.4,270
+holdout,gjr_fhs,3,P50-P90,0.4741,0.4,270
+holdout,gjr_fhs,3,P90-P95,0.0148,0.05,270
+holdout,gjr_fhs,3,above P95,0.1481,0.05,270
+holdout,gjr_fhs,6,below P10,0.0444,0.1,270
+holdout,gjr_fhs,6,P10-P50,0.337,0.4,270
+holdout,gjr_fhs,6,P50-P90,0.4593,0.4,270
+holdout,gjr_fhs,6,P90-P95,0.0259,0.05,270
+holdout,gjr_fhs,6,above P95,0.1333,0.05,270
+holdout,gjr_fhs,9,below P10,0.0444,0.1,270
+holdout,gjr_fhs,9,P10-P50,0.3259,0.4,270
+holdout,gjr_fhs,9,P50-P90,0.4963,0.4,270
+holdout,gjr_fhs,9,P90-P95,0.0481,0.05,270
+holdout,gjr_fhs,9,above P95,0.0852,0.05,270
+holdout,random_walk,3,below P10,0.0444,0.1,270
+holdout,random_walk,3,P10-P50,0.3185,0.4,270
+holdout,random_walk,3,P50-P90,0.5111,0.4,270
+holdout,random_walk,3,above P90,0.1259,0.1,270
+holdout,random_walk,6,below P10,0.0074,0.1,270
+holdout,random_walk,6,P10-P50,0.3741,0.4,270
+holdout,random_walk,6,P50-P90,0.5111,0.4,270
+holdout,random_walk,6,above P90,0.1074,0.1,270
+holdout,random_walk,9,below P10,0.0037,0.1,270
+holdout,random_walk,9,P10-P50,0.3667,0.4,270
+holdout,random_walk,9,P50-P90,0.5741,0.4,270
+holdout,random_walk,9,above P90,0.0556,0.1,270

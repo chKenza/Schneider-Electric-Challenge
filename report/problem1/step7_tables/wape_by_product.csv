@@ -1,0 +1,439 @@
+product,model,window,horizon,n,wape,wape_rw,wape_skill
+AirSeT epoxy high,auto_arima,backtest,3,100,0.9153,1.0,0.0847
+AirSeT epoxy high,auto_arima,backtest,6,91,1.044,1.0,-0.044
+AirSeT epoxy high,auto_arima,backtest,9,82,1.2336,1.0,-0.2336
+AirSeT epoxy high,auto_arima,holdout,3,54,0.9051,1.0,0.0949
+AirSeT epoxy high,auto_arima,holdout,6,54,1.0448,1.0,-0.0448
+AirSeT epoxy high,auto_arima,holdout,9,54,1.0997,1.0,-0.0997
+AirSeT epoxy high,auto_ets,backtest,3,100,0.9419,1.0,0.0581
+AirSeT epoxy high,auto_ets,backtest,6,91,1.0772,1.0,-0.0772
+AirSeT epoxy high,auto_ets,backtest,9,82,1.29,1.0,-0.29
+AirSeT epoxy high,auto_ets,holdout,3,54,1.0163,1.0,-0.0163
+AirSeT epoxy high,auto_ets,holdout,6,54,1.1054,1.0,-0.1054
+AirSeT epoxy high,auto_ets,holdout,9,54,1.0463,1.0,-0.0463
+AirSeT epoxy high,auto_theta,backtest,3,100,1.1848,1.0,-0.1848
+AirSeT epoxy high,auto_theta,backtest,6,91,1.2356,1.0,-0.2356
+AirSeT epoxy high,auto_theta,backtest,9,82,1.3129,1.0,-0.3129
+AirSeT epoxy high,auto_theta,holdout,3,54,0.9859,1.0,0.0141
+AirSeT epoxy high,auto_theta,holdout,6,54,1.0657,1.0,-0.0657
+AirSeT epoxy high,auto_theta,holdout,9,54,1.1701,1.0,-0.1701
+AirSeT epoxy high,chronos_bolt,backtest,3,100,1.062,1.0,-0.062
+AirSeT epoxy high,chronos_bolt,backtest,6,91,1.1177,1.0,-0.1177
+AirSeT epoxy high,chronos_bolt,backtest,9,82,1.1953,1.0,-0.1953
+AirSeT epoxy high,chronos_bolt,holdout,3,54,0.9403,1.0,0.0597
+AirSeT epoxy high,chronos_bolt,holdout,6,54,1.0951,1.0,-0.0951
+AirSeT epoxy high,chronos_bolt,holdout,9,54,1.1482,1.0,-0.1482
+AirSeT epoxy high,combo,backtest,3,100,0.9757,1.0,0.0243
+AirSeT epoxy high,combo,backtest,6,91,1.0629,1.0,-0.0629
+AirSeT epoxy high,combo,backtest,9,82,1.0729,1.0,-0.0729
+AirSeT epoxy high,combo,holdout,3,54,0.9658,1.0,0.0342
+AirSeT epoxy high,combo,holdout,6,54,0.9989,1.0,0.0011
+AirSeT epoxy high,combo,holdout,9,54,1.0351,1.0,-0.0351
+AirSeT epoxy high,conformal_auto_arima,backtest,3,100,0.9153,1.0,0.0847
+AirSeT epoxy high,conformal_auto_arima,backtest,6,91,1.044,1.0,-0.044
+AirSeT epoxy high,conformal_auto_arima,backtest,9,82,1.2336,1.0,-0.2336
+AirSeT epoxy high,conformal_auto_arima,holdout,3,54,0.9051,1.0,0.0949
+AirSeT epoxy high,conformal_auto_arima,holdout,6,54,1.0448,1.0,-0.0448
+AirSeT epoxy high,conformal_auto_arima,holdout,9,54,1.0997,1.0,-0.0997
+AirSeT epoxy high,conformal_auto_ets,backtest,3,100,0.9419,1.0,0.0581
+AirSeT epoxy high,conformal_auto_ets,backtest,6,91,1.0772,1.0,-0.0772
+AirSeT epoxy high,conformal_auto_ets,backtest,9,82,1.29,1.0,-0.29
+AirSeT epoxy high,conformal_auto_ets,holdout,3,54,1.0163,1.0,-0.0163
+AirSeT epoxy high,conformal_auto_ets,holdout,6,54,1.1054,1.0,-0.1054
+AirSeT epoxy high,conformal_auto_ets,holdout,9,54,1.0463,1.0,-0.0463
+AirSeT epoxy high,conformal_auto_theta,backtest,3,100,1.1848,1.0,-0.1848
+AirSeT epoxy high,conformal_auto_theta,backtest,6,91,1.2356,1.0,-0.2356
+AirSeT epoxy high,conformal_auto_theta,backtest,9,82,1.3129,1.0,-0.3129
+AirSeT epoxy high,conformal_auto_theta,holdout,3,54,0.9859,1.0,0.0141
+AirSeT epoxy high,conformal_auto_theta,holdout,6,54,1.0657,1.0,-0.0657
+AirSeT epoxy high,conformal_auto_theta,holdout,9,54,1.1701,1.0,-0.1701
+AirSeT epoxy high,conformal_chronos_bolt,backtest,3,100,1.062,1.0,-0.062
+AirSeT epoxy high,conformal_chronos_bolt,backtest,6,91,1.1177,1.0,-0.1177
+AirSeT epoxy high,conformal_chronos_bolt,backtest,9,82,1.1953,1.0,-0.1953
+AirSeT epoxy high,conformal_chronos_bolt,holdout,3,54,0.9403,1.0,0.0597
+AirSeT epoxy high,conformal_chronos_bolt,holdout,6,54,1.0951,1.0,-0.0951
+AirSeT epoxy high,conformal_chronos_bolt,holdout,9,54,1.1482,1.0,-0.1482
+AirSeT epoxy high,conformal_combo,backtest,3,100,0.9757,1.0,0.0243
+AirSeT epoxy high,conformal_combo,backtest,6,91,1.0629,1.0,-0.0629
+AirSeT epoxy high,conformal_combo,backtest,9,82,1.0729,1.0,-0.0729
+AirSeT epoxy high,conformal_combo,holdout,3,54,0.9658,1.0,0.0342
+AirSeT epoxy high,conformal_combo,holdout,6,54,0.9989,1.0,0.0011
+AirSeT epoxy high,conformal_combo,holdout,9,54,1.0351,1.0,-0.0351
+AirSeT epoxy high,conformal_ewma_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy high,conformal_ewma_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy high,conformal_ewma_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy high,conformal_ewma_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_ewma_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_ewma_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_features_scaled,backtest,3,38,0.8097,1.0,0.1903
+AirSeT epoxy high,conformal_features_scaled,backtest,6,21,1.1572,1.0,-0.1572
+AirSeT epoxy high,conformal_features_scaled,backtest,9,32,1.0463,1.0,-0.0463
+AirSeT epoxy high,conformal_features_scaled,holdout,3,18,0.7524,1.0,0.2476
+AirSeT epoxy high,conformal_features_scaled,holdout,6,18,1.0747,1.0,-0.0747
+AirSeT epoxy high,conformal_features_scaled,holdout,9,18,1.1167,1.0,-0.1167
+AirSeT epoxy high,conformal_garch_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy high,conformal_garch_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy high,conformal_garch_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy high,conformal_garch_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_garch_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_garch_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_gjr_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy high,conformal_gjr_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy high,conformal_gjr_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy high,conformal_gjr_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_gjr_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_gjr_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy high,conformal_pooled_qr,backtest,3,100,0.9563,1.0,0.0437
+AirSeT epoxy high,conformal_pooled_qr,backtest,6,91,0.9858,1.0,0.0142
+AirSeT epoxy high,conformal_pooled_qr,backtest,9,82,0.8903,1.0,0.1097
+AirSeT epoxy high,conformal_pooled_qr,holdout,3,54,0.9777,1.0,0.0223
+AirSeT epoxy high,conformal_pooled_qr,holdout,6,54,1.093,1.0,-0.093
+AirSeT epoxy high,conformal_pooled_qr,holdout,9,54,1.0411,1.0,-0.0411
+AirSeT epoxy high,drift,backtest,3,100,1.2536,1.0,-0.2536
+AirSeT epoxy high,drift,backtest,6,91,1.3711,1.0,-0.3711
+AirSeT epoxy high,drift,backtest,9,82,1.5592,1.0,-0.5592
+AirSeT epoxy high,drift,holdout,3,54,0.989,1.0,0.011
+AirSeT epoxy high,drift,holdout,6,54,1.0826,1.0,-0.0826
+AirSeT epoxy high,drift,holdout,9,54,1.2153,1.0,-0.2153
+AirSeT epoxy high,ewma_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy high,ewma_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy high,ewma_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy high,ewma_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy high,ewma_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy high,ewma_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy high,features_qr,backtest,3,100,0.9247,1.0,0.0753
+AirSeT epoxy high,features_qr,backtest,6,91,1.0134,1.0,-0.0134
+AirSeT epoxy high,features_qr,backtest,9,82,1.0661,1.0,-0.0661
+AirSeT epoxy high,features_qr,holdout,3,54,0.916,1.0,0.084
+AirSeT epoxy high,features_qr,holdout,6,54,1.1895,1.0,-0.1895
+AirSeT epoxy high,features_qr,holdout,9,54,1.1232,1.0,-0.1232
+AirSeT epoxy high,features_scaled,backtest,3,38,0.8097,1.0,0.1903
+AirSeT epoxy high,features_scaled,backtest,6,21,1.1572,1.0,-0.1572
+AirSeT epoxy high,features_scaled,backtest,9,32,1.0463,1.0,-0.0463
+AirSeT epoxy high,features_scaled,holdout,3,18,0.7524,1.0,0.2476
+AirSeT epoxy high,features_scaled,holdout,6,18,1.0747,1.0,-0.0747
+AirSeT epoxy high,features_scaled,holdout,9,18,1.1167,1.0,-0.1167
+AirSeT epoxy high,garch_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy high,garch_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy high,garch_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy high,garch_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy high,garch_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy high,garch_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy high,gjr_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy high,gjr_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy high,gjr_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy high,gjr_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy high,gjr_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy high,gjr_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy high,hist_quantiles,backtest,3,100,1.0212,1.0,-0.0212
+AirSeT epoxy high,hist_quantiles,backtest,6,91,1.0379,1.0,-0.0379
+AirSeT epoxy high,hist_quantiles,backtest,9,82,1.0656,1.0,-0.0656
+AirSeT epoxy high,hist_quantiles,holdout,3,54,1.1079,1.0,-0.1079
+AirSeT epoxy high,hist_quantiles,holdout,6,54,1.2032,1.0,-0.2032
+AirSeT epoxy high,hist_quantiles,holdout,9,54,1.1211,1.0,-0.1211
+AirSeT epoxy high,lme_forward,backtest,3,38,1.0247,1.0,-0.0247
+AirSeT epoxy high,lme_forward,holdout,3,18,0.9737,1.0,0.0263
+AirSeT epoxy high,pooled_qr,backtest,3,100,0.9563,1.0,0.0437
+AirSeT epoxy high,pooled_qr,backtest,6,91,0.9858,1.0,0.0142
+AirSeT epoxy high,pooled_qr,backtest,9,82,0.8903,1.0,0.1097
+AirSeT epoxy high,pooled_qr,holdout,3,54,0.9777,1.0,0.0223
+AirSeT epoxy high,pooled_qr,holdout,6,54,1.093,1.0,-0.093
+AirSeT epoxy high,pooled_qr,holdout,9,54,1.0411,1.0,-0.0411
+AirSeT epoxy high,random_walk,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy high,random_walk,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy high,random_walk,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy high,random_walk,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy high,random_walk,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy high,random_walk,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy low,auto_arima,backtest,3,100,0.8835,1.0,0.1165
+AirSeT epoxy low,auto_arima,backtest,6,91,1.05,1.0,-0.05
+AirSeT epoxy low,auto_arima,backtest,9,82,1.2751,1.0,-0.2751
+AirSeT epoxy low,auto_arima,holdout,3,54,0.7703,1.0,0.2297
+AirSeT epoxy low,auto_arima,holdout,6,54,1.0867,1.0,-0.0867
+AirSeT epoxy low,auto_arima,holdout,9,54,1.1976,1.0,-0.1976
+AirSeT epoxy low,auto_ets,backtest,3,100,0.9195,1.0,0.0805
+AirSeT epoxy low,auto_ets,backtest,6,91,1.0461,1.0,-0.0461
+AirSeT epoxy low,auto_ets,backtest,9,82,1.2584,1.0,-0.2584
+AirSeT epoxy low,auto_ets,holdout,3,54,0.9107,1.0,0.0893
+AirSeT epoxy low,auto_ets,holdout,6,54,1.1644,1.0,-0.1644
+AirSeT epoxy low,auto_ets,holdout,9,54,1.0832,1.0,-0.0832
+AirSeT epoxy low,auto_theta,backtest,3,100,1.2029,1.0,-0.2029
+AirSeT epoxy low,auto_theta,backtest,6,91,1.2473,1.0,-0.2473
+AirSeT epoxy low,auto_theta,backtest,9,82,1.3111,1.0,-0.3111
+AirSeT epoxy low,auto_theta,holdout,3,54,0.9468,1.0,0.0532
+AirSeT epoxy low,auto_theta,holdout,6,54,1.072,1.0,-0.072
+AirSeT epoxy low,auto_theta,holdout,9,54,1.2431,1.0,-0.2431
+AirSeT epoxy low,chronos_bolt,backtest,3,100,1.0546,1.0,-0.0546
+AirSeT epoxy low,chronos_bolt,backtest,6,91,1.087,1.0,-0.087
+AirSeT epoxy low,chronos_bolt,backtest,9,82,1.1322,1.0,-0.1322
+AirSeT epoxy low,chronos_bolt,holdout,3,54,0.7742,1.0,0.2258
+AirSeT epoxy low,chronos_bolt,holdout,6,54,1.0543,1.0,-0.0543
+AirSeT epoxy low,chronos_bolt,holdout,9,54,1.2596,1.0,-0.2596
+AirSeT epoxy low,combo,backtest,3,100,0.9582,1.0,0.0418
+AirSeT epoxy low,combo,backtest,6,91,1.0613,1.0,-0.0613
+AirSeT epoxy low,combo,backtest,9,82,1.0765,1.0,-0.0765
+AirSeT epoxy low,combo,holdout,3,54,0.9324,1.0,0.0676
+AirSeT epoxy low,combo,holdout,6,54,0.9959,1.0,0.0041
+AirSeT epoxy low,combo,holdout,9,54,1.0494,1.0,-0.0494
+AirSeT epoxy low,conformal_auto_arima,backtest,3,100,0.8835,1.0,0.1165
+AirSeT epoxy low,conformal_auto_arima,backtest,6,91,1.05,1.0,-0.05
+AirSeT epoxy low,conformal_auto_arima,backtest,9,82,1.2751,1.0,-0.2751
+AirSeT epoxy low,conformal_auto_arima,holdout,3,54,0.7703,1.0,0.2297
+AirSeT epoxy low,conformal_auto_arima,holdout,6,54,1.0867,1.0,-0.0867
+AirSeT epoxy low,conformal_auto_arima,holdout,9,54,1.1976,1.0,-0.1976
+AirSeT epoxy low,conformal_auto_ets,backtest,3,100,0.9195,1.0,0.0805
+AirSeT epoxy low,conformal_auto_ets,backtest,6,91,1.0461,1.0,-0.0461
+AirSeT epoxy low,conformal_auto_ets,backtest,9,82,1.2584,1.0,-0.2584
+AirSeT epoxy low,conformal_auto_ets,holdout,3,54,0.9107,1.0,0.0893
+AirSeT epoxy low,conformal_auto_ets,holdout,6,54,1.1644,1.0,-0.1644
+AirSeT epoxy low,conformal_auto_ets,holdout,9,54,1.0832,1.0,-0.0832
+AirSeT epoxy low,conformal_auto_theta,backtest,3,100,1.2029,1.0,-0.2029
+AirSeT epoxy low,conformal_auto_theta,backtest,6,91,1.2473,1.0,-0.2473
+AirSeT epoxy low,conformal_auto_theta,backtest,9,82,1.3111,1.0,-0.3111
+AirSeT epoxy low,conformal_auto_theta,holdout,3,54,0.9468,1.0,0.0532
+AirSeT epoxy low,conformal_auto_theta,holdout,6,54,1.072,1.0,-0.072
+AirSeT epoxy low,conformal_auto_theta,holdout,9,54,1.2431,1.0,-0.2431
+AirSeT epoxy low,conformal_chronos_bolt,backtest,3,100,1.0546,1.0,-0.0546
+AirSeT epoxy low,conformal_chronos_bolt,backtest,6,91,1.087,1.0,-0.087
+AirSeT epoxy low,conformal_chronos_bolt,backtest,9,82,1.1322,1.0,-0.1322
+AirSeT epoxy low,conformal_chronos_bolt,holdout,3,54,0.7742,1.0,0.2258
+AirSeT epoxy low,conformal_chronos_bolt,holdout,6,54,1.0543,1.0,-0.0543
+AirSeT epoxy low,conformal_chronos_bolt,holdout,9,54,1.2596,1.0,-0.2596
+AirSeT epoxy low,conformal_combo,backtest,3,100,0.9582,1.0,0.0418
+AirSeT epoxy low,conformal_combo,backtest,6,91,1.0613,1.0,-0.0613
+AirSeT epoxy low,conformal_combo,backtest,9,82,1.0765,1.0,-0.0765
+AirSeT epoxy low,conformal_combo,holdout,3,54,0.9324,1.0,0.0676
+AirSeT epoxy low,conformal_combo,holdout,6,54,0.9959,1.0,0.0041
+AirSeT epoxy low,conformal_combo,holdout,9,54,1.0494,1.0,-0.0494
+AirSeT epoxy low,conformal_ewma_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy low,conformal_ewma_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy low,conformal_ewma_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy low,conformal_ewma_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_ewma_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_ewma_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_features_scaled,backtest,3,38,0.8097,1.0,0.1903
+AirSeT epoxy low,conformal_features_scaled,backtest,6,21,1.1572,1.0,-0.1572
+AirSeT epoxy low,conformal_features_scaled,backtest,9,32,1.0463,1.0,-0.0463
+AirSeT epoxy low,conformal_features_scaled,holdout,3,18,0.7524,1.0,0.2476
+AirSeT epoxy low,conformal_features_scaled,holdout,6,18,1.0747,1.0,-0.0747
+AirSeT epoxy low,conformal_features_scaled,holdout,9,18,1.1167,1.0,-0.1167
+AirSeT epoxy low,conformal_garch_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy low,conformal_garch_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy low,conformal_garch_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy low,conformal_garch_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_garch_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_garch_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_gjr_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy low,conformal_gjr_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy low,conformal_gjr_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy low,conformal_gjr_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_gjr_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_gjr_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy low,conformal_pooled_qr,backtest,3,100,0.9103,1.0,0.0897
+AirSeT epoxy low,conformal_pooled_qr,backtest,6,91,0.9689,1.0,0.0311
+AirSeT epoxy low,conformal_pooled_qr,backtest,9,82,0.8693,1.0,0.1307
+AirSeT epoxy low,conformal_pooled_qr,holdout,3,54,0.9437,1.0,0.0563
+AirSeT epoxy low,conformal_pooled_qr,holdout,6,54,1.159,1.0,-0.159
+AirSeT epoxy low,conformal_pooled_qr,holdout,9,54,1.0604,1.0,-0.0604
+AirSeT epoxy low,drift,backtest,3,100,1.2719,1.0,-0.2719
+AirSeT epoxy low,drift,backtest,6,91,1.3821,1.0,-0.3821
+AirSeT epoxy low,drift,backtest,9,82,1.549,1.0,-0.549
+AirSeT epoxy low,drift,holdout,3,54,0.9373,1.0,0.0627
+AirSeT epoxy low,drift,holdout,6,54,1.0786,1.0,-0.0786
+AirSeT epoxy low,drift,holdout,9,54,1.2745,1.0,-0.2745
+AirSeT epoxy low,ewma_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy low,ewma_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy low,ewma_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy low,ewma_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy low,ewma_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy low,ewma_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy low,features_qr,backtest,3,100,0.8384,1.0,0.1616
+AirSeT epoxy low,features_qr,backtest,6,91,0.9762,1.0,0.0238
+AirSeT epoxy low,features_qr,backtest,9,82,1.0012,1.0,-0.0012
+AirSeT epoxy low,features_qr,holdout,3,54,0.7891,1.0,0.2109
+AirSeT epoxy low,features_qr,holdout,6,54,1.2971,1.0,-0.2971
+AirSeT epoxy low,features_qr,holdout,9,54,1.1686,1.0,-0.1686
+AirSeT epoxy low,features_scaled,backtest,3,38,0.8097,1.0,0.1903
+AirSeT epoxy low,features_scaled,backtest,6,21,1.1572,1.0,-0.1572
+AirSeT epoxy low,features_scaled,backtest,9,32,1.0463,1.0,-0.0463
+AirSeT epoxy low,features_scaled,holdout,3,18,0.7524,1.0,0.2476
+AirSeT epoxy low,features_scaled,holdout,6,18,1.0747,1.0,-0.0747
+AirSeT epoxy low,features_scaled,holdout,9,18,1.1167,1.0,-0.1167
+AirSeT epoxy low,garch_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy low,garch_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy low,garch_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy low,garch_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy low,garch_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy low,garch_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy low,gjr_fhs,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy low,gjr_fhs,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy low,gjr_fhs,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy low,gjr_fhs,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy low,gjr_fhs,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy low,gjr_fhs,holdout,9,54,1.0,1.0,0.0
+AirSeT epoxy low,hist_quantiles,backtest,3,100,0.965,1.0,0.035
+AirSeT epoxy low,hist_quantiles,backtest,6,91,0.9776,1.0,0.0224
+AirSeT epoxy low,hist_quantiles,backtest,9,82,1.0006,1.0,-0.0006
+AirSeT epoxy low,hist_quantiles,holdout,3,54,1.1504,1.0,-0.1504
+AirSeT epoxy low,hist_quantiles,holdout,6,54,1.2983,1.0,-0.2983
+AirSeT epoxy low,hist_quantiles,holdout,9,54,1.1643,1.0,-0.1643
+AirSeT epoxy low,lme_forward,backtest,3,38,1.0247,1.0,-0.0247
+AirSeT epoxy low,lme_forward,holdout,3,18,0.9737,1.0,0.0263
+AirSeT epoxy low,pooled_qr,backtest,3,100,0.9103,1.0,0.0897
+AirSeT epoxy low,pooled_qr,backtest,6,91,0.9689,1.0,0.0311
+AirSeT epoxy low,pooled_qr,backtest,9,82,0.8693,1.0,0.1307
+AirSeT epoxy low,pooled_qr,holdout,3,54,0.9437,1.0,0.0563
+AirSeT epoxy low,pooled_qr,holdout,6,54,1.159,1.0,-0.159
+AirSeT epoxy low,pooled_qr,holdout,9,54,1.0604,1.0,-0.0604
+AirSeT epoxy low,random_walk,backtest,3,100,1.0,1.0,0.0
+AirSeT epoxy low,random_walk,backtest,6,91,1.0,1.0,0.0
+AirSeT epoxy low,random_walk,backtest,9,82,1.0,1.0,0.0
+AirSeT epoxy low,random_walk,holdout,3,54,1.0,1.0,0.0
+AirSeT epoxy low,random_walk,holdout,6,54,1.0,1.0,0.0
+AirSeT epoxy low,random_walk,holdout,9,54,1.0,1.0,0.0
+RM6,auto_arima,backtest,3,176,1.0435,1.0,-0.0435
+RM6,auto_arima,backtest,6,161,1.0682,1.0,-0.0682
+RM6,auto_arima,backtest,9,146,1.2395,1.0,-0.2395
+RM6,auto_arima,holdout,3,90,0.9151,1.0,0.0849
+RM6,auto_arima,holdout,6,90,0.9016,1.0,0.0984
+RM6,auto_arima,holdout,9,90,0.9183,1.0,0.0817
+RM6,auto_ets,backtest,3,176,0.9752,1.0,0.0248
+RM6,auto_ets,backtest,6,161,1.0189,1.0,-0.0189
+RM6,auto_ets,backtest,9,146,1.1131,1.0,-0.1131
+RM6,auto_ets,holdout,3,90,0.985,1.0,0.015
+RM6,auto_ets,holdout,6,90,1.0226,1.0,-0.0226
+RM6,auto_ets,holdout,9,90,1.0093,1.0,-0.0093
+RM6,auto_theta,backtest,3,176,1.059,1.0,-0.059
+RM6,auto_theta,backtest,6,161,1.1272,1.0,-0.1272
+RM6,auto_theta,backtest,9,146,1.2152,1.0,-0.2152
+RM6,auto_theta,holdout,3,90,0.9508,1.0,0.0492
+RM6,auto_theta,holdout,6,90,0.9617,1.0,0.0383
+RM6,auto_theta,holdout,9,90,0.9396,1.0,0.0604
+RM6,chronos_bolt,backtest,3,176,1.0727,1.0,-0.0727
+RM6,chronos_bolt,backtest,6,161,1.0844,1.0,-0.0844
+RM6,chronos_bolt,backtest,9,146,1.2109,1.0,-0.2109
+RM6,chronos_bolt,holdout,3,90,0.9389,1.0,0.0611
+RM6,chronos_bolt,holdout,6,90,0.9647,1.0,0.0353
+RM6,chronos_bolt,holdout,9,90,0.9762,1.0,0.0238
+RM6,combo,backtest,3,176,0.9818,1.0,0.0182
+RM6,combo,backtest,6,161,1.0285,1.0,-0.0285
+RM6,combo,backtest,9,146,1.0479,1.0,-0.0479
+RM6,combo,holdout,3,90,0.9687,1.0,0.0313
+RM6,combo,holdout,6,90,0.985,1.0,0.015
+RM6,combo,holdout,9,90,0.9811,1.0,0.0189
+RM6,conformal_auto_arima,backtest,3,176,1.0435,1.0,-0.0435
+RM6,conformal_auto_arima,backtest,6,161,1.0682,1.0,-0.0682
+RM6,conformal_auto_arima,backtest,9,146,1.2395,1.0,-0.2395
+RM6,conformal_auto_arima,holdout,3,90,0.9151,1.0,0.0849
+RM6,conformal_auto_arima,holdout,6,90,0.9016,1.0,0.0984
+RM6,conformal_auto_arima,holdout,9,90,0.9183,1.0,0.0817
+RM6,conformal_auto_ets,backtest,3,176,0.9752,1.0,0.0248
+RM6,conformal_auto_ets,backtest,6,161,1.0189,1.0,-0.0189
+RM6,conformal_auto_ets,backtest,9,146,1.1131,1.0,-0.1131
+RM6,conformal_auto_ets,holdout,3,90,0.985,1.0,0.015
+RM6,conformal_auto_ets,holdout,6,90,1.0226,1.0,-0.0226
+RM6,conformal_auto_ets,holdout,9,90,1.0093,1.0,-0.0093
+RM6,conformal_auto_theta,backtest,3,176,1.059,1.0,-0.059
+RM6,conformal_auto_theta,backtest,6,161,1.1272,1.0,-0.1272
+RM6,conformal_auto_theta,backtest,9,146,1.2152,1.0,-0.2152
+RM6,conformal_auto_theta,holdout,3,90,0.9508,1.0,0.0492
+RM6,conformal_auto_theta,holdout,6,90,0.9617,1.0,0.0383
+RM6,conformal_auto_theta,holdout,9,90,0.9396,1.0,0.0604
+RM6,conformal_chronos_bolt,backtest,3,176,1.0727,1.0,-0.0727
+RM6,conformal_chronos_bolt,backtest,6,161,1.0844,1.0,-0.0844
+RM6,conformal_chronos_bolt,backtest,9,146,1.2109,1.0,-0.2109
+RM6,conformal_chronos_bolt,holdout,3,90,0.9389,1.0,0.0611
+RM6,conformal_chronos_bolt,holdout,6,90,0.9647,1.0,0.0353
+RM6,conformal_chronos_bolt,holdout,9,90,0.9762,1.0,0.0238
+RM6,conformal_combo,backtest,3,176,0.9818,1.0,0.0182
+RM6,conformal_combo,backtest,6,161,1.0285,1.0,-0.0285
+RM6,conformal_combo,backtest,9,146,1.0479,1.0,-0.0479
+RM6,conformal_combo,holdout,3,90,0.9687,1.0,0.0313
+RM6,conformal_combo,holdout,6,90,0.985,1.0,0.015
+RM6,conformal_combo,holdout,9,90,0.9811,1.0,0.0189
+RM6,conformal_ewma_fhs,backtest,3,176,1.0,1.0,0.0
+RM6,conformal_ewma_fhs,backtest,6,161,1.0,1.0,0.0
+RM6,conformal_ewma_fhs,backtest,9,146,1.0,1.0,0.0
+RM6,conformal_ewma_fhs,holdout,3,90,1.0,1.0,0.0
+RM6,conformal_ewma_fhs,holdout,6,90,1.0,1.0,0.0
+RM6,conformal_ewma_fhs,holdout,9,90,1.0,1.0,0.0
+RM6,conformal_features_scaled,backtest,3,114,0.9631,1.0,0.0369
+RM6,conformal_features_scaled,backtest,6,21,1.1572,1.0,-0.1572
+RM6,conformal_features_scaled,backtest,9,32,1.0463,1.0,-0.0463
+RM6,conformal_features_scaled,holdout,3,54,0.9009,1.0,0.0991
+RM6,conformal_features_scaled,holdout,6,18,1.0747,1.0,-0.0747
+RM6,conformal_features_scaled,holdout,9,18,1.1167,1.0,-0.1167
+RM6,conformal_garch_fhs,backtest,3,176,1.0,1.0,0.0
+RM6,conformal_garch_fhs,backtest,6,161,1.0,1.0,0.0
+RM6,conformal_garch_fhs,backtest,9,146,1.0,1.0,0.0
+RM6,conformal_garch_fhs,holdout,3,90,1.0,1.0,0.0
+RM6,conformal_garch_fhs,holdout,6,90,1.0,1.0,0.0
+RM6,conformal_garch_fhs,holdout,9,90,1.0,1.0,0.0
+RM6,conformal_gjr_fhs,backtest,3,176,1.0,1.0,0.0
+RM6,conformal_gjr_fhs,backtest,6,161,1.0,1.0,0.0
+RM6,conformal_gjr_fhs,backtest,9,146,1.0,1.0,0.0
+RM6,conformal_gjr_fhs,holdout,3,90,1.0,1.0,0.0
+RM6,conformal_gjr_fhs,holdout,6,90,1.0,1.0,0.0
+RM6,conformal_gjr_fhs,holdout,9,90,1.0,1.0,0.0
+RM6,conformal_pooled_qr,backtest,3,176,1.0151,1.0,-0.0151
+RM6,conformal_pooled_qr,backtest,6,161,1.0681,1.0,-0.0681
+RM6,conformal_pooled_qr,backtest,9,146,1.0141,1.0,-0.0141
+RM6,conformal_pooled_qr,holdout,3,90,0.9655,1.0,0.0345
+RM6,conformal_pooled_qr,holdout,6,90,1.0618,1.0,-0.0618
+RM6,conformal_pooled_qr,holdout,9,90,1.1221,1.0,-0.1221
+RM6,drift,backtest,3,176,1.0949,1.0,-0.0949
+RM6,drift,backtest,6,161,1.2275,1.0,-0.2275
+RM6,drift,backtest,9,146,1.4361,1.0,-0.4361
+RM6,drift,holdout,3,90,0.926,1.0,0.074
+RM6,drift,holdout,6,90,0.9451,1.0,0.0549
+RM6,drift,holdout,9,90,0.9279,1.0,0.0721
+RM6,ewma_fhs,backtest,3,176,1.0,1.0,0.0
+RM6,ewma_fhs,backtest,6,161,1.0,1.0,0.0
+RM6,ewma_fhs,backtest,9,146,1.0,1.0,0.0
+RM6,ewma_fhs,holdout,3,90,1.0,1.0,0.0
+RM6,ewma_fhs,holdout,6,90,1.0,1.0,0.0
+RM6,ewma_fhs,holdout,9,90,1.0,1.0,0.0
+RM6,features_qr,backtest,3,176,0.9699,1.0,0.0301
+RM6,features_qr,backtest,6,161,1.0365,1.0,-0.0365
+RM6,features_qr,backtest,9,146,1.1014,1.0,-0.1014
+RM6,features_qr,holdout,3,90,0.9047,1.0,0.0953
+RM6,features_qr,holdout,6,90,1.0051,1.0,-0.0051
+RM6,features_qr,holdout,9,90,1.0152,1.0,-0.0152
+RM6,features_scaled,backtest,3,114,0.9631,1.0,0.0369
+RM6,features_scaled,backtest,6,21,1.1572,1.0,-0.1572
+RM6,features_scaled,backtest,9,32,1.0463,1.0,-0.0463
+RM6,features_scaled,holdout,3,54,0.9009,1.0,0.0991
+RM6,features_scaled,holdout,6,18,1.0747,1.0,-0.0747
+RM6,features_scaled,holdout,9,18,1.1167,1.0,-0.1167
+RM6,garch_fhs,backtest,3,176,1.0,1.0,0.0
+RM6,garch_fhs,backtest,6,161,1.0,1.0,0.0
+RM6,garch_fhs,backtest,9,146,1.0,1.0,0.0
+RM6,garch_fhs,holdout,3,90,1.0,1.0,0.0
+RM6,garch_fhs,holdout,6,90,1.0,1.0,0.0
+RM6,garch_fhs,holdout,9,90,1.0,1.0,0.0
+RM6,gjr_fhs,backtest,3,176,1.0,1.0,0.0
+RM6,gjr_fhs,backtest,6,161,1.0,1.0,0.0
+RM6,gjr_fhs,backtest,9,146,1.0,1.0,0.0
+RM6,gjr_fhs,holdout,3,90,1.0,1.0,0.0
+RM6,gjr_fhs,holdout,6,90,1.0,1.0,0.0
+RM6,gjr_fhs,holdout,9,90,1.0,1.0,0.0
+RM6,hist_quantiles,backtest,3,176,1.0027,1.0,-0.0027
+RM6,hist_quantiles,backtest,6,161,1.0369,1.0,-0.0369
+RM6,hist_quantiles,backtest,9,146,1.1009,1.0,-0.1009
+RM6,hist_quantiles,holdout,3,90,0.9624,1.0,0.0376
+RM6,hist_quantiles,holdout,6,90,1.0052,1.0,-0.0052
+RM6,hist_quantiles,holdout,9,90,1.0141,1.0,-0.0141
+RM6,lme_forward,backtest,3,76,1.0579,1.0,-0.0579
+RM6,lme_forward,holdout,3,36,0.9028,1.0,0.0972
+RM6,pooled_qr,backtest,3,176,1.0151,1.0,-0.0151
+RM6,pooled_qr,backtest,6,161,1.0681,1.0,-0.0681
+RM6,pooled_qr,backtest,9,146,1.0141,1.0,-0.0141
+RM6,pooled_qr,holdout,3,90,0.9655,1.0,0.0345
+RM6,pooled_qr,holdout,6,90,1.0618,1.0,-0.0618
+RM6,pooled_qr,holdout,9,90,1.1221,1.0,-0.1221
+RM6,random_walk,backtest,3,176,1.0,1.0,0.0
+RM6,random_walk,backtest,6,161,1.0,1.0,0.0
+RM6,random_walk,backtest,9,146,1.0,1.0,0.0
+RM6,random_walk,holdout,3,90,1.0,1.0,0.0
+RM6,random_walk,holdout,6,90,1.0,1.0,0.0
+RM6,random_walk,holdout,9,90,1.0,1.0,0.0
