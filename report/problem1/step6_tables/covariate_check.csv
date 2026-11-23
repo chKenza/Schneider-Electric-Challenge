@@ -1,0 +1,43 @@
+target,horizon,feature,fit,group,expected_sign,coef_median_per_sd,sign_agrees,label
+D01,3,own_pos_12m_range,backtest,own,-,0.0,False,Position of the price between its 12-month low (0) and high (1)
+D01,3,own_pos_12m_range,live,own,-,0.0037,False,Position of the price between its 12-month low (0) and high (1)
+D02,9,own_chg_1m,backtest,own,+,0.0312,True,Change of the price over the last month
+D02,9,own_chg_1m,live,own,+,0.0162,True,Change of the price over the last month
+S08,3,own_chg_1m,backtest,own,+,0.0274,True,Change of the price over the last month
+S08,3,d02_chg_1m,backtest,driver,+,0.0149,True,Change of LME aluminium in euros over the last month
+S08,3,own_chg_1m,live,own,+,0.0258,True,Change of the price over the last month
+S08,3,d02_chg_1m,live,driver,+,0.0163,True,Change of LME aluminium in euros over the last month
+S08,6,own_chg_1m,backtest,own,+,0.0633,True,Change of the price over the last month
+S08,6,own_chg_1m,live,own,+,0.0602,True,Change of the price over the last month
+S08,9,d02_chg_1m,backtest,driver,+,0.0367,True,Change of LME aluminium in euros over the last month
+S08,9,d02_chg_1m,live,driver,+,0.0325,True,Change of LME aluminium in euros over the last month
+S03,3,own_chg_3m,backtest,own,+,-0.0822,False,Change of the price over the last 3 months
+S03,3,own_chg_1m,backtest,own,+,0.0778,True,Change of the price over the last month
+S03,3,own_chg_3m,live,own,+,-0.0748,False,Change of the price over the last 3 months
+S03,3,own_chg_1m,live,own,+,0.0613,True,Change of the price over the last month
+S04,6,own_chg_3m,backtest,own,+,-0.0755,False,Change of the price over the last 3 months
+S04,6,own_chg_3m,live,own,+,-0.0738,False,Change of the price over the last 3 months
+S05,6,own_chg_3m,backtest,own,+,0.028,True,Change of the price over the last 3 months
+S05,6,own_chg_3m,live,own,+,0.0179,True,Change of the price over the last 3 months
+S09,3,own_chg_1m,backtest,own,+,0.038,True,Change of the price over the last month
+S09,3,own_chg_1m,live,own,+,0.0347,True,Change of the price over the last month
+S10,3,own_chg_1m,backtest,own,+,0.0385,True,Change of the price over the last month
+S10,3,own_chg_1m,live,own,+,0.0361,True,Change of the price over the last month
+S11,3,own_chg_3m,backtest,own,+,0.0201,True,Change of the price over the last 3 months
+S11,3,brent_eur_chg_1m,backtest,driver,+,0.0135,True,Change of the Brent oil price in euros over the last month
+S11,3,own_chg_3m,live,own,+,0.0197,True,Change of the price over the last 3 months
+S11,3,brent_eur_chg_1m,live,driver,+,0.0183,True,Change of the Brent oil price in euros over the last month
+S11,6,own_chg_1m,backtest,own,+,0.0455,True,Change of the price over the last month
+S11,6,own_chg_1m,live,own,+,0.0499,True,Change of the price over the last month
+S11,9,brent_eur_chg_1m,backtest,driver,+,0.0155,True,Change of the Brent oil price in euros over the last month
+S11,9,brent_eur_chg_1m,live,driver,+,0.0146,True,Change of the Brent oil price in euros over the last month
+S12,3,iron_ore_usd_chg_3m,backtest,driver,+,0.0352,True,Change of the iron ore price in dollars over 3 months
+S12,3,iron_ore_usd_chg_3m,live,driver,+,0.0372,True,Change of the iron ore price in dollars over 3 months
+S13,6,own_vs_12m_avg,backtest,own,-,0.0086,False,Price compared with its own 12-month average (log gap)
+S13,6,wti_chg_1m,backtest,driver,+,0.0187,True,Change of the WTI oil price over the last month
+S13,6,own_vs_12m_avg,live,own,-,0.0087,False,Price compared with its own 12-month average (log gap)
+S13,6,wti_chg_1m,live,driver,+,0.0186,True,Change of the WTI oil price over the last month
+S13,9,own_chg_1m,backtest,own,+,0.019,True,Change of the price over the last month
+S13,9,own_chg_1m,live,own,+,0.0115,True,Change of the price over the last month
+EPOXY_EUR,6,brent_eur_chg_1m,backtest,driver,+,0.0187,True,Change of the Brent oil price in euros over the last month
+EPOXY_EUR,6,brent_eur_chg_1m,live,driver,+,0.0173,True,Change of the Brent oil price in euros over the last month

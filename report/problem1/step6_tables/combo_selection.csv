@@ -1,0 +1,4 @@
+step,candidate,backtest_skill,chosen,combo_skill_same_cells
+size,"best 3: gjr_fhs, garch_fhs, ewma_fhs",0.0687,False,
+size,"best 4: gjr_fhs, garch_fhs, ewma_fhs, auto_theta",0.0717,True,
+specialist,features_scaled on its 17 cells,0.0943,True,0.0919
