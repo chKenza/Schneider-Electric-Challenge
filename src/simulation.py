@@ -10,6 +10,8 @@ import pandas as pd
 import numpy as np
 from src.cost_model import load_panel, cost_breakdown, CASES, bom_index, split_stainless
 from src.data_prep import OUT  
+from src.config import REPO_ROOT
+
 
 
 STEP8 = OUT / "models" / "step8" #where bootstrapped data is in
@@ -23,15 +25,26 @@ SEED=42
 HORIZONS = [3, 6, 9]
 LEVELS = [0.10, 0.50, 0.90, 0.95]
 QCOLS = ["p10", "p50", "p90", "p95"]
-ALL_CASES = CASES | {
-    "AirSeT epoxy low, nickel check": split_stainless(CASES["AirSeT epoxy low"]),
-    "AirSeT epoxy high, nickel check": split_stainless(CASES["AirSeT epoxy high"]),
-}
+
 SELLING_PRICE = {
     "eda":       {"RM6": 3009 / 0.70, "AirSeT": 3610 / 0.70},   # ≈ €4,299 / €5,157
     "benchmark": {"RM6": 8740,        "AirSeT": 8740 * 1.2},    # €8,740 / €10,488
 }
+
+def with_mass(bom, material, kg, source):
+    """Same BOM with one material's kg replaced."""
+    return [(m, kg, source) if m == material else (m, k, src) for m, k, src in bom]
+
+ALL_CASES = CASES | {
+    "AirSeT epoxy low, nickel check": split_stainless(CASES["AirSeT epoxy low"]),
+    "AirSeT epoxy high, nickel check": split_stainless(CASES["AirSeT epoxy high"]),
+    "RM6 copper 13.8 kg": with_mass(CASES["RM6"], "Copper", 13.8, "teardown (high)"),
+    "RM6 copper 8.6 kg": with_mass(CASES["RM6"], "Copper", 8.6, "teardown (low)"),
+}
+
+MARKET_STEEL = {"S09": "MEPS_DE_CR", "S10": "MEPS_DE_HDG"}
 PRICE_BASIS = "benchmark"
+TABLE_DIR = REPO_ROOT / "report" / "problem1" / "step8_tables"
 
 def selling_price(case: str, basis: str = PRICE_BASIS) -> float:
     """
@@ -87,6 +100,19 @@ def scale_to_forecast(driver_ratios: pd.DataFrame, marginals: pd.DataFrame, hori
         out[d] = np.exp(y)
     return out
 
+def steel_market(driver_ratios, panel, h, origin="2026-09"):
+    """Steel scenario: keep the S09/S10 forecast median, but widen the spread
+    to the volatility of MEPS market prices over h months (≈1.7× the PPI)."""
+    out = driver_ratios.copy()
+    cols = list(MARKET_STEEL) + list(MARKET_STEEL.values())
+    hist = np.log(panel.loc[:origin, cols])
+    for ppi, market in MARKET_STEEL.items():
+        k = hist[market].diff(h).std() / hist[ppi].diff(h).std()
+        x = np.log(out[ppi])
+        m = x.median()
+        out[ppi] = np.exp(m + k * (x - m))
+    return out
+
 def material_ratios(bd: pd.DataFrame, driver_ratios: pd.DataFrame) -> pd.DataFrame:
     """Map driver columns onto material names (several share a driver)."""
     priced = bd.dropna(subset=["cost_eur"])
@@ -99,7 +125,7 @@ def simulate_cost(bom:list, panel:pd.DataFrame, driver_ratios:pd.DataFrame, orig
     simulate the costs of every material 
     """
 
-    bd = cost_breakdown(bom=bom, panel=panel)
+    bd = cost_breakdown(bom=bom, panel=panel, origin=origin)
     ratios = material_ratios(bd=bd, driver_ratios=driver_ratios)
     index = bom_index(breakdown=bd, ratios=ratios)
 
@@ -136,7 +162,7 @@ def simulate_cost(bom:list, panel:pd.DataFrame, driver_ratios:pd.DataFrame, orig
 
 def simulate_driver_ratios(origin, marginals: pd.DataFrame, residuals: pd.DataFrame,
                            sigma: np.ndarray | None = None,
-                           n_paths: int = N_PATHS, seed: int = SEED) -> dict[int, pd.DataFrame]:
+                           n_paths: int = N_PATHS, block_size=BLOCK, seed: int = SEED) -> dict[int, pd.DataFrame]:
     """{horizon: driver ratios (one row per path)} at any forecast origin.
 
     marginals: Kenza's forecasts (target, horizon, p10, p50, p90, p95). If it has an
@@ -153,7 +179,7 @@ def simulate_driver_ratios(origin, marginals: pd.DataFrame, residuals: pd.DataFr
     known = residuals.loc[:origin, TARGETS].dropna()
     if sigma is None:
         sigma = np.ones(len(TARGETS))   # no effect at 3/6/9 months: the scaling sets the level
-    paths = bootstrap_prices(horizon=max(HORIZONS), returns=known, n_paths=n_paths, seed=seed)
+    paths = bootstrap_prices(horizon=max(HORIZONS), returns=known, n_paths=n_paths, block_size=block_size, seed=seed)
     return {h: scale_to_forecast(ratios_at(paths, h, sigma), marginals, h) for h in HORIZONS}
 
 
@@ -175,6 +201,25 @@ def simulate_bom(origin, marginals: pd.DataFrame, residuals: pd.DataFrame,
                          **{q: summary[f"index_{q}"] for q in QCOLS}})
     return pd.DataFrame(rows)
 
+def block_sensitivity(residuals, marginals, panel, sigma, blocks=(1, 3, 6, 9), h=9,
+                      origin="2026-09", n_paths=N_PATHS, seed=SEED):
+    """Longer blocks keep more of how materials move together over h months."""
+    known = residuals.loc[:origin, TARGETS].dropna()
+    hist = known.rolling(h).sum().dropna().set_axis(DRIVERS, axis=1)
+    rows = [{"block": "history", "corr_D01_S09": hist.D01.corr(hist.S09, method="spearman"),
+             "corr_D01_D02": hist.D01.corr(hist.D02, method="spearman")}]
+    for b in blocks:
+        paths = bootstrap_prices(horizon=h, returns=known, n_paths=n_paths, block_size=b, seed=seed)
+        raw = pd.DataFrame(paths.sum(axis=1), columns=DRIVERS)
+        ratios = scale_to_forecast(ratios_at(paths, h, sigma), marginals, h)
+        row = {"block": b, "corr_D01_S09": raw.D01.corr(raw.S09, method="spearman"),
+               "corr_D01_D02": raw.D01.corr(raw.D02, method="spearman")}
+        for case in ["RM6", "AirSeT epoxy low, nickel check"]:
+            summary, _ = simulate_cost(ALL_CASES[case], panel, ratios, price=selling_price(case))
+            row[f"{case} P90 pts"] = summary["total_at_risk_p90_pts"]
+        rows.append(row)
+    return pd.DataFrame(rows)
+
 def main():
     panel = load_panel()
     residuals, marginals = read_historical_prices()              
@@ -188,23 +233,31 @@ def main():
     all_ratios = simulate_driver_ratios("2026-09", marginals, residuals, sigma=sigma)
     pd.concat(all_ratios, names=["horizon_m", "path"]).to_csv(OUT / "simulated_driver_ratios.csv")
 
-    for h, driver_ratios in all_ratios.items(): 
+    for h, ppi_ratios in all_ratios.items(): 
 
-        for case, bom in ALL_CASES.items():
+        steel_scenarios = {"PPI": ppi_ratios, "market": steel_market(ppi_ratios, panel, h)}
+        for steel, driver_ratios in steel_scenarios.items():
 
-            summary, contrib = simulate_cost(bom=bom, panel=panel, driver_ratios=driver_ratios, price=selling_price(case)) 
-            summaries.append({"case": case, "horizon_m": h, **summary})
-            contributions.append(
-                contrib.rename("eur_at_p90").reset_index()
-                .rename(columns={"index": "material"})
-                .assign(case=case, horizon_m=h)
-            )
+            for case, bom in ALL_CASES.items():
+
+                summary, contrib = simulate_cost(bom=bom, panel=panel, driver_ratios=driver_ratios, price=selling_price(case)) 
+                summaries.append({"case": case, "steel":steel, "horizon_m": h, **summary})
+                contributions.append(
+                    contrib.rename("eur_at_p90").reset_index()
+                    .rename(columns={"index": "material"})
+                    .assign(case=case, steel=steel, horizon_m=h)
+                )
 
     summary_df = pd.DataFrame(summaries)
-    contrib_df = pd.concat(contributions)[["case", "horizon_m", "material", "eur_at_p90"]]
+    contrib_df = pd.concat(contributions)[["case", "steel", "horizon_m", "material", "eur_at_p90"]]
 
     summary_df.to_csv(OUT / "bom_index_simulated.csv", index=False, float_format="%.2f")
     contrib_df.to_csv(OUT / "eur_per_material_p90.csv", index=False, float_format="%.2f")
+    blocks = block_sensitivity(residuals, marginals, panel, sigma)
+    TABLE_DIR.mkdir(parents=True, exist_ok=True)
+    summary_df.to_csv(TABLE_DIR / "bom_index_and_margin_points.csv", index=False, float_format="%.2f")
+    contrib_df.to_csv(TABLE_DIR / "eur_per_material_p90.csv", index=False, float_format="%.2f")
+    blocks.to_csv(TABLE_DIR / "block_sensitivity.csv", index=False, float_format="%.3f")
     print(summary_df.round(1).to_string(index=False))
     print(f"wrote 3 files to {OUT}/")
 
