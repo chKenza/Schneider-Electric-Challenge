@@ -3,12 +3,12 @@
 ## What Problem 2 is
 
 **The client's question** (slides 12, 13, 15):
-> In markets with **no SF6 regulation** (APAC, Middle East, Americas), what strategy wins the **voluntary** switch from SM6 (SF6-insulated) to **SM AirSeT** (SF6-free)? Which markets, value proposition, pricing and go-to-market accelerate the switch **profitably**?
+> In markets with **no SF6 regulation** (APAC, Middle East, Americas; except California and New York, which regulate SF6), what strategy wins the **voluntary** switch from RM6 (SF6-insulated) to **RM AirSeT** (SF6-free)? Which markets, value proposition, pricing and go-to-market accelerate the switch **profitably**?
 
 **Context:**
-- SF6 is the insulating gas in most medium-voltage switchgear. It is the most potent greenhouse gas known (GWP ≈ 22,800–23,500 × CO₂), and leaks over the equipment's 30–40-year life and at end of life.
+- SF6 is the insulating gas in most medium-voltage switchgear. It is the most potent greenhouse gas known (GWP-100 = 22,800 in IPCC AR4, 23,500 in AR5, 24,300 in AR6), and leaks over the equipment's 30–40-year life and at end of life.
 - In the EU, regulation is phasing SF6 out of new equipment, so customers there **must** switch. Elsewhere, nothing forces them to: the switch has to be **sold** on its own merits.
-- The SF6-free technology (solid insulation + vacuum interruption) has a **higher upfront cost** and gives Schneider a **thinner margin** (slide 12).
+- The SF6-free technology (RM AirSeT: pure-air insulation + vacuum interruption; the slide says "solid insulation") has a **higher upfront cost** and gives Schneider a **thinner margin** (slide 12).
 - The client suggests the arguments: **total cost of ownership (TCO)**, **customer ESG and decarbonisation goals** (data-centre operators especially), **avoided SF6 lifecycle risks**, regulation, competition, and the **raw-material (RM) outlook** (slide 13, 15).
 
 **What the jury expects** (slide 13, "Goal B"): target markets & segments · value proposition · commercial & pricing approach · adoption levers · roadmap & win conditions.
@@ -44,7 +44,7 @@
 ## Step 0 – Frame the question and the deliverables
 
 - Write the question in one paragraph and list the five deliverables (markets & segments, value proposition, pricing, adoption levers, roadmap & win conditions).
-- **Product scope — clarify:** Problem 1 is about **RM6 / RM AirSeT** (ring main units); Problem 2 names **SM6 → SM AirSeT** (modular switchgear). Same SF6-free technology, different product lines, and our data covers RM only. Decide (or ask the organisers) whether RM6 / RM AirSeT can stand in for SM6 / SM AirSeT in the argument, and state it.
+- **Product scope:** Problem 2 is about **RM6 → RM AirSeT** (ring main units), the same products as Problem 1. "SM6 → SM AirSeT" on the Problem 2 slides was a typo (confirmed).
 - **Ask the organisers** for the two product cost overviews cited on slide 20 but not in `Data/`: "RM AirSeT and RM6 Product and Cost Overview" and "RM AirSeT vs RMX Product Cost Overview".
 - Fix the time horizon of the strategy (e.g. 2027–2030) and the success measure (e.g. AirSeT share of new orders in target markets, with margin kept above a floor).
 
@@ -68,7 +68,7 @@
 
 **External research to collect** (cite every source):
 - SF6 regulation by country / region, current and announced.
-- Data-centre investment and capacity pipeline by region (slide 11 gives global figures: $584B in 2026, 25.7 % CAGR).
+- Data-centre investment and capacity pipeline by region (slide 11 gives global figures: $584B in 2026, $1.32T by 2030; the slide's 25.7 % is the 2025→26 growth, the 2026–30 rate is 22.7 %).
 - Sustainability commitments of major data-centre operators (hyperscalers, colocation providers): net-zero targets, Scope 1 reporting, SF6 policies.
 - SF6 lifecycle facts: GWP, typical leakage rates, end-of-life recovery cost, handling rules.
 - Carbon prices by region (EU ETS, other schemes, internal carbon prices used by companies).
@@ -115,7 +115,7 @@
 
 ## Step 4 – Cost gap and TCO model
 
-Compare SM6 (SF6) and SM AirSeT over the equipment's life, from the **customer's** point of view:
+Compare RM6 (SF6) and RM AirSeT over the equipment's life, from the **customer's** point of view:
 
 ```
 TCO = purchase price + installation + maintenance over life
@@ -225,7 +225,7 @@ For each priority segment from Step 3, one value proposition built on:
 
 - One storyline, as the client framed it: **"one engine, two outcomes"** — the same raw-material forecasting engine protects offer margin (Problem 1) and supports the SF6-free argument (Problem 2).
 - Structure: market opportunity → why customers should switch (TCO, ESG, risk) → where to play (targets) → how to win (value proposition, pricing, levers) → roadmap → how the RM forecast supports it.
-- **Limitations:** SM vs RM product proxy, synthetic price data, external facts with ranges, no customer interviews.
+- **Limitations:** synthetic price data, external facts with ranges, no customer interviews.
 
 **Needs Problem 1?** ✅ **Yes:** headline results (forecasts, buffers, cost-gap outlook) to link the two parts.
 
