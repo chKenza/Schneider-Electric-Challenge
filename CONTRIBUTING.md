@@ -1,0 +1,118 @@
+# Running and contributing to this repo
+
+This guide explains how to run individual steps and propose changes. The [README](README.md) explains what the project does.
+
+## 1. Install uv
+
+The project uses [uv](https://docs.astral.sh/uv/) to manage Python and the packages. 
+
+```bash
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# macOS with Homebrew
+brew install uv
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Check it works: `uv --version`.
+
+## 2. Get the code and install the packages
+
+```bash
+git clone https://github.com/chKenza/Schneider-Electric-Challenge.git
+cd Schneider-Electric-Challenge
+uv sync
+```
+
+`uv sync` creates a `.venv/` folder with Python 3.12 and the exact package versions pinned in `uv.lock`. Every command below starts with `uv run`, which uses that environment; you don't need to activate it.
+
+**Optional, the pretrained model Chronos-Bolt.** It was tested as a candidate but is not in the final forecast, so you only need it to reproduce the model comparison tables exactly. It installs PyTorch:
+
+```bash
+uv sync --extra chronos
+```
+
+**Without uv:** `python3.12 -m venv .venv`, activate it, then `pip install -r requirements.txt` (add `pip install pytest ruff` to run the tests). Run the commands below from the repo root, without `uv run`.
+
+## 3. Put the data in `Data/`
+
+The data is **not in the repository**: part of it is confidential to Schneider Electric and part is licensed. You need the files distributed with the Schneider Electric × X-HEC challenge. Place the `Data/` folder at the root of the repository.
+
+The other data (energy, supply-chain and policy indices, carbon price, EIA forecasts) is free and public: the pipeline downloads it on the first run into `Data/external/` and reuses that copy afterwards. **The first run needs internet access.**
+
+## 4. Run the pipeline
+
+One command goes from the raw data to the forecast CSV (about 5 minutes on a laptop):
+
+```bash
+uv run python -m src.pipeline
+```
+
+It runs these stages in order, printing the time of each, and stops at the first one that fails:
+
+| Stage | What it does | Writes to |
+|---|---|---|
+| `data_prep` | Cleans and aligns every series into one monthly panel, with each series' publication lag | `Data/processed/` |
+| `external_data` | Downloads the free external drivers (cached after the first run) | `Data/external/` |
+| `features` | Builds the model features and checks none uses future data | `Data/processed/features/` |
+| `baselines` | Naive forecasts; the random walk is the reference every model must beat | `Data/processed/`, `report/problem1/step5_tables/` |
+| `models` | Fits every forecasting model, calibrates and combines them | `Data/processed/models/`, `report/problem1/step6_tables/` |
+| `submission` | Builds the forecast CSV and checks it against the submission format | `submissions/group_6_forecast_202609.csv` |
+
+Useful options:
+
+```bash
+uv run python -m src.pipeline --list          # show the stages
+uv run python -m src.pipeline --from models   # resume from a stage (earlier outputs must exist)
+uv run python -m src.submission --check-only  # re-check the CSV without rebuilding it
+```
+
+## 5. Run individual steps
+
+Each step can also be run on its own, from the repo root. The command for each step is at the top of its report in `report/problem1/`.
+
+```bash
+uv run python -m src.data_prep        # Step 1: monthly panel
+uv run python -m src.cost_model       # Step 2: raw-material cost of one unit
+uv run python -m src.external_data    # Step 4: external drivers
+uv run python -m src.features         # Step 4: feature tables
+uv run python -m src.baselines        # Step 5: baselines
+uv run python -m src.models           # Step 6: models (see --help for one model, target or horizon)
+uv run python -m src.evaluation       # Step 7: evaluation tables and charts (after Step 6)
+```
+
+The notebooks in `analysis/` display the tables and charts of each step.
+
+## 6. Run the tests
+
+```bash
+uv run pytest tests/                    # everything, 10–15 minutes
+uv run pytest tests/test_submission.py  # one file, seconds
+```
+
+The leakage tests re-run every model with the future replaced by noise and check that no forecast changes.
+
+## 7. Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `FileNotFoundError` mentioning `Data/…` | A challenge file is missing or misnamed: compare with the tree in section 3 |
+| A download fails in `external_data` | Check your internet connection and run again; files already downloaded are kept |
+| `--from <stage>` fails on a missing file | An earlier stage has not run on this machine: run the full pipeline once |
+| The latest origin is not 2026-09 (submission stage) | The data in `Data/` is not the challenge version; the CSV is defined for the September 2026 origin |
+| `uv: command not found` after installing | Open a new terminal, so your shell picks up uv |
+
+## 8. Proposing a change
+
+1. **Branch:** `git switch -c <short-name>` from an up-to-date `main`. Never push to `main` directly.
+2. **Code goes in `src/`**, as a module run with `uv run python -m src.<module>`; settings go in `configs/*.yaml`. No absolute paths: use `src.config.REPO_ROOT`.
+3. **New package:** `uv add <package>` (updates `pyproject.toml` and `uv.lock`), then refresh `requirements.txt`:
+   ```bash
+   uv export --frozen --format requirements-txt --no-hashes --no-dev --no-emit-project -o requirements.txt
+   ```
+4. **No future data in a forecast.** A forecast made at month *T* may only use what was published by then: read data through `src.features.info_set`, and check a new model with `uv run python -m src.models --check-leakage --model <name>`.
+5. **Before opening a pull request:** `uv run ruff check src tests`, the tests for what you changed, and `git status` to make sure nothing under `Data/` is staged.
+6. **Open a pull request into `main`** saying what changed and how to run it.
