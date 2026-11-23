@@ -1,0 +1,46 @@
+team_id,target_type,target_id,region,origin_month,horizon_m,target_month,unit,p10,p50,p90,model_name,ai_tools
+group_6,material,D01,EU,2026-09,3,2026-12,EUR/t,11281.5,12664.7,13722.9,conformal_combo,claude-code
+group_6,material,D01,EU,2026-09,6,2027-03,EUR/t,11149.8,12646.0,14730.7,conformal_combo,claude-code
+group_6,material,D01,EU,2026-09,9,2027-06,EUR/t,11204.2,12684.0,15984.0,conformal_combo,claude-code
+group_6,material,D02,EU,2026-09,3,2026-12,EUR/t,2508.3,2857.3,3190.6,conformal_combo,claude-code
+group_6,material,D02,EU,2026-09,6,2027-03,EUR/t,2412.7,2863.1,3478.3,conformal_combo,claude-code
+group_6,material,D02,EU,2026-09,9,2027-06,EUR/t,2380.1,2858.7,3821.5,conformal_combo,claude-code
+group_6,material,EPOXY_EUR,EU,2026-09,3,2026-12,index (origin=100),93.07,100.14,106.46,conformal_combo,claude-code
+group_6,material,EPOXY_EUR,EU,2026-09,6,2027-03,index (origin=100),90.57,100.76,112.52,conformal_combo,claude-code
+group_6,material,EPOXY_EUR,EU,2026-09,9,2027-06,index (origin=100),89.32,100.4,116.05,conformal_combo,claude-code
+group_6,material,S01,WW,2026-09,3,2026-12,index (origin=100),88.96,100.29,109.56,conformal_combo,claude-code
+group_6,material,S01,WW,2026-09,6,2027-03,index (origin=100),86.0,100.58,117.37,conformal_combo,claude-code
+group_6,material,S01,WW,2026-09,9,2027-06,index (origin=100),83.85,100.87,125.83,conformal_combo,claude-code
+group_6,material,S02,WW,2026-09,3,2026-12,index (origin=100),88.84,100.19,112.21,conformal_combo,claude-code
+group_6,material,S02,WW,2026-09,6,2027-03,index (origin=100),82.87,100.38,122.31,conformal_combo,claude-code
+group_6,material,S02,WW,2026-09,9,2027-06,index (origin=100),80.59,100.58,133.97,conformal_combo,claude-code
+group_6,material,S03,WW,2026-09,3,2026-12,index (origin=100),85.54,100.35,119.48,conformal_combo,claude-code
+group_6,material,S03,WW,2026-09,6,2027-03,index (origin=100),79.15,100.34,130.11,conformal_combo,claude-code
+group_6,material,S03,WW,2026-09,9,2027-06,index (origin=100),77.7,100.51,132.01,conformal_combo,claude-code
+group_6,material,S04,WW,2026-09,3,2026-12,index (origin=100),83.32,100.14,115.18,conformal_combo,claude-code
+group_6,material,S04,WW,2026-09,6,2027-03,index (origin=100),82.79,100.56,128.32,conformal_combo,claude-code
+group_6,material,S04,WW,2026-09,9,2027-06,index (origin=100),83.12,100.43,139.79,conformal_combo,claude-code
+group_6,material,S05,WW,2026-09,3,2026-12,index (origin=100),85.67,100.04,111.29,conformal_combo,claude-code
+group_6,material,S05,WW,2026-09,6,2027-03,index (origin=100),82.39,101.31,121.05,conformal_combo,claude-code
+group_6,material,S05,WW,2026-09,9,2027-06,index (origin=100),78.32,100.13,127.38,conformal_combo,claude-code
+group_6,material,S07,EU,2026-09,3,2026-12,index (origin=100),93.3,100.27,106.73,conformal_combo,claude-code
+group_6,material,S07,EU,2026-09,6,2027-03,index (origin=100),91.73,100.54,110.79,conformal_combo,claude-code
+group_6,material,S07,EU,2026-09,9,2027-06,index (origin=100),93.72,100.81,119.63,conformal_combo,claude-code
+group_6,material,S08,EU,2026-09,3,2026-12,index (origin=100),96.07,100.2,104.56,conformal_combo,claude-code
+group_6,material,S08,EU,2026-09,6,2027-03,index (origin=100),92.45,100.16,107.79,conformal_combo,claude-code
+group_6,material,S08,EU,2026-09,9,2027-06,index (origin=100),91.2,100.63,112.7,conformal_combo,claude-code
+group_6,material,S09,EU,2026-09,3,2026-12,index (origin=100),97.39,100.18,107.27,conformal_combo,claude-code
+group_6,material,S09,EU,2026-09,6,2027-03,index (origin=100),95.22,100.31,112.52,conformal_combo,claude-code
+group_6,material,S09,EU,2026-09,9,2027-06,index (origin=100),93.23,100.47,116.46,conformal_combo,claude-code
+group_6,material,S10,EU,2026-09,3,2026-12,index (origin=100),97.69,100.41,106.09,conformal_combo,claude-code
+group_6,material,S10,EU,2026-09,6,2027-03,index (origin=100),96.73,100.39,112.54,conformal_combo,claude-code
+group_6,material,S10,EU,2026-09,9,2027-06,index (origin=100),94.81,100.58,116.31,conformal_combo,claude-code
+group_6,material,S11,EU,2026-09,3,2026-12,index (origin=100),95.18,100.13,107.2,conformal_combo,claude-code
+group_6,material,S11,EU,2026-09,6,2027-03,index (origin=100),91.23,99.78,113.16,conformal_combo,claude-code
+group_6,material,S11,EU,2026-09,9,2027-06,index (origin=100),89.92,100.44,120.97,conformal_combo,claude-code
+group_6,material,S12,WW,2026-09,3,2026-12,index (origin=100),89.79,100.17,110.53,conformal_combo,claude-code
+group_6,material,S12,WW,2026-09,6,2027-03,index (origin=100),85.29,100.51,120.44,conformal_combo,claude-code
+group_6,material,S12,WW,2026-09,9,2027-06,index (origin=100),82.32,100.78,129.79,conformal_combo,claude-code
+group_6,material,S13,WW,2026-09,3,2026-12,index (origin=100),94.69,100.1,106.16,conformal_combo,claude-code
+group_6,material,S13,WW,2026-09,6,2027-03,index (origin=100),92.09,100.5,111.97,conformal_combo,claude-code
+group_6,material,S13,WW,2026-09,9,2027-06,index (origin=100),90.39,99.81,114.72,conformal_combo,claude-code
