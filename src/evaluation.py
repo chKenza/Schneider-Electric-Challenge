@@ -629,11 +629,7 @@ def step8_forecasts(origins, marginals: pd.DataFrame | None = None, residuals: p
     through the same weights as the target of bom_tables (`_origin_weights`), so forecast
     and outcome are the same quantity and the random walk of bom_backtest is the reference.
     At the live origin (Sep 2026) these weights are Step 8's own, and the result is Step 8's.
-    Same steps as simulation.simulate_driver_ratios (bootstrap of the residuals known at the
-    origin, then rescaling), but for the horizons that have a forecast at that origin: the
-    Step 6 backtest has no 6- and 9-month forecast whose outcome is after Sep 2026, and
-    simulate_driver_ratios needs all three. Horizons where a driver has no forecast
-    (epoxy before 2023) are skipped.
+    Origins where a driver has no forecast (epoxy before 2023) are skipped.
     Returns log changes (p10 / p50 / p90 / p95) in the Step 6 format, without y.
     """
     import src.cost_model as cm
@@ -649,15 +645,10 @@ def step8_forecasts(origins, marginals: pd.DataFrame | None = None, residuals: p
     marginals = marginals.assign(origin=pd.to_datetime(marginals["origin"]))
     rows = []
     for o in sorted(pd.to_datetime(pd.Series(origins)).unique()):
-        m_o = marginals[(marginals["origin"] == o) & marginals["target"].isin(S.TARGETS)]
-        hs = [h for h in S.HORIZONS if set(S.TARGETS) <= set(m_o.loc[m_o["horizon"] == h, "target"])]
-        if not hs:
+        try:
+            ratios = S.simulate_driver_ratios(o, marginals, residuals, n_paths=n_paths or S.N_PATHS)
+        except ValueError:  # a driver has no forecast at this origin (epoxy before 2023)
             continue
-        known = residuals.loc[:o, S.TARGETS].dropna()
-        paths = S.bootstrap_prices(horizon=max(S.HORIZONS), returns=known, n_paths=n_paths or S.N_PATHS,
-                                   block_size=S.BLOCK, seed=S.SEED)
-        ones = np.ones(len(S.TARGETS))  # sigma has no effect: the rescaling sets each spread
-        ratios = {h: S.scale_to_forecast(S.ratios_at(paths, h, ones), m_o, h) for h in hs}
         for col, br in breakdowns.items():
             bd = _origin_weights(br, panel, o)
             for h, dr in ratios.items():

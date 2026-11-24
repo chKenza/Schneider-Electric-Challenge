@@ -21,7 +21,13 @@ from src import cost_model as cm
 from src.config import REPO_ROOT
 from src.data_prep import OUT
 from src.eda_cost import material_paths
-from src.simulation import ALL_CASES, HORIZONS, material_ratios, selling_price, steel_market
+from src.simulation import (
+    ALL_CASES,
+    HORIZONS,
+    material_ratios,
+    selling_price,
+    steel_market,
+)
 
 TABLE_DIR = REPO_ROOT / "report" / "problem1" / "step9_tables"
 ORIGIN = "2026-09"
@@ -258,7 +264,9 @@ def historical_strategies(panel: pd.DataFrame, sims: dict) -> pd.DataFrame:
             for h in HORIZONS:
                 delta = (paths[mats].shift(-h) - paths[mats]).dropna()
                 base = paths[mats].loc[delta.index]
-                rate = hedge_cost_rate(panel, h).reindex(delta.index).fillna(0)
+                rate = hedge_cost_rate(panel, h).reindex(delta.index)
+                if rate.isna().any():  # a missing month must not count as a free hedge
+                    raise ValueError(f"no LME copper spread for {rate[rate.isna()].index[0]:%Y-%m}")
                 sim_delta, _, sim_price = sims[(case, steel, h)]
                 buffers = buffers_from(points(sim_delta, sim_price))
                 s = short.loc[delta.index] if h > SHORT_VALIDITY else None
