@@ -131,6 +131,37 @@ def test_bom_index_forecasts_ignore_future_data_at_every_origin():
 
 
 @needs_data
+def test_step8_backtest_ignores_future_data():
+    """The Step 8 simulation re-run at past origins: poisoning every later residual, every
+    forecast made at another origin and every outcome must not change its forecast."""
+    from src.evaluation import step8_leakage_check
+
+    result = step8_leakage_check()
+    assert len(result) >= 5 and (result["forecasts"] > 0).all()
+    assert result["unchanged"].all(), result[~result["unchanged"]]
+
+
+@needs_data
+def test_step8_backtest_gives_step8_at_the_live_origin():
+    """At Sep 2026 the backtested forecast is exactly Step 8's own BOM index."""
+    import numpy as np
+
+    import src.cost_model as cm
+    from src import simulation as S
+    from src.evaluation import step8_forecasts
+
+    ours = step8_forecasts(["2026-09-01"]).set_index(["target", "horizon"])
+    residuals, marginals = S.read_historical_prices()
+    ratios = S.simulate_driver_ratios("2026-09", marginals, residuals)
+    panel = cm.load_panel()
+    for h in S.HORIZONS:
+        step8, _ = S.simulate_cost(cm.CASES["RM6"], panel, ratios[h])
+        got = 100 * np.exp(ours.loc[("BOM_RM6", h), ["p10", "p50", "p90", "p95"]].to_numpy(float))
+        want = [step8[f"index_{q}"] for q in ["p10", "p50", "p90", "p95"]]
+        assert np.allclose(got, want), h
+
+
+@needs_data
 def test_bom_index_lag_is_its_slowest_driver():
     from src.evaluation import BOM_SERIES, bom_inputs
     from src.features import load_config
