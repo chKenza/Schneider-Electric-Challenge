@@ -2,6 +2,14 @@
 
 *Owner: Ion · Status: draft*
 
+> **Run from the repo root:**
+>
+> ```bash
+> uv run python -m src.value_pricing
+> uv run python -m src.value_pricing_plots
+> uv run pytest tests/test_value_pricing.py
+> ```
+
 | What | Where |
 |---|---|
 | Code | `src/value_pricing.py`, `src/value_pricing_plots.py` |
@@ -9,12 +17,6 @@
 | Tables | `report/problem2/03_tables/` |
 | Charts | `plots/problem2/10_price_window.png`, `11_pricing_options.png` |
 | Inputs | TCO model (`src/tco.py`), Problem 1 quote rule (`report/problem1/step9_tables/quote_rule.csv`) |
-
-```bash
-uv run python -m src.value_pricing
-uv run python -m src.value_pricing_plots
-uv run pytest tests/test_value_pricing.py
-```
 
 ---
 # Step 6 – Value proposition
@@ -26,7 +28,7 @@ uv run pytest tests/test_value_pricing.py
 - **Don't sell AirSeT on leaks.** Over a unit's life, SF6 leaks are worth about **€21** at a €22/t carbon price, against a **€1,921** premium (02 4.3).
 - **Sell it on three things, in this order:**
   1. **"The whole SF6 fill is your liability."** One RM6 holds 1.5 kg of SF6 = **35 t CO₂e** (E02, E05). Valued at €22/t, that is **€776 per unit**: enough to justify a premium of about **9 %** (02 4.4).
-  2. **"No SF6 paperwork."** Where SF6 rules apply (Australia, New York), the leak checks, records and licences AirSeT avoids are worth about **€666 per unit** over its life (02 4.5).
+  2. **"No SF6 paperwork."** Where a rule requires SF6 owners to keep inventories or records (New York), the upkeep AirSeT avoids is worth up to about **€666 per unit** over its life (02 4.5).
   3. **"Future-proof."** No adopted rule touches an installed RM6 (E61), but every new rule so far targets **new** equipment (EU, California, New York). Equipment bought today will be in service until about 2065.
 - **One message per target segment**, because who decides and what they care about differ (table below).
 
@@ -75,7 +77,7 @@ uv run pytest tests/test_value_pricing.py
 | **Who decides** | Colocation operators (AirTrunk's home market), their design teams, tenants with their own ESG targets |
 | **What they care about** | Compliance cost; tenant requirements; reporting |
 | **Message** | "In Australia, SF6 already costs you money and paperwork: an import licence, a levy and reporting. RM AirSeT takes all of that away." |
-| **Proof** | SF6 equipment needs an import licence and pays the synthetic greenhouse gas levy; GE Grid was fined AUD 450,000 for unreported SF6 imports (E25). Avoided upkeep ≈ €666 per unit (02 §4.5) |
+| **Proof** | SF6 equipment needs an import licence and pays the synthetic greenhouse gas levy; GE Grid was fined AUD 450,000 for unreported SF6 imports (E25). Avoided upkeep up to ≈ €666 per unit if an owner rule applies (02 §4.5; unconfirmed in Australia) |
 | **Why we can win** | AirTrunk is based here; Eaton is the rival (E96), so the premium is compared with Eaton, not only with RM6 |
 | **Price it supports** | Up to 16.6 % above RM6 (€1,447): the whole fill plus the avoided SF6 upkeep (Step 7) |
 
@@ -141,6 +143,8 @@ For each segment, two checks:
 | Australia utilities | Leaks + end of life + SF6 upkeep | **8.0 %** (€697) | 9.9 % | No: 1.9 points short | **8.1 %** |
 
 The last column is the result to remember. It doesn't depend on the 10 % placeholder.
+
+**Caveat on Australia:** both Australian ceilings include €666 of SF6 upkeep (€50 a year), the optimistic value in `assumptions.csv`. The Australian rules found target SF6 imports (licence, levy: E25), not owners. Without the upkeep, Australia colocation falls to 8.9 % (like Johor–Singapore) and Australian utilities to 0.4 %.
 
 - **Australia colocation** is profitable unless AirSeT costs Schneider more than about 17 % more than RM6.
 - **Johor–Singapore** and **Australia utilities** are profitable once AirSeT's extra cost falls to about **8–9 %**. The UK government review expects SF6-free premiums to fall to 5–10 % at scale (E166), so this is reachable with volume.
