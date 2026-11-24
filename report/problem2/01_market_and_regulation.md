@@ -6,6 +6,15 @@
 >
 > **Hypotheses:** H1, H2, … refer to the hypotheses in the [problem framing](00_problem_framing.md) (§6, "Hypotheses to test").
 
+> **Run from the repo root:**
+>
+> ```bash
+> uv run python -m src.market_evidence          # checks the data, prints the pricing tables
+> uv run python -m src.market_evidence_plots    # charts 01–02
+> uv run python -m src.market_scoring           # scores, chart 03
+> uv run pytest tests/test_market_evidence.py tests/test_market_scoring.py
+> ```
+
 ---
 
 # Step 1 – Evidence inventory
@@ -106,6 +115,8 @@ Full country table in Step 2 (§2.1).
 | The whole SF6 fill | **€54/t** | EU ETS (€75) and the social cost of carbon (€170), neither applying to a non-EU data centre |
 | Leaks only (0.2 %/yr over 40 years) | **€681/t** | None |
 | Lifetime model (leaks + end of life, discounted at 7 %) | **€1,630/t** | None |
+
+> **Updated in Step 4** ([02 §4.4](02_cost_and_tco.md)): the full TCO model gives €54 / €653 / **€1,657/t** for these three rows (leaks-only now includes the end-of-life recovery fee; the end-of-life release applies to the gas left after leaks). Step 4 is the reference for these figures.
 
 ## 7. Customer commitments (H1) and industry standards
 
@@ -420,9 +431,3 @@ Computed from the sourced CSVs by [`src/market_scoring.py`](../../src/market_sco
 - **Partial presence data:** competitor and Schneider presence come from vendors' public country pages. Schneider's presence was researched only in the US, Japan, India, Malaysia, Singapore, Australia, the UAE and Saudi Arabia; elsewhere it scores neutral (0.5).
 - **Saudi Arabia's lead** rests on growth and presence from a small 440 MW base; the UAE's growth is not published.
 - **Capacity** comes mostly from one compiler (datacentres.com).
-
-**Rebuild everything:**
-- `uv run python src/market_evidence.py` (checks the data and prints the pricing tables)
-- `uv run python src/market_evidence_plots.py` (charts 01–02)
-- `uv run python src/market_scoring.py` (scores, chart 03)
-- `uv run pytest tests/test_market_evidence.py tests/test_market_scoring.py`
