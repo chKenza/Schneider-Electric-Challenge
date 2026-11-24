@@ -107,6 +107,8 @@ Full country table in Step 2 (§2.1).
 | Leaks only (0.2 %/yr over 40 years) | **€681/t** | None |
 | Lifetime model (leaks + end of life, discounted at 7 %) | **€1,630/t** | None |
 
+> **Updated in Step 4** ([02 §4.4](02_cost_and_tco.md)): the full TCO model gives €54 / €653 / **€1,657/t** for these three rows (leaks-only now includes the end-of-life recovery fee; the end-of-life release applies to the gas left after leaks). Step 4 is the reference for these figures.
+
 ## 7. Customer commitments (H1) and industry standards
 
 Each operator's latest sustainability report was searched in full for "SF6", "sulfur hexafluoride", "switchgear" and "F-gas" (E77–E85, E110–E111).
