@@ -5,10 +5,10 @@
 > **Run from the repo root, in this order** (the Step 6 pipeline must have run first; see `step6_models.md`):
 >
 > ```bash
-> uv run python -m src.evaluation                              # metric, jury, calibration, sub-period and BOM tables + charts, ≈ 1.5 min
+> uv run python -m src.evaluation                              # metric, jury, calibration, sub-period and BOM tables + charts, ≈ 4 min (after Step 8's inputs: src.models --stage export)
 > uv run python -m src.evaluation --sensitivity                # + sliding window and tuning without hindsight, ≈ 5 min (mostly leakage checks)
 > uv run --extra chronos python -m src.evaluation --compute    # + run time and CO₂ of every model, ≈ 4 min
-> uv run pytest tests/test_evaluation.py                       # 14 tests: formulas (synthetic data) + leakage
+> uv run pytest tests/test_evaluation.py                       # 16 tests: formulas (synthetic data) + leakage
 > ```
 >
 > The notebook `analysis/07_evaluation.ipynb` shows every table and chart. It reads the saved tables, so run the commands above first.
@@ -34,8 +34,9 @@
 - **The value is in the band, not the median.** The median is no better than "no change" (MAE skill −4 % to +2 %). The gain comes from bands with the right coverage that are narrower than the random walk's.
 - **The band's width is right, but its centre follows the wrong regime.** In the 2023–24 decline the upside was too wide; in the 2025–26 rally it was too short (14–18 % of hold-out outcomes above P90, target 10 %).
 - **BOM cost index:**
-  - **AirSeT:** much better forecast than by the random walk (+27 to +31 % on the hold-out).
+  - **AirSeT:** much better forecast than by the random walk (+15 to +31 % on the hold-out).
   - **RM6:** no gain during the copper rally. Its index ended above P90 in 22 % of hold-out cases, so RM6 needs a copper indexation clause.
+  - **The Step 8 joint simulation**, which gives the CSV's BOM rows, is as good as the direct forecast. For RM6 its 6–9-month P90 was exceeded slightly more often (28–33 %), within noise.
 - **Stable over time:** the gain holds in both the 2022 shock and 2023–25, then fades in the hold-out.
 - **Compute is negligible:** one full Step 5 + 6 run takes 3.2 minutes and about 1.1 Wh (0.05 g CO₂ on the French grid).
 - **Sensitivity checks confirm Step 6:** the expanding window beats a 60-month sliding window, and λ = 0.97 is chosen at 53 of 57 origins.
@@ -171,7 +172,7 @@ The final model beat the random walk on every 12-month window until about April 
 
 ## 6. BOM cost index backtest
 
-**Why a separate check.** The CSV has BOM rows for RM6 and AirSeT. Their final values come from the Step 8 joint simulation; here we check the same target directly.
+**Why a separate check.** The CSV has BOM rows for RM6 and AirSeT. Their final values come from the Step 8 joint simulation (backtested in section 6.1); here we first forecast the same target directly, as one series.
 
 **How:**
 - **Building the index.** The historical index of each product is built exactly as in Step 2: `cost_breakdown` (fixed recipe, € weights at September 2026 prices) + `driver_ratios` + `bom_index`. It runs from January 2018, when the epoxy series starts.
@@ -184,7 +185,7 @@ The final model beat the random walk on every 12-month window until about April 
 | Final model recipe, pinball skill vs random walk | Backtest 3 / 6 / 9 m | Hold-out 3 / 6 / 9 m | Hold-out: share below P90 |
 |---|---|---|---|
 | RM6 | +6 / +13 / +16 % | **−5 / −5 / +4 %** | 78 / 78 / 78 % |
-| AirSeT (epoxy low) | +6 / +10 / +8 % | **+30 / +27 / +27 %** | 100 / 100 / 100 % |
+| AirSeT (epoxy low) | +6 / +10 / +8 % | **+29 / +27 / +27 %** | 100 / 100 / 100 % |
 | AirSeT (epoxy high) | +18 / +22 / +18 % | **+15 / +30 / +31 %** | 83 / 94 / 100 % |
 
 ![BOM skill](../../plots/step7/05_bom_skill.png)
@@ -202,9 +203,28 @@ The final model beat the random walk on every 12-month window until about April 
 
 **Leakage check:** 1,548 of 1,548 forecasts unchanged when the future is poisoned, across 43 origins (a permanent test).
 
-**Two caveats:**
-- **Index weights.** The basket is weighted at September 2026 prices, which *defines* the target once; the models only see its known history. A basket re-weighted at each origin's prices would be stricter.
-- **Not yet the real BOM forecast.** Backtesting the actual Step 8 simulation needs it as a function of the origin, which has been requested from Step 8.
+**Index weights.** The recipe (kg) is fixed; the September 2026 prices only set the scale. The change from any origin is the same as with that origin's prices.
+
+### 6.1 The Step 8 joint simulation, backtested
+
+The CSV's BOM rows come from the **Step 8 joint simulation**, not from the direct forecast above, so the simulation is backtested too (`step8_backtest`). At each past origin it is re-run as it is at September 2026:
+- it bootstraps the residuals known at that origin (Step 8: blocks of 3 months, 10,000 paths, seed 42);
+- it rescales each material to the final model's forecast made at that origin;
+- it values the paths with the same weights as the target above, so forecast and outcome are the same quantity, and the random walk and the direct forecast are scored on the same rows.
+
+**Nothing is re-chosen.** Step 8's settings and the final model are used as they are, and the CSV uses Step 8 whatever this shows: it is a check, not a choice. At September 2026 it reproduces Step 8's numbers exactly (a test). Origins are the same as the direct forecast's, from January 2023 (when epoxy forecasts start).
+
+Pinball skill vs the random walk, %, and share of outcomes below P90 (target 90 %):
+
+| Product | Backtest 3 / 6 / 9 m: direct → Step 8 | Hold-out 3 / 6 / 9 m: direct → Step 8 | Hold-out below P90: direct → Step 8 |
+|---|---|---|---|
+| RM6 | +6 / +13 / +16 → +3 / +14 / +19 | −5 / −5 / +4 → −8 / −1 / +11 | 78 / 78 / 78 → 78 / 67 / 72 |
+| AirSeT (epoxy low) | +6 / +10 / +8 → +21 / +14 / +10 | +29 / +27 / +27 → +29 / +27 / +27 | 100 / 100 / 100 → 100 / 100 / 100 |
+| AirSeT (epoxy high) | +18 / +22 / +18 → +18 / +14 / +16 | +15 / +30 / +31 → +16 / +21 / +26 | 83 / 94 / 100 → 83 / 100 / 100 |
+
+- **The simulation is as good as the direct forecast.** Its skills are within a few points of the direct forecast's, inside the confidence intervals (e.g. RM6 at 9 months on the hold-out: +11 % [+10, +23] vs +4 % [−2, +18]). AirSeT keeps its large gain over the random walk.
+- **RM6's upper tail is a little shorter with Step 8.** At 6 and 9 months, 33 % and 28 % of hold-out outcomes ended above its P90 (direct: 22 %). Step 8 takes copper's forecast as it is, and copper's upside was underestimated in the 2025–26 rally (section 4); copper is most of RM6's cost. With 18 overlapping origins (2–3 independent windows) the difference is not significant: the 95 % interval of the 6-month share below P90 is 17–100 %.
+- **For Step 9:** RM6's Step 8 P90 is a floor, so 6–9-month RM6 quotes need a copper clause, not a buffer alone.
 
 ## 7. Compute and CO₂
 
@@ -303,6 +323,7 @@ The hold-out was used for evaluation only, never left out of the final fit. Thes
 | Check | Coverage | Result |
 |---|---|---|
 | BOM-index models (4 base models) | Every origin (43), all three products and horizons: 1,548 forecasts | all unchanged |
+| Step 8 joint simulation at past origins (later residuals, forecasts made at other origins and all outcomes poisoned) | 6 origins from 2023 to 2026, all three products and horizons | all unchanged |
 | Sliding-window variants | Every origin (57), every target and horizon | all unchanged |
 | Tuning without hindsight (every choice + calibration) | Origins from 2022 to 2026 | all unchanged |
 | MASE scale (uses past outcomes only) | Unit test on synthetic data | ✓ |
@@ -312,13 +333,11 @@ The hold-out was used for evaluation only, never left out of the final fit. Thes
 
 ## 11. For the next steps
 
-- **Step 8:**
-  - The BOM-index backtest (section 6) is the benchmark for the joint simulation.
-  - To backtest the simulation itself, Step 7 needs it as a function of the origin: `simulate_bom(origin, marginals, residuals) → P10 / P50 / P90 of the BOM index`. The exact CRPS of the BOM index then comes from the simulated paths.
+- **Step 8:** the joint simulation is backtested (section 6.1) and matches the direct forecast; its RM6 P90 should be read as a floor.
 - **Step 9 (pricing):**
   - **AirSeT:** the final model's P90 gives a much smaller buffer than the random walk, with the same protection.
-  - **RM6:** the P90 was exceeded in 22 % of hold-out cases (copper), so pair the buffer with a **copper indexation clause** for 6–9-month quotes.
-  - **All products:** the upside tail is the one that failed on the hold-out (section 4).
+  - **RM6:** the P90 was exceeded in 22 % of hold-out cases (copper), and in 28–33 % at 6–9 months with the Step 8 simulation, so pair the buffer with a **copper indexation clause** for 6–9-month quotes.
+  - **Materials:** where the forecasts failed on the hold-out, it was the upside tail, mainly copper. This affects RM6, not AirSeT (section 6.1).
 - **Step 12 (README):**
   - Compute and CO₂ (section 7);
   - the "beats naive" table (section 2);
@@ -330,6 +349,6 @@ The hold-out was used for evaluation only, never left out of the final fit. Thes
 - **Correlated materials:** misses at the same origin are not independent, so calibration p-values are optimistic.
 - **One regime per window:** the backtest is a shock then a decline; the hold-out is one copper rally.
 - **CRPS** is approximated from P10 / P50 / P90 (levels 5–95 %); the exact CRPS of the BOM index needs the Step 8 paths.
-- **BOM index:** fixed recipe and € weights at September 2026 prices; history from 2018 only (18–24 backtest origins).
+- **BOM index:** fixed recipe; history from 2018 only (18–24 backtest origins).
 - **Compute:** an estimate with a constant 20 W, not a power measurement.
 - **Sensitivity checks** come after the hold-out was opened: they confirm the choices, but would not have been adopted had they disagreed.

@@ -6,19 +6,18 @@ from repo root run after `uv run python -m src.models --stage export`:
     uv run python -m src.simulation
 """
 
-import pandas as pd
 import numpy as np
-from src.cost_model import load_panel, cost_breakdown, CASES, bom_index, split_stainless
-from src.data_prep import OUT  
+import pandas as pd
+
 from src.config import REPO_ROOT
-
-
+from src.cost_model import CASES, bom_index, cost_breakdown, load_panel, split_stainless
+from src.data_prep import OUT
 
 STEP8 = OUT / "models" / "step8" #where bootstrapped data is in
 DRIVERS = ['D01', 'D02', 'S09', 'S10', 'S03_EUR', 'EPOXY_EUR']   
 # assuming EUR/USD stays flat during the period
-NEW_SO3 = {'S03_EUR': 'S03'}
-TARGETS = [NEW_SO3.get(d, d) for d in DRIVERS]
+STEP6_TARGET = {'S03_EUR': 'S03'}  # Step 6 forecasts nickel in USD
+TARGETS = [STEP6_TARGET.get(d, d) for d in DRIVERS]
 BLOCK = 3
 N_PATHS = 10_000
 SEED=42
@@ -26,10 +25,8 @@ HORIZONS = [3, 6, 9]
 LEVELS = [0.10, 0.50, 0.90, 0.95]
 QCOLS = ["p10", "p50", "p90", "p95"]
 
-SELLING_PRICE = {
-    "eda":       {"RM6": 3009 / 0.70, "AirSeT": 3610 / 0.70},   # ≈ €4,299 / €5,157
-    "benchmark": {"RM6": 8740,        "AirSeT": 8740 * 1.2},    # €8,740 / €10,488
-}
+# RM6: Schneider P50 2025 in the price benchmark; AirSeT: assumed RM6 + 20 %
+SELLING_PRICE = {"RM6": 8740, "AirSeT": 8740 * 1.2}
 
 def with_mass(bom, material, kg, source):
     """Same BOM with one material's kg replaced."""
@@ -43,15 +40,11 @@ ALL_CASES = CASES | {
 }
 
 MARKET_STEEL = {"S09": "MEPS_DE_CR", "S10": "MEPS_DE_HDG"}
-PRICE_BASIS = "benchmark"
 TABLE_DIR = REPO_ROOT / "report" / "problem1" / "step8_tables"
 
-def selling_price(case: str, basis: str = PRICE_BASIS) -> float:
-    """
-    get selling prices of rm6 and airset depending on the source eda or benchmark data
-    """
-    product = "RM6" if case.startswith("RM6") else "AirSeT"
-    return SELLING_PRICE[basis][product]
+def selling_price(case: str) -> float:
+    """Selling price (€) of the product a case belongs to."""
+    return SELLING_PRICE["RM6" if case.startswith("RM6") else "AirSeT"]
 
 def read_historical_prices() -> tuple[pd.DataFrame, pd.DataFrame]:                                     
     """
@@ -90,7 +83,7 @@ def scale_to_forecast(driver_ratios: pd.DataFrame, marginals: pd.DataFrame, hori
     out = driver_ratios.copy()
     for d, t in zip(DRIVERS, TARGETS):
         k = marginals[(marginals["target"] == t) & (marginals["horizon"] == horizon)].iloc[0]
-        want = np.maximum.accumulate(k[QCOLS].to_numpy(float))   # Kenza's log changes, kept in order
+        want = np.maximum.accumulate(k[QCOLS].to_numpy(float))   # Step 6 log changes, kept in order
         x = np.log(out[d].to_numpy())
         have = np.quantile(x, LEVELS)                            # the simulation's own percentiles
         y = np.interp(x, have, want)                             # map between the 4 points
@@ -165,22 +158,23 @@ def simulate_driver_ratios(origin, marginals: pd.DataFrame, residuals: pd.DataFr
                            n_paths: int = N_PATHS, block_size=BLOCK, seed: int = SEED) -> dict[int, pd.DataFrame]:
     """{horizon: driver ratios (one row per path)} at any forecast origin.
 
-    marginals: Kenza's forecasts (target, horizon, p10, p50, p90, p95). If it has an
+    marginals: Step 6 forecasts (target, horizon, p10, p50, p90, p95). If it has an
     'origin' column, only that origin's rows are used.
     Only residuals up to the origin are bootstrapped (no future data).
+    Only the horizons where every driver has a forecast are returned.
     """
     origin = pd.Timestamp(origin)
     if "origin" in marginals.columns:
         marginals = marginals[pd.to_datetime(marginals["origin"]) == origin]
-    missing = sorted(set(TARGETS) - set(marginals["target"]))
-    if missing:
-        raise ValueError(f"no forecast at {origin:%Y-%m} for {missing}")
+    hs = [h for h in HORIZONS if set(TARGETS) <= set(marginals.loc[marginals["horizon"] == h, "target"])]
+    if not hs:
+        raise ValueError(f"no forecast at {origin:%Y-%m} for every driver {TARGETS}")
 
     known = residuals.loc[:origin, TARGETS].dropna()
     if sigma is None:
         sigma = np.ones(len(TARGETS))   # no effect at 3/6/9 months: the scaling sets the level
     paths = bootstrap_prices(horizon=max(HORIZONS), returns=known, n_paths=n_paths, block_size=block_size, seed=seed)
-    return {h: scale_to_forecast(ratios_at(paths, h, sigma), marginals, h) for h in HORIZONS}
+    return {h: scale_to_forecast(ratios_at(paths, h, sigma), marginals, h) for h in hs}
 
 
 def simulate_bom(origin, marginals: pd.DataFrame, residuals: pd.DataFrame,
@@ -188,8 +182,8 @@ def simulate_bom(origin, marginals: pd.DataFrame, residuals: pd.DataFrame,
                  n_paths: int = N_PATHS, seed: int = SEED) -> pd.DataFrame:
     """P10/P50/P90/P95 of the BOM index per case and horizon, at any origin.
 
-    For Kenza's Step 7 backtest: pass her predictions file as `marginals`
-    (Data/processed/models/predictions_conformal_combo.csv) and loop over origins.
+    `marginals` can be the Step 6 predictions file
+    (Data/processed/models/predictions_conformal_combo.csv); Step 7 backtests this at past origins.
     """
     panel = load_panel() if panel is None else panel
     ratios = simulate_driver_ratios(origin, marginals, residuals, n_paths=n_paths, seed=seed)
@@ -259,7 +253,7 @@ def main():
     contrib_df.to_csv(TABLE_DIR / "eur_per_material_p90.csv", index=False, float_format="%.2f")
     blocks.to_csv(TABLE_DIR / "block_sensitivity.csv", index=False, float_format="%.3f")
     print(summary_df.round(1).to_string(index=False))
-    print(f"wrote 3 files to {OUT}/")
+    print(f"wrote 2 files to {OUT}/ and 3 tables to {TABLE_DIR}/")
 
 if __name__ == "__main__":
     main()

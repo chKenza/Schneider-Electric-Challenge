@@ -1,19 +1,22 @@
 # Step 8 – From material forecasts to BOM cost index and margin at risk
 
-*Owner: Ion · Status: draft · Feeds Steps 9, 11, 12 and Problem 2*
+*Owner: Ion · Status: done · Feeds Steps 9, 11, 12 and Problem 2*
 
 > **Run from the repo root**, after the Step 6 export:
 >
 > ```bash
 > uv run python -m src.models --stage export     # Step 6: writes the Step 8 inputs
-> uv run python -m src.simulation                # Step 8: ≈ 5 s
+> uv run python -m src.simulation                # Step 8: tables
+> uv run python -m src.simulation_plots          # Step 8: charts
+> uv run pytest tests/test_simulation.py         # Step 8: checks (section 8)
 > ```
 
 | What | Where |
 |---|---|
-| Code | `src/simulation.py` |
+| Code | `src/simulation.py`, `src/simulation_plots.py` |
 | Inputs (from Step 6) | `Data/processed/models/step8/residuals_monthly.csv`, `marginals_202609.csv` |
-| Outputs (not committed) | `Data/processed/bom_index_simulated.csv`, `Data/processed/eur_per_material_p90.csv` |
+| Tables | `report/problem1/step8_tables/` |
+| Charts | `plots/step8/` |
 
 ---
 
@@ -24,7 +27,9 @@
 - **RM6 is a copper bet:** copper is **€126 of the €151** P90 cost increase at 9 months.
 - **AirSeT is a steel + stainless (+ nickel) bet:** about 0.9–1.4 points at 9 months, depending on the epoxy and nickel cases.
 - **Pricing stainless through nickel widens AirSeT's band.** The 9-month P95 rises from 118.7 to 124.5 (epoxy low). The default case understates AirSeT's risk.
-- **Close to Step 7's direct forecast of the BOM index.** The RM6 band sits slightly higher, because copper dominates RM6, so there's little diversification across materials.
+- **With steel at market prices (MEPS), AirSeT's 9-month risk rises** from 0.9–1.4 to 1.2–1.8 points. RM6 barely moves (1.73 → 1.89).
+- **RM6's risk depends on its copper mass:** 1.73 points at 9 months with the BOM's 38.8 kg, 0.74–0.88 with the teardown's 8.6–13.8 kg.
+- **Backtested in Step 7 (§6.1):** as good as the direct forecast of the BOM index. For RM6, 28–33 % of 6–9-month hold-out outcomes ended above P90, so **RM6's P90 is a floor**.
 
 ## 1. What Step 8 does
 
@@ -64,6 +69,8 @@ The chain asked by the client:
 
 Raw-material cost today: RM6 €795, AirSeT €583 (epoxy low) / €981 (epoxy high).
 
+![BOM index fan](../../plots/step8/01_bom_index_fan.png)
+
 ## 4. Margin points at risk
 
 1 point = 1 % of the selling price. Raw-material cost only; labour and overhead are held constant.
@@ -86,6 +93,7 @@ Raw-material cost today: RM6 €795, AirSeT €583 (epoxy low) / €981 (epoxy h
 
 - **The adjustment is small (≤ 0.2 points).** The forecast median is close to "no change" (Step 7), so almost all the risk is in the buffer. That is the part an indexation clause or a hedge can replace.
 - **Risk grows with validity**, roughly 3× from 3 to 9 months for RM6.
+- **Why smaller than Step 3's 4–8.5 points at 9 months:** Step 3 priced the unit at €4,299 (teardown cost + 30 % margin), half of €8,740, and measured the whole history, including the 2021 steel surge. Here we start from today's forecasts.
 - **No target margin is needed.** The client gives none, so margin points are expressed against the selling price, and Step 9 treats the acceptable erosion as a decision variable.
 
 ## 5. Which material drives the bad case (€ near P90, 9 months)
@@ -105,6 +113,8 @@ Average € increase per material over the paths between the 85th and 95th perce
 - **AirSeT:** steel and stainless. With nickel-driven stainless, the **nickel surcharge becomes the largest single item**. → an AirSeT clause must follow stainless including the surcharge, not just carbon steel.
 - **Epoxy matters only in the "high" case** (85.6 kg). AirSeT's epoxy content is unknown; we keep both cases as an assumption.
 
+![€ per material near P90](../../plots/step8/02_eur_per_material_p90.png)
+
 ## 6. Comparison with Step 7's direct forecast of the BOM index
 
 9 months, P10 / P50 / P90:
@@ -116,12 +126,55 @@ Average € increase per material over the paths between the 85th and 95th perce
 | AirSeT epoxy high | 92.3 / 101.1 / 114.3 | 92.1 / 100.4 / 117.8 |
 
 - **Close for AirSeT.**
-- **RM6's band sits slightly higher** (P10 92 vs 89). Copper is 61 % of RM6's cost, so there's little offsetting from other materials, and the median is pulled up by copper's slightly positive forecast median.
-- **The two are built differently:** Step 7 forecasts the index as one series; Step 8 builds it from each material's forecast and their joint behaviour. Agreement between two methods supports both.
+- **RM6: same P90, higher P10 and P50** (P10 92 vs 89, P50 102 vs 101), from copper's slightly positive forecast median.
+- **The two are built differently:** Step 7 forecasts the index as one series; Step 8 builds it from each material's forecast and their joint behaviour.
 
-**For Kenza's backtest:** `simulate_bom(origin, marginals, residuals)` returns the BOM index P10 / P50 / P90 / P95 at any origin. Pass `predictions_conformal_combo.csv` as `marginals`. It uses each origin's own prices as cost weights, while the Step 7 index uses Sep 2026 weights.
+**Backtest (Step 7, §6.1):** the simulation was re-run at every past origin and scored like the direct forecast. It is as good, but for RM6, 28–33 % of 6–9-month hold-out outcomes ended above its P90 (target 10 %; 2–3 independent windows).
 
-## 7. Assumptions
+## 7. Sensitivity
+
+9 months, total at P90, in margin points (`bom_index_and_margin_points.csv`, `block_sensitivity.csv`).
+
+**Steel at market prices.** The steel PPIs (S09, S10) are calmer than the MEPS prices Schneider pays (Step 3). This case keeps their forecast median but widens their spread to MEPS's volatility (`steel_market`).
+
+| Case | Steel PPI | Steel market |
+|---|---|---|
+| RM6 | 1.73 | 1.89 |
+| AirSeT epoxy low / high | 0.90 / 1.34 | 1.40 / 1.82 |
+| AirSeT epoxy low / high, nickel check | 1.00 / 1.41 | 1.23 / 1.67 |
+
+**RM6 copper mass.** The BOM gives 38.8 kg; the teardown gives 8.6–13.8 kg.
+
+| Copper | Cost today | Steel PPI | Steel market |
+|---|---|---|---|
+| 38.8 kg (BOM) | €795 | 1.73 | 1.89 |
+| 13.8 kg | €481 | 0.88 | 1.15 |
+| 8.6 kg | €415 | 0.74 | 1.03 |
+
+![Margin points by scenario](../../plots/step8/03_scenarios_margin_points.png)
+
+**Block length.** Short blocks weaken how copper and steel move together over 9 months. 9-month blocks recover it, and the risk rises a little.
+
+| Block (months) | Copper / steel correlation | RM6 | AirSeT main case |
+|---|---|---|---|
+| History | 0.63 | – | – |
+| 1 | 0.15 | 1.64 | 0.98 |
+| **3 (used)** | 0.31 | 1.73 | 1.01 |
+| 6 | 0.44 | 1.76 | 1.04 |
+| 9 | 0.62 | 1.87 | 1.08 |
+
+![Block length](../../plots/step8/04_block_length.png)
+
+## 8. Checks (`tests/test_simulation.py`)
+
+| Test | Checks that |
+|---|---|
+| `test_percentiles_match_the_forecast` | each driver's simulated P10 / P50 / P90 / P95 equal the Step 6 forecast |
+| `test_no_future_data` | scrambling every price and residual after the origin leaves the result unchanged |
+| `test_reproducible` | the same seed gives the same paths; another seed does not |
+| `test_blocks_keep_materials_on_the_same_months` | every simulated month is a real month for all materials together |
+
+## 9. Assumptions
 
 | Assumption | Why | Effect |
 |---|---|---|
@@ -133,15 +186,15 @@ Average € increase per material over the paths between the 85th and 95th perce
 | Uncertain BOM lines kept as labelled cases (AirSeT epoxy low / high, RM6 unlabelled slice) | Client: don't invent compositions | Shown as a range, not one answer |
 | Plastics unpriced | No €/t level (Step 2) | ≤ 4 % of mass |
 
-## 8. Limits
+## 10. Limits
 
-- **Copper's upside tail was underestimated on the hold-out** (Step 6: copper above its 9-month P90 in 35–41 % of cases; Step 7: RM6 index above P90 in 22 %). The simulation inherits the Step 6 forecast, so **RM6's P90 should be read as a floor**. Step 9 should pair the buffer with a copper clause for 6–9-month quotes.
+- **Copper's upside tail was underestimated on the hold-out** (Step 6: copper above its 9-month P90 in 35–41 % of cases; Step 7: this simulation's RM6 index above P90 in 28–33 % at 6–9 months). **RM6's P90 should be read as a floor**. Step 9 should pair the buffer with a copper clause for 6–9-month quotes.
 - **Short window:** 92 months of residuals; the bootstrap can only replay co-movements seen since 2019.
 - **Months between 3, 6 and 9 are not rescaled**; only the three horizons are used here.
 - **Synthetic selling prices**, and no AirSeT price.
 - **Corrected BOM (`a_v1`) pending** from the client: the results will be rerun when it arrives.
 
-## 9. For the next steps
+## 11. For the next steps
 
 - **Step 9:** quote rule per product and horizon from section 4. The buffer vs breach curve, with the tolerated erosion as the decision variable (the client gives no margin target), and the strategy comparison (buffer, indexation, copper hedge, shorter validity).
 - **Problem 2:** RM6 vs AirSeT cost outlook to mid-2027 (section 3) for the price-convergence argument; AirSeT's margin room (section 4) for the "temporary margin investment" scenario.

@@ -21,10 +21,10 @@ uv run pytest tests/test_pricing.py
 
 ## Summary
 
-- **Quotes of up to 6 months:** a fixed price plus a small uplift is enough for both products. That is at most **0.9 margin points** for RM6 and **0.6** for AirSeT, at 90 % confidence.
+- **Quotes of up to 6 months:** a fixed price plus a small uplift is enough for both products. That is at most **0.9 margin points** for RM6 and **0.6–0.8** for AirSeT (PPI or market steel), at 90 % confidence. Exception: with market steel and the strictest accepted loss (0.25 points), RM6 needs its copper clause from 6 months.
 - **9-month quotes need a price-adjustment (indexation) clause:**
   - **RM6 on copper:** a fixed price would need **+1.23 points** to limit the loss to 0.5 points. With a copper clause (±15 % band), **+0.74 points** is enough.
-  - **AirSeT on steel and stainless:** the simulation alone says a buffer is enough. On real past prices, however, the buffer was breached on **10 %** of 9-month quotes, with losses up to **2.45 points** (2021–22). With a steel clause, the worst loss was **0.36 points**.
+  - **AirSeT on steel and stainless:** to limit the loss to 0.25 points, a fixed price needs **+0.76 points** with steel at producer prices (PPI) and **+0.98** at market prices (MEPS), which are closer to what Schneider pays. That is at the 1-point cap, so a steel clause is safer. Schneider already buys steel on MEPS / CRU indices, so the clause passes on a risk it already carries.
 - **Today's practice (fixed price, no protection)** cost **2.4 margin points** in 2022. Selling prices rose 14 % while RM6's raw-material cost rose 58 %.
 - **For Problem 2:** RM6's raw-material cost rises more than AirSeT's in only **57 %** of simulated paths to June 2027. This gives **weak support** for the "price convergence" argument.
 
@@ -82,9 +82,11 @@ The client gives no target margin, so **the loss the business accepts** (0.25, 0
 
 ## 2. Results
 
-### 2.1 Quote rule (90 % confidence, steel PPI)
+### 2.1 Quote rule (90 % confidence)
 
-Uplift to charge, in margin points:
+Uplift to charge, in margin points. AirSeT is the main case (epoxy low, stainless through nickel).
+
+**Steel at producer prices (PPI):**
 
 | Accepted loss | RM6 3 m | RM6 6 m | RM6 9 m | AirSeT 3 m | AirSeT 6 m | AirSeT 9 m |
 |---|---|---|---|---|---|---|
@@ -93,9 +95,18 @@ Uplift to charge, in margin points:
 | 1 pt | 0.04 | 0.16 | 0.73 | 0.00 | 0.06 | 0.09 |
 | 2 pts | 0.04 | 0.11 | 0.21 | 0.00 | 0.06 | 0.09 |
 
-**Longest fixed price without a clause:** RM6 **6 months** (if the accepted loss is ≤ 0.5 points); AirSeT **9 months** in the simulation.
+**Steel at market prices (MEPS / CRU),** closer to what Schneider pays (Step 3):
 
-With **steel at market prices** (MEPS), RM6 needs a clause sooner (6 months if the accepted loss is 0.25 points), and AirSeT's uplifts rise by 30–60 %.
+| Accepted loss | RM6 3 m | RM6 6 m | RM6 9 m | AirSeT 3 m | AirSeT 6 m | AirSeT 9 m |
+|---|---|---|---|---|---|---|
+| 0.25 pts | 0.46 | **0.99 + copper clause ±15 %** | **0.80 + copper clause ±5 %** | 0.47 | 0.83 | 0.98 |
+| 0.5 pts | 0.21 | 0.84 | **0.97 + copper clause ±15 %** | 0.22 | 0.58 | 0.73 |
+| 1 pt | 0.03 | 0.34 | 0.89 | 0.00 | 0.08 | 0.23 |
+| 2 pts | 0.03 | 0.13 | 0.28 | 0.00 | 0.07 | 0.11 |
+
+**Longest fixed price without a clause:**
+- **RM6:** 6 months with PPI steel, 3 months with market steel (if the accepted loss is 0.25 points).
+- **AirSeT:** 9 months in both, but with market steel the 9-month uplift (0.98) sits at the 1-point cap, and at 95 % confidence the rule picks a steel clause.
 
 ![Buffer vs breach](../../plots/step9/01_buffer_vs_breach.png)
 
@@ -133,7 +144,7 @@ How to read it:
 
 ![Margin backtest](../../plots/step9/03_margin_backtest.png)
 
-**Selling prices are sticky:** they rise about 7 % a year at most and are never cut. So a cost shock squeezes the margin for years. 2026 is excluded (SF6-ban price jump). This is an illustration (8 yearly points, synthetic prices), not a test.
+**Selling prices are sticky:** they rise about 7 % a year at most and are rarely cut (−0.5 % from 2018 to 2020). So a cost shock squeezes the margin for years. 2026 is excluded (SF6-ban price jump). This is an illustration (8 yearly points, synthetic prices), not a test.
 
 ### 2.4 Outlook to mid-2027 (for Problem 2)
 
@@ -153,11 +164,11 @@ RM6's cost rises more than AirSeT's in **57 %** of paths. The forecast **does no
 
 | | Up to 6 months | 9 months |
 |---|---|---|
-| **RM6** | Fixed price + uplift (≤ 0.9 pts) | **Copper indexation clause (±15 %)** + uplift of about 0.75 pts; or a copper hedge |
-| **AirSeT** | Fixed price + uplift (≤ 0.6 pts) | **Steel and stainless indexation clause** + a small uplift |
+| **RM6** | Fixed price + uplift (≤ 0.9 pts) | **Copper indexation clause (±15 %)** + uplift of about 0.75 pts (accepted loss 0.5 pts); or a copper hedge |
+| **AirSeT** | Fixed price + uplift (≤ 0.8 pts) | **Steel and stainless indexation clause** + a small uplift |
 
-- **AirSeT:** the 9-month recommendation **overrides `quote_rule.csv`**, which uses the simulated paths only. The historical replay shows a buffer alone was not enough, and Kenza's Step 7 found that the upside tail is the one the forecasts miss. The clause mirrors how Schneider already buys steel (MEPS / CRU indexation, Step 0), so it passes on a risk Schneider already carries contractually.
-- **RM6:** this matches Steps 6 and 7. RM6's 9-month P90 was exceeded in 22 % of hold-out cases during the copper rally, so a buffer alone is not enough.
+- **AirSeT:** the 9-month clause rests on the **market-steel case** (§2.1). There the 9-month uplift is 0.98 points, at the 1-point cap, and at 95 % confidence the rule picks a steel clause. Schneider already buys steel on MEPS / CRU indices (Step 0), so the clause passes on a risk it already carries. The forecasts are not the reason: for AirSeT, 83–100 % of hold-out outcomes stayed below the P90 (Step 7, §6.1).
+- **RM6:** this matches Steps 6 and 7. During the copper rally, 22 % of RM6's hold-out outcomes ended above the forecast's 9-month P90. With the Step 8 simulation, which these uplifts use, it was 28–33 % at 6–9 months (Step 7, §6.1). A buffer alone is not enough. The clause covers copper only: copper is €126 of the €151 bad case (Step 8), €118 of €167 with market steel. Step 3 found steel and stainless matter more over the whole history; they can be added to the clause.
 
 ---
 
@@ -166,7 +177,7 @@ RM6's cost rises more than AirSeT's in **57 %** of paths. The forecast **does no
 | Assumption | Why | Effect |
 |---|---|---|
 | Max uplift sales can add = 1 point (`MAX_BUFFER_PTS`) | No competitiveness data | Decides when the rule switches to a clause. **To agree with the team** |
-| AirSeT main case = epoxy low, nickel check | Stainless surcharge follows nickel (Step 2) | **To confirm with Karin** |
+| AirSeT main case = epoxy low, nickel check | Stainless surcharge follows nickel (Step 2) | Conservative: Step 3 calls it an upper bound. **To confirm with Karin** |
 | AirSeT selling price = RM6 + 20 % (€10,488) | The benchmark has no AirSeT price | ±10 % on price = ∓10 % on AirSeT's points |
 | Indexation band ±5 % in the comparison; ±2–15 % tested in the rule | Typical contract triggers | Wider band = more risk left with Schneider |
 | Hedge cost = LME 3-month − cash spread, scaled linearly; no broker fees | Only the 3-month spread is in the data | The hedge is slightly too cheap |
@@ -176,7 +187,7 @@ RM6's cost rises more than AirSeT's in **57 %** of paths. The forecast **does no
 ## 5. Limits
 
 - **The historical replay uses today's recipe and today's buffer** at every past date. It shows how the strategies behave on real paths; it is not a backtest of the buffer the model would have given at the time.
-- **The quote rule uses simulated paths only.** The forecasts under-cover the upside tail (Step 7), so the uplifts are a floor.
+- **The quote rule uses simulated paths only.** RM6's forecasts under-cover the upside tail (copper, Step 7), so its uplifts are a floor. AirSeT's are not.
 - **Not modelled:**
   - the purchase lag between quote and material purchase (a Step 11 input);
   - tiered validity beyond re-quoting every 3 months.
