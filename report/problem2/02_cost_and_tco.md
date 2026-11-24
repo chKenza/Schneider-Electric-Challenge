@@ -1,10 +1,19 @@
 # Problem 2 – Cost gap, TCO and raw-material outlook (Steps 4–5)
 
-*Status: draft, 23 Nov*
+*Owners: Hitaishi · Status: done*
 
 > **Sources:** E-numbers refer to rows of [`market_evidence/evidence.csv`](../../market_evidence/evidence.csv); every model input is a row of [`assumptions.csv`](../../market_evidence/assumptions.csv) with three scenarios (pessimistic / base / optimistic, named from AirSeT's point of view). New in this step: E166–E174 and three assumption rows (installation, maintenance, SF6 upkeep).
 >
 > **Hypotheses:** H3, H4, H6 refer to the [problem framing](00_problem_framing.md) (§6).
+
+> **Run from the repo root:**
+>
+> ```bash
+> uv run python -m src.cost_model    # first: Problem 1 Step 2 outputs in Data/processed/ (local)
+> uv run python -m src.tco           # validates the evidence, writes 02_tables/
+> uv run python -m src.tco_plots     # charts 04–09
+> uv run pytest tests/test_tco.py    # 2 tests are skipped without the Step 2 outputs
+> ```
 
 | What | Where |
 |---|---|
@@ -216,15 +225,6 @@ Gap change for a copper move, other materials flat (copper €12,570/t; [`copper
 - **"One engine, two outcomes":** the same forecast that sets RM6 quote buffers tells Schneider how far it can cut the AirSeT premium without taking a raw-material gamble. That number belongs to Step 7.
 
 ---
-
-## Reproduce
-
-```bash
-uv run python -m src.cost_model        # Problem 1 Step 2 outputs in Data/processed/ (local)
-uv run python -m src.tco               # validates evidence, prints and writes 02_tables/
-uv run python -m src.tco_plots         # charts 04-09
-uv run pytest tests/test_tco.py
-```
 
 **Environment note:** in a sandbox where `import pandas` crashes on pyarrow (a known conflict with some OpenSSL builds), remove pyarrow (`uv pip uninstall pyarrow`) and run with `uv run --no-sync`. pyarrow is only pulled in by `statsforecast`; set `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1` for pytest. None of the Step 4–5 code needs pyarrow.
 
