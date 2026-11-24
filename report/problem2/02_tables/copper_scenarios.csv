@@ -1,0 +1,5 @@
+rm6_copper,airset_copper,net_copper_kg,net_copper_eur,sources,gap_change_cu_+10pct_eur,gap_change_cu_+30pct_eur,gap_change_cu_+50pct_eur,gap_change_cu_+100pct_eur,copper_rise_to_close_premium_pct
+"RM6, BOM (38.8 kg)","AirSeT, BOM (no copper)",38.8,487.716,bom_materials.csv; bom_materials.csv,48.7716,146.3148,243.858,487.716,393.8874
+"RM6, BOM (38.8 kg)",AirSeT like Eaton Xiria (26.4 kg),12.4,155.868,bom_materials.csv; E174,15.5868,46.7604,77.934,155.868,1232.4865
+"RM6, teardown (8.6 kg)","AirSeT, BOM (no copper)",8.62,108.3534,E174; bom_materials.csv,10.8353,32.506,54.1767,108.3534,1772.9504
+"RM6, teardown (8.6 kg)",AirSeT like Eaton Xiria (26.4 kg),-17.78,-223.4946,E174; E174,-22.3495,-67.0484,-111.7473,-223.4946,inf

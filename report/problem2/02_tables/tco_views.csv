@@ -1,0 +1,19 @@
+scenario,view,view_label,discounted,carbon_price_eur_t,t_co2e_counted,pv_factor_on_carbon,premium_eur,airset_saving_pv_eur,tco_gap_eur,break_even_carbon_eur_t,max_premium_pct
+pessimistic,leaks,Scope 1 leaks only,True,13.0,0.985,0.1554,2359.8,2.0686,2357.7314,15415.3395,0.0237
+pessimistic,lifecycle,Leaks + end-of-life release,True,13.0,1.2164,0.1263,2359.8,2.0753,2357.7247,15363.1957,0.0237
+pessimistic,whole_fill,Whole fill as a liability,True,13.0,16.416,1.0,2359.8,213.4866,2146.3134,143.7452,2.4426
+base,leaks,Scope 1 leaks only,True,22.0,2.82,0.3333,1921.052,26.0199,1895.0321,2038.2372,0.2977
+base,lifecycle,Leaks + end-of-life release,True,22.0,6.063,0.1907,1921.052,30.7844,1890.2676,1656.5373,0.3522
+base,whole_fill,Whole fill as a liability,True,22.0,35.25,1.0,1921.052,780.8424,1140.2096,54.3464,8.9341
+optimistic,leaks,Scope 1 leaks only,True,170.0,12.7575,0.4953,262.2,2029.7163,-1767.5163,0.0,23.2233
+optimistic,lifecycle,Leaks + end-of-life release,True,170.0,31.9545,0.3254,262.2,2722.8726,-2460.6726,0.0,31.1541
+optimistic,whole_fill,Whole fill as a liability,True,170.0,60.75,1.0,262.2,11282.9187,-11020.7187,0.0,129.0952
+pessimistic,leaks,Scope 1 leaks only,False,13.0,0.985,1.0,2359.8,47.8045,2311.9955,2360.2989,0.547
+pessimistic,lifecycle,Leaks + end-of-life release,False,13.0,1.2164,1.0,2359.8,50.8135,2308.9865,1911.1732,0.5814
+pessimistic,whole_fill,Whole fill as a liability,False,13.0,16.416,1.0,2359.8,248.408,2111.392,141.6179,2.8422
+base,leaks,Scope 1 leaks only,False,22.0,2.82,1.0,1921.052,142.04,1779.012,652.8553,1.6252
+base,lifecycle,Leaks + end-of-life release,False,22.0,6.063,1.0,1921.052,213.386,1707.666,303.6536,2.4415
+base,whole_fill,Whole fill as a liability,False,22.0,35.25,1.0,1921.052,855.5,1065.552,52.2284,9.7883
+optimistic,leaks,Scope 1 leaks only,False,170.0,12.7575,1.0,262.2,4668.775,-4406.575,0.0,53.4185
+optimistic,lifecycle,Leaks + end-of-life release,False,170.0,31.9545,1.0,262.2,7932.265,-7670.065,0.0,90.7582
+optimistic,whole_fill,Whole fill as a liability,False,170.0,60.75,1.0,262.2,12827.5,-12565.3,0.0,146.7677
