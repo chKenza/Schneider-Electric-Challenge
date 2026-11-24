@@ -1,0 +1,1303 @@
+case,steel,horizon_m,buffer_pts,p_breach
+RM6,PPI,3,0,0.5607
+RM6,PPI,3,0.1,0.4411
+RM6,PPI,3,0.2,0.3668
+RM6,PPI,3,0.3,0.2761
+RM6,PPI,3,0.4,0.1937
+RM6,PPI,3,0.5,0.1373
+RM6,PPI,3,0.6,0.0729
+RM6,PPI,3,0.7,0.0634
+RM6,PPI,3,0.8,0.0419
+RM6,PPI,3,0.9,0.0102
+RM6,PPI,3,1,0
+RM6,PPI,3,1.1,0
+RM6,PPI,3,1.2,0
+RM6,PPI,3,1.3,0
+RM6,PPI,3,1.4,0
+RM6,PPI,3,1.5,0
+RM6,PPI,3,1.6,0
+RM6,PPI,3,1.7,0
+RM6,PPI,3,1.8,0
+RM6,PPI,3,1.9,0
+RM6,PPI,3,2,0
+RM6,PPI,3,2.1,0
+RM6,PPI,3,2.2,0
+RM6,PPI,3,2.3,0
+RM6,PPI,3,2.4,0
+RM6,PPI,3,2.5,0
+RM6,PPI,3,2.6,0
+RM6,PPI,3,2.7,0
+RM6,PPI,3,2.8,0
+RM6,PPI,3,2.9,0
+RM6,PPI,3,3,0
+AirSeT epoxy low,PPI,3,0,0.4832
+AirSeT epoxy low,PPI,3,0.1,0.2775
+AirSeT epoxy low,PPI,3,0.2,0.1751
+AirSeT epoxy low,PPI,3,0.3,0.1326
+AirSeT epoxy low,PPI,3,0.4,0.0893
+AirSeT epoxy low,PPI,3,0.5,0.0215
+AirSeT epoxy low,PPI,3,0.6,0
+AirSeT epoxy low,PPI,3,0.7,0
+AirSeT epoxy low,PPI,3,0.8,0
+AirSeT epoxy low,PPI,3,0.9,0
+AirSeT epoxy low,PPI,3,1,0
+AirSeT epoxy low,PPI,3,1.1,0
+AirSeT epoxy low,PPI,3,1.2,0
+AirSeT epoxy low,PPI,3,1.3,0
+AirSeT epoxy low,PPI,3,1.4,0
+AirSeT epoxy low,PPI,3,1.5,0
+AirSeT epoxy low,PPI,3,1.6,0
+AirSeT epoxy low,PPI,3,1.7,0
+AirSeT epoxy low,PPI,3,1.8,0
+AirSeT epoxy low,PPI,3,1.9,0
+AirSeT epoxy low,PPI,3,2,0
+AirSeT epoxy low,PPI,3,2.1,0
+AirSeT epoxy low,PPI,3,2.2,0
+AirSeT epoxy low,PPI,3,2.3,0
+AirSeT epoxy low,PPI,3,2.4,0
+AirSeT epoxy low,PPI,3,2.5,0
+AirSeT epoxy low,PPI,3,2.6,0
+AirSeT epoxy low,PPI,3,2.7,0
+AirSeT epoxy low,PPI,3,2.8,0
+AirSeT epoxy low,PPI,3,2.9,0
+AirSeT epoxy low,PPI,3,3,0
+AirSeT epoxy high,PPI,3,0,0.4274
+AirSeT epoxy high,PPI,3,0.1,0.3298
+AirSeT epoxy high,PPI,3,0.2,0.2633
+AirSeT epoxy high,PPI,3,0.3,0.2308
+AirSeT epoxy high,PPI,3,0.4,0.1755
+AirSeT epoxy high,PPI,3,0.5,0.1214
+AirSeT epoxy high,PPI,3,0.6,0.067
+AirSeT epoxy high,PPI,3,0.7,0.0557
+AirSeT epoxy high,PPI,3,0.8,0.0094
+AirSeT epoxy high,PPI,3,0.9,0
+AirSeT epoxy high,PPI,3,1,0
+AirSeT epoxy high,PPI,3,1.1,0
+AirSeT epoxy high,PPI,3,1.2,0
+AirSeT epoxy high,PPI,3,1.3,0
+AirSeT epoxy high,PPI,3,1.4,0
+AirSeT epoxy high,PPI,3,1.5,0
+AirSeT epoxy high,PPI,3,1.6,0
+AirSeT epoxy high,PPI,3,1.7,0
+AirSeT epoxy high,PPI,3,1.8,0
+AirSeT epoxy high,PPI,3,1.9,0
+AirSeT epoxy high,PPI,3,2,0
+AirSeT epoxy high,PPI,3,2.1,0
+AirSeT epoxy high,PPI,3,2.2,0
+AirSeT epoxy high,PPI,3,2.3,0
+AirSeT epoxy high,PPI,3,2.4,0
+AirSeT epoxy high,PPI,3,2.5,0
+AirSeT epoxy high,PPI,3,2.6,0
+AirSeT epoxy high,PPI,3,2.7,0
+AirSeT epoxy high,PPI,3,2.8,0
+AirSeT epoxy high,PPI,3,2.9,0
+AirSeT epoxy high,PPI,3,3,0
+"AirSeT epoxy low, nickel check",PPI,3,0,0.505
+"AirSeT epoxy low, nickel check",PPI,3,0.1,0.4152
+"AirSeT epoxy low, nickel check",PPI,3,0.2,0.3291
+"AirSeT epoxy low, nickel check",PPI,3,0.3,0.2585
+"AirSeT epoxy low, nickel check",PPI,3,0.4,0.1956
+"AirSeT epoxy low, nickel check",PPI,3,0.5,0.0993
+"AirSeT epoxy low, nickel check",PPI,3,0.6,0.0651
+"AirSeT epoxy low, nickel check",PPI,3,0.7,0.043
+"AirSeT epoxy low, nickel check",PPI,3,0.8,0.0209
+"AirSeT epoxy low, nickel check",PPI,3,0.9,0.0209
+"AirSeT epoxy low, nickel check",PPI,3,1,0.0209
+"AirSeT epoxy low, nickel check",PPI,3,1.1,0.01
+"AirSeT epoxy low, nickel check",PPI,3,1.2,0.01
+"AirSeT epoxy low, nickel check",PPI,3,1.3,0.01
+"AirSeT epoxy low, nickel check",PPI,3,1.4,0
+"AirSeT epoxy low, nickel check",PPI,3,1.5,0
+"AirSeT epoxy low, nickel check",PPI,3,1.6,0
+"AirSeT epoxy low, nickel check",PPI,3,1.7,0
+"AirSeT epoxy low, nickel check",PPI,3,1.8,0
+"AirSeT epoxy low, nickel check",PPI,3,1.9,0
+"AirSeT epoxy low, nickel check",PPI,3,2,0
+"AirSeT epoxy low, nickel check",PPI,3,2.1,0
+"AirSeT epoxy low, nickel check",PPI,3,2.2,0
+"AirSeT epoxy low, nickel check",PPI,3,2.3,0
+"AirSeT epoxy low, nickel check",PPI,3,2.4,0
+"AirSeT epoxy low, nickel check",PPI,3,2.5,0
+"AirSeT epoxy low, nickel check",PPI,3,2.6,0
+"AirSeT epoxy low, nickel check",PPI,3,2.7,0
+"AirSeT epoxy low, nickel check",PPI,3,2.8,0
+"AirSeT epoxy low, nickel check",PPI,3,2.9,0
+"AirSeT epoxy low, nickel check",PPI,3,3,0
+"AirSeT epoxy high, nickel check",PPI,3,0,0.4497
+"AirSeT epoxy high, nickel check",PPI,3,0.1,0.4097
+"AirSeT epoxy high, nickel check",PPI,3,0.2,0.3959
+"AirSeT epoxy high, nickel check",PPI,3,0.3,0.3603
+"AirSeT epoxy high, nickel check",PPI,3,0.4,0.3048
+"AirSeT epoxy high, nickel check",PPI,3,0.5,0.174
+"AirSeT epoxy high, nickel check",PPI,3,0.6,0.1198
+"AirSeT epoxy high, nickel check",PPI,3,0.7,0.11
+"AirSeT epoxy high, nickel check",PPI,3,0.8,0.0671
+"AirSeT epoxy high, nickel check",PPI,3,0.9,0.0209
+"AirSeT epoxy high, nickel check",PPI,3,1,0.0209
+"AirSeT epoxy high, nickel check",PPI,3,1.1,0.0209
+"AirSeT epoxy high, nickel check",PPI,3,1.2,0.0209
+"AirSeT epoxy high, nickel check",PPI,3,1.3,0.01
+"AirSeT epoxy high, nickel check",PPI,3,1.4,0.01
+"AirSeT epoxy high, nickel check",PPI,3,1.5,0.01
+"AirSeT epoxy high, nickel check",PPI,3,1.6,0
+"AirSeT epoxy high, nickel check",PPI,3,1.7,0
+"AirSeT epoxy high, nickel check",PPI,3,1.8,0
+"AirSeT epoxy high, nickel check",PPI,3,1.9,0
+"AirSeT epoxy high, nickel check",PPI,3,2,0
+"AirSeT epoxy high, nickel check",PPI,3,2.1,0
+"AirSeT epoxy high, nickel check",PPI,3,2.2,0
+"AirSeT epoxy high, nickel check",PPI,3,2.3,0
+"AirSeT epoxy high, nickel check",PPI,3,2.4,0
+"AirSeT epoxy high, nickel check",PPI,3,2.5,0
+"AirSeT epoxy high, nickel check",PPI,3,2.6,0
+"AirSeT epoxy high, nickel check",PPI,3,2.7,0
+"AirSeT epoxy high, nickel check",PPI,3,2.8,0
+"AirSeT epoxy high, nickel check",PPI,3,2.9,0
+"AirSeT epoxy high, nickel check",PPI,3,3,0
+RM6 copper 13.8 kg,PPI,3,0,0.5095
+RM6 copper 13.8 kg,PPI,3,0.1,0.3986
+RM6 copper 13.8 kg,PPI,3,0.2,0.1846
+RM6 copper 13.8 kg,PPI,3,0.3,0.1085
+RM6 copper 13.8 kg,PPI,3,0.4,0.0527
+RM6 copper 13.8 kg,PPI,3,0.5,0.0419
+RM6 copper 13.8 kg,PPI,3,0.6,0
+RM6 copper 13.8 kg,PPI,3,0.7,0
+RM6 copper 13.8 kg,PPI,3,0.8,0
+RM6 copper 13.8 kg,PPI,3,0.9,0
+RM6 copper 13.8 kg,PPI,3,1,0
+RM6 copper 13.8 kg,PPI,3,1.1,0
+RM6 copper 13.8 kg,PPI,3,1.2,0
+RM6 copper 13.8 kg,PPI,3,1.3,0
+RM6 copper 13.8 kg,PPI,3,1.4,0
+RM6 copper 13.8 kg,PPI,3,1.5,0
+RM6 copper 13.8 kg,PPI,3,1.6,0
+RM6 copper 13.8 kg,PPI,3,1.7,0
+RM6 copper 13.8 kg,PPI,3,1.8,0
+RM6 copper 13.8 kg,PPI,3,1.9,0
+RM6 copper 13.8 kg,PPI,3,2,0
+RM6 copper 13.8 kg,PPI,3,2.1,0
+RM6 copper 13.8 kg,PPI,3,2.2,0
+RM6 copper 13.8 kg,PPI,3,2.3,0
+RM6 copper 13.8 kg,PPI,3,2.4,0
+RM6 copper 13.8 kg,PPI,3,2.5,0
+RM6 copper 13.8 kg,PPI,3,2.6,0
+RM6 copper 13.8 kg,PPI,3,2.7,0
+RM6 copper 13.8 kg,PPI,3,2.8,0
+RM6 copper 13.8 kg,PPI,3,2.9,0
+RM6 copper 13.8 kg,PPI,3,3,0
+RM6 copper 8.6 kg,PPI,3,0,0.4981
+RM6 copper 8.6 kg,PPI,3,0.1,0.3181
+RM6 copper 8.6 kg,PPI,3,0.2,0.1309
+RM6 copper 8.6 kg,PPI,3,0.3,0.065
+RM6 copper 8.6 kg,PPI,3,0.4,0.0419
+RM6 copper 8.6 kg,PPI,3,0.5,0
+RM6 copper 8.6 kg,PPI,3,0.6,0
+RM6 copper 8.6 kg,PPI,3,0.7,0
+RM6 copper 8.6 kg,PPI,3,0.8,0
+RM6 copper 8.6 kg,PPI,3,0.9,0
+RM6 copper 8.6 kg,PPI,3,1,0
+RM6 copper 8.6 kg,PPI,3,1.1,0
+RM6 copper 8.6 kg,PPI,3,1.2,0
+RM6 copper 8.6 kg,PPI,3,1.3,0
+RM6 copper 8.6 kg,PPI,3,1.4,0
+RM6 copper 8.6 kg,PPI,3,1.5,0
+RM6 copper 8.6 kg,PPI,3,1.6,0
+RM6 copper 8.6 kg,PPI,3,1.7,0
+RM6 copper 8.6 kg,PPI,3,1.8,0
+RM6 copper 8.6 kg,PPI,3,1.9,0
+RM6 copper 8.6 kg,PPI,3,2,0
+RM6 copper 8.6 kg,PPI,3,2.1,0
+RM6 copper 8.6 kg,PPI,3,2.2,0
+RM6 copper 8.6 kg,PPI,3,2.3,0
+RM6 copper 8.6 kg,PPI,3,2.4,0
+RM6 copper 8.6 kg,PPI,3,2.5,0
+RM6 copper 8.6 kg,PPI,3,2.6,0
+RM6 copper 8.6 kg,PPI,3,2.7,0
+RM6 copper 8.6 kg,PPI,3,2.8,0
+RM6 copper 8.6 kg,PPI,3,2.9,0
+RM6 copper 8.6 kg,PPI,3,3,0
+RM6,market,3,0,0.5359
+RM6,market,3,0.1,0.4761
+RM6,market,3,0.2,0.4091
+RM6,market,3,0.3,0.3334
+RM6,market,3,0.4,0.2544
+RM6,market,3,0.5,0.1733
+RM6,market,3,0.6,0.15
+RM6,market,3,0.7,0.1059
+RM6,market,3,0.8,0.0527
+RM6,market,3,0.9,0.0527
+RM6,market,3,1,0.0527
+RM6,market,3,1.1,0.0419
+RM6,market,3,1.2,0.0215
+RM6,market,3,1.3,0
+RM6,market,3,1.4,0
+RM6,market,3,1.5,0
+RM6,market,3,1.6,0
+RM6,market,3,1.7,0
+RM6,market,3,1.8,0
+RM6,market,3,1.9,0
+RM6,market,3,2,0
+RM6,market,3,2.1,0
+RM6,market,3,2.2,0
+RM6,market,3,2.3,0
+RM6,market,3,2.4,0
+RM6,market,3,2.5,0
+RM6,market,3,2.6,0
+RM6,market,3,2.7,0
+RM6,market,3,2.8,0
+RM6,market,3,2.9,0
+RM6,market,3,3,0
+AirSeT epoxy low,market,3,0,0.4832
+AirSeT epoxy low,market,3,0.1,0.3549
+AirSeT epoxy low,market,3,0.2,0.255
+AirSeT epoxy low,market,3,0.3,0.2436
+AirSeT epoxy low,market,3,0.4,0.1536
+AirSeT epoxy low,market,3,0.5,0.1326
+AirSeT epoxy low,market,3,0.6,0.1326
+AirSeT epoxy low,market,3,0.7,0.1226
+AirSeT epoxy low,market,3,0.8,0.0893
+AirSeT epoxy low,market,3,0.9,0.0574
+AirSeT epoxy low,market,3,1,0.0215
+AirSeT epoxy low,market,3,1.1,0
+AirSeT epoxy low,market,3,1.2,0
+AirSeT epoxy low,market,3,1.3,0
+AirSeT epoxy low,market,3,1.4,0
+AirSeT epoxy low,market,3,1.5,0
+AirSeT epoxy low,market,3,1.6,0
+AirSeT epoxy low,market,3,1.7,0
+AirSeT epoxy low,market,3,1.8,0
+AirSeT epoxy low,market,3,1.9,0
+AirSeT epoxy low,market,3,2,0
+AirSeT epoxy low,market,3,2.1,0
+AirSeT epoxy low,market,3,2.2,0
+AirSeT epoxy low,market,3,2.3,0
+AirSeT epoxy low,market,3,2.4,0
+AirSeT epoxy low,market,3,2.5,0
+AirSeT epoxy low,market,3,2.6,0
+AirSeT epoxy low,market,3,2.7,0
+AirSeT epoxy low,market,3,2.8,0
+AirSeT epoxy low,market,3,2.9,0
+AirSeT epoxy low,market,3,3,0
+AirSeT epoxy high,market,3,0,0.4609
+AirSeT epoxy high,market,3,0.1,0.3734
+AirSeT epoxy high,market,3,0.2,0.298
+AirSeT epoxy high,market,3,0.3,0.2648
+AirSeT epoxy high,market,3,0.4,0.2522
+AirSeT epoxy high,market,3,0.5,0.2194
+AirSeT epoxy high,market,3,0.6,0.1663
+AirSeT epoxy high,market,3,0.7,0.1326
+AirSeT epoxy high,market,3,0.8,0.1226
+AirSeT epoxy high,market,3,0.9,0.1111
+AirSeT epoxy high,market,3,1,0.0778
+AirSeT epoxy high,market,3,1.1,0.067
+AirSeT epoxy high,market,3,1.2,0.0309
+AirSeT epoxy high,market,3,1.3,0.0196
+AirSeT epoxy high,market,3,1.4,0
+AirSeT epoxy high,market,3,1.5,0
+AirSeT epoxy high,market,3,1.6,0
+AirSeT epoxy high,market,3,1.7,0
+AirSeT epoxy high,market,3,1.8,0
+AirSeT epoxy high,market,3,1.9,0
+AirSeT epoxy high,market,3,2,0
+AirSeT epoxy high,market,3,2.1,0
+AirSeT epoxy high,market,3,2.2,0
+AirSeT epoxy high,market,3,2.3,0
+AirSeT epoxy high,market,3,2.4,0
+AirSeT epoxy high,market,3,2.5,0
+AirSeT epoxy high,market,3,2.6,0
+AirSeT epoxy high,market,3,2.7,0
+AirSeT epoxy high,market,3,2.8,0
+AirSeT epoxy high,market,3,2.9,0
+AirSeT epoxy high,market,3,3,0
+"AirSeT epoxy low, nickel check",market,3,0,0.4803
+"AirSeT epoxy low, nickel check",market,3,0.1,0.4277
+"AirSeT epoxy low, nickel check",market,3,0.2,0.3635
+"AirSeT epoxy low, nickel check",market,3,0.3,0.2931
+"AirSeT epoxy low, nickel check",market,3,0.4,0.2265
+"AirSeT epoxy low, nickel check",market,3,0.5,0.1872
+"AirSeT epoxy low, nickel check",market,3,0.6,0.1238
+"AirSeT epoxy low, nickel check",market,3,0.7,0.1123
+"AirSeT epoxy low, nickel check",market,3,0.8,0.0667
+"AirSeT epoxy low, nickel check",market,3,0.9,0.0539
+"AirSeT epoxy low, nickel check",market,3,1,0.0322
+"AirSeT epoxy low, nickel check",market,3,1.1,0.0209
+"AirSeT epoxy low, nickel check",market,3,1.2,0.0209
+"AirSeT epoxy low, nickel check",market,3,1.3,0.0209
+"AirSeT epoxy low, nickel check",market,3,1.4,0.01
+"AirSeT epoxy low, nickel check",market,3,1.5,0.01
+"AirSeT epoxy low, nickel check",market,3,1.6,0
+"AirSeT epoxy low, nickel check",market,3,1.7,0
+"AirSeT epoxy low, nickel check",market,3,1.8,0
+"AirSeT epoxy low, nickel check",market,3,1.9,0
+"AirSeT epoxy low, nickel check",market,3,2,0
+"AirSeT epoxy low, nickel check",market,3,2.1,0
+"AirSeT epoxy low, nickel check",market,3,2.2,0
+"AirSeT epoxy low, nickel check",market,3,2.3,0
+"AirSeT epoxy low, nickel check",market,3,2.4,0
+"AirSeT epoxy low, nickel check",market,3,2.5,0
+"AirSeT epoxy low, nickel check",market,3,2.6,0
+"AirSeT epoxy low, nickel check",market,3,2.7,0
+"AirSeT epoxy low, nickel check",market,3,2.8,0
+"AirSeT epoxy low, nickel check",market,3,2.9,0
+"AirSeT epoxy low, nickel check",market,3,3,0
+"AirSeT epoxy high, nickel check",market,3,0,0.4516
+"AirSeT epoxy high, nickel check",market,3,0.1,0.3959
+"AirSeT epoxy high, nickel check",market,3,0.2,0.3959
+"AirSeT epoxy high, nickel check",market,3,0.3,0.3516
+"AirSeT epoxy high, nickel check",market,3,0.4,0.3059
+"AirSeT epoxy high, nickel check",market,3,0.5,0.2305
+"AirSeT epoxy high, nickel check",market,3,0.6,0.1948
+"AirSeT epoxy high, nickel check",market,3,0.7,0.1624
+"AirSeT epoxy high, nickel check",market,3,0.8,0.1184
+"AirSeT epoxy high, nickel check",market,3,0.9,0.079
+"AirSeT epoxy high, nickel check",market,3,1,0.079
+"AirSeT epoxy high, nickel check",market,3,1.1,0.0559
+"AirSeT epoxy high, nickel check",market,3,1.2,0.0209
+"AirSeT epoxy high, nickel check",market,3,1.3,0.0209
+"AirSeT epoxy high, nickel check",market,3,1.4,0.0209
+"AirSeT epoxy high, nickel check",market,3,1.5,0.0209
+"AirSeT epoxy high, nickel check",market,3,1.6,0.01
+"AirSeT epoxy high, nickel check",market,3,1.7,0.01
+"AirSeT epoxy high, nickel check",market,3,1.8,0
+"AirSeT epoxy high, nickel check",market,3,1.9,0
+"AirSeT epoxy high, nickel check",market,3,2,0
+"AirSeT epoxy high, nickel check",market,3,2.1,0
+"AirSeT epoxy high, nickel check",market,3,2.2,0
+"AirSeT epoxy high, nickel check",market,3,2.3,0
+"AirSeT epoxy high, nickel check",market,3,2.4,0
+"AirSeT epoxy high, nickel check",market,3,2.5,0
+"AirSeT epoxy high, nickel check",market,3,2.6,0
+"AirSeT epoxy high, nickel check",market,3,2.7,0
+"AirSeT epoxy high, nickel check",market,3,2.8,0
+"AirSeT epoxy high, nickel check",market,3,2.9,0
+"AirSeT epoxy high, nickel check",market,3,3,0
+RM6 copper 13.8 kg,market,3,0,0.4973
+RM6 copper 13.8 kg,market,3,0.1,0.3855
+RM6 copper 13.8 kg,market,3,0.2,0.2844
+RM6 copper 13.8 kg,market,3,0.3,0.1858
+RM6 copper 13.8 kg,market,3,0.4,0.1424
+RM6 copper 13.8 kg,market,3,0.5,0.0887
+RM6 copper 13.8 kg,market,3,0.6,0.065
+RM6 copper 13.8 kg,market,3,0.7,0.0527
+RM6 copper 13.8 kg,market,3,0.8,0.0215
+RM6 copper 13.8 kg,market,3,0.9,0
+RM6 copper 13.8 kg,market,3,1,0
+RM6 copper 13.8 kg,market,3,1.1,0
+RM6 copper 13.8 kg,market,3,1.2,0
+RM6 copper 13.8 kg,market,3,1.3,0
+RM6 copper 13.8 kg,market,3,1.4,0
+RM6 copper 13.8 kg,market,3,1.5,0
+RM6 copper 13.8 kg,market,3,1.6,0
+RM6 copper 13.8 kg,market,3,1.7,0
+RM6 copper 13.8 kg,market,3,1.8,0
+RM6 copper 13.8 kg,market,3,1.9,0
+RM6 copper 13.8 kg,market,3,2,0
+RM6 copper 13.8 kg,market,3,2.1,0
+RM6 copper 13.8 kg,market,3,2.2,0
+RM6 copper 13.8 kg,market,3,2.3,0
+RM6 copper 13.8 kg,market,3,2.4,0
+RM6 copper 13.8 kg,market,3,2.5,0
+RM6 copper 13.8 kg,market,3,2.6,0
+RM6 copper 13.8 kg,market,3,2.7,0
+RM6 copper 13.8 kg,market,3,2.8,0
+RM6 copper 13.8 kg,market,3,2.9,0
+RM6 copper 13.8 kg,market,3,3,0
+RM6 copper 8.6 kg,market,3,0,0.4737
+RM6 copper 8.6 kg,market,3,0.1,0.3858
+RM6 copper 8.6 kg,market,3,0.2,0.2417
+RM6 copper 8.6 kg,market,3,0.3,0.1424
+RM6 copper 8.6 kg,market,3,0.4,0.1424
+RM6 copper 8.6 kg,market,3,0.5,0.0887
+RM6 copper 8.6 kg,market,3,0.6,0.065
+RM6 copper 8.6 kg,market,3,0.7,0.0215
+RM6 copper 8.6 kg,market,3,0.8,0.0102
+RM6 copper 8.6 kg,market,3,0.9,0
+RM6 copper 8.6 kg,market,3,1,0
+RM6 copper 8.6 kg,market,3,1.1,0
+RM6 copper 8.6 kg,market,3,1.2,0
+RM6 copper 8.6 kg,market,3,1.3,0
+RM6 copper 8.6 kg,market,3,1.4,0
+RM6 copper 8.6 kg,market,3,1.5,0
+RM6 copper 8.6 kg,market,3,1.6,0
+RM6 copper 8.6 kg,market,3,1.7,0
+RM6 copper 8.6 kg,market,3,1.8,0
+RM6 copper 8.6 kg,market,3,1.9,0
+RM6 copper 8.6 kg,market,3,2,0
+RM6 copper 8.6 kg,market,3,2.1,0
+RM6 copper 8.6 kg,market,3,2.2,0
+RM6 copper 8.6 kg,market,3,2.3,0
+RM6 copper 8.6 kg,market,3,2.4,0
+RM6 copper 8.6 kg,market,3,2.5,0
+RM6 copper 8.6 kg,market,3,2.6,0
+RM6 copper 8.6 kg,market,3,2.7,0
+RM6 copper 8.6 kg,market,3,2.8,0
+RM6 copper 8.6 kg,market,3,2.9,0
+RM6 copper 8.6 kg,market,3,3,0
+RM6,PPI,6,0,0.5609
+RM6,PPI,6,0.1,0.5026
+RM6,PPI,6,0.2,0.4456
+RM6,PPI,6,0.3,0.3962
+RM6,PPI,6,0.4,0.3458
+RM6,PPI,6,0.5,0.3024
+RM6,PPI,6,0.6,0.2631
+RM6,PPI,6,0.7,0.2276
+RM6,PPI,6,0.8,0.1967
+RM6,PPI,6,0.9,0.1658
+RM6,PPI,6,1,0.1413
+RM6,PPI,6,1.1,0.1139
+RM6,PPI,6,1.2,0.0917
+RM6,PPI,6,1.3,0.0697
+RM6,PPI,6,1.4,0.057
+RM6,PPI,6,1.5,0.0405
+RM6,PPI,6,1.6,0.0293
+RM6,PPI,6,1.7,0.0176
+RM6,PPI,6,1.8,0.0111
+RM6,PPI,6,1.9,0.0082
+RM6,PPI,6,2,0.0049
+RM6,PPI,6,2.1,0.004
+RM6,PPI,6,2.2,0.0021
+RM6,PPI,6,2.3,0.0005
+RM6,PPI,6,2.4,0
+RM6,PPI,6,2.5,0
+RM6,PPI,6,2.6,0
+RM6,PPI,6,2.7,0
+RM6,PPI,6,2.8,0
+RM6,PPI,6,2.9,0
+RM6,PPI,6,3,0
+AirSeT epoxy low,PPI,6,0,0.5147
+AirSeT epoxy low,PPI,6,0.1,0.41
+AirSeT epoxy low,PPI,6,0.2,0.323
+AirSeT epoxy low,PPI,6,0.3,0.2708
+AirSeT epoxy low,PPI,6,0.4,0.2313
+AirSeT epoxy low,PPI,6,0.5,0.186
+AirSeT epoxy low,PPI,6,0.6,0.1396
+AirSeT epoxy low,PPI,6,0.7,0.0914
+AirSeT epoxy low,PPI,6,0.8,0.0453
+AirSeT epoxy low,PPI,6,0.9,0.021
+AirSeT epoxy low,PPI,6,1,0.012
+AirSeT epoxy low,PPI,6,1.1,0.0087
+AirSeT epoxy low,PPI,6,1.2,0.0039
+AirSeT epoxy low,PPI,6,1.3,0.0005
+AirSeT epoxy low,PPI,6,1.4,0
+AirSeT epoxy low,PPI,6,1.5,0
+AirSeT epoxy low,PPI,6,1.6,0
+AirSeT epoxy low,PPI,6,1.7,0
+AirSeT epoxy low,PPI,6,1.8,0
+AirSeT epoxy low,PPI,6,1.9,0
+AirSeT epoxy low,PPI,6,2,0
+AirSeT epoxy low,PPI,6,2.1,0
+AirSeT epoxy low,PPI,6,2.2,0
+AirSeT epoxy low,PPI,6,2.3,0
+AirSeT epoxy low,PPI,6,2.4,0
+AirSeT epoxy low,PPI,6,2.5,0
+AirSeT epoxy low,PPI,6,2.6,0
+AirSeT epoxy low,PPI,6,2.7,0
+AirSeT epoxy low,PPI,6,2.8,0
+AirSeT epoxy low,PPI,6,2.9,0
+AirSeT epoxy low,PPI,6,3,0
+AirSeT epoxy high,PPI,6,0,0.5229
+AirSeT epoxy high,PPI,6,0.1,0.4661
+AirSeT epoxy high,PPI,6,0.2,0.4183
+AirSeT epoxy high,PPI,6,0.3,0.3781
+AirSeT epoxy high,PPI,6,0.4,0.3352
+AirSeT epoxy high,PPI,6,0.5,0.2885
+AirSeT epoxy high,PPI,6,0.6,0.2469
+AirSeT epoxy high,PPI,6,0.7,0.2024
+AirSeT epoxy high,PPI,6,0.8,0.1711
+AirSeT epoxy high,PPI,6,0.9,0.142
+AirSeT epoxy high,PPI,6,1,0.1155
+AirSeT epoxy high,PPI,6,1.1,0.0843
+AirSeT epoxy high,PPI,6,1.2,0.0623
+AirSeT epoxy high,PPI,6,1.3,0.0406
+AirSeT epoxy high,PPI,6,1.4,0.0282
+AirSeT epoxy high,PPI,6,1.5,0.0197
+AirSeT epoxy high,PPI,6,1.6,0.0121
+AirSeT epoxy high,PPI,6,1.7,0.008
+AirSeT epoxy high,PPI,6,1.8,0.0054
+AirSeT epoxy high,PPI,6,1.9,0.0026
+AirSeT epoxy high,PPI,6,2,0.0013
+AirSeT epoxy high,PPI,6,2.1,0.0005
+AirSeT epoxy high,PPI,6,2.2,0.0002
+AirSeT epoxy high,PPI,6,2.3,0
+AirSeT epoxy high,PPI,6,2.4,0
+AirSeT epoxy high,PPI,6,2.5,0
+AirSeT epoxy high,PPI,6,2.6,0
+AirSeT epoxy high,PPI,6,2.7,0
+AirSeT epoxy high,PPI,6,2.8,0
+AirSeT epoxy high,PPI,6,2.9,0
+AirSeT epoxy high,PPI,6,3,0
+"AirSeT epoxy low, nickel check",PPI,6,0,0.5449
+"AirSeT epoxy low, nickel check",PPI,6,0.1,0.4704
+"AirSeT epoxy low, nickel check",PPI,6,0.2,0.3977
+"AirSeT epoxy low, nickel check",PPI,6,0.3,0.3387
+"AirSeT epoxy low, nickel check",PPI,6,0.4,0.2784
+"AirSeT epoxy low, nickel check",PPI,6,0.5,0.2274
+"AirSeT epoxy low, nickel check",PPI,6,0.6,0.1823
+"AirSeT epoxy low, nickel check",PPI,6,0.7,0.1421
+"AirSeT epoxy low, nickel check",PPI,6,0.8,0.1127
+"AirSeT epoxy low, nickel check",PPI,6,0.9,0.0859
+"AirSeT epoxy low, nickel check",PPI,6,1,0.0675
+"AirSeT epoxy low, nickel check",PPI,6,1.1,0.0472
+"AirSeT epoxy low, nickel check",PPI,6,1.2,0.0305
+"AirSeT epoxy low, nickel check",PPI,6,1.3,0.018
+"AirSeT epoxy low, nickel check",PPI,6,1.4,0.0122
+"AirSeT epoxy low, nickel check",PPI,6,1.5,0.0064
+"AirSeT epoxy low, nickel check",PPI,6,1.6,0.0041
+"AirSeT epoxy low, nickel check",PPI,6,1.7,0.0017
+"AirSeT epoxy low, nickel check",PPI,6,1.8,0.0006
+"AirSeT epoxy low, nickel check",PPI,6,1.9,0.0004
+"AirSeT epoxy low, nickel check",PPI,6,2,0.0002
+"AirSeT epoxy low, nickel check",PPI,6,2.1,0.0002
+"AirSeT epoxy low, nickel check",PPI,6,2.2,0
+"AirSeT epoxy low, nickel check",PPI,6,2.3,0
+"AirSeT epoxy low, nickel check",PPI,6,2.4,0
+"AirSeT epoxy low, nickel check",PPI,6,2.5,0
+"AirSeT epoxy low, nickel check",PPI,6,2.6,0
+"AirSeT epoxy low, nickel check",PPI,6,2.7,0
+"AirSeT epoxy low, nickel check",PPI,6,2.8,0
+"AirSeT epoxy low, nickel check",PPI,6,2.9,0
+"AirSeT epoxy low, nickel check",PPI,6,3,0
+"AirSeT epoxy high, nickel check",PPI,6,0,0.5505
+"AirSeT epoxy high, nickel check",PPI,6,0.1,0.506
+"AirSeT epoxy high, nickel check",PPI,6,0.2,0.4554
+"AirSeT epoxy high, nickel check",PPI,6,0.3,0.4091
+"AirSeT epoxy high, nickel check",PPI,6,0.4,0.3581
+"AirSeT epoxy high, nickel check",PPI,6,0.5,0.3136
+"AirSeT epoxy high, nickel check",PPI,6,0.6,0.2712
+"AirSeT epoxy high, nickel check",PPI,6,0.7,0.2327
+"AirSeT epoxy high, nickel check",PPI,6,0.8,0.1975
+"AirSeT epoxy high, nickel check",PPI,6,0.9,0.1663
+"AirSeT epoxy high, nickel check",PPI,6,1,0.1404
+"AirSeT epoxy high, nickel check",PPI,6,1.1,0.1159
+"AirSeT epoxy high, nickel check",PPI,6,1.2,0.0976
+"AirSeT epoxy high, nickel check",PPI,6,1.3,0.0764
+"AirSeT epoxy high, nickel check",PPI,6,1.4,0.0541
+"AirSeT epoxy high, nickel check",PPI,6,1.5,0.0378
+"AirSeT epoxy high, nickel check",PPI,6,1.6,0.0274
+"AirSeT epoxy high, nickel check",PPI,6,1.7,0.0203
+"AirSeT epoxy high, nickel check",PPI,6,1.8,0.013
+"AirSeT epoxy high, nickel check",PPI,6,1.9,0.0087
+"AirSeT epoxy high, nickel check",PPI,6,2,0.0058
+"AirSeT epoxy high, nickel check",PPI,6,2.1,0.0037
+"AirSeT epoxy high, nickel check",PPI,6,2.2,0.0017
+"AirSeT epoxy high, nickel check",PPI,6,2.3,0.0006
+"AirSeT epoxy high, nickel check",PPI,6,2.4,0.0004
+"AirSeT epoxy high, nickel check",PPI,6,2.5,0.0002
+"AirSeT epoxy high, nickel check",PPI,6,2.6,0.0002
+"AirSeT epoxy high, nickel check",PPI,6,2.7,0
+"AirSeT epoxy high, nickel check",PPI,6,2.8,0
+"AirSeT epoxy high, nickel check",PPI,6,2.9,0
+"AirSeT epoxy high, nickel check",PPI,6,3,0
+RM6 copper 13.8 kg,PPI,6,0,0.5703
+RM6 copper 13.8 kg,PPI,6,0.1,0.4623
+RM6 copper 13.8 kg,PPI,6,0.2,0.3636
+RM6 copper 13.8 kg,PPI,6,0.3,0.2794
+RM6 copper 13.8 kg,PPI,6,0.4,0.2054
+RM6 copper 13.8 kg,PPI,6,0.5,0.149
+RM6 copper 13.8 kg,PPI,6,0.6,0.1042
+RM6 copper 13.8 kg,PPI,6,0.7,0.0698
+RM6 copper 13.8 kg,PPI,6,0.8,0.0497
+RM6 copper 13.8 kg,PPI,6,0.9,0.0292
+RM6 copper 13.8 kg,PPI,6,1,0.0125
+RM6 copper 13.8 kg,PPI,6,1.1,0.0054
+RM6 copper 13.8 kg,PPI,6,1.2,0.0034
+RM6 copper 13.8 kg,PPI,6,1.3,0.0017
+RM6 copper 13.8 kg,PPI,6,1.4,0.0001
+RM6 copper 13.8 kg,PPI,6,1.5,0
+RM6 copper 13.8 kg,PPI,6,1.6,0
+RM6 copper 13.8 kg,PPI,6,1.7,0
+RM6 copper 13.8 kg,PPI,6,1.8,0
+RM6 copper 13.8 kg,PPI,6,1.9,0
+RM6 copper 13.8 kg,PPI,6,2,0
+RM6 copper 13.8 kg,PPI,6,2.1,0
+RM6 copper 13.8 kg,PPI,6,2.2,0
+RM6 copper 13.8 kg,PPI,6,2.3,0
+RM6 copper 13.8 kg,PPI,6,2.4,0
+RM6 copper 13.8 kg,PPI,6,2.5,0
+RM6 copper 13.8 kg,PPI,6,2.6,0
+RM6 copper 13.8 kg,PPI,6,2.7,0
+RM6 copper 13.8 kg,PPI,6,2.8,0
+RM6 copper 13.8 kg,PPI,6,2.9,0
+RM6 copper 13.8 kg,PPI,6,3,0
+RM6 copper 8.6 kg,PPI,6,0,0.5601
+RM6 copper 8.6 kg,PPI,6,0.1,0.4287
+RM6 copper 8.6 kg,PPI,6,0.2,0.3263
+RM6 copper 8.6 kg,PPI,6,0.3,0.2357
+RM6 copper 8.6 kg,PPI,6,0.4,0.169
+RM6 copper 8.6 kg,PPI,6,0.5,0.1136
+RM6 copper 8.6 kg,PPI,6,0.6,0.07
+RM6 copper 8.6 kg,PPI,6,0.7,0.0416
+RM6 copper 8.6 kg,PPI,6,0.8,0.0179
+RM6 copper 8.6 kg,PPI,6,0.9,0.0074
+RM6 copper 8.6 kg,PPI,6,1,0.0043
+RM6 copper 8.6 kg,PPI,6,1.1,0.002
+RM6 copper 8.6 kg,PPI,6,1.2,0.0001
+RM6 copper 8.6 kg,PPI,6,1.3,0
+RM6 copper 8.6 kg,PPI,6,1.4,0
+RM6 copper 8.6 kg,PPI,6,1.5,0
+RM6 copper 8.6 kg,PPI,6,1.6,0
+RM6 copper 8.6 kg,PPI,6,1.7,0
+RM6 copper 8.6 kg,PPI,6,1.8,0
+RM6 copper 8.6 kg,PPI,6,1.9,0
+RM6 copper 8.6 kg,PPI,6,2,0
+RM6 copper 8.6 kg,PPI,6,2.1,0
+RM6 copper 8.6 kg,PPI,6,2.2,0
+RM6 copper 8.6 kg,PPI,6,2.3,0
+RM6 copper 8.6 kg,PPI,6,2.4,0
+RM6 copper 8.6 kg,PPI,6,2.5,0
+RM6 copper 8.6 kg,PPI,6,2.6,0
+RM6 copper 8.6 kg,PPI,6,2.7,0
+RM6 copper 8.6 kg,PPI,6,2.8,0
+RM6 copper 8.6 kg,PPI,6,2.9,0
+RM6 copper 8.6 kg,PPI,6,3,0
+RM6,market,6,0,0.5678
+RM6,market,6,0.1,0.5191
+RM6,market,6,0.2,0.4714
+RM6,market,6,0.3,0.423
+RM6,market,6,0.4,0.383
+RM6,market,6,0.5,0.3387
+RM6,market,6,0.6,0.2985
+RM6,market,6,0.7,0.2662
+RM6,market,6,0.8,0.2316
+RM6,market,6,0.9,0.2001
+RM6,market,6,1,0.1732
+RM6,market,6,1.1,0.1538
+RM6,market,6,1.2,0.1309
+RM6,market,6,1.3,0.1076
+RM6,market,6,1.4,0.0879
+RM6,market,6,1.5,0.0743
+RM6,market,6,1.6,0.0634
+RM6,market,6,1.7,0.0553
+RM6,market,6,1.8,0.0432
+RM6,market,6,1.9,0.0338
+RM6,market,6,2,0.0259
+RM6,market,6,2.1,0.0186
+RM6,market,6,2.2,0.0113
+RM6,market,6,2.3,0.0082
+RM6,market,6,2.4,0.0054
+RM6,market,6,2.5,0.0037
+RM6,market,6,2.6,0.0034
+RM6,market,6,2.7,0.0027
+RM6,market,6,2.8,0.002
+RM6,market,6,2.9,0.0009
+RM6,market,6,3,0.0005
+AirSeT epoxy low,market,6,0,0.5083
+AirSeT epoxy low,market,6,0.1,0.4409
+AirSeT epoxy low,market,6,0.2,0.3869
+AirSeT epoxy low,market,6,0.3,0.3355
+AirSeT epoxy low,market,6,0.4,0.2939
+AirSeT epoxy low,market,6,0.5,0.2715
+AirSeT epoxy low,market,6,0.6,0.2459
+AirSeT epoxy low,market,6,0.7,0.2259
+AirSeT epoxy low,market,6,0.8,0.1985
+AirSeT epoxy low,market,6,0.9,0.1768
+AirSeT epoxy low,market,6,1,0.1519
+AirSeT epoxy low,market,6,1.1,0.1218
+AirSeT epoxy low,market,6,1.2,0.0971
+AirSeT epoxy low,market,6,1.3,0.0683
+AirSeT epoxy low,market,6,1.4,0.045
+AirSeT epoxy low,market,6,1.5,0.0293
+AirSeT epoxy low,market,6,1.6,0.0208
+AirSeT epoxy low,market,6,1.7,0.0166
+AirSeT epoxy low,market,6,1.8,0.0116
+AirSeT epoxy low,market,6,1.9,0.0099
+AirSeT epoxy low,market,6,2,0.0075
+AirSeT epoxy low,market,6,2.1,0.0039
+AirSeT epoxy low,market,6,2.2,0.0039
+AirSeT epoxy low,market,6,2.3,0.0009
+AirSeT epoxy low,market,6,2.4,0.0005
+AirSeT epoxy low,market,6,2.5,0.0005
+AirSeT epoxy low,market,6,2.6,0
+AirSeT epoxy low,market,6,2.7,0
+AirSeT epoxy low,market,6,2.8,0
+AirSeT epoxy low,market,6,2.9,0
+AirSeT epoxy low,market,6,3,0
+AirSeT epoxy high,market,6,0,0.5112
+AirSeT epoxy high,market,6,0.1,0.4726
+AirSeT epoxy high,market,6,0.2,0.4334
+AirSeT epoxy high,market,6,0.3,0.4055
+AirSeT epoxy high,market,6,0.4,0.3744
+AirSeT epoxy high,market,6,0.5,0.338
+AirSeT epoxy high,market,6,0.6,0.3095
+AirSeT epoxy high,market,6,0.7,0.2806
+AirSeT epoxy high,market,6,0.8,0.2524
+AirSeT epoxy high,market,6,0.9,0.2292
+AirSeT epoxy high,market,6,1,0.2051
+AirSeT epoxy high,market,6,1.1,0.1861
+AirSeT epoxy high,market,6,1.2,0.1669
+AirSeT epoxy high,market,6,1.3,0.1483
+AirSeT epoxy high,market,6,1.4,0.1277
+AirSeT epoxy high,market,6,1.5,0.1058
+AirSeT epoxy high,market,6,1.6,0.086
+AirSeT epoxy high,market,6,1.7,0.065
+AirSeT epoxy high,market,6,1.8,0.0496
+AirSeT epoxy high,market,6,1.9,0.0397
+AirSeT epoxy high,market,6,2,0.0312
+AirSeT epoxy high,market,6,2.1,0.0243
+AirSeT epoxy high,market,6,2.2,0.0194
+AirSeT epoxy high,market,6,2.3,0.0148
+AirSeT epoxy high,market,6,2.4,0.0107
+AirSeT epoxy high,market,6,2.5,0.0092
+AirSeT epoxy high,market,6,2.6,0.0063
+AirSeT epoxy high,market,6,2.7,0.005
+AirSeT epoxy high,market,6,2.8,0.0041
+AirSeT epoxy high,market,6,2.9,0.0015
+AirSeT epoxy high,market,6,3,0.0011
+"AirSeT epoxy low, nickel check",market,6,0,0.5399
+"AirSeT epoxy low, nickel check",market,6,0.1,0.4811
+"AirSeT epoxy low, nickel check",market,6,0.2,0.4273
+"AirSeT epoxy low, nickel check",market,6,0.3,0.3736
+"AirSeT epoxy low, nickel check",market,6,0.4,0.326
+"AirSeT epoxy low, nickel check",market,6,0.5,0.2796
+"AirSeT epoxy low, nickel check",market,6,0.6,0.2412
+"AirSeT epoxy low, nickel check",market,6,0.7,0.2034
+"AirSeT epoxy low, nickel check",market,6,0.8,0.1692
+"AirSeT epoxy low, nickel check",market,6,0.9,0.1425
+"AirSeT epoxy low, nickel check",market,6,1,0.1155
+"AirSeT epoxy low, nickel check",market,6,1.1,0.0949
+"AirSeT epoxy low, nickel check",market,6,1.2,0.0765
+"AirSeT epoxy low, nickel check",market,6,1.3,0.0568
+"AirSeT epoxy low, nickel check",market,6,1.4,0.0401
+"AirSeT epoxy low, nickel check",market,6,1.5,0.0276
+"AirSeT epoxy low, nickel check",market,6,1.6,0.018
+"AirSeT epoxy low, nickel check",market,6,1.7,0.0141
+"AirSeT epoxy low, nickel check",market,6,1.8,0.0083
+"AirSeT epoxy low, nickel check",market,6,1.9,0.0054
+"AirSeT epoxy low, nickel check",market,6,2,0.0032
+"AirSeT epoxy low, nickel check",market,6,2.1,0.002
+"AirSeT epoxy low, nickel check",market,6,2.2,0.0011
+"AirSeT epoxy low, nickel check",market,6,2.3,0.0004
+"AirSeT epoxy low, nickel check",market,6,2.4,0.0002
+"AirSeT epoxy low, nickel check",market,6,2.5,0
+"AirSeT epoxy low, nickel check",market,6,2.6,0
+"AirSeT epoxy low, nickel check",market,6,2.7,0
+"AirSeT epoxy low, nickel check",market,6,2.8,0
+"AirSeT epoxy low, nickel check",market,6,2.9,0
+"AirSeT epoxy low, nickel check",market,6,3,0
+"AirSeT epoxy high, nickel check",market,6,0,0.542
+"AirSeT epoxy high, nickel check",market,6,0.1,0.5038
+"AirSeT epoxy high, nickel check",market,6,0.2,0.4632
+"AirSeT epoxy high, nickel check",market,6,0.3,0.4222
+"AirSeT epoxy high, nickel check",market,6,0.4,0.3848
+"AirSeT epoxy high, nickel check",market,6,0.5,0.3534
+"AirSeT epoxy high, nickel check",market,6,0.6,0.3169
+"AirSeT epoxy high, nickel check",market,6,0.7,0.2787
+"AirSeT epoxy high, nickel check",market,6,0.8,0.2494
+"AirSeT epoxy high, nickel check",market,6,0.9,0.2207
+"AirSeT epoxy high, nickel check",market,6,1,0.1923
+"AirSeT epoxy high, nickel check",market,6,1.1,0.1662
+"AirSeT epoxy high, nickel check",market,6,1.2,0.1365
+"AirSeT epoxy high, nickel check",market,6,1.3,0.1172
+"AirSeT epoxy high, nickel check",market,6,1.4,0.0972
+"AirSeT epoxy high, nickel check",market,6,1.5,0.0828
+"AirSeT epoxy high, nickel check",market,6,1.6,0.0659
+"AirSeT epoxy high, nickel check",market,6,1.7,0.0517
+"AirSeT epoxy high, nickel check",market,6,1.8,0.0396
+"AirSeT epoxy high, nickel check",market,6,1.9,0.0305
+"AirSeT epoxy high, nickel check",market,6,2,0.0233
+"AirSeT epoxy high, nickel check",market,6,2.1,0.017
+"AirSeT epoxy high, nickel check",market,6,2.2,0.0128
+"AirSeT epoxy high, nickel check",market,6,2.3,0.0085
+"AirSeT epoxy high, nickel check",market,6,2.4,0.0057
+"AirSeT epoxy high, nickel check",market,6,2.5,0.0033
+"AirSeT epoxy high, nickel check",market,6,2.6,0.0022
+"AirSeT epoxy high, nickel check",market,6,2.7,0.0013
+"AirSeT epoxy high, nickel check",market,6,2.8,0.0004
+"AirSeT epoxy high, nickel check",market,6,2.9,0.0002
+"AirSeT epoxy high, nickel check",market,6,3,0
+RM6 copper 13.8 kg,market,6,0,0.5555
+RM6 copper 13.8 kg,market,6,0.1,0.468
+RM6 copper 13.8 kg,market,6,0.2,0.3975
+RM6 copper 13.8 kg,market,6,0.3,0.336
+RM6 copper 13.8 kg,market,6,0.4,0.2827
+RM6 copper 13.8 kg,market,6,0.5,0.2329
+RM6 copper 13.8 kg,market,6,0.6,0.1923
+RM6 copper 13.8 kg,market,6,0.7,0.1579
+RM6 copper 13.8 kg,market,6,0.8,0.1288
+RM6 copper 13.8 kg,market,6,0.9,0.1009
+RM6 copper 13.8 kg,market,6,1,0.0755
+RM6 copper 13.8 kg,market,6,1.1,0.0571
+RM6 copper 13.8 kg,market,6,1.2,0.0395
+RM6 copper 13.8 kg,market,6,1.3,0.0245
+RM6 copper 13.8 kg,market,6,1.4,0.0158
+RM6 copper 13.8 kg,market,6,1.5,0.0096
+RM6 copper 13.8 kg,market,6,1.6,0.007
+RM6 copper 13.8 kg,market,6,1.7,0.0046
+RM6 copper 13.8 kg,market,6,1.8,0.0024
+RM6 copper 13.8 kg,market,6,1.9,0.0023
+RM6 copper 13.8 kg,market,6,2,0.0005
+RM6 copper 13.8 kg,market,6,2.1,0.0005
+RM6 copper 13.8 kg,market,6,2.2,0
+RM6 copper 13.8 kg,market,6,2.3,0
+RM6 copper 13.8 kg,market,6,2.4,0
+RM6 copper 13.8 kg,market,6,2.5,0
+RM6 copper 13.8 kg,market,6,2.6,0
+RM6 copper 13.8 kg,market,6,2.7,0
+RM6 copper 13.8 kg,market,6,2.8,0
+RM6 copper 13.8 kg,market,6,2.9,0
+RM6 copper 13.8 kg,market,6,3,0
+RM6 copper 8.6 kg,market,6,0,0.5427
+RM6 copper 8.6 kg,market,6,0.1,0.4429
+RM6 copper 8.6 kg,market,6,0.2,0.3644
+RM6 copper 8.6 kg,market,6,0.3,0.3091
+RM6 copper 8.6 kg,market,6,0.4,0.2616
+RM6 copper 8.6 kg,market,6,0.5,0.2191
+RM6 copper 8.6 kg,market,6,0.6,0.1789
+RM6 copper 8.6 kg,market,6,0.7,0.1436
+RM6 copper 8.6 kg,market,6,0.8,0.1134
+RM6 copper 8.6 kg,market,6,0.9,0.0804
+RM6 copper 8.6 kg,market,6,1,0.0589
+RM6 copper 8.6 kg,market,6,1.1,0.0365
+RM6 copper 8.6 kg,market,6,1.2,0.0206
+RM6 copper 8.6 kg,market,6,1.3,0.0122
+RM6 copper 8.6 kg,market,6,1.4,0.009
+RM6 copper 8.6 kg,market,6,1.5,0.0052
+RM6 copper 8.6 kg,market,6,1.6,0.0034
+RM6 copper 8.6 kg,market,6,1.7,0.0023
+RM6 copper 8.6 kg,market,6,1.8,0.0005
+RM6 copper 8.6 kg,market,6,1.9,0.0005
+RM6 copper 8.6 kg,market,6,2,0
+RM6 copper 8.6 kg,market,6,2.1,0
+RM6 copper 8.6 kg,market,6,2.2,0
+RM6 copper 8.6 kg,market,6,2.3,0
+RM6 copper 8.6 kg,market,6,2.4,0
+RM6 copper 8.6 kg,market,6,2.5,0
+RM6 copper 8.6 kg,market,6,2.6,0
+RM6 copper 8.6 kg,market,6,2.7,0
+RM6 copper 8.6 kg,market,6,2.8,0
+RM6 copper 8.6 kg,market,6,2.9,0
+RM6 copper 8.6 kg,market,6,3,0
+RM6,PPI,9,0,0.5887
+RM6,PPI,9,0.1,0.5481
+RM6,PPI,9,0.2,0.5047
+RM6,PPI,9,0.3,0.4651
+RM6,PPI,9,0.4,0.4284
+RM6,PPI,9,0.5,0.3917
+RM6,PPI,9,0.6,0.357
+RM6,PPI,9,0.7,0.3237
+RM6,PPI,9,0.8,0.2959
+RM6,PPI,9,0.9,0.2698
+RM6,PPI,9,1,0.2444
+RM6,PPI,9,1.1,0.2203
+RM6,PPI,9,1.2,0.2004
+RM6,PPI,9,1.3,0.1802
+RM6,PPI,9,1.4,0.158
+RM6,PPI,9,1.5,0.1402
+RM6,PPI,9,1.6,0.1231
+RM6,PPI,9,1.7,0.1059
+RM6,PPI,9,1.8,0.0887
+RM6,PPI,9,1.9,0.075
+RM6,PPI,9,2,0.0626
+RM6,PPI,9,2.1,0.0483
+RM6,PPI,9,2.2,0.0366
+RM6,PPI,9,2.3,0.0273
+RM6,PPI,9,2.4,0.0184
+RM6,PPI,9,2.5,0.0118
+RM6,PPI,9,2.6,0.007
+RM6,PPI,9,2.7,0.0039
+RM6,PPI,9,2.8,0.0024
+RM6,PPI,9,2.9,0.0012
+RM6,PPI,9,3,0.0007
+AirSeT epoxy low,PPI,9,0,0.5275
+AirSeT epoxy low,PPI,9,0.1,0.4563
+AirSeT epoxy low,PPI,9,0.2,0.3936
+AirSeT epoxy low,PPI,9,0.3,0.3449
+AirSeT epoxy low,PPI,9,0.4,0.2981
+AirSeT epoxy low,PPI,9,0.5,0.2512
+AirSeT epoxy low,PPI,9,0.6,0.2074
+AirSeT epoxy low,PPI,9,0.7,0.1657
+AirSeT epoxy low,PPI,9,0.8,0.1293
+AirSeT epoxy low,PPI,9,0.9,0.0998
+AirSeT epoxy low,PPI,9,1,0.0607
+AirSeT epoxy low,PPI,9,1.1,0.0351
+AirSeT epoxy low,PPI,9,1.2,0.0164
+AirSeT epoxy low,PPI,9,1.3,0.0066
+AirSeT epoxy low,PPI,9,1.4,0.0023
+AirSeT epoxy low,PPI,9,1.5,0.0011
+AirSeT epoxy low,PPI,9,1.6,0.0005
+AirSeT epoxy low,PPI,9,1.7,0.0002
+AirSeT epoxy low,PPI,9,1.8,0.0001
+AirSeT epoxy low,PPI,9,1.9,0
+AirSeT epoxy low,PPI,9,2,0
+AirSeT epoxy low,PPI,9,2.1,0
+AirSeT epoxy low,PPI,9,2.2,0
+AirSeT epoxy low,PPI,9,2.3,0
+AirSeT epoxy low,PPI,9,2.4,0
+AirSeT epoxy low,PPI,9,2.5,0
+AirSeT epoxy low,PPI,9,2.6,0
+AirSeT epoxy low,PPI,9,2.7,0
+AirSeT epoxy low,PPI,9,2.8,0
+AirSeT epoxy low,PPI,9,2.9,0
+AirSeT epoxy low,PPI,9,3,0
+AirSeT epoxy high,PPI,9,0,0.5427
+AirSeT epoxy high,PPI,9,0.1,0.5004
+AirSeT epoxy high,PPI,9,0.2,0.4581
+AirSeT epoxy high,PPI,9,0.3,0.4146
+AirSeT epoxy high,PPI,9,0.4,0.375
+AirSeT epoxy high,PPI,9,0.5,0.337
+AirSeT epoxy high,PPI,9,0.6,0.2977
+AirSeT epoxy high,PPI,9,0.7,0.2653
+AirSeT epoxy high,PPI,9,0.8,0.2363
+AirSeT epoxy high,PPI,9,0.9,0.207
+AirSeT epoxy high,PPI,9,1,0.1792
+AirSeT epoxy high,PPI,9,1.1,0.1544
+AirSeT epoxy high,PPI,9,1.2,0.1286
+AirSeT epoxy high,PPI,9,1.3,0.1069
+AirSeT epoxy high,PPI,9,1.4,0.0902
+AirSeT epoxy high,PPI,9,1.5,0.0739
+AirSeT epoxy high,PPI,9,1.6,0.0583
+AirSeT epoxy high,PPI,9,1.7,0.0434
+AirSeT epoxy high,PPI,9,1.8,0.0314
+AirSeT epoxy high,PPI,9,1.9,0.0212
+AirSeT epoxy high,PPI,9,2,0.0138
+AirSeT epoxy high,PPI,9,2.1,0.0092
+AirSeT epoxy high,PPI,9,2.2,0.006
+AirSeT epoxy high,PPI,9,2.3,0.0031
+AirSeT epoxy high,PPI,9,2.4,0.0021
+AirSeT epoxy high,PPI,9,2.5,0.0013
+AirSeT epoxy high,PPI,9,2.6,0.0007
+AirSeT epoxy high,PPI,9,2.7,0.0006
+AirSeT epoxy high,PPI,9,2.8,0.0003
+AirSeT epoxy high,PPI,9,2.9,0.0001
+AirSeT epoxy high,PPI,9,3,0
+"AirSeT epoxy low, nickel check",PPI,9,0,0.5579
+"AirSeT epoxy low, nickel check",PPI,9,0.1,0.4914
+"AirSeT epoxy low, nickel check",PPI,9,0.2,0.4344
+"AirSeT epoxy low, nickel check",PPI,9,0.3,0.377
+"AirSeT epoxy low, nickel check",PPI,9,0.4,0.3219
+"AirSeT epoxy low, nickel check",PPI,9,0.5,0.2743
+"AirSeT epoxy low, nickel check",PPI,9,0.6,0.2326
+"AirSeT epoxy low, nickel check",PPI,9,0.7,0.1916
+"AirSeT epoxy low, nickel check",PPI,9,0.8,0.1564
+"AirSeT epoxy low, nickel check",PPI,9,0.9,0.1259
+"AirSeT epoxy low, nickel check",PPI,9,1,0.1009
+"AirSeT epoxy low, nickel check",PPI,9,1.1,0.0814
+"AirSeT epoxy low, nickel check",PPI,9,1.2,0.0647
+"AirSeT epoxy low, nickel check",PPI,9,1.3,0.0542
+"AirSeT epoxy low, nickel check",PPI,9,1.4,0.0474
+"AirSeT epoxy low, nickel check",PPI,9,1.5,0.0384
+"AirSeT epoxy low, nickel check",PPI,9,1.6,0.0326
+"AirSeT epoxy low, nickel check",PPI,9,1.7,0.027
+"AirSeT epoxy low, nickel check",PPI,9,1.8,0.0226
+"AirSeT epoxy low, nickel check",PPI,9,1.9,0.0181
+"AirSeT epoxy low, nickel check",PPI,9,2,0.0154
+"AirSeT epoxy low, nickel check",PPI,9,2.1,0.0126
+"AirSeT epoxy low, nickel check",PPI,9,2.2,0.0105
+"AirSeT epoxy low, nickel check",PPI,9,2.3,0.0093
+"AirSeT epoxy low, nickel check",PPI,9,2.4,0.0081
+"AirSeT epoxy low, nickel check",PPI,9,2.5,0.0066
+"AirSeT epoxy low, nickel check",PPI,9,2.6,0.0054
+"AirSeT epoxy low, nickel check",PPI,9,2.7,0.0042
+"AirSeT epoxy low, nickel check",PPI,9,2.8,0.0035
+"AirSeT epoxy low, nickel check",PPI,9,2.9,0.0032
+"AirSeT epoxy low, nickel check",PPI,9,3,0.003
+"AirSeT epoxy high, nickel check",PPI,9,0,0.564
+"AirSeT epoxy high, nickel check",PPI,9,0.1,0.5197
+"AirSeT epoxy high, nickel check",PPI,9,0.2,0.477
+"AirSeT epoxy high, nickel check",PPI,9,0.3,0.4354
+"AirSeT epoxy high, nickel check",PPI,9,0.4,0.3974
+"AirSeT epoxy high, nickel check",PPI,9,0.5,0.3583
+"AirSeT epoxy high, nickel check",PPI,9,0.6,0.3239
+"AirSeT epoxy high, nickel check",PPI,9,0.7,0.2866
+"AirSeT epoxy high, nickel check",PPI,9,0.8,0.254
+"AirSeT epoxy high, nickel check",PPI,9,0.9,0.2246
+"AirSeT epoxy high, nickel check",PPI,9,1,0.1974
+"AirSeT epoxy high, nickel check",PPI,9,1.1,0.1702
+"AirSeT epoxy high, nickel check",PPI,9,1.2,0.1455
+"AirSeT epoxy high, nickel check",PPI,9,1.3,0.1235
+"AirSeT epoxy high, nickel check",PPI,9,1.4,0.1023
+"AirSeT epoxy high, nickel check",PPI,9,1.5,0.0877
+"AirSeT epoxy high, nickel check",PPI,9,1.6,0.0743
+"AirSeT epoxy high, nickel check",PPI,9,1.7,0.0626
+"AirSeT epoxy high, nickel check",PPI,9,1.8,0.0521
+"AirSeT epoxy high, nickel check",PPI,9,1.9,0.0438
+"AirSeT epoxy high, nickel check",PPI,9,2,0.0382
+"AirSeT epoxy high, nickel check",PPI,9,2.1,0.0319
+"AirSeT epoxy high, nickel check",PPI,9,2.2,0.0256
+"AirSeT epoxy high, nickel check",PPI,9,2.3,0.0207
+"AirSeT epoxy high, nickel check",PPI,9,2.4,0.0168
+"AirSeT epoxy high, nickel check",PPI,9,2.5,0.0142
+"AirSeT epoxy high, nickel check",PPI,9,2.6,0.0117
+"AirSeT epoxy high, nickel check",PPI,9,2.7,0.0104
+"AirSeT epoxy high, nickel check",PPI,9,2.8,0.0088
+"AirSeT epoxy high, nickel check",PPI,9,2.9,0.0076
+"AirSeT epoxy high, nickel check",PPI,9,3,0.0063
+RM6 copper 13.8 kg,PPI,9,0,0.5986
+RM6 copper 13.8 kg,PPI,9,0.1,0.5249
+RM6 copper 13.8 kg,PPI,9,0.2,0.4522
+RM6 copper 13.8 kg,PPI,9,0.3,0.3818
+RM6 copper 13.8 kg,PPI,9,0.4,0.3173
+RM6 copper 13.8 kg,PPI,9,0.5,0.2525
+RM6 copper 13.8 kg,PPI,9,0.6,0.1981
+RM6 copper 13.8 kg,PPI,9,0.7,0.1558
+RM6 copper 13.8 kg,PPI,9,0.8,0.1205
+RM6 copper 13.8 kg,PPI,9,0.9,0.0935
+RM6 copper 13.8 kg,PPI,9,1,0.0691
+RM6 copper 13.8 kg,PPI,9,1.1,0.0495
+RM6 copper 13.8 kg,PPI,9,1.2,0.0314
+RM6 copper 13.8 kg,PPI,9,1.3,0.0168
+RM6 copper 13.8 kg,PPI,9,1.4,0.0076
+RM6 copper 13.8 kg,PPI,9,1.5,0.0033
+RM6 copper 13.8 kg,PPI,9,1.6,0.0012
+RM6 copper 13.8 kg,PPI,9,1.7,0.0006
+RM6 copper 13.8 kg,PPI,9,1.8,0.0002
+RM6 copper 13.8 kg,PPI,9,1.9,0.0001
+RM6 copper 13.8 kg,PPI,9,2,0
+RM6 copper 13.8 kg,PPI,9,2.1,0
+RM6 copper 13.8 kg,PPI,9,2.2,0
+RM6 copper 13.8 kg,PPI,9,2.3,0
+RM6 copper 13.8 kg,PPI,9,2.4,0
+RM6 copper 13.8 kg,PPI,9,2.5,0
+RM6 copper 13.8 kg,PPI,9,2.6,0
+RM6 copper 13.8 kg,PPI,9,2.7,0
+RM6 copper 13.8 kg,PPI,9,2.8,0
+RM6 copper 13.8 kg,PPI,9,2.9,0
+RM6 copper 13.8 kg,PPI,9,3,0
+RM6 copper 8.6 kg,PPI,9,0,0.5897
+RM6 copper 8.6 kg,PPI,9,0.1,0.4995
+RM6 copper 8.6 kg,PPI,9,0.2,0.4182
+RM6 copper 8.6 kg,PPI,9,0.3,0.3337
+RM6 copper 8.6 kg,PPI,9,0.4,0.2636
+RM6 copper 8.6 kg,PPI,9,0.5,0.2022
+RM6 copper 8.6 kg,PPI,9,0.6,0.1509
+RM6 copper 8.6 kg,PPI,9,0.7,0.1131
+RM6 copper 8.6 kg,PPI,9,0.8,0.0802
+RM6 copper 8.6 kg,PPI,9,0.9,0.0521
+RM6 copper 8.6 kg,PPI,9,1,0.0294
+RM6 copper 8.6 kg,PPI,9,1.1,0.0148
+RM6 copper 8.6 kg,PPI,9,1.2,0.005
+RM6 copper 8.6 kg,PPI,9,1.3,0.0016
+RM6 copper 8.6 kg,PPI,9,1.4,0.0006
+RM6 copper 8.6 kg,PPI,9,1.5,0.0003
+RM6 copper 8.6 kg,PPI,9,1.6,0.0001
+RM6 copper 8.6 kg,PPI,9,1.7,0
+RM6 copper 8.6 kg,PPI,9,1.8,0
+RM6 copper 8.6 kg,PPI,9,1.9,0
+RM6 copper 8.6 kg,PPI,9,2,0
+RM6 copper 8.6 kg,PPI,9,2.1,0
+RM6 copper 8.6 kg,PPI,9,2.2,0
+RM6 copper 8.6 kg,PPI,9,2.3,0
+RM6 copper 8.6 kg,PPI,9,2.4,0
+RM6 copper 8.6 kg,PPI,9,2.5,0
+RM6 copper 8.6 kg,PPI,9,2.6,0
+RM6 copper 8.6 kg,PPI,9,2.7,0
+RM6 copper 8.6 kg,PPI,9,2.8,0
+RM6 copper 8.6 kg,PPI,9,2.9,0
+RM6 copper 8.6 kg,PPI,9,3,0
+RM6,market,9,0,0.5969
+RM6,market,9,0.1,0.5602
+RM6,market,9,0.2,0.5241
+RM6,market,9,0.3,0.491
+RM6,market,9,0.4,0.4552
+RM6,market,9,0.5,0.4216
+RM6,market,9,0.6,0.3887
+RM6,market,9,0.7,0.3554
+RM6,market,9,0.8,0.3274
+RM6,market,9,0.9,0.3004
+RM6,market,9,1,0.2722
+RM6,market,9,1.1,0.2478
+RM6,market,9,1.2,0.2253
+RM6,market,9,1.3,0.2026
+RM6,market,9,1.4,0.1817
+RM6,market,9,1.5,0.1637
+RM6,market,9,1.6,0.1433
+RM6,market,9,1.7,0.126
+RM6,market,9,1.8,0.1106
+RM6,market,9,1.9,0.0989
+RM6,market,9,2,0.087
+RM6,market,9,2.1,0.0759
+RM6,market,9,2.2,0.0661
+RM6,market,9,2.3,0.0567
+RM6,market,9,2.4,0.0462
+RM6,market,9,2.5,0.0368
+RM6,market,9,2.6,0.0295
+RM6,market,9,2.7,0.0221
+RM6,market,9,2.8,0.0156
+RM6,market,9,2.9,0.0106
+RM6,market,9,3,0.0068
+AirSeT epoxy low,market,9,0,0.519
+AirSeT epoxy low,market,9,0.1,0.4701
+AirSeT epoxy low,market,9,0.2,0.4257
+AirSeT epoxy low,market,9,0.3,0.3908
+AirSeT epoxy low,market,9,0.4,0.3567
+AirSeT epoxy low,market,9,0.5,0.3278
+AirSeT epoxy low,market,9,0.6,0.2973
+AirSeT epoxy low,market,9,0.7,0.2682
+AirSeT epoxy low,market,9,0.8,0.2398
+AirSeT epoxy low,market,9,0.9,0.2125
+AirSeT epoxy low,market,9,1,0.182
+AirSeT epoxy low,market,9,1.1,0.1609
+AirSeT epoxy low,market,9,1.2,0.1382
+AirSeT epoxy low,market,9,1.3,0.1187
+AirSeT epoxy low,market,9,1.4,0.1007
+AirSeT epoxy low,market,9,1.5,0.0741
+AirSeT epoxy low,market,9,1.6,0.0546
+AirSeT epoxy low,market,9,1.7,0.0379
+AirSeT epoxy low,market,9,1.8,0.0251
+AirSeT epoxy low,market,9,1.9,0.0157
+AirSeT epoxy low,market,9,2,0.0087
+AirSeT epoxy low,market,9,2.1,0.0042
+AirSeT epoxy low,market,9,2.2,0.0029
+AirSeT epoxy low,market,9,2.3,0.0016
+AirSeT epoxy low,market,9,2.4,0.0011
+AirSeT epoxy low,market,9,2.5,0.0008
+AirSeT epoxy low,market,9,2.6,0.0005
+AirSeT epoxy low,market,9,2.7,0.0002
+AirSeT epoxy low,market,9,2.8,0.0002
+AirSeT epoxy low,market,9,2.9,0.0001
+AirSeT epoxy low,market,9,3,0.0001
+AirSeT epoxy high,market,9,0,0.5358
+AirSeT epoxy high,market,9,0.1,0.505
+AirSeT epoxy high,market,9,0.2,0.4722
+AirSeT epoxy high,market,9,0.3,0.4375
+AirSeT epoxy high,market,9,0.4,0.4073
+AirSeT epoxy high,market,9,0.5,0.3771
+AirSeT epoxy high,market,9,0.6,0.3489
+AirSeT epoxy high,market,9,0.7,0.3214
+AirSeT epoxy high,market,9,0.8,0.2975
+AirSeT epoxy high,market,9,0.9,0.2738
+AirSeT epoxy high,market,9,1,0.2514
+AirSeT epoxy high,market,9,1.1,0.23
+AirSeT epoxy high,market,9,1.2,0.2096
+AirSeT epoxy high,market,9,1.3,0.1873
+AirSeT epoxy high,market,9,1.4,0.1679
+AirSeT epoxy high,market,9,1.5,0.147
+AirSeT epoxy high,market,9,1.6,0.1295
+AirSeT epoxy high,market,9,1.7,0.1166
+AirSeT epoxy high,market,9,1.8,0.102
+AirSeT epoxy high,market,9,1.9,0.0892
+AirSeT epoxy high,market,9,2,0.0762
+AirSeT epoxy high,market,9,2.1,0.0636
+AirSeT epoxy high,market,9,2.2,0.0533
+AirSeT epoxy high,market,9,2.3,0.0401
+AirSeT epoxy high,market,9,2.4,0.0318
+AirSeT epoxy high,market,9,2.5,0.0236
+AirSeT epoxy high,market,9,2.6,0.017
+AirSeT epoxy high,market,9,2.7,0.0124
+AirSeT epoxy high,market,9,2.8,0.009
+AirSeT epoxy high,market,9,2.9,0.0065
+AirSeT epoxy high,market,9,3,0.0041
+"AirSeT epoxy low, nickel check",market,9,0,0.5552
+"AirSeT epoxy low, nickel check",market,9,0.1,0.5061
+"AirSeT epoxy low, nickel check",market,9,0.2,0.4586
+"AirSeT epoxy low, nickel check",market,9,0.3,0.4094
+"AirSeT epoxy low, nickel check",market,9,0.4,0.3639
+"AirSeT epoxy low, nickel check",market,9,0.5,0.3226
+"AirSeT epoxy low, nickel check",market,9,0.6,0.2848
+"AirSeT epoxy low, nickel check",market,9,0.7,0.2505
+"AirSeT epoxy low, nickel check",market,9,0.8,0.2184
+"AirSeT epoxy low, nickel check",market,9,0.9,0.185
+"AirSeT epoxy low, nickel check",market,9,1,0.1554
+"AirSeT epoxy low, nickel check",market,9,1.1,0.129
+"AirSeT epoxy low, nickel check",market,9,1.2,0.1055
+"AirSeT epoxy low, nickel check",market,9,1.3,0.0872
+"AirSeT epoxy low, nickel check",market,9,1.4,0.0718
+"AirSeT epoxy low, nickel check",market,9,1.5,0.0603
+"AirSeT epoxy low, nickel check",market,9,1.6,0.0489
+"AirSeT epoxy low, nickel check",market,9,1.7,0.0403
+"AirSeT epoxy low, nickel check",market,9,1.8,0.0343
+"AirSeT epoxy low, nickel check",market,9,1.9,0.028
+"AirSeT epoxy low, nickel check",market,9,2,0.0237
+"AirSeT epoxy low, nickel check",market,9,2.1,0.0198
+"AirSeT epoxy low, nickel check",market,9,2.2,0.0171
+"AirSeT epoxy low, nickel check",market,9,2.3,0.0142
+"AirSeT epoxy low, nickel check",market,9,2.4,0.0116
+"AirSeT epoxy low, nickel check",market,9,2.5,0.01
+"AirSeT epoxy low, nickel check",market,9,2.6,0.0083
+"AirSeT epoxy low, nickel check",market,9,2.7,0.0071
+"AirSeT epoxy low, nickel check",market,9,2.8,0.0061
+"AirSeT epoxy low, nickel check",market,9,2.9,0.0052
+"AirSeT epoxy low, nickel check",market,9,3,0.0044
+"AirSeT epoxy high, nickel check",market,9,0,0.5606
+"AirSeT epoxy high, nickel check",market,9,0.1,0.5245
+"AirSeT epoxy high, nickel check",market,9,0.2,0.4869
+"AirSeT epoxy high, nickel check",market,9,0.3,0.4527
+"AirSeT epoxy high, nickel check",market,9,0.4,0.4189
+"AirSeT epoxy high, nickel check",market,9,0.5,0.3854
+"AirSeT epoxy high, nickel check",market,9,0.6,0.3556
+"AirSeT epoxy high, nickel check",market,9,0.7,0.3244
+"AirSeT epoxy high, nickel check",market,9,0.8,0.2925
+"AirSeT epoxy high, nickel check",market,9,0.9,0.2647
+"AirSeT epoxy high, nickel check",market,9,1,0.2355
+"AirSeT epoxy high, nickel check",market,9,1.1,0.212
+"AirSeT epoxy high, nickel check",market,9,1.2,0.1891
+"AirSeT epoxy high, nickel check",market,9,1.3,0.1693
+"AirSeT epoxy high, nickel check",market,9,1.4,0.1452
+"AirSeT epoxy high, nickel check",market,9,1.5,0.1252
+"AirSeT epoxy high, nickel check",market,9,1.6,0.1102
+"AirSeT epoxy high, nickel check",market,9,1.7,0.094
+"AirSeT epoxy high, nickel check",market,9,1.8,0.0823
+"AirSeT epoxy high, nickel check",market,9,1.9,0.0686
+"AirSeT epoxy high, nickel check",market,9,2,0.0598
+"AirSeT epoxy high, nickel check",market,9,2.1,0.0495
+"AirSeT epoxy high, nickel check",market,9,2.2,0.0413
+"AirSeT epoxy high, nickel check",market,9,2.3,0.0357
+"AirSeT epoxy high, nickel check",market,9,2.4,0.0308
+"AirSeT epoxy high, nickel check",market,9,2.5,0.0255
+"AirSeT epoxy high, nickel check",market,9,2.6,0.0213
+"AirSeT epoxy high, nickel check",market,9,2.7,0.017
+"AirSeT epoxy high, nickel check",market,9,2.8,0.0136
+"AirSeT epoxy high, nickel check",market,9,2.9,0.012
+"AirSeT epoxy high, nickel check",market,9,3,0.0106
+RM6 copper 13.8 kg,market,9,0,0.5855
+RM6 copper 13.8 kg,market,9,0.1,0.5288
+RM6 copper 13.8 kg,market,9,0.2,0.4729
+RM6 copper 13.8 kg,market,9,0.3,0.4184
+RM6 copper 13.8 kg,market,9,0.4,0.3595
+RM6 copper 13.8 kg,market,9,0.5,0.3134
+RM6 copper 13.8 kg,market,9,0.6,0.2691
+RM6 copper 13.8 kg,market,9,0.7,0.2268
+RM6 copper 13.8 kg,market,9,0.8,0.1932
+RM6 copper 13.8 kg,market,9,0.9,0.1594
+RM6 copper 13.8 kg,market,9,1,0.1337
+RM6 copper 13.8 kg,market,9,1.1,0.1104
+RM6 copper 13.8 kg,market,9,1.2,0.0904
+RM6 copper 13.8 kg,market,9,1.3,0.0683
+RM6 copper 13.8 kg,market,9,1.4,0.0523
+RM6 copper 13.8 kg,market,9,1.5,0.0367
+RM6 copper 13.8 kg,market,9,1.6,0.026
+RM6 copper 13.8 kg,market,9,1.7,0.0164
+RM6 copper 13.8 kg,market,9,1.8,0.0099
+RM6 copper 13.8 kg,market,9,1.9,0.0045
+RM6 copper 13.8 kg,market,9,2,0.0019
+RM6 copper 13.8 kg,market,9,2.1,0.0013
+RM6 copper 13.8 kg,market,9,2.2,0.0008
+RM6 copper 13.8 kg,market,9,2.3,0.0005
+RM6 copper 13.8 kg,market,9,2.4,0.0003
+RM6 copper 13.8 kg,market,9,2.5,0.0001
+RM6 copper 13.8 kg,market,9,2.6,0.0001
+RM6 copper 13.8 kg,market,9,2.7,0.0001
+RM6 copper 13.8 kg,market,9,2.8,0
+RM6 copper 13.8 kg,market,9,2.9,0
+RM6 copper 13.8 kg,market,9,3,0
+RM6 copper 8.6 kg,market,9,0,0.5741
+RM6 copper 8.6 kg,market,9,0.1,0.501
+RM6 copper 8.6 kg,market,9,0.2,0.4398
+RM6 copper 8.6 kg,market,9,0.3,0.3812
+RM6 copper 8.6 kg,market,9,0.4,0.3281
+RM6 copper 8.6 kg,market,9,0.5,0.2823
+RM6 copper 8.6 kg,market,9,0.6,0.2384
+RM6 copper 8.6 kg,market,9,0.7,0.2
+RM6 copper 8.6 kg,market,9,0.8,0.1666
+RM6 copper 8.6 kg,market,9,0.9,0.1375
+RM6 copper 8.6 kg,market,9,1,0.1061
+RM6 copper 8.6 kg,market,9,1.1,0.0829
+RM6 copper 8.6 kg,market,9,1.2,0.0597
+RM6 copper 8.6 kg,market,9,1.3,0.0393
+RM6 copper 8.6 kg,market,9,1.4,0.0261
+RM6 copper 8.6 kg,market,9,1.5,0.0161
+RM6 copper 8.6 kg,market,9,1.6,0.0082
+RM6 copper 8.6 kg,market,9,1.7,0.0032
+RM6 copper 8.6 kg,market,9,1.8,0.0015
+RM6 copper 8.6 kg,market,9,1.9,0.0011
+RM6 copper 8.6 kg,market,9,2,0.0006
+RM6 copper 8.6 kg,market,9,2.1,0.0003
+RM6 copper 8.6 kg,market,9,2.2,0.0001
+RM6 copper 8.6 kg,market,9,2.3,0.0001
+RM6 copper 8.6 kg,market,9,2.4,0.0001
+RM6 copper 8.6 kg,market,9,2.5,0
+RM6 copper 8.6 kg,market,9,2.6,0
+RM6 copper 8.6 kg,market,9,2.7,0
+RM6 copper 8.6 kg,market,9,2.8,0
+RM6 copper 8.6 kg,market,9,2.9,0
+RM6 copper 8.6 kg,market,9,3,0

@@ -1,0 +1,10 @@
+case,horizon_m,month,cost_today_eur,cost_p10_eur,cost_p50_eur,cost_p90_eur,price_change_to_hold_margin_p10_pct,price_change_to_hold_margin_p50_pct,price_change_to_hold_margin_p90_pct,p_rm6_rises_more
+RM6,3,2026-12,795.1,737.6,798.9,847.2,-0.6574,0.04351,0.5971,
+"AirSeT epoxy low, nickel check",3,2026-12,583.1,546.8,583.3,634.6,-0.3463,0.002118,0.4909,
+RM6 − AirSeT gap change,3,2026-12,,-55.1,2.627,34.28,,,,0.5393
+RM6,6,2027-03,795.1,734.3,804.5,896.6,-0.6948,0.1076,1.161,
+"AirSeT epoxy low, nickel check",6,2027-03,583.1,527,589.2,672.5,-0.5347,0.05822,0.8525,
+RM6 − AirSeT gap change,6,2027-03,,-61.18,1.276,67.52,,,,0.5153
+RM6,9,2027-06,795.1,732.9,813.5,946.4,-0.7107,0.2113,1.732,
+"AirSeT epoxy low, nickel check",9,2027-06,583.1,521.2,592.4,688.5,-0.5899,0.08882,1.005,
+RM6 − AirSeT gap change,9,2027-06,,-65.99,9.654,105.4,,,,0.5664

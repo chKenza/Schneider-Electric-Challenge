@@ -603,6 +603,102 @@ def bom_leakage_check(cfg: dict, n: int | None = None) -> pd.DataFrame:
                       for m in BOM_BASE_MODELS], ignore_index=True)
 
 
+STEP8_MODEL = "step8_simulation"
+
+
+def _origin_weights(breakdown: pd.DataFrame, panel: pd.DataFrame, origin) -> pd.DataFrame:
+    """The breakdown re-valued at the origin: each material's euro cost moved by its driver,
+    driver(origin) / driver(Sep 2026). These are the weights of the BOM index target in
+    bom_tables, since index[o+H] / index[o] = sum(cost_i x driver_i(o)) x ratio_i / sum(...)."""
+    import src.cost_model as cm
+
+    out = breakdown.copy()
+    r = cm.driver_ratios(breakdown, panel).loc[pd.Timestamp(origin)]
+    priced = out["cost_eur"].notna()
+    out.loc[priced, "cost_eur"] = out.loc[priced, "cost_eur"] * out.loc[priced, "material"].map(r).to_numpy()
+    return out
+
+
+def step8_forecasts(origins, marginals: pd.DataFrame | None = None, residuals: pd.DataFrame | None = None,
+                    n_paths: int | None = None) -> pd.DataFrame:
+    """The Step 8 joint simulation of the BOM index (the method behind the CSV's BOM rows),
+    re-run at past origins, for the three products of bom_backtest.
+
+    At each origin: Step 8 bootstraps the residuals known at that origin and rescales each
+    driver to the final model's forecast made at that origin (src.simulation). The paths go
+    through the same weights as the target of bom_tables (`_origin_weights`), so forecast
+    and outcome are the same quantity and the random walk of bom_backtest is the reference.
+    At the live origin (Sep 2026) these weights are Step 8's own, and the result is Step 8's.
+    Origins where a driver has no forecast (epoxy before 2023) are skipped.
+    Returns log changes (p10 / p50 / p90 / p95) in the Step 6 format, without y.
+    """
+    import src.cost_model as cm
+    from src import simulation as S
+    from src.models import MODEL_DIR
+
+    panel = cm.load_panel()
+    if residuals is None:
+        residuals, _ = S.read_historical_prices()
+    if marginals is None:
+        marginals = pd.read_csv(MODEL_DIR / f"predictions_{FINAL_MODEL}.csv", parse_dates=["origin"])
+    breakdowns = {col: cm.cost_breakdown(cm.CASES[case], panel) for case, col in BOM_SERIES.items()}
+    marginals = marginals.assign(origin=pd.to_datetime(marginals["origin"]))
+    rows = []
+    for o in sorted(pd.to_datetime(pd.Series(origins)).unique()):
+        try:
+            ratios = S.simulate_driver_ratios(o, marginals, residuals, n_paths=n_paths or S.N_PATHS)
+        except ValueError:  # a driver has no forecast at this origin (epoxy before 2023)
+            continue
+        for col, br in breakdowns.items():
+            bd = _origin_weights(br, panel, o)
+            for h, dr in ratios.items():
+                q = np.log(np.percentile(cm.bom_index(bd, S.material_ratios(bd, dr)), [10, 50, 90, 95]) / 100)
+                rows.append({"model": STEP8_MODEL, "target": col, "horizon": h, "origin": o,
+                             **dict(zip(QCOLS, q))})
+    return pd.DataFrame(rows)
+
+
+def step8_backtest(bom_preds: pd.DataFrame, n_paths: int | None = None) -> pd.DataFrame:
+    """Step 8 forecasts at every origin of bom_backtest, with the outcome y and target month
+    of the same rows (taken from the random walk, so the target is identical)."""
+    target = bom_preds[bom_preds["model"] == "random_walk"][KEY + ["target_month", "y"]].drop_duplicates(KEY)
+    target["origin"] = pd.to_datetime(target["origin"])
+    sim = step8_forecasts(target["origin"].unique(), n_paths=n_paths)
+    out = sim.merge(target, on=KEY, how="inner")
+    out["product"] = out["target"].map({v: k for k, v in BOM_SERIES.items()})
+    return out
+
+
+def step8_leakage_check(n_origins: int = 6, n_paths: int = 500, seed: int = 0) -> pd.DataFrame:
+    """Poisoned-future check of step8_forecasts: at each tested origin, replace every
+    residual after the origin and every forecast made at another origin (and all outcomes)
+    with noise; the forecast at that origin must not change."""
+    from src import simulation as S
+    from src.models import MODEL_DIR
+
+    residuals, _ = S.read_historical_prices()
+    marg = pd.read_csv(MODEL_DIR / f"predictions_{FINAL_MODEL}.csv", parse_dates=["origin"])
+    ok = marg.groupby("origin")["target"].apply(lambda t: set(S.TARGETS) <= set(t))
+    origins = ok[ok].index
+    origins = origins[np.linspace(0, len(origins) - 2, n_origins).round().astype(int)]  # not the last
+    rng = np.random.default_rng(seed)
+    rows = []
+    for o in origins:
+        clean = step8_forecasts([o], marg, residuals, n_paths=n_paths)
+        res_p = residuals.copy()
+        later = res_p.index > o
+        res_p.loc[later] = rng.normal(0, 5, size=(later.sum(), res_p.shape[1]))
+        marg_p = marg.copy()
+        other = marg_p["origin"] != o
+        for c in QCOLS:
+            marg_p.loc[other, c] = rng.normal(0, 1, other.sum())
+        marg_p["y"] = rng.normal(0, 1, len(marg_p))
+        poisoned = step8_forecasts([o], marg_p, res_p, n_paths=n_paths)
+        same = np.allclose(clean[QCOLS].to_numpy(), poisoned[QCOLS].to_numpy())
+        rows.append({"origin": o, "forecasts": len(clean), "unchanged": bool(same)})
+    return pd.DataFrame(rows)
+
+
 def bom_metrics(preds: pd.DataFrame, cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Metric table (product x model x window x horizon) and jury table of the BOM backtest,
     with the same functions as for the materials."""
@@ -616,7 +712,7 @@ def bom_metrics(preds: pd.DataFrame, cfg: dict) -> tuple[pd.DataFrame, pd.DataFr
     table = metric_table(m, ["product", "model", "window", "horizon"])
     jury = []
     for prod, g in m.groupby("product"):
-        j = jury_table(g, cfg, ["random_walk", FINAL_MODEL, "combo", "ewma_fhs", "gjr_fhs",
+        j = jury_table(g, cfg, ["random_walk", FINAL_MODEL, STEP8_MODEL, "combo", "ewma_fhs", "gjr_fhs",
                                 "auto_theta", "hist_quantiles", "drift"])
         jury.append(j.assign(product=prod))
     return table, pd.concat(jury, ignore_index=True)
@@ -996,6 +1092,7 @@ def main() -> None:
     cfg = load_config()
     out = run(cfg)
     bom_preds, _ = bom_backtest(cfg)
+    bom_preds = pd.concat([bom_preds, step8_backtest(bom_preds)], ignore_index=True)
     EVAL_DIR.mkdir(parents=True, exist_ok=True)
     bom_preds.to_csv(EVAL_DIR / "bom_predictions.csv", index=False)
     out["bom_metrics"], out["bom_jury_table"] = bom_metrics(bom_preds, cfg)
