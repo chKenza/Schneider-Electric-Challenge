@@ -1,7 +1,4 @@
 scenario,rival,premium_eur,airset_case,rm_cost_gap_eur,rm_share_of_premium_pct,non_rm_gap_eur
-pessimistic,SF6 brand average,2359.8,AirSeT epoxy low,-211.913,-8.9801,2571.713
-pessimistic,SF6 brand average,2359.8,AirSeT epoxy high,185.607,7.8654,2174.193
-base,Schneider RM6,1921.052,AirSeT epoxy low,-211.913,-11.0311,2132.965
-base,Schneider RM6,1921.052,AirSeT epoxy high,185.607,9.6617,1735.445
-optimistic,Siemens,262.2,AirSeT epoxy low,-211.913,-80.8211,474.113
-optimistic,Siemens,262.2,AirSeT epoxy high,185.607,70.7883,76.593
+pessimistic,SF6 brand average,2359.8,AirSeT,9.52,0.4034,2350.28
+base,Schneider RM6,1921.052,AirSeT,9.52,0.4956,1911.532
+optimistic,Siemens,262.2,AirSeT,9.52,3.6308,252.68

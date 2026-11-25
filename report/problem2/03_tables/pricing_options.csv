@@ -1,17 +1,17 @@
 segment,option,premium_pct,premium_eur,customer_tco_gap_eur,customer_saves,margin_vs_rm6_pts,margin_kept
-Johor-Singapore data centres,price parity,0.0,0.0,-780.84,True,-9.87,False
-Johor-Singapore data centres,TCO-based price,8.93,780.84,0.0,True,-0.94,False
-Johor-Singapore data centres,"green premium (EU stated WTP, E173)",20.0,1748.0,967.16,False,10.13,True
-Johor-Singapore data centres,today's list premium,21.98,1921.05,1140.21,False,12.11,True
-Gulf data centres,price parity,0.0,0.0,-30.78,True,-9.87,False
-Gulf data centres,TCO-based price,0.35,30.78,0.0,True,-9.52,False
-Gulf data centres,"green premium (EU stated WTP, E173)",20.0,1748.0,1717.22,False,10.13,True
-Gulf data centres,today's list premium,21.98,1921.05,1890.27,False,12.11,True
-Australia colocation,price parity,0.0,0.0,-1447.43,True,-9.87,False
-Australia colocation,TCO-based price,16.56,1447.43,0.0,True,6.69,True
-Australia colocation,"green premium (EU stated WTP, E173)",20.0,1748.0,300.57,False,10.13,True
-Australia colocation,today's list premium,21.98,1921.05,473.62,False,12.11,True
-Australia utilities,price parity,0.0,0.0,-697.37,True,-9.87,False
-Australia utilities,TCO-based price,7.98,697.37,0.0,True,-1.89,False
-Australia utilities,"green premium (EU stated WTP, E173)",20.0,1748.0,1050.63,False,10.13,True
-Australia utilities,today's list premium,21.98,1921.05,1223.68,False,12.11,True
+Johor-Singapore data centres,price parity,0.0,0.0,-780.84,True,-10.17,False
+Johor-Singapore data centres,TCO-based price,8.93,780.84,0.0,True,-1.23,False
+Johor-Singapore data centres,"green premium (EU stated WTP, E173)",20.0,1748.0,967.16,False,9.83,True
+Johor-Singapore data centres,today's list premium,21.98,1921.05,1140.21,False,11.81,True
+Gulf data centres,price parity,0.0,0.0,-30.78,True,-10.17,False
+Gulf data centres,TCO-based price,0.35,30.78,0.0,True,-9.82,False
+Gulf data centres,"green premium (EU stated WTP, E173)",20.0,1748.0,1717.22,False,9.83,True
+Gulf data centres,today's list premium,21.98,1921.05,1890.27,False,11.81,True
+Australia colocation,price parity,0.0,0.0,-1447.43,True,-10.17,False
+Australia colocation,TCO-based price,16.56,1447.43,0.0,True,6.39,True
+Australia colocation,"green premium (EU stated WTP, E173)",20.0,1748.0,300.57,False,9.83,True
+Australia colocation,today's list premium,21.98,1921.05,473.62,False,11.81,True
+Australia utilities,price parity,0.0,0.0,-697.37,True,-10.17,False
+Australia utilities,TCO-based price,7.98,697.37,0.0,True,-2.19,False
+Australia utilities,"green premium (EU stated WTP, E173)",20.0,1748.0,1050.63,False,9.83,True
+Australia utilities,today's list premium,21.98,1921.05,1223.68,False,11.81,True
