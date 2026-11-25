@@ -36,7 +36,7 @@ HORIZON_M = 9
 TOLERATED_PTS = 0.5
 CONFIDENCE = 0.9
 STEEL = "PPI"
-AIRSET_CASE = "AirSeT epoxy low, nickel check"
+AIRSET_CASE = "AirSeT, nickel check"
 P1_PRICE = {"RM6": 8740.0, "AirSeT": 8740.0 * 1.2}   # same prices as src/pricing.py
 
 # Schneider-side assumptions:

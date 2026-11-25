@@ -498,8 +498,7 @@ def rolling_loss_ratio(matched: pd.DataFrame, model: str = FINAL_MODEL,
 
 
 # =========================================================================== BOM index
-BOM_SERIES = {"RM6": "BOM_RM6", "AirSeT epoxy low": "BOM_AIRSET_LOW",
-              "AirSeT epoxy high": "BOM_AIRSET_HIGH"}
+BOM_SERIES = {"RM6": "BOM_RM6", "AirSeT": "BOM_AIRSET"}  # BOM v1 cases (src.cost_model)
 BOM_BASE_MODELS = ["gjr_fhs", "garch_fhs", "ewma_fhs", "auto_theta"]  # Step 6 combo generalists
 
 

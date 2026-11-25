@@ -281,7 +281,7 @@ def upfront_gap(p2: MarketEvidence) -> pd.DataFrame:
     rows = []
     for s in SCENARIOS:
         prem = inputs(p2, s).premium_eur
-        for case in ("AirSeT epoxy low", "AirSeT epoxy high"):
+        for case in ("AirSeT",):
             d = rm[case] - rm["RM6"]
             rows.append({"scenario": s, "rival": {"pessimistic": "SF6 brand average",
                                                   "base": "Schneider RM6",
@@ -294,9 +294,9 @@ def upfront_gap(p2: MarketEvidence) -> pd.DataFrame:
 
 # ====================================================================== Step 5
 COPPER_CASES = {          # kg of copper per unit, with the evidence row behind it
-    "RM6, BOM (38.8 kg)": (38.8, "RM6", "bom_materials.csv"),
+    "RM6, BOM v1 (38.75 kg)": (38.75, "RM6", "BOM v1"),
     "RM6, teardown (8.6 kg)": (8.62, "RM6", "E174"),
-    "AirSeT, BOM (no copper)": (0.0, "AirSeT", "bom_materials.csv"),
+    "AirSeT, BOM v1 (28.46 kg)": (28.46, "AirSeT", "BOM v1"),
     "AirSeT like Eaton Xiria (26.4 kg)": (26.4, "AirSeT", "E174"),
 }
 
@@ -324,7 +324,7 @@ def bom_outlook(steel: str = "PPI") -> pd.DataFrame:
 
 def gap_outlook(p2: MarketEvidence) -> pd.DataFrame:
     """Change in the RM6 - AirSeT raw-material gap to mid-2027 (Step 9 joint
-    paths, RM6 vs AirSeT epoxy low with nickel-driven stainless), in EUR, as a
+    paths, RM6 vs AirSeT with nickel-driven stainless), in EUR, as a
     share of the AirSeT price premium and in points of the RM6 price.
     Positive = RM6's raw materials rose more = the gap narrows for AirSeT."""
     o = pd.read_csv(P1_TABLES / "step9_tables" / "outlook_2027.csv")
@@ -365,9 +365,8 @@ def gap_history() -> pd.DataFrame:
     weights) and the RM6 - AirSeT gap, from the Step 2 BOM index history."""
     h = pd.read_csv(PROCESSED / "bom_index_history.csv", parse_dates=["month"]).set_index("month")
     today = rm_cost_today()
-    eur = pd.DataFrame({c: h[c] / 100 * today[c] for c in ("RM6", "AirSeT epoxy low", "AirSeT epoxy high")})
-    eur["gap_low"] = eur["RM6"] - eur["AirSeT epoxy low"]
-    eur["gap_high"] = eur["RM6"] - eur["AirSeT epoxy high"]
+    eur = pd.DataFrame({c: h[c] / 100 * today[c] for c in ("RM6", "AirSeT")})
+    eur["gap"] = eur["RM6"] - eur["AirSeT"]
     return eur
 
 
@@ -378,12 +377,12 @@ def price_vs_rm_gap() -> pd.DataFrame:
     p = pd.read_csv(PROCESSED / "rmu_prices_yearly.csv")
     p = p.pivot(index="year", columns="brand_id", values="p50")
     h = gap_history()
-    rm = h.groupby(h.index.year)[["RM6", "AirSeT epoxy low", "gap_low", "gap_high"]].mean()
+    rm = h.groupby(h.index.year)[["RM6", "AirSeT", "gap"]].mean()
     out = pd.DataFrame({"schneider_p50": p["SE"], "eaton_p50": p["ETN"]})
     out["premium_eur"] = out.eaton_p50 - out.schneider_p50
     out["premium_pct"] = out.premium_eur / out.schneider_p50 * 100
-    out = out.join(rm.rename(columns={"RM6": "rm6_rm_cost_eur", "AirSeT epoxy low": "airset_low_rm_cost_eur",
-                                      "gap_low": "rm_gap_low_eur", "gap_high": "rm_gap_high_eur"}))
+    out = out.join(rm.rename(columns={"RM6": "rm6_rm_cost_eur", "AirSeT": "airset_rm_cost_eur",
+                                      "gap": "rm_gap_eur"}))
     return out.reset_index().rename(columns={"index": "year"})
 
 

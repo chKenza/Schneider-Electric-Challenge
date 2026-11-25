@@ -10,8 +10,8 @@ import pandas as pd
 from src.feature_plots import AQUA, BLUE, INK2, MUTED, ORANGE, set_style
 
 PLOT_DIR = Path(__file__).resolve().parents[1] / "plots" / "step8"
-MAIN = ["RM6", "AirSeT epoxy low, nickel check"]
-COLOR = {"RM6": ORANGE, "AirSeT epoxy low, nickel check": BLUE}
+MAIN = ["RM6", "AirSeT, nickel check"]
+COLOR = {"RM6": ORANGE, "AirSeT, nickel check": BLUE}
 
 
 def _save(fig, name: str):

@@ -48,7 +48,7 @@ INDEXED = {
     "RM6": ["Copper"],
     "AirSeT": ["Carbon steel DE", "Stainless steel", "Stainless base", "Stainless alloy surcharge"],
 }
-MAIN_CASES = ["RM6", "AirSeT epoxy low, nickel check"]  # TO CONFIRM with Karin
+MAIN_CASES = ["RM6", "AirSeT, nickel check"]  # BOM v1; stainless priced through nickel
 SCENARIOS = {"downside": 0.10, "baseline": 0.50, "upside": 0.90}
 RM6_PRICE_2025 = 8740 #price benchmark
 

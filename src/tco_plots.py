@@ -38,15 +38,15 @@ def _markers(p2: MarketEvidence) -> list[tuple[str, float]]:
 def upfront_gap(p2: MarketEvidence):
     u = tco.upfront_gap(p2)
     prem = u.drop_duplicates("scenario").set_index("rival")["premium_eur"]
-    lo, hi = u.rm_cost_gap_eur.min(), u.rm_cost_gap_eur.max()
+    gap = float(u.rm_cost_gap_eur.iloc[0])
     fig, ax = plt.subplots(figsize=(7.2, 2.8))
     labels = [f"Premium vs {r}" for r in prem.index] + ["Raw-material cost difference\n(AirSeT − RM6)"]
     y = np.arange(len(labels))[::-1]
     ax.barh(y[:3], prem.values, height=0.5, color=SERIES[1])
     for yi, v in zip(y[:3], prem.values):
         ax.text(v + 40, yi, f"€{v:,.0f}", va="center", color=INK, fontsize=8)
-    ax.barh(y[3], hi - lo, left=lo, height=0.5, color=SERIES[0])
-    ax.text(hi + 40, y[3], f"−€{abs(lo):,.0f} to +€{hi:,.0f} (AirSeT epoxy low / high)", va="center", color=INK, fontsize=8)
+    ax.barh(y[3], gap, height=0.5, color=SERIES[0])
+    ax.text(max(gap, 0) + 40, y[3], f"{gap:+,.0f} € (BOM v1)", va="center", color=INK, fontsize=8)
     ax.axvline(0, color=INK2, lw=0.8)
     ax.set_yticks(y, labels)
     ax.set_xlim(-400, 3100)
@@ -136,8 +136,7 @@ def rm_gap_outlook(p2: MarketEvidence):
     g = tco.gap_outlook(p2)
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 3.8), gridspec_kw={"width_ratios": [1.3, 1]})
     for case, col, ls in (("RM6", PRODUCT_COLORS["RM6"], "-"),
-                          ("AirSeT epoxy low, nickel check", PRODUCT_COLORS["AirSeT"], "-"),
-                          ("AirSeT epoxy high, nickel check", PRODUCT_COLORS["AirSeT"], (0, (4, 2)))):
+                          ("AirSeT, nickel check", PRODUCT_COLORS["AirSeT"], "-")):
         d = o[o.case == case].sort_values("horizon_m")
         h = np.r_[0, d.horizon_m]
         t0 = d.cost_today_eur.iloc[0]
@@ -164,7 +163,7 @@ def rm_gap_outlook(p2: MarketEvidence):
     fig.suptitle("The raw-material forecast barely moves the cost gap to mid-2027", x=0.0, ha="left",
                  fontsize=11, fontweight="bold", color=INK)
     fig.text(0.0, -0.04, "Right: change in RM6 − AirSeT raw-material cost from the joint simulation "
-             "(RM6 vs AirSeT epoxy low, stainless priced through nickel). Positive = the gap narrows for AirSeT.",
+             "(RM6 vs AirSeT, BOM v1, stainless priced through nickel). Positive = the gap narrows for AirSeT.",
              fontsize=7, color=MUTED)
     fig.tight_layout()
     return _save(fig, OUT, "08_rm_gap_outlook")
@@ -175,10 +174,9 @@ def price_vs_rm_gap():
     fig, ax = plt.subplots(figsize=(7.6, 3.8))
     ax.plot(d.year, d.premium_eur, color=SERIES[1], lw=2, marker="o", ms=5,
             label="Selling-price premium (Eaton SF6-free − Schneider RM6, P50)")
-    r = d.dropna(subset=["rm_gap_low_eur"])
-    ax.fill_between(r.year, -r.rm_gap_low_eur, -r.rm_gap_high_eur, color=SERIES[0], alpha=0.2, lw=0)
-    ax.plot(r.year, -r.rm_gap_low_eur, color=SERIES[0], lw=2, marker="o", ms=5,
-            label="Raw-material cost difference (AirSeT − RM6; band = epoxy low/high)")
+    r = d.dropna(subset=["rm_gap_eur"])
+    ax.plot(r.year, -r.rm_gap_eur, color=SERIES[0], lw=2, marker="o", ms=5,
+            label="Raw-material cost difference (AirSeT − RM6, BOM v1)")
     ax.axhline(0, color=INK, lw=0.8)
     ax.axvspan(2025.5, 2026.5, color=GRID, lw=0, zorder=0)
     ax.text(2025.6, 2600, "EU ban on\nnew SF6 ≤ 24 kV", fontsize=7, color=INK2, va="top")
