@@ -104,7 +104,7 @@ RM6,PPI,6,1,0.95,0.127,0.4742,,0.6012,fixed price + buffer,6
 RM6,PPI,6,2,0.9,0.127,0,,0.127,fixed price + buffer,9
 RM6,PPI,6,2,0.95,0.127,0,,0.127,fixed price + buffer,9
 AirSeT,PPI,6,0.25,0.9,0.1063,0.6312,,0.7375,fixed price + buffer,6
-AirSeT,PPI,6,0.25,0.95,0.1063,0.9208,0.1,0.876,indexation clause ±10% + buffer,3
+AirSeT,PPI,6,0.25,0.95,0.1063,0.9208,0.1,0.6779,indexation clause ±10% + buffer,3
 AirSeT,PPI,6,0.5,0.9,0.1063,0.3812,,0.4875,fixed price + buffer,9
 AirSeT,PPI,6,0.5,0.95,0.1063,0.6708,,0.7771,fixed price + buffer,6
 AirSeT,PPI,6,1,0.9,0.1063,0,,0.1063,fixed price + buffer,9
@@ -120,7 +120,7 @@ AirSeT,PPI,6,2,0.95,0.1063,0,,0.1063,fixed price + buffer,9
 "RM6, nickel check",PPI,6,2,0.9,0.1522,0,,0.1522,fixed price + buffer,9
 "RM6, nickel check",PPI,6,2,0.95,0.1522,0,,0.1522,fixed price + buffer,9
 "AirSeT, nickel check",PPI,6,0.25,0.9,0.1261,0.7574,,0.8834,fixed price + buffer,6
-"AirSeT, nickel check",PPI,6,0.25,0.95,0.1261,1.018,0.1,0.9004,indexation clause ±10% + buffer,3
+"AirSeT, nickel check",PPI,6,0.25,0.95,0.1261,1.018,0.1,0.6774,indexation clause ±10% + buffer,3
 "AirSeT, nickel check",PPI,6,0.5,0.9,0.1261,0.5074,,0.6334,fixed price + buffer,6
 "AirSeT, nickel check",PPI,6,0.5,0.95,0.1261,0.7681,,0.8942,fixed price + buffer,6
 "AirSeT, nickel check",PPI,6,1,0.9,0.1261,0.007367,,0.1334,fixed price + buffer,9
@@ -151,10 +151,10 @@ RM6,market,6,1,0.9,0.1516,0.3394,,0.491,fixed price + buffer,6
 RM6,market,6,1,0.95,0.1516,0.7658,,0.9174,fixed price + buffer,6
 RM6,market,6,2,0.9,0.1516,0,,0.1516,fixed price + buffer,9
 RM6,market,6,2,0.95,0.1516,0,,0.1516,fixed price + buffer,9
-AirSeT,market,6,0.25,0.9,0.111,1.027,0.15,0.8824,indexation clause ±15% + buffer,3
-AirSeT,market,6,0.25,0.95,0.111,1.408,0.1,0.8948,indexation clause ±10% + buffer,3
+AirSeT,market,6,0.25,0.9,0.111,1.027,0.1,0.6488,indexation clause ±10% + buffer,3
+AirSeT,market,6,0.25,0.95,0.111,1.408,0.1,0.6848,indexation clause ±10% + buffer,3
 AirSeT,market,6,0.5,0.9,0.111,0.7772,,0.8882,fixed price + buffer,6
-AirSeT,market,6,0.5,0.95,0.111,1.158,0.15,0.8594,indexation clause ±15% + buffer,3
+AirSeT,market,6,0.5,0.95,0.111,1.158,0.15,0.8311,indexation clause ±15% + buffer,3
 AirSeT,market,6,1,0.9,0.111,0.2772,,0.3882,fixed price + buffer,9
 AirSeT,market,6,1,0.95,0.111,0.6577,,0.7687,fixed price + buffer,6
 AirSeT,market,6,2,0.9,0.111,0,,0.111,fixed price + buffer,9
@@ -167,10 +167,10 @@ AirSeT,market,6,2,0.95,0.111,0,,0.111,fixed price + buffer,9
 "RM6, nickel check",market,6,1,0.95,0.1613,0.7231,,0.8844,fixed price + buffer,6
 "RM6, nickel check",market,6,2,0.9,0.1613,0,,0.1613,fixed price + buffer,9
 "RM6, nickel check",market,6,2,0.95,0.1613,0,,0.1613,fixed price + buffer,9
-"AirSeT, nickel check",market,6,0.25,0.9,0.1405,0.9556,0.15,0.8952,indexation clause ±15% + buffer,3
-"AirSeT, nickel check",market,6,0.25,0.95,0.1405,1.275,0.1,0.9286,indexation clause ±10% + buffer,3
+"AirSeT, nickel check",market,6,0.25,0.9,0.1405,0.9556,0.1,0.6488,indexation clause ±10% + buffer,3
+"AirSeT, nickel check",market,6,0.25,0.95,0.1405,1.275,0.1,0.6837,indexation clause ±10% + buffer,3
 "AirSeT, nickel check",market,6,0.5,0.9,0.1405,0.7056,,0.8462,fixed price + buffer,6
-"AirSeT, nickel check",market,6,0.5,0.95,0.1405,1.025,0.15,0.8591,indexation clause ±15% + buffer,3
+"AirSeT, nickel check",market,6,0.5,0.95,0.1405,1.025,0.15,0.8172,indexation clause ±15% + buffer,3
 "AirSeT, nickel check",market,6,1,0.9,0.1405,0.2056,,0.3462,fixed price + buffer,9
 "AirSeT, nickel check",market,6,1,0.95,0.1405,0.5246,,0.6651,fixed price + buffer,6
 "AirSeT, nickel check",market,6,2,0.9,0.1405,0,,0.1405,fixed price + buffer,9
@@ -199,10 +199,10 @@ RM6,PPI,9,1,0.9,0.2459,0.6567,,0.9026,fixed price + buffer,9
 RM6,PPI,9,1,0.95,0.2459,1.091,0.15,0.6746,indexation clause ±15% + buffer,6
 RM6,PPI,9,2,0.9,0.2459,0,,0.2459,fixed price + buffer,9
 RM6,PPI,9,2,0.95,0.2459,0.09136,,0.3373,fixed price + buffer,9
-AirSeT,PPI,9,0.25,0.9,0.2147,0.9431,0.1,0.9934,indexation clause ±10% + buffer,6
-AirSeT,PPI,9,0.25,0.95,0.2147,1.309,0.02,0.9514,indexation clause ±2% + buffer,3
+AirSeT,PPI,9,0.25,0.9,0.2147,0.9431,0.1,0.6764,indexation clause ±10% + buffer,6
+AirSeT,PPI,9,0.25,0.95,0.2147,1.309,0.1,0.7288,indexation clause ±10% + buffer,3
 AirSeT,PPI,9,0.5,0.9,0.2147,0.6931,,0.9078,fixed price + buffer,9
-AirSeT,PPI,9,0.5,0.95,0.2147,1.059,0.05,0.8192,indexation clause ±5% + buffer,6
+AirSeT,PPI,9,0.5,0.95,0.2147,1.059,0.15,0.8656,indexation clause ±15% + buffer,6
 AirSeT,PPI,9,1,0.9,0.2147,0.1931,,0.4078,fixed price + buffer,9
 AirSeT,PPI,9,1,0.95,0.2147,0.559,,0.7737,fixed price + buffer,9
 AirSeT,PPI,9,2,0.9,0.2147,0,,0.2147,fixed price + buffer,9
@@ -215,10 +215,10 @@ AirSeT,PPI,9,2,0.95,0.2147,0,,0.2147,fixed price + buffer,9
 "RM6, nickel check",PPI,9,1,0.95,0.2654,1.193,0.15,0.7844,indexation clause ±15% + buffer,6
 "RM6, nickel check",PPI,9,2,0.9,0.2654,0,,0.2654,fixed price + buffer,9
 "RM6, nickel check",PPI,9,2,0.95,0.2654,0.1931,,0.4584,fixed price + buffer,9
-"AirSeT, nickel check",PPI,9,0.25,0.9,0.2373,1.08,0.05,0.9209,indexation clause ±5% + buffer,6
-"AirSeT, nickel check",PPI,9,0.25,0.95,0.2373,1.429,0.02,0.9716,indexation clause ±2% + buffer,3
-"AirSeT, nickel check",PPI,9,0.5,0.9,0.2373,0.83,0.15,0.9142,indexation clause ±15% + buffer,6
-"AirSeT, nickel check",PPI,9,0.5,0.95,0.2373,1.179,0.05,0.8478,indexation clause ±5% + buffer,6
+"AirSeT, nickel check",PPI,9,0.25,0.9,0.2373,1.08,0.1,0.6761,indexation clause ±10% + buffer,6
+"AirSeT, nickel check",PPI,9,0.25,0.95,0.2373,1.429,0.1,0.7284,indexation clause ±10% + buffer,3
+"AirSeT, nickel check",PPI,9,0.5,0.9,0.2373,0.83,0.15,0.7958,indexation clause ±15% + buffer,6
+"AirSeT, nickel check",PPI,9,0.5,0.95,0.2373,1.179,0.15,0.8673,indexation clause ±15% + buffer,6
 "AirSeT, nickel check",PPI,9,1,0.9,0.2373,0.33,,0.5673,fixed price + buffer,9
 "AirSeT, nickel check",PPI,9,1,0.95,0.2373,0.6793,,0.9166,fixed price + buffer,9
 "AirSeT, nickel check",PPI,9,2,0.9,0.2373,0,,0.2373,fixed price + buffer,9
@@ -247,12 +247,12 @@ RM6,market,9,1,0.9,0.2989,0.7821,0.15,0.6699,indexation clause ±15% + buffer,6
 RM6,market,9,1,0.95,0.2989,1.324,0.1,0.7625,indexation clause ±10% + buffer,6
 RM6,market,9,2,0.9,0.2989,0,,0.2989,fixed price + buffer,9
 RM6,market,9,2,0.95,0.2989,0.3244,,0.6233,fixed price + buffer,9
-AirSeT,market,9,0.25,0.9,0.239,1.301,0.05,0.8522,indexation clause ±5% + buffer,3
-AirSeT,market,9,0.25,0.95,0.239,1.723,0.02,0.9514,indexation clause ±2% + buffer,3
-AirSeT,market,9,0.5,0.9,0.239,1.051,0.15,0.9222,indexation clause ±15% + buffer,6
-AirSeT,market,9,0.5,0.95,0.239,1.473,0.05,0.8237,indexation clause ±5% + buffer,3
+AirSeT,market,9,0.25,0.9,0.239,1.301,0.1,0.6902,indexation clause ±10% + buffer,3
+AirSeT,market,9,0.25,0.95,0.239,1.723,0.1,0.7339,indexation clause ±10% + buffer,3
+AirSeT,market,9,0.5,0.9,0.239,1.051,0.15,0.822,indexation clause ±15% + buffer,6
+AirSeT,market,9,0.5,0.95,0.239,1.473,0.15,0.8806,indexation clause ±15% + buffer,3
 AirSeT,market,9,1,0.9,0.239,0.5507,,0.7897,fixed price + buffer,9
-AirSeT,market,9,1,0.95,0.239,0.9733,0.15,0.7508,indexation clause ±15% + buffer,6
+AirSeT,market,9,1,0.95,0.239,0.9733,0.15,0.3806,indexation clause ±15% + buffer,6
 AirSeT,market,9,2,0.9,0.239,0,,0.239,fixed price + buffer,9
 AirSeT,market,9,2,0.95,0.239,0,,0.239,fixed price + buffer,9
 "RM6, nickel check",market,9,0.25,0.9,0.2952,1.625,0.05,0.9495,indexation clause ±5% + buffer,3
@@ -263,12 +263,12 @@ AirSeT,market,9,2,0.95,0.239,0,,0.239,fixed price + buffer,9
 "RM6, nickel check",market,9,1,0.95,0.2952,1.303,0.15,0.9447,indexation clause ±15% + buffer,6
 "RM6, nickel check",market,9,2,0.9,0.2952,0,,0.2952,fixed price + buffer,9
 "RM6, nickel check",market,9,2,0.95,0.2952,0.3029,,0.5982,fixed price + buffer,9
-"AirSeT, nickel check",market,9,0.25,0.9,0.2705,1.259,0.05,0.9185,indexation clause ±5% + buffer,3
-"AirSeT, nickel check",market,9,0.25,0.95,0.2705,1.652,0.02,0.9705,indexation clause ±2% + buffer,3
-"AirSeT, nickel check",market,9,0.5,0.9,0.2705,1.009,0.15,0.9712,indexation clause ±15% + buffer,6
-"AirSeT, nickel check",market,9,0.5,0.95,0.2705,1.402,0.05,0.8509,indexation clause ±5% + buffer,3
+"AirSeT, nickel check",market,9,0.25,0.9,0.2705,1.259,0.1,0.6854,indexation clause ±10% + buffer,3
+"AirSeT, nickel check",market,9,0.25,0.95,0.2705,1.652,0.1,0.7326,indexation clause ±10% + buffer,3
+"AirSeT, nickel check",market,9,0.5,0.9,0.2705,1.009,0.15,0.8159,indexation clause ±15% + buffer,6
+"AirSeT, nickel check",market,9,0.5,0.95,0.2705,1.402,0.15,0.8769,indexation clause ±15% + buffer,3
 "AirSeT, nickel check",market,9,1,0.9,0.2705,0.509,,0.7795,fixed price + buffer,9
-"AirSeT, nickel check",market,9,1,0.95,0.2705,0.9024,0.15,0.7531,indexation clause ±15% + buffer,6
+"AirSeT, nickel check",market,9,1,0.95,0.2705,0.9024,0.15,0.3769,indexation clause ±15% + buffer,6
 "AirSeT, nickel check",market,9,2,0.9,0.2705,0,,0.2705,fixed price + buffer,9
 "AirSeT, nickel check",market,9,2,0.95,0.2705,0,,0.2705,fixed price + buffer,9
 RM6 copper 13.8 kg,market,9,0.25,0.9,0.1745,0.9282,0.15,0.9813,indexation clause ±15% + buffer,6
