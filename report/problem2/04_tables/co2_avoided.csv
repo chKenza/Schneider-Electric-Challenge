@@ -1,0 +1,10 @@
+scenario,view,t_co2e_per_unit
+pessimistic,leaks,0.98
+pessimistic,lifecycle,1.22
+pessimistic,whole_fill,16.42
+base,leaks,2.82
+base,lifecycle,6.06
+base,whole_fill,35.25
+optimistic,leaks,12.76
+optimistic,lifecycle,31.95
+optimistic,whole_fill,60.75
