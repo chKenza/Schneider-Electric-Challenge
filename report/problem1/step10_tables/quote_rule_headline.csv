@@ -1,0 +1,13 @@
+product,case,steel,accepted_loss_pts,confidence,horizon_m,mechanism,indexation_band,price_adjustment_pts,uplift_charged_pts,max_fixed_validity_m
+RM6,RM6,market,0.5,0.9,3,fixed price + buffer,,0.02571,0.206,6
+RM6,RM6,market,0.5,0.9,6,fixed price + buffer,,0.134,0.8379,6
+RM6,RM6,market,0.5,0.9,9,indexation clause ±15% + buffer,0.15,0.2761,0.9699,6
+RM6,RM6,market,0.5,0.95,3,fixed price + buffer,,0.02571,0.585,3
+RM6,RM6,market,0.5,0.95,6,indexation clause ±10% + buffer,0.1,0.134,0.8567,3
+RM6,RM6,market,0.5,0.95,9,indexation clause ±5% + buffer,0.05,0.2761,0.7644,3
+AirSeT,"AirSeT epoxy low, nickel check",market,0.5,0.9,3,fixed price + buffer,,0,0.2247,9
+AirSeT,"AirSeT epoxy low, nickel check",market,0.5,0.9,6,fixed price + buffer,,0.06585,0.579,9
+AirSeT,"AirSeT epoxy low, nickel check",market,0.5,0.9,9,fixed price + buffer,,0.1147,0.726,9
+AirSeT,"AirSeT epoxy low, nickel check",market,0.5,0.95,3,fixed price + buffer,,0,0.4316,6
+AirSeT,"AirSeT epoxy low, nickel check",market,0.5,0.95,6,fixed price + buffer,,0.06585,0.8494,6
+AirSeT,"AirSeT epoxy low, nickel check",market,0.5,0.95,9,indexation clause ±15% + buffer,0.15,0.1147,0.3594,6
