@@ -1,9 +1,9 @@
 watch,threshold,source,action
-AirSeT raw-material cost (Problem 1 monthly run),> EUR 688 by Jun 2027 (9-month P90),P1 Step 9 outlook_2027.csv,Steel/stainless clause triggers; re-quote fixed-price offers; check the price floor
-RM6 raw-material cost,"> EUR 946 by Jun 2027 (9-month P90; a floor, copper tail)",P1 Step 9 outlook_2027.csv,Copper clause on RM6 quotes; the RM6 - AirSeT gap narrows: use it in tenders
-RM6 - AirSeT raw-material gap,change > +EUR 105 (P90) or < EUR -66 (P10),P1 Step 9 outlook_2027.csv,"Above: mention convergence (still < 6 % of the premium). Below: AirSeT relatively dearer, re-check the floor"
-AirSeT extra unit cost vs RM6 (Schneider internal),< 9.1 % (< 10.1 % with a 1-point entry give),win_conditions.csv,Open Johor-Singapore at the TCO-based price (Phase 2)
-Carbon price a target customer applies to SF6,>= EUR 24/t (whole fill),win_conditions.csv,Johor-Singapore window opens at today's cost; scale the ESG pitch
+AirSeT raw-material cost (Problem 1 monthly run),> EUR 1105 by Jun 2027 (9-month P90),P1 Step 9 outlook_2027.csv,Copper/steel/stainless clause triggers; re-quote fixed-price offers; check the price floor
+RM6 raw-material cost,"> EUR 1098 by Jun 2027 (9-month P90; a floor, copper tail)",P1 Step 9 outlook_2027.csv,Copper clause on RM6 quotes; the RM6 - AirSeT gap narrows: use it in tenders
+RM6 - AirSeT raw-material gap,change > +EUR 41 (P90) or < EUR -45 (P10),P1 Step 9 outlook_2027.csv,"Above: mention convergence (still < 3 % of the premium). Below: AirSeT relatively dearer, re-check the floor"
+AirSeT extra unit cost vs RM6 (Schneider internal),< 8.9 % (< 9.9 % with a 1-point entry give),win_conditions.csv,Open Johor-Singapore at the TCO-based price (Phase 2)
+Carbon price a target customer applies to SF6,>= EUR 25/t (whole fill),win_conditions.csv,Johor-Singapore window opens at today's cost; scale the ESG pitch
 Carbon price that justifies today's 22 % premium,">= EUR 54/t (whole fill), 1657/t (lifecycle)","src/tco.py, 02 4.4",Move ESG-led segments from TCO-based price to list price
 SF6 rule in a target market,status 0/1 -> 2 or 3 (phase-out adopted or ban),market_evidence/regulation.csv,"Accelerate: future-proof pitch, list price, more sales capacity"
 "SF6-free rival price (Eaton, Chinese dry-air RMUs)",below AirSeT's TCO-based price in a target market,competitors.csv,"Defend with bundle (take-back, monitoring) before cutting price; pause if below floor"

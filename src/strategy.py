@@ -133,7 +133,7 @@ def triggers(p2: MarketEvidence) -> pd.DataFrame:
         ("AirSeT raw-material cost (Problem 1 monthly run)",
          f"> EUR {air9.cost_p90_eur:.0f} by Jun 2027 (9-month P90)",
          "P1 Step 9 outlook_2027.csv",
-         "Steel/stainless clause triggers; re-quote fixed-price offers; check the price floor"),
+         "Copper/steel/stainless clause triggers; re-quote fixed-price offers; check the price floor"),
         ("RM6 raw-material cost",
          f"> EUR {rm6_9.cost_p90_eur:.0f} by Jun 2027 (9-month P90; a floor, copper tail)",
          "P1 Step 9 outlook_2027.csv",
@@ -141,7 +141,7 @@ def triggers(p2: MarketEvidence) -> pd.DataFrame:
         ("RM6 - AirSeT raw-material gap",
          f"change > +EUR {gap9.cost_p90_eur:.0f} (P90) or < EUR {gap9.cost_p10_eur:.0f} (P10)",
          "P1 Step 9 outlook_2027.csv",
-         "Above: mention convergence (still < 6 % of the premium). Below: AirSeT relatively "
+         "Above: mention convergence (still < 3 % of the premium). Below: AirSeT relatively "
          "dearer, re-check the floor"),
         ("AirSeT extra unit cost vs RM6 (Schneider internal)",
          f"< {js.max_extra_cost_pct:.1f} % (< {js.max_extra_cost_pct_with_entry_give:.1f} % "
