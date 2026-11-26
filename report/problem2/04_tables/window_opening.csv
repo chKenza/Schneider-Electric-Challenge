@@ -1,0 +1,19 @@
+segment,cost_path,max_extra_cost_pct,opens,opens_with_entry_give
+Johor-Singapore data centres,no volume gain,8.91,,
+Gulf data centres,no volume gain,0.33,,
+Australia colocation,no volume gain,16.53,2027,2027
+Australia utilities,no volume gain,7.95,,
+"Gulf data centres, if they count the whole fill",no volume gain,8.91,,
+"Australia colocation, without SF6 upkeep",no volume gain,8.91,,
+Johor-Singapore data centres,"slow (UK review, top of range)",8.91,2029,2028
+Gulf data centres,"slow (UK review, top of range)",0.33,,
+Australia colocation,"slow (UK review, top of range)",16.53,2027,2027
+Australia utilities,"slow (UK review, top of range)",7.95,2030,2029
+"Gulf data centres, if they count the whole fill","slow (UK review, top of range)",8.91,2029,2028
+"Australia colocation, without SF6 upkeep","slow (UK review, top of range)",8.91,2029,2028
+Johor-Singapore data centres,"at scale (UK review, bottom of range)",8.91,2028,2028
+Gulf data centres,"at scale (UK review, bottom of range)",0.33,,
+Australia colocation,"at scale (UK review, bottom of range)",16.53,2027,2027
+Australia utilities,"at scale (UK review, bottom of range)",7.95,2029,2028
+"Gulf data centres, if they count the whole fill","at scale (UK review, bottom of range)",8.91,2028,2028
+"Australia colocation, without SF6 upkeep","at scale (UK review, bottom of range)",8.91,2028,2028

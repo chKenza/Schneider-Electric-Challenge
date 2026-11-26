@@ -97,7 +97,7 @@
 | Claim | Why we don't make it |
 |---|---|
 | "AirSeT is cheaper over its life" (based on leaks) | Not true at real carbon prices: break-even is €1,657/t (02 §4.4) |
-| "Raw-material prices will close the gap" | They close 0.5 % of the premium by mid-2027 (02 §5) |
+| "Raw-material prices will close the gap" | They close 0.3 % of the premium by mid-2027 (02 §5) |
 | "Your data-centre clients demand SF6-free" | 9 of 11 operators never mention SF6 (01 §1) |
 | "Regulation will force your installed RM6 out" | Adopted rules apply to new equipment only (E61) |
 
@@ -140,7 +140,7 @@ For each segment, two checks:
 | Johor–Singapore data centres | Whole fill | **8.9 %** (€781) | 10.0 % | No: 1.1 points short | **8.9 %** |
 | Gulf data centres | Leaks + end of life | **0.4 %** (€31) | 10.0 % | No | **0.3 %** |
 | Australia colocation | Whole fill + SF6 upkeep | **16.6 %** (€1,447) | 10.0 % | **Yes** | **16.5 %** |
-| Australia utilities | Leaks + end of life + SF6 upkeep | **8.0 %** (€697) | 10.0 % | No: 2.0 points short | **7.9 %** |
+| Australia utilities | Leaks + end of life + SF6 upkeep | **8.0 %** (€697) | 10.0 % | No: 2.0 points short | **8.0 %** |
 
 The last column is the result to remember. It doesn't depend on the 10 % placeholder.
 
@@ -159,7 +159,7 @@ Extra cost 10 % (placeholder). "Customer" is the lifetime saving with AirSeT; "S
 | Option | Premium | Johor–Singapore | Gulf | Australia colocation | Australia utilities |
 |---|---|---|---|---|---|
 | **Price parity** | 0 % | Customer +€781 / Schneider −10.0 pts | +€31 / −10.0 | +€1,447 / −10.0 | +€697 / −10.0 |
-| **TCO-based price** | = ceiling | €0 / **−1.1** | €0 / −9.7 | €0 / **+6.5** | €0 / −2.1 |
+| **TCO-based price** | = ceiling | €0 / **−1.1** | €0 / −9.7 | €0 / **+6.5** | €0 / −2.0 |
 | **Green premium** (EU buyers said they'd pay +20 %, E173) | 20 % | −€967 / +10.0 | −€1,717 / +10.0 | −€301 / +10.0 | −€1,051 / +10.0 |
 | **Today's list premium** | 22 % | −€1,140 / +12.0 | −€1,890 / +12.0 | −€474 / +12.0 | −€1,224 / +12.0 |
 
@@ -196,7 +196,7 @@ Every AirSeT offer uses the Problem 1 quote rule:
 | Assumption | Value | Effect |
 |---|---|---|
 | AirSeT's extra unit cost vs RM6 | **10 %**, placeholder (tested 0–20 %) | Decides which windows are open. **To replace** with the organisers' cost overview |
-| Margin Schneider accepts to give up vs RM6 | 0 points | 1 point would open the Johor–Singapore window |
+| Margin Schneider accepts to give up vs RM6 | 0 points | 1.1 points would open the Johor–Singapore window |
 | Customer carbon price | €22/t (median internal price, E56) | Higher prices raise every ceiling |
 | How each segment counts SF6 | Whole fill for ESG-led data centres; leaks + end of life for the Gulf and utilities | The Gulf's ceiling would go from 0.4 % to ≈ 9 % if its customers counted the whole fill |
 | Quote length | 9 months | Raw-material risk at 9 months: AirSeT €83, RM6 €81 |

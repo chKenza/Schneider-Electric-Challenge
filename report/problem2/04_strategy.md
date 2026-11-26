@@ -1,106 +1,266 @@
-# Problem 2 – Roadmap, win conditions and final story (Steps 9–10)
+# Problem 2 – Strategy: roadmap, win conditions and final story (Steps 9–10)
 
-*Owner: Karin · Status: first version, BOM v1 numbers*
+*Owner: Karin · Status: done.*
 
-> **Sources:** E-numbers refer to rows of [`market_evidence/evidence.csv`](../../market_evidence/evidence.csv). Section numbers refer to the other Problem 2 reports: [01](01_market_and_regulation.md) (markets, regulation), [02](02_cost_and_tco.md) (cost gap, TCO), [03](03_value_and_pricing.md) (value proposition, pricing, levers). Problem 1 figures come from the Step 8 and Step 9 tables, regenerated on the corrected BOM (v1).
+> **Sources:** E-numbers refer to rows of [`market_evidence/evidence.csv`](../../market_evidence/evidence.csv). "01 §3.4" means section 3.4 of [01_market_and_regulation.md](01_market_and_regulation.md); likewise for [02](02_cost_and_tco.md) and [03](03_value_and_pricing.md). H1–H6 are the hypotheses in the [problem framing](00_problem_framing.md) (§6).
+
+> **Run from the repo root:**
 >
-> No new code: this step combines the results of Steps 1–8 and Problem 1.
+> ```bash
+> uv run python -m src.strategy          # win conditions, window opening, triggers, CO2 KPI
+> uv run python -m src.strategy_plots    # charts 12-13
+> uv run python -m pytest tests/test_strategy.py
+> ```
+
+| What | Where |
+|---|---|
+| Code | [`src/strategy.py`](../../src/strategy.py), [`src/strategy_plots.py`](../../src/strategy_plots.py) |
+| Tests | [`tests/test_strategy.py`](../../tests/test_strategy.py) |
+| Tables | [`04_tables/`](04_tables/) |
+| Charts | `plots/problem2/12_window_opening.png`, `13_roadmap.png` |
+| Inputs | TCO model (`src/tco.py`), Step 7 price window (`src/value_pricing.py`), Problem 1 Step 9 tables (`quote_rule.csv`, `outlook_2027.csv`) |
+
+> **SF6 and carbon prices, in brief.** SF6 is the insulating gas sealed inside each RM6 (≈ 1.5 kg). It is not bought or sold by the customer; it matters because it is a very strong greenhouse gas: 1 kg ≈ 23.5 t of CO₂-equivalent, so one RM6 holds ≈ 35 t CO₂e. A **carbon price** (€/t CO₂e) is the cost a company puts on its emissions in its decisions, usually an internal "shadow" price (median ≈ €22/t, E56), not a market price for the gas. How much of the gas a customer **counts** as an emission decides what avoiding it is worth (02 §4.4):
+>
+> | View | What is counted | t CO₂e per unit | Value at €22/t |
+> |---|---|---|---|
+> | Leaks only | Gas leaking during use (Scope 1) | ≈ 2.8 over 40 years | ≈ €21 |
+> | Leaks + end of life | Plus the gas released when the unit is scrapped | ≈ 6 | ≈ €25 (discounted) |
+> | Whole fill | All the gas in the unit, as a liability from day one | ≈ 35 | ≈ €776 |
+
+`src/strategy.py` adds no new model. It reuses the Step 4 TCO model and the Step 7 price window without changing their settings, and turns them into thresholds. Its tests check that it reproduces the Step 7 windows exactly.
 
 ---
 
 ## Summary
 
-**The client's question:** where SF6 is not banned, how does Schneider get customers to switch voluntarily from RM6 to RM AirSeT, and stay profitable?
+- **Where to play:** start where SF6 already costs the customer something or where a customer already counts it.
+  - **2027:** Australia colocation, and Johor–Singapore with AirTrunk as lead customer.
+  - **Gulf data centres:** a volume and reference market, not a margin market.
+  - **Later:** Australian utilities, then the US data-centre states and the UK if their regulation moves.
+- **The one number that decides the roadmap is AirSeT's extra unit cost compared with RM6.** It is not the carbon price or raw materials. Each segment opens below a threshold:
 
-**Our answer:**
+  | Segment | Opens when AirSeT's extra cost is below |
+  |---|---|
+  | Australia colocation | **16.5 %** |
+  | Johor–Singapore data centres | **8.9 %** |
+  | Australia utilities | **8.0 %** |
+  | Gulf data centres | **0.3 %**: never, on cost alone |
 
-1. **AirSeT's premium is not a raw-material problem.** With the corrected BOM, both units cost about the same in raw materials: RM6 €931, AirSeT €941. That €9 difference is 0.5 % of the €1,921 premium. The premium sits in components, process and volume.
-2. **On cost alone, customers won't pay today's 22 % premium.** Over its life, AirSeT saves a customer €31 if only leaks count (02 §4). The premium a customer can justify rises to **≈ 9 % if it counts the whole SF6 fill** as a liability, and to ≈ 17 % where SF6 also costs it upkeep (Australia).
-3. **So: price on TCO, segment by segment, and invest margin only where it buys volume.**
-   - **Australia colocation:** profitable now at a TCO price of up to ≈ 16 %.
-   - **Johor–Singapore data centres:** a TCO price of ≈ 9 % costs about 1 point of margin at a 10 % extra unit cost. That is the targeted investment, with AirTrunk as the lead customer.
-   - **Gulf:** don't buy share there. Reference projects and future-proofing only.
-4. **The investment pays back through volume, not raw materials.** It stops when AirSeT's extra unit cost vs RM6 falls below ≈ 9 %. The UK government review expects SF6-free premiums to fall to 5–10 % at scale (E166).
-5. **Problem 1 protects the margin on the sharper price.** A 9-month AirSeT quote at a fixed price lost up to 3.3 points of margin on past prices. With a **copper + steel + stainless indexation clause**, at most 0.6 points.
-6. **The biggest lever is not price but accounting:** getting data-centre operators to count the whole SF6 fill raises what they should accept from 0.4 % to ≈ 9 % (03 §8).
+  If the cost falls as the UK review expects at scale (E166), Johor–Singapore opens in **2028** and Australian utilities in **2029** (chart 12).
+- **The cheapest win condition is changing how customers account for the SF6 gas in their emissions.** If a data-centre operator treats the whole SF6 fill of a unit (35 t CO₂-equivalent) as a liability, instead of only the small amount that leaks, AirSeT's value rises from about €21 to about €776 per unit.
+  - At the 10 % placeholder for the extra cost, Johor–Singapore opens if the customer applies an internal carbon price of **€25/t** CO₂-equivalent instead of the €22/t median, provided it counts the whole fill.
+  - The Gulf has the same 8.9 % threshold as Johor–Singapore if its customers count the whole fill. Counting only leaks and end-of-life release, the threshold is 0.3 %.
+  - So getting SF6 into operators' accounting is worth more than any discount (03 §8).
+- **Problem 1 protects the margin; it doesn't close the gap.**
+  - Every 9-month AirSeT quote carries a copper, steel and stainless indexation clause.
+  - Problem 1's monthly forecast is the alarm: AirSeT's raw-material cost is €941 today (BOM v1), with a 9-month P90 of **€1,105** by June 2027.
+  - The raw-material gap between RM6 and AirSeT is **not** a reason to move: it changes by at most €41 (P90), about 2 % of the premium.
+- **Success measure (framing §7):** AirSeT's share of new medium-voltage orders in the target markets by 2030, with the margin on each offer kept at or above RM6's. The only exception is up to 1 point on named lead-customer deals.
 
 ---
 
-# Step 9 – Roadmap and win conditions
+## 9.1 The strategy on one page
 
-## 9.1 Margin investment: where it pays and where it doesn't
+| Deliverable | Answer | From |
+|---|---|---|
+| **Target markets and segments** | 1. Johor–Singapore data centres · 2. Gulf (Saudi Arabia, UAE) data centres · 3. Australia colocation. Second segment: utilities in Australia, Saudi Arabia and Japan. Later: US data-centre states, UK. China opportunistic only. | 01 §3.4 |
+| **Value proposition** | "Same job, same footprint, no SF6." Sell on (1) the whole SF6 fill as a liability, 35 t CO₂e per unit; (2) no SF6 paperwork where rules apply; (3) future-proof. **Don't** sell on leak-based TCO or raw-material convergence. | 03 §6 |
+| **Pricing** | A TCO-based premium per segment: ≈ 9 % Johor–Singapore, up to ≈ 16 % Australia colocation, ≈ 8 % Australian utilities. No price competition in the Gulf. Bundles (take-back, monitoring, leasing) where the window is shut. | 03 §7 |
+| **Offer structure (Problem 1)** | Quotes up to 6 months: fixed price plus ≤ 0.6–0.85 points (PPI or market steel). 9-month quotes: copper, steel and stainless indexation clause plus a small uplift. | 03 §7.5, P1 Step 9 |
+| **Adoption levers** | SF6 into operators' accounting (iMasons declarations) · "SF6-free" in specifications and framework agreements · AirTrunk reference site · SEC pilot · take-back · training · channel incentives | 03 §8 |
+| **Roadmap and win conditions** | This report: §9.2–9.5 | – |
 
-The client gives no margin target and asks how the recommendation changes with the constraint. Two numbers decide it:
-- **AirSeT's extra unit cost vs RM6** (unknown; the client won't share a cost overview), and
-- **the margin Schneider accepts to give up per unit** during the launch phase.
-
-**AirSeT's margin vs RM6 at the TCO-based price**, in points of the RM6 price, for three levels of extra unit cost (from `03_tables/price_window.csv`). Negative = the margin Schneider invests per unit.
-
-| Segment | TCO-based price | Extra cost 5 % | 10 % | 15 % | Profitable if extra cost below |
-|---|---|---|---|---|---|
-| Australia colocation | ≈ 16.6 % above RM6 | +11.5 | **+6.5** | +1.5 | **16.5 %** |
-| Johor–Singapore data centres | ≈ 8.9 % | +3.9 | **−1.1** (≈ €95/unit) | −6.1 | **8.9 %** |
-| Australia utilities | ≈ 8.0 % | +2.9 | **−2.0** (≈ €180/unit) | −7.0 | **7.9 %** |
-| Gulf data centres | ≈ 0.4 % | −4.7 | **−9.7** (≈ €850/unit) | −14.7 | **0.3 %** |
-
-Raw-material risk barely enters: on a 9-month quote, it costs AirSeT 0.03 points more than RM6 (Problem 1 Step 9, with indexation).
-
-**Decision rule:**
-- **Invest** where the gap is small and the segment builds volume or references: Johor–Singapore (≈ 1 point) and, later, Australian utilities (≈ 2 points).
-- **Don't invest** where the gap is large: the Gulf would need ≈ 10 points per unit. Win there on future-proofing and reporting, not price (03 §7.4).
-- **Cap the investment** in points per unit and in number of projects, and **end it** when the extra cost falls below the segment's threshold (last column).
+---
 
 ## 9.2 Roadmap
 
-| Phase | Markets and segments | What we do | Why now |
+![Roadmap](../../plots/problem2/13_roadmap.png)
+
+### Phase 1 – Prove (2027)
+
+**Goal:** a profitable first market, two public references, and the real AirSeT cost.
+
+| Market | Move | Price | Why now |
 |---|---|---|---|
-| **2027: prove** | **Australia colocation** | TCO-based price, just under Eaton | Profitable today; SF6 already costs a licence, a levy and upkeep (E25) |
-| | **Johor–Singapore data centres** | TCO-based price (≈ 9 %), up to ≈ 1 point of margin invested, lead customer **AirTrunk** | AirTrunk already counts SF6 in Scope 1 and is exploring SF6-free (E85); no SF6-free rival found in Malaysia (E96) |
-| | **Gulf** (Saudi Arabia, UAE) | 2–3 reference projects on private data-centre campuses; pilot with SEC | Fastest-growing market (≈ +59 %/yr); SEC's RMU specification still requires SF6 (E28) |
-| | **All** | Copper + steel + stainless clause on quotes over 6 months; take-back and monitoring bundle; start "SF6 in Scope 1" work through iMasons (E113) | Protects the margin on a sharper price; builds the accounting lever |
-| **2028–29: scale** | Johor–Singapore, Australia | **Framework agreements** with colocation operators and hyperscalers ("SF6-free" in their specification) | Locks in the volume that lowers AirSeT's extra cost |
-| | **Australia utilities**, Japan utilities | TCO-based price (≈ 8 %) once extra cost < 8 %; until then, multi-year frameworks | Utilities are the only buyers already switching (E126) |
-| | **Gulf** | Extend from references to framework agreements if SEC changes its specification | |
-| **2030+: extend** | **US data-centre states** (Texas, Virginia), other APAC | Enter if a trigger fires (§9.5) | Rank 16–18 today: no customer pull, entrenched incumbents (01 §3.3) |
-| | China | Opportunistic only | Ranks on size alone; local makers dominate (01 §3.4) |
+| **Australia colocation** | Sell AirSeT as the default offer to colocation operators; price just under Eaton | TCO-based, up to ≈ 16 % | The only window open today: import licence, levy and upkeep already cost the customer (03 §7.2). ⚠️ Rests on €50/yr of SF6 upkeep; without it the threshold is 8.9 %, as in Johor (§9.3). |
+| **Johor–Singapore** | **AirTrunk lead deal and reference site** in Johor. AirTrunk counts SF6 in Scope 1 and is exploring SF6-free equipment (E85) | ≈ 9 %, accepting about 1 margin point as an entry price | With a 1-point entry give, the window opens up to a 9.9 % extra cost, just short of the 10 % placeholder: opening it in 2027 takes 1.1 points (03 §7.6), or a cost below 9.9 % (§9.3) |
+| **Gulf** | Framework agreements with private AI and data-centre campus developers; join SEC's SF6-free pilots | List price for customers with their own SF6 policy; otherwise a few reference projects only | Fastest growth (Saudi Arabia ≈ +59 %/yr). Build volume; don't buy share. SEC's RMU specification still requires SF6 (E28). |
+
+**Enablers, all markets, 2027:**
+- **Get SF6 into operators' accounting:** propose an SF6 line in iMasons environmental declarations (E113), and give customers a per-unit figure of 35 t CO₂e.
+- **Bundle:** take-back of old SF6 units (≥ 99 % recovered, E17) and a monitoring service contract.
+- **Copper, steel and stainless indexation clause** as standard on every 9-month AirSeT quote (P1 Step 9).
+- **Get the real AirSeT extra unit cost** from the organisers' cost overview. It replaces the 10 % placeholder that every threshold depends on.
+- **Footprint check** on each tender (E171 vs E168) before claiming "same footprint".
+
+### Phase 2 – Scale (2028–2029)
+
+**Goal:** volume brings AirSeT's extra cost below the next thresholds.
+
+| Market | Move | When it opens (at-scale / slow path) |
+|---|---|---|
+| **Johor–Singapore** | Move from the entry price to the TCO-based price (≈ 9 %) across operators, not only AirTrunk | **2028 / 2029** |
+| **Australian utilities** | Multi-year framework agreements, extending their high-voltage SF6-free choice to distribution | **2029 / 2030** |
+| **Gulf** | Price like Johor–Singapore **only if** customers start counting the whole fill. Otherwise stay a volume market | 2028 / 2029 in the whole-fill case; never otherwise |
+| **Utilities in Saudi Arabia and Japan** | From pilot to specification change (SEC) | Not on cost: ceiling ≈ 0 % (03 §6.2) |
+
+### Phase 3 – Extend (2029–2030+)
+
+**Goal:** enter large markets when a trigger fires (§9.5), not before.
+
+- **US data-centre states (Texas, Virginia, Ohio):** the largest voluntary market, but there are gas-free incumbents (S&C, G&W) and no customer pull. Move when another state adopts a phase-out after New York, or when a US operator starts counting SF6 (01 §3.4).
+- **UK:** if the phase-out under study becomes a proposal (E71), treat it as a "regulation coming" market.
+- **China:** opportunistic only. It ranks on size alone, and local makers dominate (01 §3.3).
+
+---
 
 ## 9.3 Win conditions
 
-What must be true for the strategy to work, and how we'd know.
+### What must be true, per segment
 
-| # | Win condition | Threshold | Status today | Source |
+([`win_conditions.csv`](04_tables/win_conditions.csv); carbon price €22/t, Problem 1 raw-material risk at 9 months)
+
+| Segment | How SF6 is counted | Customer ceiling | **Opens if AirSeT's extra cost <** | … with 1-point entry give | Or if the carbon price ≥ (at 10 % extra cost) | Carbon price for today's 22 % premium |
+|---|---|---|---|---|---|---|
+| Australia colocation | Whole fill + SF6 upkeep | 16.6 % | **16.5 %** | 17.5 % | €6/t (already met) | €35/t |
+| Johor–Singapore data centres | Whole fill | 8.9 % | **8.9 %** | 9.9 % | **€25/t** | €54/t |
+| Australia utilities | Leaks + end of life + upkeep | 8.0 % | **8.0 %** | 9.0 % | €177/t | €1,080/t |
+| Gulf data centres | Leaks + end of life | 0.4 % | **0.3 %** | 1.3 % | €753/t | €1,657/t |
+| *Gulf, if it counts the whole fill* | Whole fill | 8.9 % | 8.9 % | 9.9 % | €25/t | €54/t |
+| *Australia colocation, without SF6 upkeep* | Whole fill | 8.9 % | 8.9 % | 9.9 % | €25/t | €54/t |
+
+How to read it:
+- **"Opens if AirSeT's extra cost <":** below this, there is a premium at which the customer saves over the unit's life **and** Schneider keeps RM6's margin. It doesn't depend on the 10 % placeholder.
+- **"Or if the carbon price ≥":** if the extra cost stays at 10 %, the carbon price the customer would need to apply to SF6 for the window to open.
+- **Johor–Singapore is close:** €25/t against a €22/t median internal price, or 1.1 points of margin.
+- **The Gulf and utilities can't be opened by carbon prices.** €177–753/t is far above any price that reaches them (01 §6). They need volume, bundles, or a change in how they count SF6.
+
+### The win conditions, as statements
+
+| # | Win condition | Threshold | Status today | Owner of the evidence |
 |---|---|---|---|---|
-| W1 | AirSeT's extra unit cost vs RM6 falls with volume | < 9 % (Johor–Singapore), < 8 % (Australian utilities) | Unknown; UK expects 5–10 % at scale | 03 §7.2, E166 |
-| W2 | Target customers count the **whole SF6 fill** (or have their own SF6 policy) | Ceiling rises from 0.4 % to ≈ 9 % | 1 of 11 operators (AirTrunk) | 01 §7, E85 |
-| W3 | A lead customer and reference site in each priority region | ≥ 1 per region by end 2027 | None yet | 03 §8.2 |
-| W4 | Customers accept an indexation clause on quotes over 6 months | Clause on most 9-month AirSeT quotes | Schneider already buys steel on an index | P1 Step 9 |
-| W5 | Margin investment stays capped and temporary | e.g. ≤ 2 points per unit, ended at W1's threshold | Decision variable | §9.1 |
-| W6 | Australian SF6 upkeep is real for owners | ≈ €50/yr per unit | Rules found target imports, not owners | 03 §7.2 caveat |
+| W1 | AirSeT's extra unit cost vs RM6 falls with volume | < 8.9 % for Johor–Singapore, < 8.0 % for Australian utilities | **Unknown** (10 % placeholder) | Organisers' cost overview (framing §8) |
+| W2 | Target data-centre operators count the **whole SF6 fill**, not only leaks | Ceiling rises from 0.4 % to 8.9 % | 1 of 11 operators counts SF6 at all (AirTrunk) | 01 §7 |
+| W3 | A lead customer signs and becomes a public reference | AirTrunk in Johor in 2027 | No contact yet (03 §6.4) | Sales |
+| W4 | Raw-material risk stays priced, not absorbed | Every 9-month AirSeT quote has a copper, steel and stainless clause; realised erosion stays within the quote rule's accepted loss | Rule exists (P1 Step 9) | Problem 1 |
+| W5 | AirSeT keeps the same footprint as RM6 in data-centre electrical rooms | Vendor claim holds per project | Schneider claim (E171) vs UK review +20–30 % (E168) | Product team |
+| W6 | AirSeT's price stays at or below Eaton's in Australia and Singapore | Rival price ≥ AirSeT's TCO-based price | Not observed (synthetic EU prices only) | Sales intelligence |
 
-If **W6** fails, Australia colocation's ceiling falls from 16.6 % to 8.9 %, the same as Johor–Singapore.
+### When each segment opens, if AirSeT gets cheaper with volume
+
+![Window opening](../../plots/problem2/12_window_opening.png)
+
+([`window_opening.csv`](04_tables/window_opening.csv))
+
+| Segment | No volume gain (10 % flat) | Slow (→ 7.5 % in 2030) | At scale (→ 5 % in 2030) | At scale, with 1-point entry give |
+|---|---|---|---|---|
+| Australia colocation | 2027 | 2027 | 2027 | 2027 |
+| Johor–Singapore data centres | never | 2029 | **2028** | 2028 |
+| Australia utilities | never | 2030 | **2029** | 2028 |
+| Gulf data centres | never | never | never | never |
+
+**The paths are illustrative, not a forecast.** They start at the 10 % placeholder and assume AirSeT's extra cost falls in the same proportion as the UK review's expected premium, from 15–30 % today to 5–10 % at scale (E166). The thresholds hold whatever the path. Once the real extra cost is known, read the opening year off chart 12. With BOM v1, a 1-point entry give no longer opens Johor–Singapore in 2027 (9.9 % threshold vs the 10 % placeholder); it brings the slow path forward from 2029 to 2028.
+
+---
 
 ## 9.4 KPIs
 
-| KPI | Why |
-|---|---|
-| AirSeT share of quotes and orders, per target segment | The success measure of the strategy |
-| Win rate against Eaton (Australia, Singapore) and against RM6 | Is the TCO-based price competitive? |
-| Realised AirSeT margin vs RM6, in points | Is the investment within its cap? |
-| AirSeT extra unit cost vs RM6 | When the investment can stop (W1) |
-| Share of 9-month quotes with an indexation clause | Margin protection (W4) |
-| Operators counting the whole SF6 fill | The accounting lever (W2) |
-| t CO₂e avoided (≈ 35 t per unit replacing an RM6) | The ESG story for customers and Schneider |
+| KPI | Why | Target | Source / frequency |
+|---|---|---|---|
+| **AirSeT share of RMU orders** in each target market | The success measure (framing §7) | Baseline in 2027; target **to agree** with the client | Sales, quarterly |
+| AirSeT share of RMU **quotes**, and **win rate** on AirSeT quotes vs Eaton | Leading indicator of share; tests W6 | Win rate ≥ RM6's in the same market | Sales, quarterly |
+| **Margin vs RM6 per offer** (points) | "Profitably" | ≥ 0 points; ≥ −1 point on named lead-customer deals | Finance, per offer |
+| **AirSeT extra unit cost vs RM6** | W1: decides when each segment opens | < 8.9 % (Johor–Singapore), < 8.0 % (Australian utilities) | Finance, half-yearly |
+| **Target customers counting SF6** (whole fill) | W2: raises the ceiling from 0.4 % to 8.9 % | 1 of 11 today (AirTrunk); target **to agree** | Sustainability reports, yearly |
+| **Reference sites** | W3 | ≥ 1 per priority market by end 2027 (proposed) | Sales |
+| **9-month AirSeT quotes with a copper, steel and stainless clause** | W4 | 100 % | Sales ops, per quote |
+| **Realised raw-material erosion on AirSeT quotes** | W4: checks Problem 1's buffer | Within the quote rule's accepted loss | Problem 1 monthly run |
+| **CO₂e avoided** | ESG claim to customers | 35 t per unit (whole fill); 2.8 t (leaks over 40 years) | [`co2_avoided.csv`](04_tables/co2_avoided.csv) |
+
+**CO₂e avoided per AirSeT unit sold instead of an RM6** (t CO₂e):
+
+| View | Pessimistic | Base | Optimistic |
+|---|---|---|---|
+| Leaks over the life | 1.0 | **2.8** | 12.8 |
+| Leaks + end-of-life release | 1.2 | **6.1** | 32.0 |
+| Whole fill | 16.4 | **35.2** | 60.8 |
+
+Report the **whole-fill** figure as "SF6 kept out of the installed base", and the **leaks** figure as "Scope 1 emissions avoided". Mixing them up would overstate the Scope 1 claim by 12×.
+
+---
 
 ## 9.5 Triggers to accelerate or pause
 
-| Trigger | Action |
+([`triggers.csv`](04_tables/triggers.csv); thresholds computed from the Problem 1 and Step 4 tables)
+
+| Watch | Threshold | Action | Source |
+|---|---|---|---|
+| **AirSeT raw-material cost** (Problem 1 monthly run) | > **€1,105** by Jun 2027 (9-month P90; €941 today) | The copper, steel and stainless clause triggers; re-quote fixed-price offers; check the price floor | P1 Step 9 |
+| **RM6 raw-material cost** | > **€1,098** by Jun 2027 (9-month P90; a floor, because copper's upside tail was underestimated) | Copper clause on RM6 quotes. The gap narrows, so mention it in tenders | P1 Step 9 |
+| **RM6 − AirSeT raw-material gap** | Change > **+€41** (P90) or < **−€45** (P10) | Above: "convergence" can be mentioned, but it is still < 3 % of the premium. Below: AirSeT is relatively dearer; re-check the floor | P1 Step 9 |
+| **AirSeT extra unit cost** | < **8.9 %** (< 9.9 % with entry give) | **Accelerate:** open Johor–Singapore at the TCO-based price (Phase 2) | §9.3 |
+| **Carbon price a target customer applies to SF6** | ≥ **€25/t**, counting the whole fill | **Accelerate:** the Johor–Singapore window opens at today's cost | §9.3 |
+| **Carbon price that justifies today's 22 % premium** | ≥ **€54/t** (whole fill) | Move ESG-led segments from the TCO-based price to the list price | 02 §4.4 |
+| **SF6 rule in a target market** | Status 0/1 → 2 or 3 (phase-out adopted, or a ban) | **Accelerate:** future-proof pitch, list price, more sales capacity. Candidates: US states, UK (01 §2.1) | `regulation.csv` |
+| **SF6-free rival price** (Eaton, Chinese dry-air RMUs) | Below AirSeT's TCO-based price in a target market | Defend with the bundle before cutting price. **Pause** the market if the price would have to go below the floor | `competitors.csv` |
+| **Footprint** | A tender where AirSeT is larger than the RM6 it replaces | Price the extra space into the TCO; don't claim "same footprint" there | E171, E168 |
+
+---
+
+## 9.6 Hypotheses: final status
+
+| # | Hypothesis | Result |
+|---|---|---|
+| H1 | Operators apply one SF6-free standard worldwide | **Not supported:** 9 of 11 never mention SF6 (01 §7). Hence lever W2 |
+| H2 | Non-EU markets will regulate soon | **Partly:** US states and the UK; not Asia or the Middle East before 2030 (01 §2.1). Hence Phase 3 triggers |
+| H3 | TCO favours AirSeT once the whole fill is valued | **Only in the whole-fill view:** break-even €54/t; ≈ 9 % premium at €22/t (02 §4.4) |
+| H4 | The raw-material outlook narrows the cost gap | **Direction yes, size no:** 0.3 % of the premium at P50 (02 §5) |
+| H5 | AirSeT can be priced closer to RM6 without losing margin | **Yes where the extra cost allows:** today in Australia colocation; in Johor–Singapore below 8.9 %. Raw-material risk is not the obstacle: €83 for AirSeT vs €81 for RM6 on a 9-month quote, covered by the clause (03 §7). **The extra unit cost is.** |
+| H6 | EU convergence repeats elsewhere | **Not through raw materials.** Through volume (the extra-cost path, §9.3) or regulation (triggers, §9.5) |
+
+---
+
+## 9.7 Check against "what a good answer looks like" (framing §7)
+
+| Criterion | Met by |
 |---|---|
-| A target country adopts an SF6 rule (status ≥ 2) | Move it to "prove"; raise the price toward the regulated-market level |
-| A hyperscaler writes "SF6-free" into its global specification | Framework agreement first, then its sites in every target market |
-| AirSeT's extra cost falls below a segment's threshold | End the margin investment there; price at TCO |
-| Extra cost not falling after two years of framework volume | Pause the investment; keep only references |
-| A low-cost dry-air rival (CHINT, Rockwill) enters a target market | Compete on service bundle and references, not price |
-| Raw-material cost gap moves by > 1 point of price | Re-check prices. To mid-2027, the P90 move is 0.5 points (P1 Step 9), so this is unlikely |
+| Specific: 2–3 named market × segment targets | Australia colocation, Johor–Singapore with AirTrunk, Gulf private data centres (§9.2) |
+| Quantified, with ranges and sources | Thresholds and carbon prices per segment (§9.3); every input sourced in `assumptions.csv` |
+| Profitable: every pricing move checked against margin after the risk buffer | Thresholds include Problem 1's 9-month raw-material risk; KPI "margin vs RM6 ≥ 0" |
+| Linked to Problem 1 | Indexation clause on every 9-month quote; raw-material triggers from the Problem 1 forecast (§9.5) |
+| Actionable: dated roadmap, KPIs, triggers | §9.2, §9.4, §9.5 |
+| Honest | The 10 % placeholder, the Australian upkeep caveat and the illustrative cost paths are flagged; limits in §9.9 |
+
+---
+
+## 9.8 Assumptions
+
+| Assumption | Value | Effect | Status |
+|---|---|---|---|
+| AirSeT's extra unit cost vs RM6, 2027 | **10 %** (Step 7 placeholder) | Decides which segments open when. The thresholds don't depend on it; the opening years do | **To replace** with the organisers' cost overview |
+| Extra-cost paths to 2030 | Flat 10 %, → 7.5 %, → 5 % | Opening years in §9.3 | Illustrative: UK review premium ratio (E166) applied to cost |
+| Margin given up vs RM6 | 0 points; 1 point for named lead-customer deals | +1 point on each threshold | **To agree** with the team |
+| Customer carbon price | €22/t (CDP median internal price, E56) | Ceilings | Sourced |
+| SF6 upkeep in Australia | €50/yr (optimistic value) | Australia colocation 16.5 % vs 8.9 % without | The rules found target imports, not owners (03 §7.2); **to confirm** |
+| Problem 1 raw-material risk | 9-month quote, 0.5 points accepted loss, 90 % confidence, steel PPI | ±0.1 point on every threshold | As in Step 7 |
+
+## 9.9 Limits
+
+- **Everything hinges on one unknown,** AirSeT's real extra unit cost. That is why the roadmap is expressed as thresholds and triggers, not as fixed dates.
+- **Synthetic, EU-only prices,** and Eaton stands in for AirSeT (02 §4.6).
+- **No customer interviews.** Willingness to pay is stated (EU buyers, E173), and no contact with AirTrunk has been made.
+- **One unit, one configuration.** No fleet, volume-discount or portfolio effects, so the TCO is conservative for AirSeT.
+- **KPI targets for share and customers counting SF6 are not set.** There is no baseline data; agree them with the client.
+- **Supply capacity is not analysed.** The supplier balance sheets (`Supplier_balancesheet/`) could test whether the supply base can follow Phase 2.
+
+## 9.10 Open points for the team
+
+1. **Organisers' cost overview** ("RM AirSeT and RM6 Product and Cost Overview"). Rerun `src.value_pricing` and `src.strategy` with the real extra cost, then update §9.2–9.3.
+2. **Margin give for lead customers (1 point):** agree it with the team. With BOM v1, 1 point opens Johor–Singapore only if AirSeT's extra cost is below 9.9 %; at the 10 % placeholder it takes 1.1 points.
+3. **Australian SF6 upkeep:** confirm whether any owner-side rule applies. If not, Australia colocation moves to the Johor–Singapore timeline (2028 at scale).
+4. **KPI targets:** set the order-share and reference-site targets with the client.
+5. **Problem 1 dependencies:** done. This report uses the corrected BOM (v1): P1 Steps 8–9, `src.value_pricing` and `src.strategy` were rerun. Thresholds moved by about 0.15 points; the raw-material triggers in §9.5 rose with the higher BOM costs (AirSeT €941, RM6 €931 per unit).
 
 ---
 
@@ -121,32 +281,19 @@ The client's chain: **RM forecast → BOM exposure → product-cost evolution �
 
 **The message for the jury:** the same engine that tells sales how to price a 9-month quote also tells strategy how much margin AirSeT can afford to give up. The forecast doesn't make AirSeT cheaper. It makes a sharper AirSeT price safe.
 
-## 10.2 Hypotheses: what we found
-
-| # | Hypothesis | Verdict | Evidence |
-|---|---|---|---|
-| H1 | Global data-centre operators apply one SF6-free standard worldwide | **Not supported** | 9 of 11 never mention SF6 (01 §7) |
-| H2 | Some non-EU markets will regulate SF6 soon | **Partly** | Bans only in the EU, Switzerland, California; phase-out in New York; rules short of a ban in the UK and Australia (01 §5) |
-| H3 | TCO favours AirSeT once the whole SF6 fill is valued | **Supported, at a ≈ 9 % premium, not 22 %** | Break-even €54/t on the whole fill vs €1,657/t on leaks (02 §4) |
-| H4 | The raw-material outlook narrows the cost gap | **Not supported** | Right direction (RM6 rises more in 59 % of paths) but €7 at P50: 0.3 % of the premium (02 §5, P1 Step 9) |
-| H5 | AirSeT can be priced closer to RM6 without losing margin | **Partly** | Yes in Australia colocation; elsewhere only once extra cost falls below 8–9 % (§9.1) |
-| H6 | The EU price convergence will repeat elsewhere | **Through volume, not raw materials** | EU convergence came from the ban (02 §5); UK expects 5–10 % premiums at scale (E166) |
-
-## 10.3 Problem 2 in the final presentation (8 slides)
+## 10.2 Problem 2 in the final presentation (8 slides)
 
 1. **The question:** voluntary switch, profitably. Today's 22 % premium against a customer saving of €31.
 2. **Raw materials aren't the reason:** RM6 €931 vs AirSeT €941; the forecast moves the gap by €7.
 3. **How customers count SF6 decides the price:** 0.4 % (leaks) → ≈ 9 % (whole fill) → ≈ 17 % (with upkeep).
 4. **Where to play:** Johor–Singapore, Australia, Gulf (scoring and stability, 01 §3).
 5. **Value proposition per segment** (03 §6).
-6. **Price window and margin investment:** the §9.1 table; the "profitable if extra cost below" column.
+6. **Price window and margin investment:** the §9.3 table; the "opens if AirSeT's extra cost <" column.
 7. **Roadmap, win conditions and triggers** (§9.2–9.5).
 8. **One engine, two outcomes:** the §10.1 chain, with the clause as the bridge.
 
-## 10.4 Limits
+Hypotheses: see §9.6. Limits: see §9.9.
 
-- **AirSeT's unit cost is unknown.** We show the threshold extra cost at which each segment works, not one answer.
-- **Synthetic, EU-only price data.** The AirSeT premium is proxied by Eaton (+22 %), and the willingness to pay (+20 %) comes from EU buyers (E173).
-- **Unknown BOM lines stay unpriced:** 56 kg of "Other" on AirSeT, 5.6 kg on RM6, plus plastics.
-- **External facts have ranges**, each with a source and date in `evidence.csv`. No customer interviews.
-- **The 2027 phase rests on one lead customer** (AirTrunk), approached through its public report only.
+---
+
+**AI use:** Claude helped write `src/strategy.py`, its tests and charts, and draft this report from the Step 1–8 reports. Every figure is computed by the code from the committed tables, or quoted from the earlier reports with its section.
