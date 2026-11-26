@@ -1,0 +1,60 @@
+# Checks every push and pull request, and publishes the forecast CSV as an artifact.
+#
+# What runs here: lint, every test that needs no confidential data (formulas, submission
+# format, pipeline order, story and strategy claims on the committed tables, Problem 2
+# market evidence), and the format check of the committed CSV.
+#
+# What cannot run here: the full pipeline (`make forecast`). It needs the challenge files
+# in Data/, which are confidential (Schneider).
+# Tests that need them skip themselves. The pipeline was checked locally to
+# rebuild a byte-identical CSV from a clean start (README, "Reproducibility").
+
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install the pinned packages (uv.lock)
+        run: uv sync --frozen
+
+      - name: Lint
+        run: uv run ruff check src tests
+
+      - name: Tests (those that need Data/ skip themselves)
+        run: uv run pytest tests/ -q -rs
+
+      - name: Check the forecast CSV against the submission format
+        run: uv run python -m src.submission --check-only
+
+      - name: Summary
+        run: |
+          {
+            echo "### Forecast CSV: valid"
+            echo
+            echo "| target_type | rows |"
+            echo "|---|---|"
+            tail -n +2 submissions/group_6_forecast_202609.csv | cut -d, -f2 | sort | uniq -c \
+              | awk '{print "| " $2 " | " $1 " |"}'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: group_6_forecast_202609
+          path: submissions/group_6_forecast_202609.csv
