@@ -33,8 +33,8 @@ def with_mass(bom, material, kg, source):
     return [(m, kg, source) if m == material else (m, k, src) for m, k, src in bom]
 
 ALL_CASES = CASES | {
-    "AirSeT epoxy low, nickel check": split_stainless(CASES["AirSeT epoxy low"]),
-    "AirSeT epoxy high, nickel check": split_stainless(CASES["AirSeT epoxy high"]),
+    "RM6, nickel check": split_stainless(CASES["RM6"]),
+    "AirSeT, nickel check": split_stainless(CASES["AirSeT"]),
     "RM6 copper 13.8 kg": with_mass(CASES["RM6"], "Copper", 13.8, "teardown (high)"),
     "RM6 copper 8.6 kg": with_mass(CASES["RM6"], "Copper", 8.6, "teardown (low)"),
 }
@@ -208,7 +208,7 @@ def block_sensitivity(residuals, marginals, panel, sigma, blocks=(1, 3, 6, 9), h
         ratios = scale_to_forecast(ratios_at(paths, h, sigma), marginals, h)
         row = {"block": b, "corr_D01_S09": raw.D01.corr(raw.S09, method="spearman"),
                "corr_D01_D02": raw.D01.corr(raw.D02, method="spearman")}
-        for case in ["RM6", "AirSeT epoxy low, nickel check"]:
+        for case in ["RM6", "AirSeT, nickel check"]:
             summary, _ = simulate_cost(ALL_CASES[case], panel, ratios, price=selling_price(case))
             row[f"{case} P90 pts"] = summary["total_at_risk_p90_pts"]
         rows.append(row)

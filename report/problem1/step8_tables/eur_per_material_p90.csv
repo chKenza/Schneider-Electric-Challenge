@@ -1,217 +1,241 @@
 case,steel,horizon_m,material,eur_at_p90
-RM6,PPI,3,Carbon steel FR,2.39
-RM6,PPI,3,Stainless steel,3.14
-RM6,PPI,3,Copper,44.87
-RM6,PPI,3,Galvanised steel,0.35
-RM6,PPI,3,Aluminium,1.24
-RM6,PPI,3,Epoxy,0.17
-AirSeT epoxy low,PPI,3,Carbon steel DE,17.93
-AirSeT epoxy low,PPI,3,Stainless steel,18.59
-AirSeT epoxy low,PPI,3,Aluminium,1.40
-AirSeT epoxy low,PPI,3,Epoxy,0.92
-AirSeT epoxy high,PPI,3,Carbon steel DE,18.10
-AirSeT epoxy high,PPI,3,Stainless steel,18.76
-AirSeT epoxy high,PPI,3,Aluminium,1.14
-AirSeT epoxy high,PPI,3,Epoxy,20.50
-"AirSeT epoxy low, nickel check",PPI,3,Carbon steel DE,14.82
-"AirSeT epoxy low, nickel check",PPI,3,Stainless base,2.82
-"AirSeT epoxy low, nickel check",PPI,3,Stainless alloy surcharge,37.94
-"AirSeT epoxy low, nickel check",PPI,3,Aluminium,0.90
-"AirSeT epoxy low, nickel check",PPI,3,Epoxy,0.59
-"AirSeT epoxy high, nickel check",PPI,3,Carbon steel DE,14.36
-"AirSeT epoxy high, nickel check",PPI,3,Stainless base,2.73
-"AirSeT epoxy high, nickel check",PPI,3,Stainless alloy surcharge,31.79
-"AirSeT epoxy high, nickel check",PPI,3,Aluminium,1.27
-"AirSeT epoxy high, nickel check",PPI,3,Epoxy,24.20
-RM6 copper 13.8 kg,PPI,3,Carbon steel FR,5.40
+RM6,PPI,3,Carbon steel FR,3.77
+RM6,PPI,3,Stainless steel,4.79
+RM6,PPI,3,Copper,41.57
+RM6,PPI,3,Galvanised steel,0.48
+RM6,PPI,3,Aluminium,1.23
+RM6,PPI,3,Epoxy,2.88
+RM6,PPI,3,Brass,2.73
+AirSeT,PPI,3,Carbon steel DE,13.20
+AirSeT,PPI,3,Stainless steel,9.56
+AirSeT,PPI,3,Copper,25.26
+AirSeT,PPI,3,Epoxy,2.77
+AirSeT,PPI,3,Aluminium,1.30
+"RM6, nickel check",PPI,3,Carbon steel FR,4.09
+"RM6, nickel check",PPI,3,Stainless base,0.95
+"RM6, nickel check",PPI,3,Stainless alloy surcharge,11.95
+"RM6, nickel check",PPI,3,Copper,48.76
+"RM6, nickel check",PPI,3,Galvanised steel,0.59
+"RM6, nickel check",PPI,3,Aluminium,1.28
+"RM6, nickel check",PPI,3,Epoxy,4.32
+"RM6, nickel check",PPI,3,Brass,3.21
+"AirSeT, nickel check",PPI,3,Carbon steel DE,9.71
+"AirSeT, nickel check",PPI,3,Stainless base,1.29
+"AirSeT, nickel check",PPI,3,Stainless alloy surcharge,21.99
+"AirSeT, nickel check",PPI,3,Copper,29.40
+"AirSeT, nickel check",PPI,3,Epoxy,2.84
+"AirSeT, nickel check",PPI,3,Aluminium,0.98
+RM6 copper 13.8 kg,PPI,3,Carbon steel FR,5.58
 RM6 copper 13.8 kg,PPI,3,Stainless steel,7.09
 RM6 copper 13.8 kg,PPI,3,Copper,12.25
 RM6 copper 13.8 kg,PPI,3,Galvanised steel,0.69
-RM6 copper 13.8 kg,PPI,3,Aluminium,1.33
-RM6 copper 13.8 kg,PPI,3,Epoxy,0.27
-RM6 copper 8.6 kg,PPI,3,Carbon steel FR,7.50
-RM6 copper 8.6 kg,PPI,3,Stainless steel,9.84
-RM6 copper 8.6 kg,PPI,3,Copper,3.34
-RM6 copper 8.6 kg,PPI,3,Galvanised steel,0.94
-RM6 copper 8.6 kg,PPI,3,Aluminium,1.25
-RM6 copper 8.6 kg,PPI,3,Epoxy,0.29
-RM6,market,3,Carbon steel FR,11.18
-RM6,market,3,Stainless steel,14.68
-RM6,market,3,Copper,34.86
-RM6,market,3,Galvanised steel,1.48
-RM6,market,3,Aluminium,1.24
-RM6,market,3,Epoxy,0.22
-AirSeT epoxy low,market,3,Carbon steel DE,37.38
-AirSeT epoxy low,market,3,Stainless steel,38.75
-AirSeT epoxy low,market,3,Aluminium,0.90
-AirSeT epoxy low,market,3,Epoxy,0.91
-AirSeT epoxy high,market,3,Carbon steel DE,37.00
-AirSeT epoxy high,market,3,Stainless steel,38.36
-AirSeT epoxy high,market,3,Aluminium,1.22
-AirSeT epoxy high,market,3,Epoxy,21.43
-"AirSeT epoxy low, nickel check",market,3,Carbon steel DE,33.17
-"AirSeT epoxy low, nickel check",market,3,Stainless base,6.30
-"AirSeT epoxy low, nickel check",market,3,Stainless alloy surcharge,33.51
-"AirSeT epoxy low, nickel check",market,3,Aluminium,1.24
-"AirSeT epoxy low, nickel check",market,3,Epoxy,0.81
-"AirSeT epoxy high, nickel check",market,3,Carbon steel DE,32.25
-"AirSeT epoxy high, nickel check",market,3,Stainless base,6.13
-"AirSeT epoxy high, nickel check",market,3,Stainless alloy surcharge,32.18
-"AirSeT epoxy high, nickel check",market,3,Aluminium,1.00
-"AirSeT epoxy high, nickel check",market,3,Epoxy,22.10
-RM6 copper 13.8 kg,market,3,Carbon steel FR,15.92
-RM6 copper 13.8 kg,market,3,Stainless steel,20.90
-RM6 copper 13.8 kg,market,3,Copper,4.92
-RM6 copper 13.8 kg,market,3,Galvanised steel,2.05
-RM6 copper 13.8 kg,market,3,Aluminium,1.18
-RM6 copper 13.8 kg,market,3,Epoxy,0.29
-RM6 copper 8.6 kg,market,3,Carbon steel FR,16.18
-RM6 copper 8.6 kg,market,3,Stainless steel,21.25
-RM6 copper 8.6 kg,market,3,Copper,2.36
-RM6 copper 8.6 kg,market,3,Galvanised steel,2.03
-RM6 copper 8.6 kg,market,3,Aluminium,1.34
-RM6 copper 8.6 kg,market,3,Epoxy,0.39
-RM6,PPI,6,Carbon steel FR,8.10
-RM6,PPI,6,Stainless steel,10.63
-RM6,PPI,6,Copper,79.96
-RM6,PPI,6,Galvanised steel,1.24
-RM6,PPI,6,Aluminium,2.12
-RM6,PPI,6,Epoxy,0.51
-AirSeT epoxy low,PPI,6,Carbon steel DE,33.51
-AirSeT epoxy low,PPI,6,Stainless steel,34.74
-AirSeT epoxy low,PPI,6,Aluminium,1.39
-AirSeT epoxy low,PPI,6,Epoxy,1.58
-AirSeT epoxy high,PPI,6,Carbon steel DE,31.34
-AirSeT epoxy high,PPI,6,Stainless steel,32.49
-AirSeT epoxy high,PPI,6,Aluminium,1.65
-AirSeT epoxy high,PPI,6,Epoxy,45.18
-"AirSeT epoxy low, nickel check",PPI,6,Carbon steel DE,22.66
-"AirSeT epoxy low, nickel check",PPI,6,Stainless base,4.31
-"AirSeT epoxy low, nickel check",PPI,6,Stainless alloy surcharge,60.16
-"AirSeT epoxy low, nickel check",PPI,6,Aluminium,1.77
-"AirSeT epoxy low, nickel check",PPI,6,Epoxy,1.27
-"AirSeT epoxy high, nickel check",PPI,6,Carbon steel DE,24.19
-"AirSeT epoxy high, nickel check",PPI,6,Stainless base,4.60
-"AirSeT epoxy high, nickel check",PPI,6,Stainless alloy surcharge,52.41
-"AirSeT epoxy high, nickel check",PPI,6,Aluminium,2.23
-"AirSeT epoxy high, nickel check",PPI,6,Epoxy,41.08
-RM6 copper 13.8 kg,PPI,6,Carbon steel FR,12.19
-RM6 copper 13.8 kg,PPI,6,Stainless steel,16.00
-RM6 copper 13.8 kg,PPI,6,Copper,21.75
-RM6 copper 13.8 kg,PPI,6,Galvanised steel,1.84
-RM6 copper 13.8 kg,PPI,6,Aluminium,2.10
-RM6 copper 13.8 kg,PPI,6,Epoxy,0.67
-RM6 copper 8.6 kg,PPI,6,Carbon steel FR,13.59
-RM6 copper 8.6 kg,PPI,6,Stainless steel,17.84
-RM6 copper 8.6 kg,PPI,6,Copper,10.93
-RM6 copper 8.6 kg,PPI,6,Galvanised steel,2.03
-RM6 copper 8.6 kg,PPI,6,Aluminium,1.95
-RM6 copper 8.6 kg,PPI,6,Epoxy,0.70
-RM6,market,6,Carbon steel FR,17.89
-RM6,market,6,Stainless steel,23.49
-RM6,market,6,Copper,72.58
-RM6,market,6,Galvanised steel,2.82
-RM6,market,6,Aluminium,2.15
-RM6,market,6,Epoxy,0.60
-AirSeT epoxy low,market,6,Carbon steel DE,59.56
-AirSeT epoxy low,market,6,Stainless steel,61.76
-AirSeT epoxy low,market,6,Aluminium,1.33
-AirSeT epoxy low,market,6,Epoxy,1.52
-AirSeT epoxy high,market,6,Carbon steel DE,57.57
-AirSeT epoxy high,market,6,Stainless steel,59.69
-AirSeT epoxy high,market,6,Aluminium,1.58
-AirSeT epoxy high,market,6,Epoxy,41.90
-"AirSeT epoxy low, nickel check",market,6,Carbon steel DE,48.46
-"AirSeT epoxy low, nickel check",market,6,Stainless base,9.21
-"AirSeT epoxy low, nickel check",market,6,Stainless alloy surcharge,53.00
-"AirSeT epoxy low, nickel check",market,6,Aluminium,1.79
-"AirSeT epoxy low, nickel check",market,6,Epoxy,1.35
-"AirSeT epoxy high, nickel check",market,6,Carbon steel DE,46.78
-"AirSeT epoxy high, nickel check",market,6,Stainless base,8.89
-"AirSeT epoxy high, nickel check",market,6,Stainless alloy surcharge,49.87
-"AirSeT epoxy high, nickel check",market,6,Aluminium,2.08
-"AirSeT epoxy high, nickel check",market,6,Epoxy,39.71
-RM6 copper 13.8 kg,market,6,Carbon steel FR,24.49
-RM6 copper 13.8 kg,market,6,Stainless steel,32.15
-RM6 copper 13.8 kg,market,6,Copper,16.82
-RM6 copper 13.8 kg,market,6,Galvanised steel,3.78
-RM6 copper 13.8 kg,market,6,Aluminium,1.91
-RM6 copper 13.8 kg,market,6,Epoxy,0.70
-RM6 copper 8.6 kg,market,6,Carbon steel FR,25.17
-RM6 copper 8.6 kg,market,6,Stainless steel,33.05
-RM6 copper 8.6 kg,market,6,Copper,9.30
-RM6 copper 8.6 kg,market,6,Galvanised steel,3.83
-RM6 copper 8.6 kg,market,6,Aluminium,1.72
-RM6 copper 8.6 kg,market,6,Epoxy,0.71
-RM6,PPI,9,Carbon steel FR,9.14
-RM6,PPI,9,Stainless steel,12.00
-RM6,PPI,9,Copper,126.24
-RM6,PPI,9,Galvanised steel,1.37
-RM6,PPI,9,Aluminium,3.35
-RM6,PPI,9,Epoxy,0.56
-AirSeT epoxy low,PPI,9,Carbon steel DE,43.66
-AirSeT epoxy low,PPI,9,Stainless steel,45.27
-AirSeT epoxy low,PPI,9,Aluminium,2.33
-AirSeT epoxy low,PPI,9,Epoxy,2.04
-AirSeT epoxy high,PPI,9,Carbon steel DE,40.33
-AirSeT epoxy high,PPI,9,Stainless steel,41.81
-AirSeT epoxy high,PPI,9,Aluminium,2.85
-AirSeT epoxy high,PPI,9,Epoxy,57.36
-"AirSeT epoxy low, nickel check",PPI,9,Carbon steel DE,31.47
-"AirSeT epoxy low, nickel check",PPI,9,Stainless base,5.98
-"AirSeT epoxy low, nickel check",PPI,9,Stainless alloy surcharge,65.72
-"AirSeT epoxy low, nickel check",PPI,9,Aluminium,2.87
-"AirSeT epoxy low, nickel check",PPI,9,Epoxy,1.62
-"AirSeT epoxy high, nickel check",PPI,9,Carbon steel DE,34.61
-"AirSeT epoxy high, nickel check",PPI,9,Stainless base,6.58
-"AirSeT epoxy high, nickel check",PPI,9,Stainless alloy surcharge,53.74
-"AirSeT epoxy high, nickel check",PPI,9,Aluminium,3.15
-"AirSeT epoxy high, nickel check",PPI,9,Epoxy,53.69
-RM6 copper 13.8 kg,PPI,9,Carbon steel FR,15.48
-RM6 copper 13.8 kg,PPI,9,Stainless steel,20.32
-RM6 copper 13.8 kg,PPI,9,Copper,34.95
-RM6 copper 13.8 kg,PPI,9,Galvanised steel,2.25
-RM6 copper 13.8 kg,PPI,9,Aluminium,3.45
-RM6 copper 13.8 kg,PPI,9,Epoxy,0.80
-RM6 copper 8.6 kg,PPI,9,Carbon steel FR,17.20
-RM6 copper 8.6 kg,PPI,9,Stainless steel,22.59
-RM6 copper 8.6 kg,PPI,9,Copper,18.61
-RM6 copper 8.6 kg,PPI,9,Galvanised steel,2.49
-RM6 copper 8.6 kg,PPI,9,Aluminium,3.33
-RM6 copper 8.6 kg,PPI,9,Epoxy,0.83
-RM6,market,9,Carbon steel FR,18.42
-RM6,market,9,Stainless steel,24.18
-RM6,market,9,Copper,117.88
-RM6,market,9,Galvanised steel,2.78
-RM6,market,9,Aluminium,3.51
-RM6,market,9,Epoxy,0.68
-AirSeT epoxy low,market,9,Carbon steel DE,69.27
-AirSeT epoxy low,market,9,Stainless steel,71.82
-AirSeT epoxy low,market,9,Aluminium,2.27
-AirSeT epoxy low,market,9,Epoxy,1.99
-AirSeT epoxy high,market,9,Carbon steel DE,66.67
-AirSeT epoxy high,market,9,Stainless steel,69.13
-AirSeT epoxy high,market,9,Aluminium,2.79
-AirSeT epoxy high,market,9,Epoxy,53.01
-"AirSeT epoxy low, nickel check",market,9,Carbon steel DE,57.78
-"AirSeT epoxy low, nickel check",market,9,Stainless base,10.98
-"AirSeT epoxy low, nickel check",market,9,Stainless alloy surcharge,57.92
-"AirSeT epoxy low, nickel check",market,9,Aluminium,2.92
-"AirSeT epoxy low, nickel check",market,9,Epoxy,1.81
-"AirSeT epoxy high, nickel check",market,9,Carbon steel DE,59.78
-"AirSeT epoxy high, nickel check",market,9,Stainless base,11.36
-"AirSeT epoxy high, nickel check",market,9,Stainless alloy surcharge,47.96
-"AirSeT epoxy high, nickel check",market,9,Aluminium,3.16
-"AirSeT epoxy high, nickel check",market,9,Epoxy,54.59
-RM6 copper 13.8 kg,market,9,Carbon steel FR,27.36
-RM6 copper 13.8 kg,market,9,Stainless steel,35.92
-RM6 copper 13.8 kg,market,9,Copper,29.62
-RM6 copper 13.8 kg,market,9,Galvanised steel,4.05
-RM6 copper 13.8 kg,market,9,Aluminium,3.25
-RM6 copper 13.8 kg,market,9,Epoxy,0.83
-RM6 copper 8.6 kg,market,9,Carbon steel FR,28.82
-RM6 copper 8.6 kg,market,9,Stainless steel,37.84
-RM6 copper 8.6 kg,market,9,Copper,15.92
-RM6 copper 8.6 kg,market,9,Galvanised steel,4.25
-RM6 copper 8.6 kg,market,9,Aluminium,2.92
-RM6 copper 8.6 kg,market,9,Epoxy,0.84
+RM6 copper 13.8 kg,PPI,3,Aluminium,1.32
+RM6 copper 13.8 kg,PPI,3,Epoxy,3.77
+RM6 copper 13.8 kg,PPI,3,Brass,2.26
+RM6 copper 8.6 kg,PPI,3,Carbon steel FR,6.77
+RM6 copper 8.6 kg,PPI,3,Stainless steel,8.59
+RM6 copper 8.6 kg,PPI,3,Copper,5.14
+RM6 copper 8.6 kg,PPI,3,Galvanised steel,0.84
+RM6 copper 8.6 kg,PPI,3,Aluminium,1.06
+RM6 copper 8.6 kg,PPI,3,Epoxy,5.30
+RM6 copper 8.6 kg,PPI,3,Brass,1.52
+RM6,market,3,Carbon steel FR,11.50
+RM6,market,3,Stainless steel,14.60
+RM6,market,3,Copper,34.40
+RM6,market,3,Galvanised steel,1.43
+RM6,market,3,Aluminium,1.32
+RM6,market,3,Epoxy,3.77
+RM6,market,3,Brass,2.26
+AirSeT,market,3,Carbon steel DE,38.93
+AirSeT,market,3,Stainless steel,28.20
+AirSeT,market,3,Copper,10.14
+AirSeT,market,3,Epoxy,2.96
+AirSeT,market,3,Aluminium,1.15
+"RM6, nickel check",market,3,Carbon steel FR,6.44
+"RM6, nickel check",market,3,Stainless base,1.50
+"RM6, nickel check",market,3,Stainless alloy surcharge,11.77
+"RM6, nickel check",market,3,Copper,50.57
+"RM6, nickel check",market,3,Galvanised steel,0.86
+"RM6, nickel check",market,3,Aluminium,1.36
+"RM6, nickel check",market,3,Epoxy,4.07
+"RM6, nickel check",market,3,Brass,3.33
+"AirSeT, nickel check",market,3,Carbon steel DE,33.80
+"AirSeT, nickel check",market,3,Stainless base,4.49
+"AirSeT, nickel check",market,3,Stainless alloy surcharge,16.55
+"AirSeT, nickel check",market,3,Copper,26.23
+"AirSeT, nickel check",market,3,Epoxy,3.68
+"AirSeT, nickel check",market,3,Aluminium,1.11
+RM6 copper 13.8 kg,market,3,Carbon steel FR,16.91
+RM6 copper 13.8 kg,market,3,Stainless steel,21.46
+RM6 copper 13.8 kg,market,3,Copper,3.64
+RM6 copper 13.8 kg,market,3,Galvanised steel,2.10
+RM6 copper 13.8 kg,market,3,Aluminium,1.24
+RM6 copper 13.8 kg,market,3,Epoxy,4.79
+RM6 copper 13.8 kg,market,3,Brass,0.67
+RM6 copper 8.6 kg,market,3,Carbon steel FR,16.91
+RM6 copper 8.6 kg,market,3,Stainless steel,21.46
+RM6 copper 8.6 kg,market,3,Copper,2.27
+RM6 copper 8.6 kg,market,3,Galvanised steel,2.10
+RM6 copper 8.6 kg,market,3,Aluminium,1.24
+RM6 copper 8.6 kg,market,3,Epoxy,4.79
+RM6 copper 8.6 kg,market,3,Brass,0.67
+RM6,PPI,6,Carbon steel FR,9.00
+RM6,PPI,6,Stainless steel,11.43
+RM6,PPI,6,Copper,77.80
+RM6,PPI,6,Galvanised steel,1.34
+RM6,PPI,6,Aluminium,2.10
+RM6,PPI,6,Epoxy,8.17
+RM6,PPI,6,Brass,5.12
+AirSeT,PPI,6,Carbon steel DE,28.38
+AirSeT,PPI,6,Stainless steel,20.56
+AirSeT,PPI,6,Copper,47.62
+AirSeT,PPI,6,Epoxy,7.02
+AirSeT,PPI,6,Aluminium,2.09
+"RM6, nickel check",PPI,6,Carbon steel FR,8.28
+"RM6, nickel check",PPI,6,Stainless base,1.93
+"RM6, nickel check",PPI,6,Stainless alloy surcharge,23.25
+"RM6, nickel check",PPI,6,Copper,77.01
+"RM6, nickel check",PPI,6,Galvanised steel,1.25
+"RM6, nickel check",PPI,6,Aluminium,2.11
+"RM6, nickel check",PPI,6,Epoxy,7.39
+"RM6, nickel check",PPI,6,Brass,5.06
+"AirSeT, nickel check",PPI,6,Carbon steel DE,23.20
+"AirSeT, nickel check",PPI,6,Stainless base,3.08
+"AirSeT, nickel check",PPI,6,Stainless alloy surcharge,35.39
+"AirSeT, nickel check",PPI,6,Copper,49.93
+"AirSeT, nickel check",PPI,6,Epoxy,6.30
+"AirSeT, nickel check",PPI,6,Aluminium,2.24
+RM6 copper 13.8 kg,PPI,6,Carbon steel FR,12.37
+RM6 copper 13.8 kg,PPI,6,Stainless steel,15.70
+RM6 copper 13.8 kg,PPI,6,Copper,21.95
+RM6 copper 13.8 kg,PPI,6,Galvanised steel,1.79
+RM6 copper 13.8 kg,PPI,6,Aluminium,2.11
+RM6 copper 13.8 kg,PPI,6,Epoxy,10.20
+RM6 copper 13.8 kg,PPI,6,Brass,4.05
+RM6 copper 8.6 kg,PPI,6,Carbon steel FR,13.61
+RM6 copper 8.6 kg,PPI,6,Stainless steel,17.28
+RM6 copper 8.6 kg,PPI,6,Copper,11.47
+RM6 copper 8.6 kg,PPI,6,Galvanised steel,1.96
+RM6 copper 8.6 kg,PPI,6,Aluminium,2.03
+RM6 copper 8.6 kg,PPI,6,Epoxy,10.66
+RM6 copper 8.6 kg,PPI,6,Brass,3.40
+RM6,market,6,Carbon steel FR,18.83
+RM6,market,6,Stainless steel,23.91
+RM6,market,6,Copper,71.57
+RM6,market,6,Galvanised steel,2.87
+RM6,market,6,Aluminium,2.13
+RM6,market,6,Epoxy,9.02
+RM6,market,6,Brass,4.71
+AirSeT,market,6,Carbon steel DE,59.11
+AirSeT,market,6,Stainless steel,42.82
+AirSeT,market,6,Copper,35.91
+AirSeT,market,6,Epoxy,7.47
+AirSeT,market,6,Aluminium,1.87
+"RM6, nickel check",market,6,Carbon steel FR,16.46
+"RM6, nickel check",market,6,Stainless base,3.83
+"RM6, nickel check",market,6,Stainless alloy surcharge,21.99
+"RM6, nickel check",market,6,Copper,75.55
+"RM6, nickel check",market,6,Galvanised steel,2.54
+"RM6, nickel check",market,6,Aluminium,2.20
+"RM6, nickel check",market,6,Epoxy,8.13
+"RM6, nickel check",market,6,Brass,4.97
+"AirSeT, nickel check",market,6,Carbon steel DE,47.37
+"AirSeT, nickel check",market,6,Stainless base,6.29
+"AirSeT, nickel check",market,6,Stainless alloy surcharge,32.85
+"AirSeT, nickel check",market,6,Copper,46.68
+"AirSeT, nickel check",market,6,Epoxy,6.79
+"AirSeT, nickel check",market,6,Aluminium,2.19
+RM6 copper 13.8 kg,market,6,Carbon steel FR,25.07
+RM6 copper 13.8 kg,market,6,Stainless steel,31.82
+RM6 copper 13.8 kg,market,6,Copper,17.23
+RM6 copper 13.8 kg,market,6,Galvanised steel,3.74
+RM6 copper 13.8 kg,market,6,Aluminium,1.87
+RM6 copper 13.8 kg,market,6,Epoxy,10.32
+RM6 copper 13.8 kg,market,6,Brass,3.18
+RM6 copper 8.6 kg,market,6,Carbon steel FR,25.62
+RM6 copper 8.6 kg,market,6,Stainless steel,32.52
+RM6 copper 8.6 kg,market,6,Copper,9.86
+RM6 copper 8.6 kg,market,6,Galvanised steel,3.80
+RM6 copper 8.6 kg,market,6,Aluminium,1.76
+RM6 copper 8.6 kg,market,6,Epoxy,10.41
+RM6 copper 8.6 kg,market,6,Brass,2.92
+RM6,PPI,9,Carbon steel FR,10.44
+RM6,PPI,9,Stainless steel,13.25
+RM6,PPI,9,Copper,123.33
+RM6,PPI,9,Galvanised steel,1.51
+RM6,PPI,9,Aluminium,3.33
+RM6,PPI,9,Epoxy,8.75
+RM6,PPI,9,Brass,8.11
+AirSeT,PPI,9,Carbon steel DE,36.32
+AirSeT,PPI,9,Stainless steel,26.31
+AirSeT,PPI,9,Copper,74.96
+AirSeT,PPI,9,Epoxy,8.39
+AirSeT,PPI,9,Aluminium,3.38
+"RM6, nickel check",PPI,9,Carbon steel FR,10.11
+"RM6, nickel check",PPI,9,Stainless base,2.35
+"RM6, nickel check",PPI,9,Stainless alloy surcharge,26.10
+"RM6, nickel check",PPI,9,Copper,122.09
+"RM6, nickel check",PPI,9,Galvanised steel,1.49
+"RM6, nickel check",PPI,9,Aluminium,3.35
+"RM6, nickel check",PPI,9,Epoxy,8.68
+"RM6, nickel check",PPI,9,Brass,8.03
+"AirSeT, nickel check",PPI,9,Carbon steel DE,30.40
+"AirSeT, nickel check",PPI,9,Stainless base,4.04
+"AirSeT, nickel check",PPI,9,Stainless alloy surcharge,40.39
+"AirSeT, nickel check",PPI,9,Copper,80.11
+"AirSeT, nickel check",PPI,9,Epoxy,7.70
+"AirSeT, nickel check",PPI,9,Aluminium,3.43
+RM6 copper 13.8 kg,PPI,9,Carbon steel FR,15.86
+RM6 copper 13.8 kg,PPI,9,Stainless steel,20.13
+RM6 copper 13.8 kg,PPI,9,Copper,35.04
+RM6 copper 13.8 kg,PPI,9,Galvanised steel,2.23
+RM6 copper 13.8 kg,PPI,9,Aluminium,3.41
+RM6 copper 13.8 kg,PPI,9,Epoxy,11.96
+RM6 copper 13.8 kg,PPI,9,Brass,6.47
+RM6 copper 8.6 kg,PPI,9,Carbon steel FR,17.43
+RM6 copper 8.6 kg,PPI,9,Stainless steel,22.13
+RM6 copper 8.6 kg,PPI,9,Copper,19.09
+RM6 copper 8.6 kg,PPI,9,Galvanised steel,2.43
+RM6 copper 8.6 kg,PPI,9,Aluminium,3.24
+RM6 copper 8.6 kg,PPI,9,Epoxy,12.68
+RM6 copper 8.6 kg,PPI,9,Brass,5.66
+RM6,market,9,Carbon steel FR,19.84
+RM6,market,9,Stainless steel,25.19
+RM6,market,9,Copper,115.80
+RM6,market,9,Galvanised steel,2.89
+RM6,market,9,Aluminium,3.43
+RM6,market,9,Epoxy,10.02
+RM6,market,9,Brass,7.61
+AirSeT,market,9,Carbon steel DE,65.53
+AirSeT,market,9,Stainless steel,47.47
+AirSeT,market,9,Copper,63.63
+AirSeT,market,9,Epoxy,8.76
+AirSeT,market,9,Aluminium,3.15
+"RM6, nickel check",market,9,Carbon steel FR,17.20
+"RM6, nickel check",market,9,Stainless base,4.00
+"RM6, nickel check",market,9,Stainless alloy surcharge,26.70
+"RM6, nickel check",market,9,Copper,119.56
+"RM6, nickel check",market,9,Galvanised steel,2.56
+"RM6, nickel check",market,9,Aluminium,3.43
+"RM6, nickel check",market,9,Epoxy,9.28
+"RM6, nickel check",market,9,Brass,7.86
+"AirSeT, nickel check",market,9,Carbon steel DE,54.57
+"AirSeT, nickel check",market,9,Stainless base,7.25
+"AirSeT, nickel check",market,9,Stainless alloy surcharge,39.81
+"AirSeT, nickel check",market,9,Copper,74.34
+"AirSeT, nickel check",market,9,Epoxy,8.04
+"AirSeT, nickel check",market,9,Aluminium,3.42
+RM6 copper 13.8 kg,market,9,Carbon steel FR,27.75
+RM6 copper 13.8 kg,market,9,Stainless steel,35.23
+RM6 copper 13.8 kg,market,9,Copper,30.38
+RM6 copper 13.8 kg,market,9,Galvanised steel,3.97
+RM6 copper 13.8 kg,market,9,Aluminium,3.23
+RM6 copper 13.8 kg,market,9,Epoxy,12.57
+RM6 copper 13.8 kg,market,9,Brass,5.61
+RM6 copper 8.6 kg,market,9,Carbon steel FR,29.08
+RM6 copper 8.6 kg,market,9,Stainless steel,36.91
+RM6 copper 8.6 kg,market,9,Copper,16.94
+RM6 copper 8.6 kg,market,9,Galvanised steel,4.15
+RM6 copper 8.6 kg,market,9,Aluminium,3.05
+RM6 copper 8.6 kg,market,9,Epoxy,12.74
+RM6 copper 8.6 kg,market,9,Brass,5.02

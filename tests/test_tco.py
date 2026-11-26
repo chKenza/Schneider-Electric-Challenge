@@ -76,7 +76,7 @@ needs_data = pytest.mark.skipif(not (tco.PROCESSED / "cost_breakdown.csv").exist
 @needs_data
 def test_copper_scenarios_sign(p2):
     c = tco.copper_scenarios(p2)
-    bom = c[(c.rm6_copper.str.contains("BOM")) & (c.airset_copper.str.contains("no copper"))].iloc[0]
+    bom = c[(c.rm6_copper.str.contains("BOM")) & (c.airset_copper.str.contains("BOM v1"))].iloc[0]
     assert bom.net_copper_eur > 0 and bom.copper_rise_to_close_premium_pct > 100
     worst = c[(c.rm6_copper.str.contains("teardown")) & (c.airset_copper.str.contains("Xiria"))].iloc[0]
     assert worst.net_copper_eur < 0                   # copper rally would widen the gap
@@ -87,7 +87,7 @@ def test_gap_history_matches_today(p2):
     h = tco.gap_history()
     today = tco.rm_cost_today()
     assert h["RM6"].iloc[-1] == pytest.approx(today["RM6"])
-    assert h["gap_low"].iloc[-1] == pytest.approx(today["RM6"] - today["AirSeT epoxy low"])
+    assert h["gap"].iloc[-1] == pytest.approx(today["RM6"] - today["AirSeT"])
 
 
 def test_gap_outlook_reads_problem1(p2):

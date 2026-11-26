@@ -17,8 +17,8 @@ from src import cost_model as cm
 def all_cases() -> dict:
     """The Step 2 cases, including the two nickel-check variants built in cost_model.main()."""
     return cm.CASES | {
-        "AirSeT epoxy low, nickel check": cm.split_stainless(cm.CASES["AirSeT epoxy low"]),
-        "AirSeT epoxy high, nickel check": cm.split_stainless(cm.CASES["AirSeT epoxy high"]),
+        "RM6, nickel check": cm.split_stainless(cm.CASES["RM6"]),
+        "AirSeT, nickel check": cm.split_stainless(cm.CASES["AirSeT"]),
     }
 
 

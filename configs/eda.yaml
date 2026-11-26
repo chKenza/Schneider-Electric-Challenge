@@ -33,8 +33,8 @@ stress_window: ["2021-01", "2022-12"]
 business:
   origin: "2026-09"
   # Cases of the Step 2 model used here (src/cost_model.py CASES + nickel checks).
-  cases: ["RM6", "AirSeT epoxy low", "AirSeT epoxy high"]
-  nickel_check_cases: ["AirSeT epoxy low, nickel check", "AirSeT epoxy high, nickel check"]
+  cases: ["RM6", "AirSeT"]
+  nickel_check_cases: ["RM6, nickel check", "AirSeT, nickel check"]
   # Total unit cost at the origin, used to add a constant non-raw-material cost.
   # RM6: teardown should-cost. AirSeT: ASSUMPTION, RM6 + 20 % ("higher cost structure").
   total_unit_cost:
