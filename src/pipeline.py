@@ -15,17 +15,20 @@ Each stage is the documented command of its step, run as its own process (the sa
     features       Step 4   feature tables + poisoned-future leakage test
     baselines      Step 5   naive baselines; the random walk is the reference for Step 6
     models         Step 6   base models, conformal calibration, combination, Step 8 inputs
-    submission     Step 12  submissions/group_6_forecast_202609.csv, validated
+    cost_model     Step 2   raw-material cost of one unit per product (client BOM v1)
+    simulation     Step 8   10,000 joint price paths -> BOM cost index P10 / P50 / P90
+    submission     Step 12  submissions/group_6_forecast_202609.csv (material + BOM rows), validated
 
 Not re-run, because their committed outputs are what the next steps read:
     - src.feature_selection (Step 4): report/problem1/step4_tables/selected_features.csv
     - src.models --stage holdout (Step 6): the hold-out was frozen and opened once
-Evaluation (Step 7: src.evaluation) is a report, not an input to the CSV.
+Evaluation (Step 7: src.evaluation) and pricing (Step 9: src.pricing) are reports, not
+inputs to the CSV. The simulation also rewrites its Step 8 report tables and charts.
 
 Inputs needed from a clean clone: the challenge files in Data/ (not committed: Schneider
 data is confidential and MEPS/CRU are licensed) and internet access for external_data.
-Every model is deterministic or seeded (models.SETTINGS["seed"]), so the same inputs give
-the same CSV.
+Every model is deterministic or seeded (models.SETTINGS["seed"]; the Step 8 bootstrap uses
+seed 42), so the same inputs give the same CSV.
 
 Chronos is a candidate model that the final combination does not use, so the CSV is the
 same with or without it (checked from a clean start: byte-identical). Without the extra,
@@ -49,6 +52,8 @@ STAGES: list[tuple[str, str, list[str]]] = [
     ("features", "Step 4", ["src.features"]),
     ("baselines", "Step 5", ["src.baselines"]),
     ("models", "Step 6", ["src.models"]),
+    ("cost_model", "Step 2", ["src.cost_model"]),
+    ("simulation", "Step 8", ["src.simulation"]),
     ("submission", "Step 12", ["src.submission"]),
 ]
 NAMES = [s[0] for s in STAGES]

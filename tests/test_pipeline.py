@@ -20,7 +20,9 @@ def test_stages_run_in_dependency_order():
         "features": ["data_prep", "external_data"],
         "baselines": ["data_prep"],
         "models": ["features", "baselines"],  # the combination is scored against the random walk
-        "submission": ["models"],
+        "cost_model": ["data_prep"],
+        "simulation": ["models", "cost_model"],  # Step 6 marginals + residuals, Step 2 recipe
+        "submission": ["models", "simulation"],  # material rows + BOM index rows
     }
     for stage, before in needs.items():
         assert all(order[b] < order[stage] for b in before), stage

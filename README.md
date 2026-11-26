@@ -32,9 +32,9 @@ Requirements: Python 3.12 and [uv](https://docs.astral.sh/uv/).
 
 2. **One command from the raw data to the forecast CSV** (about 5 minutes; the first run needs internet to download the free external data, then it is cached):
    ```bash
-   uv run python -m src.pipeline
+   uv run python -m src.pipeline   # or: make forecast
    ```
-   It runs data preparation → external data → features → baselines → models → CSV, then validates the CSV against the submission format. `--list` prints the stages; `--from models` resumes from a stage.
+   It runs data preparation → external data → features → baselines → models → cost model → joint simulation → CSV, then validates the CSV against the submission format. `--list` prints the stages; `--from models` resumes from a stage. `make help` lists the other shortcuts (`make check`, `make test`, `make app`).
 3. **Tests** (leakage and format checks; the leakage tests re-run every model, so this takes 10–15 minutes):
    ```bash
    uv run pytest tests/

@@ -48,7 +48,7 @@ The other data (energy, supply-chain and policy indices, carbon price, EIA forec
 One command goes from the raw data to the forecast CSV (about 5 minutes on a laptop):
 
 ```bash
-uv run python -m src.pipeline
+uv run python -m src.pipeline   # or: make forecast
 ```
 
 It runs these stages in order, printing the time of each, and stops at the first one that fails:
@@ -60,7 +60,9 @@ It runs these stages in order, printing the time of each, and stops at the first
 | `features` | Builds the model features and checks none uses future data | `Data/processed/features/` |
 | `baselines` | Naive forecasts; the random walk is the reference every model must beat | `Data/processed/`, `report/problem1/step5_tables/` |
 | `models` | Fits every forecasting model, calibrates and combines them | `Data/processed/models/`, `report/problem1/step6_tables/` |
-| `submission` | Builds the forecast CSV and checks it against the submission format | `submissions/group_6_forecast_202609.csv` |
+| `cost_model` | Raw-material cost of one RM6 and one RM AirSeT, from the client's bill of materials | `Data/processed/` |
+| `simulation` | 10,000 joint price paths matching the forecasts → cost index P10 / P50 / P90 per product | `Data/processed/`, `report/problem1/step8_tables/`, `plots/step8/` |
+| `submission` | Builds the forecast CSV (material and BOM index rows) and checks it against the submission format | `submissions/group_6_forecast_202609.csv` |
 
 Useful options:
 
@@ -69,6 +71,8 @@ uv run python -m src.pipeline --list          # show the stages
 uv run python -m src.pipeline --from models   # resume from a stage (earlier outputs must exist)
 uv run python -m src.submission --check-only  # re-check the CSV without rebuilding it
 ```
+
+**Shortcuts:** if `make` is installed, `make help` lists them: `make forecast` (the full pipeline), `make csv` (rebuild the CSV from the saved model outputs), `make check`, `make test`, `make test-fast`, `make app`.
 
 ## 5. Run individual steps
 
@@ -82,6 +86,9 @@ uv run python -m src.features         # Step 4: feature tables
 uv run python -m src.baselines        # Step 5: baselines
 uv run python -m src.models           # Step 6: models (see --help for one model, target or horizon)
 uv run python -m src.evaluation       # Step 7: evaluation tables and charts (after Step 6)
+uv run python -m src.simulation       # Step 8: joint simulation, BOM cost index (after Step 6)
+uv run python -m src.pricing          # Step 9: quote rule and strategy comparison (after Step 8)
+uv run python -m src.submission       # Step 12: the forecast CSV (after Steps 6 and 8)
 ```
 
 The notebooks in `analysis/` display the tables and charts of each step.
