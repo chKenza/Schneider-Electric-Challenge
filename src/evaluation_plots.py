@@ -130,8 +130,8 @@ def bom_skill(bj: pd.DataFrame, name: str = "05_bom_skill"):
     """BOM cost index forecast directly: pinball skill of the final model's recipe vs the
     random walk, with 95 % CI, per product, horizon and window."""
     d = bj[bj["model"] == FINAL_MODEL]
-    products = ["RM6", "AirSeT epoxy low", "AirSeT epoxy high"]
-    fig, axes = plt.subplots(1, 3, figsize=(12.5, 3.9), sharey=True)
+    products = ["RM6", "AirSeT"]
+    fig, axes = plt.subplots(1, len(products), figsize=(12.5, 3.9), sharey=True)
     for ax, prod in zip(axes, products):
         for k, (w, color) in enumerate([("backtest", MUTED), ("holdout", BLUE)]):
             g = d[(d["product"] == prod) & (d["window"] == w)].set_index("horizon").reindex([3, 6, 9])

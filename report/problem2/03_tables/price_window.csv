@@ -1,21 +1,21 @@
 segment,carbon_view,carbon_price_eur_t,extra_cost_pct,floor_pct,ceiling_pct,window_open,recommendation
-Johor-Singapore data centres,whole_fill,22.0,0,-0.13,8.93,True,TCO-based price: premium 0.0-8.9 %
-Johor-Singapore data centres,whole_fill,22.0,5,4.87,8.93,True,TCO-based price: premium 4.9-8.9 %
-Johor-Singapore data centres,whole_fill,22.0,10,9.87,8.93,False,no price works on cost alone: 0.9 pts short -> bundle / volume / ESG
-Johor-Singapore data centres,whole_fill,22.0,15,14.87,8.93,False,no price works on cost alone: 5.9 pts short -> bundle / volume / ESG
-Johor-Singapore data centres,whole_fill,22.0,20,19.87,8.93,False,no price works on cost alone: 10.9 pts short -> bundle / volume / ESG
-Gulf data centres,lifecycle,22.0,0,-0.13,0.35,True,TCO-based price: premium 0.0-0.4 %
-Gulf data centres,lifecycle,22.0,5,4.87,0.35,False,no price works on cost alone: 4.5 pts short -> bundle / volume / ESG
-Gulf data centres,lifecycle,22.0,10,9.87,0.35,False,no price works on cost alone: 9.5 pts short -> bundle / volume / ESG
-Gulf data centres,lifecycle,22.0,15,14.87,0.35,False,no price works on cost alone: 14.5 pts short -> bundle / volume / ESG
-Gulf data centres,lifecycle,22.0,20,19.87,0.35,False,no price works on cost alone: 19.5 pts short -> bundle / volume / ESG
-Australia colocation,whole_fill,22.0,0,-0.13,16.56,True,TCO-based price: premium 0.0-16.6 %
-Australia colocation,whole_fill,22.0,5,4.87,16.56,True,TCO-based price: premium 4.9-16.6 %
-Australia colocation,whole_fill,22.0,10,9.87,16.56,True,TCO-based price: premium 9.9-16.6 %
-Australia colocation,whole_fill,22.0,15,14.87,16.56,True,TCO-based price: premium 14.9-16.6 %
-Australia colocation,whole_fill,22.0,20,19.87,16.56,False,no price works on cost alone: 3.3 pts short -> bundle / volume / ESG
-Australia utilities,lifecycle,22.0,0,-0.13,7.98,True,TCO-based price: premium 0.0-8.0 %
-Australia utilities,lifecycle,22.0,5,4.87,7.98,True,TCO-based price: premium 4.9-8.0 %
-Australia utilities,lifecycle,22.0,10,9.87,7.98,False,no price works on cost alone: 1.9 pts short -> bundle / volume / ESG
-Australia utilities,lifecycle,22.0,15,14.87,7.98,False,no price works on cost alone: 6.9 pts short -> bundle / volume / ESG
-Australia utilities,lifecycle,22.0,20,19.87,7.98,False,no price works on cost alone: 11.9 pts short -> bundle / volume / ESG
+Johor-Singapore data centres,whole_fill,22.0,0,0.03,8.93,True,TCO-based price: premium 0.0-8.9 %
+Johor-Singapore data centres,whole_fill,22.0,5,5.03,8.93,True,TCO-based price: premium 5.0-8.9 %
+Johor-Singapore data centres,whole_fill,22.0,10,10.03,8.93,False,no price works on cost alone: 1.1 pts short -> bundle / volume / ESG
+Johor-Singapore data centres,whole_fill,22.0,15,15.03,8.93,False,no price works on cost alone: 6.1 pts short -> bundle / volume / ESG
+Johor-Singapore data centres,whole_fill,22.0,20,20.03,8.93,False,no price works on cost alone: 11.1 pts short -> bundle / volume / ESG
+Gulf data centres,lifecycle,22.0,0,0.03,0.35,True,TCO-based price: premium 0.0-0.4 %
+Gulf data centres,lifecycle,22.0,5,5.03,0.35,False,no price works on cost alone: 4.7 pts short -> bundle / volume / ESG
+Gulf data centres,lifecycle,22.0,10,10.03,0.35,False,no price works on cost alone: 9.7 pts short -> bundle / volume / ESG
+Gulf data centres,lifecycle,22.0,15,15.03,0.35,False,no price works on cost alone: 14.7 pts short -> bundle / volume / ESG
+Gulf data centres,lifecycle,22.0,20,20.03,0.35,False,no price works on cost alone: 19.7 pts short -> bundle / volume / ESG
+Australia colocation,whole_fill,22.0,0,0.03,16.56,True,TCO-based price: premium 0.0-16.6 %
+Australia colocation,whole_fill,22.0,5,5.03,16.56,True,TCO-based price: premium 5.0-16.6 %
+Australia colocation,whole_fill,22.0,10,10.03,16.56,True,TCO-based price: premium 10.0-16.6 %
+Australia colocation,whole_fill,22.0,15,15.03,16.56,True,TCO-based price: premium 15.0-16.6 %
+Australia colocation,whole_fill,22.0,20,20.03,16.56,False,no price works on cost alone: 3.5 pts short -> bundle / volume / ESG
+Australia utilities,lifecycle,22.0,0,0.03,7.98,True,TCO-based price: premium 0.0-8.0 %
+Australia utilities,lifecycle,22.0,5,5.03,7.98,True,TCO-based price: premium 5.0-8.0 %
+Australia utilities,lifecycle,22.0,10,10.03,7.98,False,no price works on cost alone: 2.0 pts short -> bundle / volume / ESG
+Australia utilities,lifecycle,22.0,15,15.03,7.98,False,no price works on cost alone: 7.0 pts short -> bundle / volume / ESG
+Australia utilities,lifecycle,22.0,20,20.03,7.98,False,no price works on cost alone: 12.0 pts short -> bundle / volume / ESG

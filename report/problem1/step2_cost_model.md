@@ -1,5 +1,11 @@
 # Step 2 – Cost decomposition model
 
+> **Update 25 Nov – BOM v1.** `src/cost_model.py` now uses the client's corrected BOM (`RM_Prices_XHEC_Challenge_v1.xlsx`, sheet `BOM_Materials`) instead of `bom_materials.csv`. There are two cases:
+> - **RM6, €931:** copper 52 %, stainless 16 %, carbon steel 13 %, epoxy 12 %, brass 3 %
+> - **AirSeT, €941:** copper 38 %, carbon steel 30 %, stainless 22 %, epoxy 8 %
+>
+> Their nickel-check variants are `RM6, nickel check` and `AirSeT, nickel check`. The old "epoxy low / high" cases and the "unlabelled slice = carbon steel" assumption are gone. Lines the client marks as unknown ("Other", "Unidentified remainder") and plastics stay unpriced (client rule: no invented compositions). Brass has no series: it is priced as 65 % LME copper + 35 % LME zinc, moving with copper. **The tables below are from the old BOM; rerun the pipeline for v1 figures.**
+
 *Owner: Karin*
 
 > **Run (from the repo root, after Step 1):**

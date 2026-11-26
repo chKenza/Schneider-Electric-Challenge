@@ -42,13 +42,14 @@ MAIN_TRIGGER = 0.05
 SHORT_VALIDITY = 3   # "shorter validity" strategy: re-quote every 3 months
 BUFFER_GRID = np.round(np.arange(0, 3.01, 0.1), 2)
 STEELS = ["PPI", "market"]  # steel moves like the PPI (main) or like MEPS market prices
-# Materials an indexation clause follows: copper for RM6; steel + stainless for AirSeT
-# (Schneider already buys steel on MEPS / CRU indices).
+# Materials an indexation clause follows: copper for RM6; copper + steel + stainless for
+# AirSeT (BOM v1: copper is 38 % of AirSeT's raw-material cost; Schneider already buys
+# steel on MEPS / CRU indices).
 INDEXED = {
     "RM6": ["Copper"],
-    "AirSeT": ["Carbon steel DE", "Stainless steel", "Stainless base", "Stainless alloy surcharge"],
+    "AirSeT": ["Copper", "Carbon steel DE", "Stainless steel", "Stainless base", "Stainless alloy surcharge"],
 }
-MAIN_CASES = ["RM6", "AirSeT epoxy low, nickel check"]  # TO CONFIRM with Karin
+MAIN_CASES = ["RM6", "AirSeT, nickel check"]  # BOM v1; stainless priced through nickel
 SCENARIOS = {"downside": 0.10, "baseline": 0.50, "upside": 0.90}
 RM6_PRICE_2025 = 8740 #price benchmark
 

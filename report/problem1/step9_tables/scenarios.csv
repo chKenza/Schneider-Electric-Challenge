@@ -1,127 +1,109 @@
 case,steel,horizon_m,scenario,cost_today_eur,cost_eur,cost_change_eur,margin_pts_lost
-RM6,PPI,3,downside,795.1,737.6,-57.46,-0.6574
-RM6,PPI,3,baseline,795.1,798.9,3.803,0.04351
-RM6,PPI,3,upside,795.1,847.2,52.19,0.5971
-AirSeT epoxy low,PPI,3,downside,583.1,567.2,-15.83,-0.1509
-AirSeT epoxy low,PPI,3,baseline,583.1,582.3,-0.7902,-0.007535
-AirSeT epoxy low,PPI,3,upside,583.1,622.7,39.59,0.3775
-AirSeT epoxy high,PPI,3,downside,980.6,939.1,-41.56,-0.3963
-AirSeT epoxy high,PPI,3,baseline,980.6,977.7,-2.944,-0.02807
-AirSeT epoxy high,PPI,3,upside,980.6,1035,54.29,0.5176
-"AirSeT epoxy low, nickel check",PPI,3,downside,583.1,546.8,-36.32,-0.3463
-"AirSeT epoxy low, nickel check",PPI,3,baseline,583.1,583.3,0.2221,0.002118
-"AirSeT epoxy low, nickel check",PPI,3,upside,583.1,634.6,51.49,0.4909
-"AirSeT epoxy high, nickel check",PPI,3,downside,980.6,923.8,-56.8,-0.5415
-"AirSeT epoxy high, nickel check",PPI,3,baseline,980.6,976.1,-4.489,-0.0428
-"AirSeT epoxy high, nickel check",PPI,3,upside,980.6,1059,78.37,0.7472
-RM6 copper 13.8 kg,PPI,3,downside,480.8,457.9,-22.91,-0.2621
-RM6 copper 13.8 kg,PPI,3,baseline,480.8,481.2,0.4515,0.005166
-RM6 copper 13.8 kg,PPI,3,upside,480.8,507.1,26.34,0.3014
-RM6 copper 8.6 kg,PPI,3,downside,415.4,399.9,-15.53,-0.1777
-RM6 copper 8.6 kg,PPI,3,baseline,415.4,415.2,-0.2425,-0.002774
-RM6 copper 8.6 kg,PPI,3,upside,415.4,437.8,22.42,0.2566
-RM6,market,3,downside,795.1,734.1,-60.92,-0.697
-RM6,market,3,baseline,795.1,797.3,2.247,0.02571
-RM6,market,3,upside,795.1,856.8,61.7,0.706
-AirSeT epoxy low,market,3,downside,583.1,552.2,-30.87,-0.2944
-AirSeT epoxy low,market,3,baseline,583.1,582.1,-0.968,-0.00923
-AirSeT epoxy low,market,3,upside,583.1,665.8,82.77,0.7892
-AirSeT epoxy high,market,3,downside,980.6,925.5,-55.11,-0.5255
-AirSeT epoxy high,market,3,baseline,980.6,975.9,-4.689,-0.04471
-AirSeT epoxy high,market,3,upside,980.6,1078,97.86,0.9331
-"AirSeT epoxy low, nickel check",market,3,downside,583.1,542.4,-40.66,-0.3877
-"AirSeT epoxy low, nickel check",market,3,baseline,583.1,581.5,-1.589,-0.01515
-"AirSeT epoxy low, nickel check",market,3,upside,583.1,659.1,76,0.7247
-"AirSeT epoxy high, nickel check",market,3,downside,980.6,920.2,-60.48,-0.5766
-"AirSeT epoxy high, nickel check",market,3,baseline,980.6,972.9,-7.76,-0.07399
-"AirSeT epoxy high, nickel check",market,3,upside,980.6,1067,86.78,0.8274
-RM6 copper 13.8 kg,market,3,downside,480.8,455.4,-25.39,-0.2905
-RM6 copper 13.8 kg,market,3,baseline,480.8,479.4,-1.414,-0.01618
-RM6 copper 13.8 kg,market,3,upside,480.8,521.6,40.82,0.4671
-RM6 copper 8.6 kg,market,3,downside,415.4,392.6,-22.83,-0.2613
-RM6 copper 8.6 kg,market,3,baseline,415.4,413.3,-2.089,-0.0239
-RM6 copper 8.6 kg,market,3,upside,415.4,457.4,41.98,0.4804
-RM6,PPI,6,downside,795.1,734.3,-60.72,-0.6948
-RM6,PPI,6,baseline,795.1,804.5,9.405,0.1076
-RM6,PPI,6,upside,795.1,896.6,101.5,1.161
-AirSeT epoxy low,PPI,6,downside,583.1,555.1,-27.98,-0.2668
-AirSeT epoxy low,PPI,6,baseline,583.1,584.5,1.392,0.01327
-AirSeT epoxy low,PPI,6,upside,583.1,654.4,71.32,0.68
-AirSeT epoxy high,PPI,6,downside,980.6,919,-61.64,-0.5877
-AirSeT epoxy high,PPI,6,baseline,980.6,984.5,3.873,0.03693
-AirSeT epoxy high,PPI,6,upside,980.6,1090,109.6,1.045
-"AirSeT epoxy low, nickel check",PPI,6,downside,583.1,527,-56.08,-0.5347
-"AirSeT epoxy low, nickel check",PPI,6,baseline,583.1,589.2,6.106,0.05822
-"AirSeT epoxy low, nickel check",PPI,6,upside,583.1,672.5,89.42,0.8525
-"AirSeT epoxy high, nickel check",PPI,6,downside,980.6,900,-80.68,-0.7693
-"AirSeT epoxy high, nickel check",PPI,6,baseline,980.6,992.2,11.57,0.1103
-"AirSeT epoxy high, nickel check",PPI,6,upside,980.6,1106,125,1.192
-RM6 copper 13.8 kg,PPI,6,downside,480.8,452.7,-28.11,-0.3216
-RM6 copper 13.8 kg,PPI,6,baseline,480.8,486.6,5.813,0.06651
-RM6 copper 13.8 kg,PPI,6,upside,480.8,534.3,53.55,0.6127
-RM6 copper 8.6 kg,PPI,6,downside,415.4,393.2,-22.17,-0.2536
-RM6 copper 8.6 kg,PPI,6,baseline,415.4,419.5,4.062,0.04648
-RM6 copper 8.6 kg,PPI,6,upside,415.4,462.3,46.87,0.5362
-RM6,market,6,downside,795.1,729.3,-65.73,-0.752
-RM6,market,6,baseline,795.1,806.8,11.72,0.134
-RM6,market,6,upside,795.1,912,116.9,1.338
-AirSeT epoxy low,market,6,downside,583.1,536,-47.1,-0.4491
-AirSeT epoxy low,market,6,baseline,583.1,584.4,1.335,0.01272
-AirSeT epoxy low,market,6,upside,583.1,707.3,124.3,1.185
-AirSeT epoxy high,market,6,downside,980.6,900.9,-79.78,-0.7606
-AirSeT epoxy high,market,6,baseline,980.6,983.5,2.9,0.02765
-AirSeT epoxy high,market,6,upside,980.6,1141,160,1.525
-"AirSeT epoxy low, nickel check",market,6,downside,583.1,521.1,-61.98,-0.591
-"AirSeT epoxy low, nickel check",market,6,baseline,583.1,590,6.906,0.06585
-"AirSeT epoxy low, nickel check",market,6,upside,583.1,696.2,113.2,1.079
-"AirSeT epoxy high, nickel check",market,6,downside,980.6,891.5,-89.12,-0.8497
-"AirSeT epoxy high, nickel check",market,6,baseline,980.6,992,11.34,0.1082
-"AirSeT epoxy high, nickel check",market,6,upside,980.6,1125,144.4,1.377
-RM6 copper 13.8 kg,market,6,downside,480.8,444.7,-36.04,-0.4124
-RM6 copper 13.8 kg,market,6,baseline,480.8,486.3,5.505,0.06298
-RM6 copper 13.8 kg,market,6,upside,480.8,559.8,79.04,0.9044
-RM6 copper 8.6 kg,market,6,downside,415.4,384.8,-30.63,-0.3504
-RM6 copper 8.6 kg,market,6,baseline,415.4,418.9,3.524,0.04032
-RM6 copper 8.6 kg,market,6,upside,415.4,487.9,72.47,0.8292
-RM6,PPI,9,downside,795.1,732.9,-62.11,-0.7107
-RM6,PPI,9,baseline,795.1,813.5,18.47,0.2113
-RM6,PPI,9,upside,795.1,946.4,151.4,1.732
-AirSeT epoxy low,PPI,9,downside,583.1,543.5,-39.56,-0.3772
-AirSeT epoxy low,PPI,9,baseline,583.1,586.8,3.696,0.03524
-AirSeT epoxy low,PPI,9,upside,583.1,677.4,94.31,0.8992
-AirSeT epoxy high,PPI,9,downside,980.6,905.2,-75.41,-0.719
-AirSeT epoxy high,PPI,9,baseline,980.6,991.2,10.55,0.1006
-AirSeT epoxy high,PPI,9,upside,980.6,1121,140.5,1.339
-"AirSeT epoxy low, nickel check",PPI,9,downside,583.1,521.2,-61.87,-0.5899
-"AirSeT epoxy low, nickel check",PPI,9,baseline,583.1,592.4,9.315,0.08882
-"AirSeT epoxy low, nickel check",PPI,9,upside,583.1,688.5,105.4,1.005
-"AirSeT epoxy high, nickel check",PPI,9,downside,980.6,889.7,-90.91,-0.8668
-"AirSeT epoxy high, nickel check",PPI,9,baseline,980.6,996.1,15.44,0.1472
-"AirSeT epoxy high, nickel check",PPI,9,upside,980.6,1129,148.2,1.413
-RM6 copper 13.8 kg,PPI,9,downside,480.8,448.7,-32.07,-0.3669
-RM6 copper 13.8 kg,PPI,9,baseline,480.8,492.5,11.68,0.1336
-RM6 copper 13.8 kg,PPI,9,upside,480.8,557.4,76.58,0.8762
-RM6 copper 8.6 kg,PPI,9,downside,415.4,388.6,-26.82,-0.3069
-RM6 copper 8.6 kg,PPI,9,baseline,415.4,424.1,8.678,0.09929
-RM6 copper 8.6 kg,PPI,9,upside,415.4,480,64.63,0.7394
-RM6,market,9,downside,795.1,726.7,-68.33,-0.7818
-RM6,market,9,baseline,795.1,819.2,24.13,0.2761
-RM6,market,9,upside,795.1,960.5,165.4,1.893
-AirSeT epoxy low,market,9,downside,583.1,523.7,-59.42,-0.5665
-AirSeT epoxy low,market,9,baseline,583.1,586.6,3.546,0.03381
-AirSeT epoxy low,market,9,upside,583.1,730.2,147.1,1.403
-AirSeT epoxy high,market,9,downside,980.6,885.9,-94.72,-0.9032
-AirSeT epoxy high,market,9,baseline,980.6,992.7,12.08,0.1152
-AirSeT epoxy high,market,9,upside,980.6,1171,190.8,1.819
-"AirSeT epoxy low, nickel check",market,9,downside,583.1,512.9,-70.19,-0.6692
-"AirSeT epoxy low, nickel check",market,9,baseline,583.1,595.1,12.03,0.1147
-"AirSeT epoxy low, nickel check",market,9,upside,583.1,711.7,128.6,1.226
-"AirSeT epoxy high, nickel check",market,9,downside,980.6,880.5,-100.1,-0.9544
-"AirSeT epoxy high, nickel check",market,9,baseline,980.6,997.5,16.85,0.1606
-"AirSeT epoxy high, nickel check",market,9,upside,980.6,1155,174.8,1.667
-RM6 copper 13.8 kg,market,9,downside,480.8,439.7,-41.11,-0.4703
-RM6 copper 13.8 kg,market,9,baseline,480.8,493.7,12.93,0.1479
-RM6 copper 13.8 kg,market,9,upside,480.8,581,100.2,1.146
-RM6 copper 8.6 kg,market,9,downside,415.4,378.9,-36.54,-0.418
-RM6 copper 8.6 kg,market,9,baseline,415.4,424.4,8.944,0.1023
-RM6 copper 8.6 kg,market,9,upside,415.4,505.4,89.96,1.029
+RM6,PPI,3,downside,931.2,871.6,-59.59,-0.6818
+RM6,PPI,3,baseline,931.2,933.2,2.013,0.02303
+RM6,PPI,3,upside,931.2,986.6,55.4,0.6339
+AirSeT,PPI,3,downside,940.6,896.3,-44.28,-0.4222
+AirSeT,PPI,3,baseline,940.6,941.3,0.6654,0.006344
+AirSeT,PPI,3,upside,940.6,991,50.39,0.4804
+"RM6, nickel check",PPI,3,downside,931.2,865,-66.21,-0.7576
+"RM6, nickel check",PPI,3,baseline,931.2,935.7,4.538,0.05192
+"RM6, nickel check",PPI,3,upside,931.2,1007,75.7,0.8661
+"AirSeT, nickel check",PPI,3,downside,940.6,886.2,-54.4,-0.5187
+"AirSeT, nickel check",PPI,3,baseline,940.6,943,2.363,0.02253
+"AirSeT, nickel check",PPI,3,upside,940.6,1006,65.13,0.621
+RM6 copper 13.8 kg,PPI,3,downside,617.6,590.1,-27.42,-0.3138
+RM6 copper 13.8 kg,PPI,3,baseline,617.6,615.1,-2.427,-0.02776
+RM6 copper 13.8 kg,PPI,3,upside,617.6,648.4,30.79,0.3522
+RM6 copper 8.6 kg,PPI,3,downside,552.2,530,-22.17,-0.2536
+RM6 copper 8.6 kg,PPI,3,baseline,552.2,551.1,-1.148,-0.01313
+RM6 copper 8.6 kg,PPI,3,upside,552.2,578.2,25.99,0.2973
+RM6,market,3,downside,931.2,867.9,-63.35,-0.7248
+RM6,market,3,baseline,931.2,931.6,0.371,0.004245
+RM6,market,3,upside,931.2,998.4,67.15,0.7683
+AirSeT,market,3,downside,940.6,887.9,-52.69,-0.5024
+AirSeT,market,3,baseline,940.6,938.7,-1.902,-0.01813
+AirSeT,market,3,upside,940.6,1014,73.64,0.7021
+"RM6, nickel check",market,3,downside,931.2,867.8,-63.41,-0.7255
+"RM6, nickel check",market,3,baseline,931.2,932.4,1.171,0.0134
+"RM6, nickel check",market,3,upside,931.2,1010,78.38,0.8968
+"AirSeT, nickel check",market,3,downside,940.6,878.8,-61.85,-0.5897
+"AirSeT, nickel check",market,3,baseline,940.6,944.6,4.019,0.03832
+"AirSeT, nickel check",market,3,upside,940.6,1027,86.15,0.8214
+RM6 copper 13.8 kg,market,3,downside,617.6,584.8,-32.74,-0.3746
+RM6 copper 13.8 kg,market,3,baseline,617.6,616.3,-1.286,-0.01471
+RM6 copper 13.8 kg,market,3,upside,617.6,662.6,45.06,0.5155
+RM6 copper 8.6 kg,market,3,downside,552.2,521.6,-30.64,-0.3506
+RM6 copper 8.6 kg,market,3,baseline,552.2,551,-1.204,-0.01377
+RM6 copper 8.6 kg,market,3,upside,552.2,597.7,45.47,0.5202
+RM6,PPI,6,downside,931.2,862.5,-68.71,-0.7862
+RM6,PPI,6,baseline,931.2,942.3,11.1,0.127
+RM6,PPI,6,upside,931.2,1045,113.8,1.302
+AirSeT,PPI,6,downside,940.6,883.6,-56.98,-0.5433
+AirSeT,PPI,6,baseline,940.6,951.8,11.15,0.1063
+AirSeT,PPI,6,upside,940.6,1044,103.6,0.9875
+"RM6, nickel check",PPI,6,downside,931.2,848.5,-82.73,-0.9466
+"RM6, nickel check",PPI,6,baseline,931.2,944.5,13.3,0.1522
+"RM6, nickel check",PPI,6,upside,931.2,1056,124.9,1.429
+"AirSeT, nickel check",PPI,6,downside,940.6,865.2,-75.41,-0.719
+"AirSeT, nickel check",PPI,6,baseline,940.6,953.8,13.22,0.1261
+"AirSeT, nickel check",PPI,6,upside,940.6,1059,118.9,1.133
+RM6 copper 13.8 kg,PPI,6,downside,617.6,579.9,-37.7,-0.4314
+RM6 copper 13.8 kg,PPI,6,baseline,617.6,625,7.419,0.08488
+RM6 copper 13.8 kg,PPI,6,upside,617.6,684.9,67.34,0.7705
+RM6 copper 8.6 kg,PPI,6,downside,552.2,520.2,-32.02,-0.3664
+RM6 copper 8.6 kg,PPI,6,baseline,552.2,557.8,5.61,0.06418
+RM6 copper 8.6 kg,PPI,6,upside,552.2,611.9,59.75,0.6836
+RM6,market,6,downside,931.2,857.1,-74.12,-0.848
+RM6,market,6,baseline,931.2,944.5,13.25,0.1516
+RM6,market,6,upside,931.2,1062,130.3,1.491
+AirSeT,market,6,downside,940.6,870.3,-70.36,-0.6708
+AirSeT,market,6,baseline,940.6,952.3,11.64,0.111
+AirSeT,market,6,upside,940.6,1086,145.6,1.388
+"RM6, nickel check",market,6,downside,931.2,846.4,-84.85,-0.9709
+"RM6, nickel check",market,6,baseline,931.2,945.3,14.1,0.1613
+"RM6, nickel check",market,6,upside,931.2,1066,135.3,1.548
+"AirSeT, nickel check",market,6,downside,940.6,857.8,-82.84,-0.7899
+"AirSeT, nickel check",market,6,baseline,940.6,955.4,14.74,0.1405
+"AirSeT, nickel check",market,6,upside,940.6,1082,141.2,1.346
+RM6 copper 13.8 kg,market,6,downside,617.6,571.8,-45.75,-0.5235
+RM6 copper 13.8 kg,market,6,baseline,617.6,625.1,7.535,0.08621
+RM6 copper 13.8 kg,market,6,upside,617.6,710.6,93.04,1.064
+RM6 copper 8.6 kg,market,6,downside,552.2,511.9,-40.27,-0.4607
+RM6 copper 8.6 kg,market,6,baseline,552.2,558,5.815,0.06653
+RM6 copper 8.6 kg,market,6,upside,552.2,638.8,86.56,0.9904
+RM6,PPI,9,downside,931.2,860.1,-71.11,-0.8137
+RM6,PPI,9,baseline,931.2,952.7,21.49,0.2459
+RM6,PPI,9,upside,931.2,1098,166.3,1.903
+AirSeT,PPI,9,downside,940.6,877.1,-63.54,-0.6058
+AirSeT,PPI,9,baseline,940.6,963.1,22.52,0.2147
+AirSeT,PPI,9,upside,940.6,1088,147.7,1.408
+"RM6, nickel check",PPI,9,downside,931.2,847.3,-83.91,-0.9601
+"RM6, nickel check",PPI,9,baseline,931.2,954.4,23.19,0.2654
+"RM6, nickel check",PPI,9,upside,931.2,1113,181.5,2.077
+"AirSeT, nickel check",PPI,9,downside,940.6,859.4,-81.2,-0.7742
+"AirSeT, nickel check",PPI,9,baseline,940.6,965.5,24.89,0.2373
+"AirSeT, nickel check",PPI,9,upside,940.6,1105,164.4,1.567
+RM6 copper 13.8 kg,PPI,9,downside,617.6,575.1,-42.45,-0.4857
+RM6 copper 13.8 kg,PPI,9,baseline,617.6,631.3,13.72,0.157
+RM6 copper 13.8 kg,PPI,9,upside,617.6,711.6,93.98,1.075
+RM6 copper 8.6 kg,PPI,9,downside,552.2,514.9,-37.34,-0.4273
+RM6 copper 8.6 kg,PPI,9,baseline,552.2,563.3,11.06,0.1266
+RM6 copper 8.6 kg,PPI,9,upside,552.2,634.2,82.02,0.9384
+RM6,market,9,downside,931.2,853,-78.17,-0.8944
+RM6,market,9,baseline,931.2,957.3,26.13,0.2989
+RM6,market,9,upside,931.2,1113,181.9,2.081
+AirSeT,market,9,downside,940.6,862,-78.59,-0.7494
+AirSeT,market,9,baseline,940.6,965.7,25.06,0.239
+AirSeT,market,9,upside,940.6,1128,187.7,1.79
+"RM6, nickel check",market,9,downside,931.2,843.9,-87.27,-0.9985
+"RM6, nickel check",market,9,baseline,931.2,957,25.8,0.2952
+"RM6, nickel check",market,9,upside,931.2,1121,189.7,2.171
+"AirSeT, nickel check",market,9,downside,940.6,852.4,-88.26,-0.8415
+"AirSeT, nickel check",market,9,baseline,940.6,969,28.37,0.2705
+"AirSeT, nickel check",market,9,upside,940.6,1127,186.6,1.779
+RM6 copper 13.8 kg,market,9,downside,617.6,566.3,-51.24,-0.5863
+RM6 copper 13.8 kg,market,9,baseline,617.6,632.8,15.25,0.1745
+RM6 copper 13.8 kg,market,9,upside,617.6,735.8,118.2,1.353
+RM6 copper 8.6 kg,market,9,downside,552.2,505.5,-46.73,-0.5347
+RM6 copper 8.6 kg,market,9,baseline,552.2,564.5,12.3,0.1407
+RM6 copper 8.6 kg,market,9,upside,552.2,659.2,107,1.225
