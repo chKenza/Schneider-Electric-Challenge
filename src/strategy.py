@@ -166,11 +166,11 @@ def triggers(p2: MarketEvidence) -> pd.DataFrame:
         ("RM6 end-of-sale date", "Schneider announces one for a target market",
          "Schneider product team",
          "Accelerate phased-build sales: expansion-proof pitch to campuses with later phases"),
-        ("Taxonomy or lender criterion naming SF6", "a green-loan or taxonomy rule in a target "
-         "market requires or rewards SF6-free switchgear", "E182, E183",
+        ("Taxonomy or lender criterion naming SF6", ("a green-loan or taxonomy rule in a target "
+         "market requires or rewards SF6-free switchgear"), "E182, E183",
          "Accelerate: ESG-financed customers must comply; list price for them"),
-        ("Local AirSeT production", "Schneider decides to build or assemble AirSeT in India or "
-         "Saudi Arabia", "E176, E178",
+        ("Local AirSeT production", ("Schneider decides to build or assemble AirSeT in India or "
+         "Saudi Arabia"), "E176, E178",
          "Accelerate India and Gulf utility frameworks; re-check the extra cost and lead time"),
     ]
     return pd.DataFrame(rows, columns=["watch", "threshold", "source", "action"])
