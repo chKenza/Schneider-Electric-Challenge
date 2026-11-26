@@ -15,14 +15,18 @@ GROUP_COLORS = {
 }
 SCENARIO = "#6D28D9"        # custom scenario, used for nothing else
 SCENARIO_TINT = "#F7F3FF"
-BAND = "rgba(49, 51, 63, 0.12)"
-INK = "#31333F"
-MUTED = "#62656F"
+BAND = "rgba(10, 47, 36, 0.10)"
+INK = "#0A2F24"             # Schneider deep green, used as text colour
+MUTED = "#4F5156"           # Schneider grey
+SE_GREEN = "#3DCD58"        # Schneider Life Green, brand accent only
 CHART_HEIGHT = 340
 
 CSS = f"""
 <style>
 .block-container {{ padding-top: 2rem; }}
+header[data-testid="stHeader"] {{ border-top: 4px solid {SE_GREEN}; }}
+h1 {{ font-size: 2.25rem !important; }}
+.st-key-card_quote, .st-key-card_airset {{ border-top: 4px solid {SE_GREEN} !important; }}
 .st-key-scenario_banner {{
   background: {SCENARIO_TINT}; border: 2px solid {SCENARIO}; border-radius: 8px;
   padding: 8px 16px;

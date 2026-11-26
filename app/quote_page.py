@@ -49,12 +49,12 @@ def set_preset(values: dict):
 
 
 # ---------------------------------------------------------------- inputs
-left, right = st.columns([3, 2], vertical_alignment="bottom")
+left, right = st.columns([2, 1], vertical_alignment="bottom")
 left.title("ETO Quote Risk & Pricing")
 right.caption("Raw-material prices up to Sep 2026 · forecast to Jun 2027")
 
 with st.container(border=True):
-    c = st.columns([1, 1.4, 1, 1], gap="large")
+    c = st.columns([1.1, 1.7, 0.8, 0.9], gap="medium")
     product = c[0].segmented_control("Product", ["RM6", "RM AirSeT"], default="RM6") or "RM6"
     h = c[1].segmented_control("Quotation validity", HORIZONS, default=9,
                                format_func=lambda x: f"{x} months") or 9
@@ -217,7 +217,7 @@ with steps.expander("1\\. Raw-material price forecast", expanded=scenario):
         fig.add_trace(go.Scatter(
             x=[last_x, *fan.month, *fan.month[::-1], last_x],
             y=[last_y, *fan.p90, *fan.p10[::-1], last_y],
-            fill="toself", fillcolor=BAND, line=dict(width=0), hoverinfo="skip"))
+            mode="lines", fill="toself", fillcolor=BAND, line=dict(width=0), hoverinfo="skip"))
         fig.add_trace(go.Scatter(x=hist.index, y=hist.values, mode="lines", name="Actual",
                                  line=dict(color=GROUP_COLORS[group], width=2),
                                  hovertemplate="€%{y:,.0f}"))
@@ -307,7 +307,7 @@ with steps.expander("3\\. Unit cost outlook"):
     chart_title(f"Raw-material cost of one {product} (€ per unit)")
     fig = base_fig(right=190)
     fig.add_trace(go.Scatter(x=xs + xs[::-1], y=[today, *co.bad, *co.p10[::-1], today],
-                             fill="toself", fillcolor=BAND, line=dict(width=0), hoverinfo="skip"))
+                             mode="lines", fill="toself", fillcolor=BAND, line=dict(width=0), hoverinfo="skip"))
     fig.add_trace(go.Scatter(x=xs, y=[today, *co.bad], mode="lines", name="High case",
                              line=dict(color=INK, dash="dot"), hovertemplate="€%{y:,.0f}"))
     fig.add_trace(go.Scatter(x=xs, y=[today, *co.p50], mode="lines+markers", name="Expected",
