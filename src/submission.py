@@ -1,6 +1,6 @@
 """Step 12 – the forecast CSV for the jury (slide 17): build it and validate it.
 
-Run from the repo root, after src.models (it reads the final model's saved predictions):
+Run from the repo root, after src.models and src.simulation (it reads their saved outputs):
 
     uv run python -m src.submission              # build + validate submissions/group_6_forecast_202609.csv
     uv run python -m src.submission --check-only # validate the existing file
@@ -16,8 +16,12 @@ The model forecasts the H-month log change q, so a level is P_origin x exp(q):
     - index (origin=100) = 100 x exp(q) for everything else: PPIs, USD-priced LME series
       (no FX forecast needed) and epoxy (its EUR/t level is Schneider-confidential, so the
       CSV gives only its relative change).
-BOM index rows (RM6, RM AirSeT) come from the Step 8 simulation and are added when it is
-done; until then the file holds the material rows only, and `validate` checks those.
+BOM index rows (RM6, RM AirSeT) come from the Step 8 joint simulation (src.simulation): the
+P10 / P50 / P90 of each product's raw-material cost index (Sep 2026 = 100) over 10,000 joint
+price paths, each material rescaled to the final model's forecast. Cases and steel as
+backtested in Step 7 (section 6.1): the client BOM v1 ("RM6", "AirSeT"), stainless moved by
+the S09 steel PPI, and steel at producer prices (PPI), the series the CSV forecasts.
+Target ids are the client's product references (RM_Prices_XHEC_Challenge.xlsx, BOM_Materials).
 """
 
 from __future__ import annotations
@@ -42,6 +46,13 @@ COLUMNS = ["team_id", "target_type", "target_id", "region", "origin_month", "hor
            "target_month", "unit", "p10", "p50", "p90", "model_name", "ai_tools"]
 EUR_T, INDEX = "EUR/t", "index (origin=100)"
 EUR_LEVEL_TARGETS = {"D01", "D02"}  # public EUR/t series published as price levels
+
+# BOM index rows: Step 8 case -> client product reference (BOM_Materials.product_ref)
+BOM_TARGETS = {"RM6": "RM6_NE_IQI_433520", "AirSeT": "RMAirSeT IIQ 24kV IEC"}
+BOM_STEEL = "PPI"     # steel at producer prices: S09 / S10, the steel series the CSV forecasts
+BOM_REGION = "EU"     # both plants are in the EU (France, Hungary); EU price series
+BOM_FILE = OUT / "bom_index_simulated.csv"  # written by src.simulation (Step 8)
+BOM_MODEL = f"{FINAL_MODEL}+step8_joint_simulation"
 
 
 def material_targets() -> pd.DataFrame:
@@ -79,6 +90,30 @@ def material_rows(model: str = FINAL_MODEL) -> pd.DataFrame:
             "model_name": model, "ai_tools": AI_TOOLS,
         })
     return pd.DataFrame(rows, columns=COLUMNS).sort_values(["target_id", "horizon_m"]).reset_index(drop=True)
+
+
+def bom_rows() -> pd.DataFrame:
+    """BOM cost index rows of the CSV, from the Step 8 joint simulation (index, origin = 100)."""
+    if not BOM_FILE.exists():
+        raise FileNotFoundError(f"{BOM_FILE} not found: run src.simulation (Step 8) first")
+    sim = pd.read_csv(BOM_FILE)
+    sim = sim[sim["case"].isin(list(BOM_TARGETS)) & (sim["steel"] == BOM_STEEL)]
+    rows = []
+    for case, target_id in BOM_TARGETS.items():
+        for h in HORIZONS:
+            r = sim[(sim["case"] == case) & (sim["horizon_m"] == h)]
+            if len(r) != 1:
+                raise ValueError(f"{BOM_FILE.name}: expected one row for {case}, steel {BOM_STEEL}, "
+                                 f"{h} months; found {len(r)}")
+            r = r.iloc[0]
+            rows.append({
+                "team_id": TEAM_ID, "target_type": "bom_index", "target_id": target_id,
+                "region": BOM_REGION, "origin_month": f"{ORIGIN:%Y-%m}", "horizon_m": h,
+                "target_month": f"{ORIGIN + pd.DateOffset(months=h):%Y-%m}", "unit": INDEX,
+                "p10": round(float(r.index_p10), 2), "p50": round(float(r.index_p50), 2),
+                "p90": round(float(r.index_p90), 2), "model_name": BOM_MODEL, "ai_tools": AI_TOOLS,
+            })
+    return pd.DataFrame(rows, columns=COLUMNS)
 
 
 def validate(df: pd.DataFrame) -> list[str]:
@@ -121,11 +156,20 @@ def validate(df: pd.DataFrame) -> list[str]:
     wrong_region = mat[mat["region"] != mat["target_id"].map(targets["target_region"])]
     if len(wrong_region):
         errs.append(f"region differs from the data dictionary: {wrong_region['target_id'].unique().tolist()}")
+
+    bom = df[df["target_type"] == "bom_index"]
+    have = set(zip(bom["target_id"], bom["horizon_m"], strict=True))
+    missing = [f"{t}@{h}" for t in BOM_TARGETS.values() for h in HORIZONS if (t, h) not in have]
+    if missing:
+        errs.append(f"missing bom_index rows: {missing}")
+    unknown = sorted(set(bom["target_id"]) - set(BOM_TARGETS.values()))
+    if unknown:
+        errs.append(f"bom_index rows that are not RM6 / RM AirSeT: {unknown}")
     return errs
 
 
 def build(out=SUBMISSION) -> pd.DataFrame:
-    df = material_rows()
+    df = pd.concat([material_rows(), bom_rows()], ignore_index=True)
     errs = validate(df)
     if errs:
         raise ValueError("submission is invalid:\n  " + "\n  ".join(errs))

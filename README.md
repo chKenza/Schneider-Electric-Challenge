@@ -50,6 +50,7 @@ Format : one row per target × horizon, origin September 2026, horizons 3 / 6 / 
 
 - **15 material series:** copper and aluminium (EU in EUR, global LME), nickel, iron ore, zinc, EU and US producer price indices for steel, copper, aluminium and plastics, and epoxy resin.
 - **Units:** EUR/t for copper and aluminium in EUR (D01, D02). Index (origin = 100) for the others: producer price indices, USD-priced series (no exchange-rate forecast needed) and epoxy, whose EUR/t level is Schneider-confidential.
+- **BOM cost index for RM6 (`RM6_NE_IQI_433520`) and RM AirSeT (`RMAirSeT IIQ 24kV IEC`),** index (origin = 100): the raw-material cost of one unit from the client's corrected bill of materials, simulated jointly over 10,000 price paths with each material matching its forecast ([step 8](report/problem1/step8_simulation.md)). Steel is at producer prices (S09 / S10), the case backtested in [step 7, §6.1](report/problem1/step7_evaluation.md).
 
 ## Data and licences
 
