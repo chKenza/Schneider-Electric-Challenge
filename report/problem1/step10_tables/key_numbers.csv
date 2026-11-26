@@ -1,0 +1,152 @@
+key,value,unit,product,horizon_m,steel,source,note
+rm6_margin_pts_2022_vs_2018,-2.763,margin pts,RM6,,,step9_tables/margin_backtest.csv,"fixed prices, no protection"
+rm6_price_change_2018_2022,13.93,%,RM6,,,step9_tables/margin_backtest.csv,
+rm6_rm_cost_change_2018_2022,56.3,%,RM6,,,step9_tables/margin_backtest.csv,
+rm6_rm_cost_today_eur,931.2,EUR,RM6,,,step8_tables/bom_index_and_margin_points.csv,Sep 2026
+rm6_selling_price_eur,8740,EUR,RM6,,,step8_tables/bom_index_and_margin_points.csv,benchmark P50 2025
+rm6_rm_share_of_price,10.65,%,RM6,,,step8_tables/bom_index_and_margin_points.csv,
+airset_rm_cost_today_eur,940.6,EUR,AirSeT,,,step8_tables/bom_index_and_margin_points.csv,Sep 2026
+airset_selling_price_eur,1.049e+04,EUR,AirSeT,,,step8_tables/bom_index_and_margin_points.csv,ASSUMPTION: RM6 + 20 %
+airset_rm_share_of_price,8.968,%,AirSeT,,,step8_tables/bom_index_and_margin_points.csv,
+rm6_eur_copper_p90_9m_market,115.8,EUR,RM6,9,market,step8_tables/eur_per_material_p90.csv,
+rm6_eur_total_p90_9m_market,184.8,EUR,RM6,9,market,step8_tables/eur_per_material_p90.csv,
+rm6_copper_share_p90_9m_market,62.67,%,RM6,9,market,step8_tables/eur_per_material_p90.csv,
+airset_eur_steel_stainless_p90_9m_market,101.6,EUR,AirSeT,9,market,step8_tables/eur_per_material_p90.csv,carbon steel + stainless base + alloy surcharge
+airset_eur_nickel_surcharge_p90_9m_market,39.81,EUR,AirSeT,9,market,step8_tables/eur_per_material_p90.csv,
+airset_eur_copper_p90_9m_market,74.34,EUR,AirSeT,9,market,step8_tables/eur_per_material_p90.csv,BOM v1: 28.46 kg
+airset_copper_share_p90_9m_market,39.66,%,AirSeT,9,market,step8_tables/eur_per_material_p90.csv,
+airset_eur_total_p90_9m_market,187.4,EUR,AirSeT,9,market,step8_tables/eur_per_material_p90.csv,
+airset_steel_share_p90_9m_market,54.22,%,AirSeT,9,market,step8_tables/eur_per_material_p90.csv,
+rm6_eur_copper_p90_9m_PPI,123.3,EUR,RM6,9,PPI,step8_tables/eur_per_material_p90.csv,
+rm6_eur_total_p90_9m_PPI,168.7,EUR,RM6,9,PPI,step8_tables/eur_per_material_p90.csv,
+rm6_copper_share_p90_9m_PPI,73.1,%,RM6,9,PPI,step8_tables/eur_per_material_p90.csv,
+airset_eur_steel_stainless_p90_9m_PPI,74.83,EUR,AirSeT,9,PPI,step8_tables/eur_per_material_p90.csv,carbon steel + stainless base + alloy surcharge
+airset_eur_nickel_surcharge_p90_9m_PPI,40.39,EUR,AirSeT,9,PPI,step8_tables/eur_per_material_p90.csv,
+airset_eur_copper_p90_9m_PPI,80.11,EUR,AirSeT,9,PPI,step8_tables/eur_per_material_p90.csv,BOM v1: 28.46 kg
+airset_copper_share_p90_9m_PPI,48.24,%,AirSeT,9,PPI,step8_tables/eur_per_material_p90.csv,
+airset_eur_total_p90_9m_PPI,166.1,EUR,AirSeT,9,PPI,step8_tables/eur_per_material_p90.csv,
+airset_steel_share_p90_9m_PPI,45.06,%,AirSeT,9,PPI,step8_tables/eur_per_material_p90.csv,
+pinball_skill_backtest_3m,4.3,%,materials,3,,step7_tables/jury_table.csv,"vs random walk, 95 % CI 1.3 to 7.7; DM p = 0.025"
+coverage_80_backtest_3m,83.63,%,materials,3,,step7_tables/jury_table.csv,target 80 %
+pinball_skill_backtest_6m,6.96,%,materials,6,,step7_tables/jury_table.csv,"vs random walk, 95 % CI 5.0 to 10.8; DM p = 0.009"
+coverage_80_backtest_6m,86.5,%,materials,6,,step7_tables/jury_table.csv,target 80 %
+pinball_skill_backtest_9m,10.67,%,materials,9,,step7_tables/jury_table.csv,"vs random walk, 95 % CI 7.8 to 13.9; DM p = 0.006"
+coverage_80_backtest_9m,90.34,%,materials,9,,step7_tables/jury_table.csv,target 80 %
+pinball_skill_holdout_3m,2.53,%,materials,3,,step7_tables/jury_table.csv,"vs random walk, 95 % CI -0.9 to 5.3; DM p = 0.102"
+coverage_80_holdout_3m,83.7,%,materials,3,,step7_tables/jury_table.csv,target 80 %
+pinball_skill_holdout_6m,-0.46,%,materials,6,,step7_tables/jury_table.csv,"vs random walk, 95 % CI -5.8 to 6.0; DM p = 0.539"
+coverage_80_holdout_6m,79.63,%,materials,6,,step7_tables/jury_table.csv,target 80 %
+pinball_skill_holdout_9m,0.81,%,materials,9,,step7_tables/jury_table.csv,"vs random walk, 95 % CI -3.9 to 8.5; DM p = 0.446"
+coverage_80_holdout_9m,81.85,%,materials,9,,step7_tables/jury_table.csv,target 80 %
+mae_skill_min,-3.7,%,materials,,,step7_tables/jury_table.csv,"median vs 'no change', both windows"
+mae_skill_max,1.61,%,materials,,,step7_tables/jury_table.csv,
+rm6_holdout_above_p90_6m,33.33,%,RM6,6,,step7_tables/bom_jury_table.csv,target 10 %; RM6's P90 is a floor
+rm6_holdout_above_p90_9m,27.78,%,RM6,9,,step7_tables/bom_jury_table.csv,target 10 %; RM6's P90 is a floor
+airset_holdout_pinball_skill_min,13.82,%,AirSeT,,,step7_tables/bom_jury_table.csv,all AirSeT cases
+airset_holdout_pinball_skill_max,21.89,%,AirSeT,,,step7_tables/bom_jury_table.csv,
+rm6_at_risk_p90_3m_market,0.77,margin pts,RM6,3,market,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_eur_increase_p90_3m,67.15,EUR,RM6,3,market,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_price_adjustment_3m,0,margin pts,RM6,3,market,step8_tables/bom_index_and_margin_points.csv,P50 drift
+rm6_at_risk_p90_6m_market,1.49,margin pts,RM6,6,market,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_eur_increase_p90_6m,130.3,EUR,RM6,6,market,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_price_adjustment_6m,0.15,margin pts,RM6,6,market,step8_tables/bom_index_and_margin_points.csv,P50 drift
+rm6_at_risk_p90_9m_market,2.08,margin pts,RM6,9,market,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_eur_increase_p90_9m,181.9,EUR,RM6,9,market,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_price_adjustment_9m,0.3,margin pts,RM6,9,market,step8_tables/bom_index_and_margin_points.csv,P50 drift
+rm6_at_risk_p90_3m_PPI,0.63,margin pts,RM6,3,PPI,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_at_risk_p90_6m_PPI,1.3,margin pts,RM6,6,PPI,step8_tables/bom_index_and_margin_points.csv,RM6
+rm6_at_risk_p90_9m_PPI,1.9,margin pts,RM6,9,PPI,step8_tables/bom_index_and_margin_points.csv,RM6
+airset_at_risk_p90_3m_market,0.82,margin pts,AirSeT,3,market,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_eur_increase_p90_3m,86.15,EUR,AirSeT,3,market,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_price_adjustment_3m,0.04,margin pts,AirSeT,3,market,step8_tables/bom_index_and_margin_points.csv,P50 drift
+airset_at_risk_p90_6m_market,1.35,margin pts,AirSeT,6,market,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_eur_increase_p90_6m,141.2,EUR,AirSeT,6,market,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_price_adjustment_6m,0.14,margin pts,AirSeT,6,market,step8_tables/bom_index_and_margin_points.csv,P50 drift
+airset_at_risk_p90_9m_market,1.78,margin pts,AirSeT,9,market,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_eur_increase_p90_9m,186.6,EUR,AirSeT,9,market,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_price_adjustment_9m,0.27,margin pts,AirSeT,9,market,step8_tables/bom_index_and_margin_points.csv,P50 drift
+airset_at_risk_p90_3m_PPI,0.62,margin pts,AirSeT,3,PPI,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_at_risk_p90_6m_PPI,1.13,margin pts,AirSeT,6,PPI,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_at_risk_p90_9m_PPI,1.57,margin pts,AirSeT,9,PPI,step8_tables/bom_index_and_margin_points.csv,"AirSeT, nickel check"
+airset_at_risk_p90_9m_range_min,1.41,margin pts,AirSeT,9,,step8_tables/bom_index_and_margin_points.csv,all AirSeT nickel / steel cases
+airset_at_risk_p90_9m_range_max,1.79,margin pts,AirSeT,9,,step8_tables/bom_index_and_margin_points.csv,
+rm6_at_risk_p90_9m_copper_13_8kg,1.35,margin pts,RM6,9,market,step8_tables/bom_index_and_margin_points.csv,if the teardown BOM is right
+rm6_at_risk_p90_9m_copper_8_6kg,1.22,margin pts,RM6,9,market,step8_tables/bom_index_and_margin_points.csv,if the teardown BOM is right
+rm6_uplift_3m_conf90,0.2683,margin pts,RM6,3,market,step9_tables/quote_rule.csv,fixed price + buffer
+rm6_uplift_6m_conf90,0.991,margin pts,RM6,6,market,step9_tables/quote_rule.csv,fixed price + buffer
+rm6_uplift_9m_conf90,0.9682,margin pts,RM6,9,market,step9_tables/quote_rule.csv,indexation clause ±10% + buffer
+rm6_uplift_3m_conf95,0.6678,margin pts,RM6,3,market,step9_tables/quote_rule.csv,fixed price + buffer
+rm6_uplift_6m_conf95,0.7857,margin pts,RM6,6,market,step9_tables/quote_rule.csv,indexation clause ±5% + buffer
+rm6_uplift_9m_conf95,0.8593,margin pts,RM6,9,market,step9_tables/quote_rule.csv,indexation clause ±2% + buffer
+airset_uplift_3m_conf90,0.3214,margin pts,AirSeT,3,market,step9_tables/quote_rule.csv,fixed price + buffer
+airset_uplift_6m_conf90,0.8462,margin pts,AirSeT,6,market,step9_tables/quote_rule.csv,fixed price + buffer
+airset_uplift_9m_conf90,0.8159,margin pts,AirSeT,9,market,step9_tables/quote_rule.csv,indexation clause ±15% + buffer
+airset_uplift_3m_conf95,0.49,margin pts,AirSeT,3,market,step9_tables/quote_rule.csv,fixed price + buffer
+airset_uplift_6m_conf95,0.8172,margin pts,AirSeT,6,market,step9_tables/quote_rule.csv,indexation clause ±15% + buffer
+airset_uplift_9m_conf95,0.8769,margin pts,AirSeT,9,market,step9_tables/quote_rule.csv,indexation clause ±15% + buffer
+rm6_p_breach_1pt_buffer_9m,29.7,%,RM6,9,market,step9_tables/buffer_curve.csv,chance a 1-point buffer is not enough
+airset_p_breach_1pt_buffer_9m,25.74,%,AirSeT,9,market,step9_tables/buffer_curve.csv,chance a 1-point buffer is not enough
+rm6_hist_9m_fixed_p95,3.165,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,P95 loss
+rm6_hist_9m_fixed_worst,3.699,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,worst loss
+rm6_hist_9m_fixed_cost_to_customer,0,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+rm6_hist_9m_buffer_p90_p95,1.084,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,P95 loss
+rm6_hist_9m_buffer_p90_worst,1.618,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,worst loss
+rm6_hist_9m_buffer_p90_cost_to_customer,2.081,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+rm6_hist_9m_clause_p95,2.429,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,P95 loss
+rm6_hist_9m_clause_worst,2.915,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,worst loss
+rm6_hist_9m_clause_cost_to_customer,0.2141,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+rm6_hist_9m_hedge_p95,2.294,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,P95 loss
+rm6_hist_9m_hedge_worst,2.8,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,worst loss
+rm6_hist_9m_hedge_cost_to_customer,0.2101,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+rm6_hist_9m_requote_3m_p95,1.304,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,P95 loss
+rm6_hist_9m_requote_3m_worst,1.708,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,worst loss
+rm6_hist_9m_requote_3m_cost_to_customer,0.2316,margin pts,RM6,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+airset_hist_9m_fixed_p95,3.525,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,P95 loss
+airset_hist_9m_fixed_worst,4.317,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,worst loss
+airset_hist_9m_fixed_cost_to_customer,0,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+airset_hist_9m_buffer_p90_p95,1.745,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,P95 loss
+airset_hist_9m_buffer_p90_worst,2.537,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,worst loss
+airset_hist_9m_buffer_p90_cost_to_customer,1.779,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+airset_hist_9m_clause_p95,0.5732,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,P95 loss
+airset_hist_9m_clause_worst,0.682,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,worst loss
+airset_hist_9m_clause_cost_to_customer,0.2683,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+airset_hist_9m_hedge_p95,2.954,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,P95 loss
+airset_hist_9m_hedge_worst,3.741,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,worst loss
+airset_hist_9m_hedge_cost_to_customer,0.1286,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+airset_hist_9m_requote_3m_p95,1.522,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,P95 loss
+airset_hist_9m_requote_3m_worst,2.089,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,worst loss
+airset_hist_9m_requote_3m_cost_to_customer,0.1628,margin pts,AirSeT,9,market,step9_tables/strategies_historical.csv,mean extra the customer pays vs a fixed price
+rm6_sim_9m_fixed_p95,2.623,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,P95 loss
+rm6_sim_9m_fixed_worst,4.605,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,worst loss
+rm6_sim_9m_fixed_cost_to_customer,0,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+rm6_sim_9m_buffer_p90_p95,0.5422,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,P95 loss
+rm6_sim_9m_buffer_p90_worst,2.524,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,worst loss
+rm6_sim_9m_buffer_p90_cost_to_customer,2.081,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+rm6_sim_9m_clause_p95,1.509,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,P95 loss
+rm6_sim_9m_clause_worst,2.659,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,worst loss
+rm6_sim_9m_clause_cost_to_customer,0.2292,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+rm6_sim_9m_hedge_p95,1.207,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,P95 loss
+rm6_sim_9m_hedge_worst,2.324,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,worst loss
+rm6_sim_9m_hedge_cost_to_customer,0.3172,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+rm6_sim_9m_requote_3m_p95,1.168,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,P95 loss
+rm6_sim_9m_requote_3m_worst,1.401,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,worst loss
+rm6_sim_9m_requote_3m_cost_to_customer,0.4065,margin pts,RM6,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+airset_sim_9m_fixed_p95,2.173,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,P95 loss
+airset_sim_9m_fixed_worst,5.61,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,worst loss
+airset_sim_9m_fixed_cost_to_customer,0,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+airset_sim_9m_buffer_p90_p95,0.3934,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,P95 loss
+airset_sim_9m_buffer_p90_worst,3.83,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,worst loss
+airset_sim_9m_buffer_p90_cost_to_customer,1.779,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+airset_sim_9m_clause_p95,0.5826,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,P95 loss
+airset_sim_9m_clause_worst,0.7884,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,worst loss
+airset_sim_9m_clause_cost_to_customer,0.2705,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+airset_sim_9m_hedge_p95,1.415,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,P95 loss
+airset_sim_9m_hedge_worst,4.535,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,worst loss
+airset_sim_9m_hedge_cost_to_customer,0.1942,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+airset_sim_9m_requote_3m_p95,0.99,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,P95 loss
+airset_sim_9m_requote_3m_worst,1.436,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,worst loss
+airset_sim_9m_requote_3m_cost_to_customer,0.2941,margin pts,AirSeT,9,market,step9_tables/strategies_simulated.csv,mean extra the customer pays vs a fixed price
+p_rm6_rises_more_jun2027,58.76,%,both,9,PPI,step9_tables/outlook_2027.csv,
+gap_change_jun2027_p10,-45.4,EUR,both,9,PPI,step9_tables/outlook_2027.csv,RM6 − AirSeT raw-material cost gap
+gap_change_jun2027_p50,6.58,EUR,both,9,PPI,step9_tables/outlook_2027.csv,RM6 − AirSeT raw-material cost gap
+gap_change_jun2027_p90,41.26,EUR,both,9,PPI,step9_tables/outlook_2027.csv,RM6 − AirSeT raw-material cost gap

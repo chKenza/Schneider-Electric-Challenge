@@ -65,7 +65,7 @@ uv run python -m src.data_prep --origin 2026-06 # as if we were in an earlier mo
 | | Its inputs: benzene, acetone, epichlorohydrin, other costs | EUR/t | Jan 2018 | Input |
 
 **The 15 forecast targets:**
-- **The 14 priceable BOM proxies** listed in `bom_materials.csv`:
+- **The 14 priceable BOM proxies** listed in `bom_materials.csv` (still the proxy list; the masses now come from the client's BOM v1, see Step 2):
   - **EU:** D01, S07, D02, S08, S09, S10, S11
   - **WW:** S01, S02, S03, S04, S05, S12, S13
 - **Epoxy resin (EPOXY_EUR, EU).** It isn't in the BOM file, but slide 16 asks us to forecast "ALL raw-material inputs (… insulating materials …)", and the client confirmed in the Q&A that insulation = epoxy.
@@ -168,14 +168,14 @@ This is why the data stays out of the repo. How to make the pipeline reproducibl
 ## 9. Data issues and limits
 
 **Recipes (BOM):**
-1. **RM6:** only 40.7 % of ≈ 310 kg has a material label. The largest unlabelled slice (≈ 45 %) is probably carbon steel.
-2. **AirSeT:** 86.7 % of ≈ 629 kg is labelled, and 13.6 % is "Other".
+1. **RM6:** in the first BOM only 40.7 % of ≈ 310 kg had a material label. The client's BOM v1 (25 Nov) labels it fully: 144.5 kg carbon steel, 38.75 kg copper, 22.3 kg epoxy; only 5.6 kg is an "Unidentified remainder" (unpriced).
+2. **AirSeT:** BOM v1 gives 547 kg (the first BOM implied ≈ 629 kg), now with 28.46 kg copper and 16.4 kg epoxy. 56 kg "Other" stays unpriced (client rule).
 3. **The two RM6 recipes disagree on copper:**
 
    | | Schneider BOM | Benchmark "teardown" |
    |---|---|---|
    | Total mass | ≈ 310 kg | 275 kg |
-   | Copper | 38.8 kg | 8.6 kg Cu + 5.2 kg Cu-alloy contacts |
+   | Copper | 38.75 kg | 8.6 kg Cu + 5.2 kg Cu-alloy contacts |
 
    The teardown isn't a physical teardown: a tool generated it, its masses are marked "inferred", and it contains errors (500 kg of screws). `share_pct` in the Schneider BOM is confirmed to be a share of **mass**: kg ÷ share gives the same total for every material.
 
@@ -201,7 +201,7 @@ These choices were made while building this step and **have not been confirmed b
 | 5 | **Steel inputs: Germany and France only.** Italy, Spain, UK, Nordic, wire rod and Turkey dropped | Keep more countries as inputs | Fewer inputs for the forecast models |
 | 6 | **CRU Germany = monthly average of weekly prices; France = spot** | Other columns of the sheet | Small |
 | 7 | **Licence labels**: epoxy file "treat as confidential", LME/Westmetall "check first" | Ask the client | Decides what can go in the repo |
-| 8 | **Assumptions for later steps**: RM6's unlabelled 45 % slice = carbon steel; 2026 left out of margin backtests (SF6 ban) | Other scenarios | Step 2 and Step 9 results |
+| 8 | **Assumptions for later steps**: unknown BOM lines left unpriced (client rule, BOM v1); 2026 left out of margin backtests (SF6 ban) | Other scenarios | Step 2 and Step 9 results |
 
 **External public data: to be decided (not done):**
 - Starting €/t prices for plastics (Eurostat Comext trade values) and stainless after Aug 2026 (Outokumpu / Aperam alloy surcharges)

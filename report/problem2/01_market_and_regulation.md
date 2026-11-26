@@ -58,8 +58,8 @@
 |---|---|
 | Price benchmark (synthetic) | SF6-free premium (Eaton vs Schneider): +38 % (2017), +22 % or €1,921 (2025), −5 % (2026, after the EU ban) |
 | Teardown benchmark | SF6 fill per unit (inferred): RM6 1.5 kg, Ormazabal 1.2, Siemens 8DJH 2.5, ABB SafePlus 3.24, Eaton Xiria 0. |
-| BOM and Problem 1 cost model | Raw-material cost per unit: RM6 €795 vs AirSeT €583–981; copper-heavy RM6, steel-heavy AirSeT |
-| Problem 1 EDA | AirSeT's raw-material risk is ≈ 95 % steel and stainless, so a steel indexation clause covers most of it |
+| BOM and Problem 1 cost model | Raw-material cost per unit (client BOM v1): RM6 €931 vs AirSeT €941; copper-heavy RM6 (52 %), AirSeT copper 38 % and steel + stainless 52 % |
+| Problem 1 EDA and Steps 8–9 | AirSeT's raw-material risk is steel, stainless and copper, so a clause on those three covers most of it |
 | Schneider raw-materials update, Oct 2026 (internal) | Copper easing from record highs with an upward bias; steel prices driven by trade policy |
 | Supplier balance sheets (PitchBook, 9 suppliers) | Supplier health, for "can the supply base scale AirSeT?" |
 | Client slides | Data-centre market $584B in 2026, $1.32T by 2030. The slide's "25.7 % CAGR" is the 2025→26 growth; the rate to 2030 is 22.7 % (E38) |

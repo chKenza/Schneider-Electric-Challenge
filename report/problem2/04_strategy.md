@@ -1,6 +1,6 @@
-# Problem 2 – Strategy: roadmap and win conditions (Step 9)
+# Problem 2 – Strategy: roadmap, win conditions and final story (Steps 9–10)
 
-*Owner: Karin · Status: draft (Step 9), BOM v1 numbers. Step 10, the final story, comes later.*
+*Owner: Karin · Status: draft (Step 9), BOM v1 numbers. Step 10, the final story, is at the end.*
 
 > **Sources:** E-numbers refer to rows of [`market_evidence/evidence.csv`](../../market_evidence/evidence.csv). "01 §3.4" means section 3.4 of [01_market_and_regulation.md](01_market_and_regulation.md); likewise for [02](02_cost_and_tco.md) and [03](03_value_and_pricing.md). H1–H6 are the hypotheses in the [problem framing](00_problem_framing.md) (§6).
 
@@ -261,6 +261,38 @@ Report the **whole-fill** figure as "SF6 kept out of the installed base", and th
 3. **Australian SF6 upkeep:** confirm whether any owner-side rule applies. If not, Australia colocation moves to the Johor–Singapore timeline (2028 at scale).
 4. **KPI targets:** set the order-share and reference-site targets with the client.
 5. **Problem 1 dependencies:** done. This report uses the corrected BOM (v1): P1 Steps 8–9, `src.value_pricing` and `src.strategy` were rerun. Thresholds moved by about 0.15 points; the raw-material triggers in §9.5 rose with the higher BOM costs (AirSeT €941, RM6 €931 per unit).
+
+---
+
+# Step 10 – Final story
+
+## 10.1 One engine, two outcomes
+
+The client's chain: **RM forecast → BOM exposure → product-cost evolution → margin at risk → pricing decision → AirSeT market strategy**. One number per link:
+
+| Link | Result | Where |
+|---|---|---|
+| **1. RM forecast** | The median is no better than "no change", but the P10–P90 band is calibrated (80–84 % coverage on the hold-out) and narrower than the naive forecast's | P1 Steps 6–7 |
+| **2. BOM exposure** | RM6 €931, copper 52 %. AirSeT €941, copper 38 %, steel and stainless 52 % | P1 Step 2 (BOM v1) |
+| **3. Product-cost evolution** | To June 2027: P50 +2–3 %; P90 €1,098 (RM6), €1,105 (AirSeT) | P1 Step 8 |
+| **4. Margin at risk** | A 9-month fixed price risks 1.9 points (RM6) and 1.6 points (AirSeT) at P90 | P1 Step 8 |
+| **5. Pricing decision** | Up to 6 months: fixed price + uplift (≤ 1 point). 9 months: indexation clause (±10–15 %) + uplift of 0.8–1.0 points. AirSeT's clause follows copper, steel and stainless: worst past loss 0.6 points, against 3.3 at a fixed price | P1 Step 9 |
+| **6. AirSeT strategy** | Raw materials explain 0.5 % of the premium and won't converge (gap moves €7 at P50 to mid-2027). So: TCO-based price per segment, targeted margin investment where volume follows, and the clause from link 5 to protect the sharper price | This report, 02, 03 |
+
+**The message for the jury:** the same engine that tells sales how to price a 9-month quote also tells strategy how much margin AirSeT can afford to give up. The forecast doesn't make AirSeT cheaper. It makes a sharper AirSeT price safe.
+
+## 10.2 Problem 2 in the final presentation (8 slides)
+
+1. **The question:** voluntary switch, profitably. Today's 22 % premium against a customer saving of €31.
+2. **Raw materials aren't the reason:** RM6 €931 vs AirSeT €941; the forecast moves the gap by €7.
+3. **How customers count SF6 decides the price:** 0.4 % (leaks) → ≈ 9 % (whole fill) → ≈ 17 % (with upkeep).
+4. **Where to play:** Johor–Singapore, Australia, Gulf (scoring and stability, 01 §3).
+5. **Value proposition per segment** (03 §6).
+6. **Price window and margin investment:** the §9.3 table; the "opens if AirSeT's extra cost <" column.
+7. **Roadmap, win conditions and triggers** (§9.2–9.5).
+8. **One engine, two outcomes:** the §10.1 chain, with the clause as the bridge.
+
+Hypotheses: see §9.6. Limits: see §9.9.
 
 ---
 

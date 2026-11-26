@@ -91,12 +91,17 @@ def split_stainless(bom: list) -> list:
     return out
 
 
-def load_panel() -> pd.DataFrame:
-    panel = pd.read_csv(PANEL_FILE, index_col=0, parse_dates=True)
+def add_brass(panel: pd.DataFrame) -> pd.DataFrame:
+    """Add the brass proxy (65 % LME copper + 35 % LME zinc, €/t) that BOM v1 needs."""
+    panel = panel.copy()
     panel["BRASS_EUR"] = (
         BRASS_CU_SHARE * panel["D01"] + (1 - BRASS_CU_SHARE) * panel["S05_EUR"]
     )
     return panel
+
+
+def load_panel() -> pd.DataFrame:
+    return add_brass(pd.read_csv(PANEL_FILE, index_col=0, parse_dates=True))
 
 
 def last_value(series: pd.Series, origin: str = ORIGIN_MONTH) -> float:
