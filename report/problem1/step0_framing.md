@@ -44,7 +44,7 @@ Problem 2 (SF6-free strategy) is counted separately and is out of scope for this
 
 | Piece | What it is | Source |
 |---|---|---|
-| **Recipe** | kg of each material in one unit (fixed: the design doesn't change within 9 months) | `bom_materials.csv` |
+| **Recipe** | kg of each material in one unit (fixed: the design doesn't change within 9 months) | Client BOM v1 (`RM_Prices_XHEC_Challenge_v1.xlsx`, 25 Nov; replaced `bom_materials.csv`) |
 | **Prices** | €/t of each material, or an index (% change vs a base period) | Price files (LME, MEPS/CRU, Eurostat, …) |
 | **Raw-material cost of one unit** | Σ kg × price over all materials | Computed |
 | **BOM cost index** | That cost ÷ its September 2026 value × 100 | Computed |
@@ -104,8 +104,8 @@ The file covers 2016–2018 and does not include SFCME or Duna.
 
 | Source | Copper in one RM6 | Copper share of raw-material cost | Copper +30 % → % of price |
 |---|---|---|---|
-| Schneider BOM (`bom_materials.csv`) | **38.8 kg** | 62 % | ≈ 1.7 % |
-| Benchmark "teardown" | **8.6–13.8 kg** | 27–37 % | ≈ 0.4–0.6 % |
+| Schneider BOM v1 | **38.75 kg** | 52 % | ≈ 1.7 % |
+| Benchmark "teardown" | **8.6–13.8 kg** | 20–28 % | ≈ 0.4–0.6 % |
 
 The teardown is **not a physical teardown**. A tool generated it, with masses marked "inferred" and "not supported by a source", and it contains errors such as 500 kg of screws. So Schneider's BOM is the more credible source, but this one number changes RM6's copper risk by **3–4×**.
 
@@ -121,9 +121,9 @@ Instead of asking the client, these are inputs the user can change, or assumptio
 | Time from signing to material purchase | Parameter (purchase-lag setting) |
 | Existing customer indexation or hedging | We compare all strategies (buffer, indexation, hedge, shorter validity) |
 | Steel index used in purchasing (MEPS vs CRU, 3–7 % apart) | We test both |
-| RM6 copper mass | Base 38.8 kg; low scenario from the teardown |
-| Unlabelled BOM slices | RM6's 45 % slice treated as carbon steel; AirSeT "Other" left out |
-| Plastics price level (no €/t, only a PPI) | Assumed starting price, with a low/high test (matters for AirSeT: ~25 kg) |
+| RM6 copper mass | Base 38.75 kg (BOM v1); low scenario from the teardown |
+| Unknown BOM lines | Left unpriced (client rule): RM6 "Unidentified remainder" 5.6 kg, AirSeT "Other" 56 kg |
+| Plastics price level (no €/t, only a PPI) | Assumed starting price, with a low/high test (matters for AirSeT: ~21 kg) |
 | AirSeT selling price | Assumed from RM6 and the "higher cost structure" in the brief |
 | 2026 prices | Left out of the margin backtest (SF6 ban) |
 | Scope | Raw materials only: no labour, plant energy, electronics |
@@ -135,7 +135,7 @@ Instead of asking the client, these are inputs the user can change, or assumptio
 Only questions that change **what we build** and can't be handled by a parameter:
 
 1. **Reproducibility vs confidentiality:** how do we make the pipeline reproducible "from a clean start" (and run it on GitHub Actions) without committing the confidential BOM and the licensed MEPS/CRU data? Can licensed MEPS/CRU prices be used as model inputs?
-2. **RM6 copper:** is it 38.8 kg (internal BOM) or ≈ 9–14 kg (teardown)? It changes RM6's copper risk by 3–4×.
+2. **RM6 copper:** is it 38.75 kg (internal BOM) or ≈ 9–14 kg (teardown)? It changes RM6's copper risk by 3–4×.
 
 ---
 

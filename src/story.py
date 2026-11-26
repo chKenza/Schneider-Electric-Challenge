@@ -24,7 +24,7 @@ P1 = REPO_ROOT / "report" / "problem1"
 OUT_DIR = P1 / "step10_tables"
 
 # ---- headline settings, agreed by the team (report/problem1/step10_story.md §0) ----
-HEADLINE_CASES = {"RM6": "RM6", "AirSeT": "AirSeT epoxy low, nickel check"}  # Step 9 main cases
+HEADLINE_CASES = {"RM6": "RM6", "AirSeT": "AirSeT, nickel check"}  # Step 9 main cases (BOM v1)
 HEADLINE_STEEL = "market"  # MEPS-like spread: closer to what Schneider pays → the recommendation
 CSV_STEEL = "PPI"          # the submission CSV forecasts the PPIs (S09, S10)
 CONFIDENCE = 0.90
@@ -103,7 +103,7 @@ def story_problem(t, n: Numbers) -> None:
 
 
 def story_drivers(t, n: Numbers) -> None:
-    """Message 2: RM6 is a copper bet, AirSeT a steel + stainless bet (€ near P90, 9 months)."""
+    """Message 2: RM6 is a copper bet, AirSeT a steel + stainless + copper bet (€ near P90, 9 months)."""
     e = t["eur"]
     src = "step8_tables/eur_per_material_p90.csv"
     for steel in [HEADLINE_STEEL, CSV_STEEL]:
@@ -117,6 +117,10 @@ def story_drivers(t, n: Numbers) -> None:
               "carbon steel + stainless base + alloy surcharge", "AirSeT", 9, steel)
         n.add(f"airset_eur_nickel_surcharge_p90_9m_{steel}", air["Stainless alloy surcharge"], "EUR", src,
               "", "AirSeT", 9, steel)
+        n.add(f"airset_eur_copper_p90_9m_{steel}", air["Copper"], "EUR", src, "BOM v1: 28.46 kg",
+              "AirSeT", 9, steel)
+        n.add(f"airset_copper_share_p90_9m_{steel}", 100 * air["Copper"] / air.sum(), "%", src, "",
+              "AirSeT", 9, steel)
         n.add(f"airset_eur_total_p90_9m_{steel}", air.sum(), "EUR", src, "", "AirSeT", 9, steel)
         n.add(f"airset_steel_share_p90_9m_{steel}", 100 * steel_air / air.sum(), "%", src, "", "AirSeT", 9, steel)
 
@@ -178,7 +182,7 @@ def story_risk(t, n: Numbers, mar: pd.DataFrame) -> None:
     b9 = t["bom"][t["bom"].horizon_m == 9]
     air = b9[b9.case.str.startswith("AirSeT")]
     n.add("airset_at_risk_p90_9m_range_min", air.total_at_risk_p90_pts.min(), "margin pts", src,
-          "all AirSeT epoxy / nickel / steel cases", "AirSeT", 9)
+          "all AirSeT nickel / steel cases", "AirSeT", 9)
     n.add("airset_at_risk_p90_9m_range_max", air.total_at_risk_p90_pts.max(), "margin pts", src, "", "AirSeT", 9)
     for case in ALT_COPPER:
         r = one(t["bom"], case=case, steel=HEADLINE_STEEL, horizon_m=9)
