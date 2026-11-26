@@ -24,6 +24,7 @@ with st.container(border=True):
     extra = c2.slider("AirSeT extra unit cost vs RM6 (%)", 0.0, 20.0, 10.0, 0.5,
                       help="Unknown today; the UK expects 5–10 % at scale.")
 
+st.session_state.asst_ctx_airset = {"segment": seg, "extra": extra}   # for the assistant
 ceil = ceiling[seg]
 margin = ceil - extra
 with st.container(border=True):

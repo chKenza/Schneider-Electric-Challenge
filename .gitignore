@@ -17,6 +17,7 @@ build/
 
 # Environment / secrets
 .env
+.streamlit/secrets.toml
 
 # OS / editors
 .DS_Store

@@ -158,10 +158,20 @@ def triggers(p2: MarketEvidence) -> pd.DataFrame:
          "src/tco.py, 02 4.4",
          "Move ESG-led segments from TCO-based price to list price"),
         ("SF6 rule in a target market", "status 0/1 -> 2 or 3 (phase-out adopted or ban)",
-         "market_evidence/regulation.csv", "Accelerate: future-proof pitch, list price, more sales capacity"),
+         "market_evidence/regulation.csv",
+         "Accelerate: 'no SF6 obligations' pitch, list price, more sales capacity"),
         ("SF6-free rival price (Eaton, Chinese dry-air RMUs)",
-         "below AirSeT's TCO-based price in a target market", "competitors.csv",
-         "Defend with bundle (take-back, monitoring) before cutting price; pause if below floor"),
+         "below AirSeT's TCO-based price in a target market", "competitors.csv, E180",
+         "Quote RM6 base + AirSeT option; keep the bundle for fleets; pause if below floor"),
+        ("RM6 end-of-sale date", "Schneider announces one for a target market",
+         "Schneider product team",
+         "Accelerate phased-build sales: expansion-proof pitch to campuses with later phases"),
+        ("Taxonomy or lender criterion naming SF6", "a green-loan or taxonomy rule in a target "
+         "market requires or rewards SF6-free switchgear", "E182, E183",
+         "Accelerate: ESG-financed customers must comply; list price for them"),
+        ("Local AirSeT production", "Schneider decides to build or assemble AirSeT in India or "
+         "Saudi Arabia", "E176, E178",
+         "Accelerate India and Gulf utility frameworks; re-check the extra cost and lead time"),
     ]
     return pd.DataFrame(rows, columns=["watch", "threshold", "source", "action"])
 

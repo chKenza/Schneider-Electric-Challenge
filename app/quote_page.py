@@ -7,6 +7,7 @@ import streamlit as st
 
 from app.ui import (BAND, CSS, GROUP_COLORS, INK, MUTED, SCENARIO, base_fig, chart,
                     chart_title, eur, month_label)
+from app.ui import action_text as ui_action_text
 from src import quote_engine as q
 from src.simulation import HORIZONS
 
@@ -103,16 +104,13 @@ if scenario:
 
 # --------------------------------------------------------- recommendation
 def action_text(o) -> str:
-    u = f"raise the price by {o.uplift:.2f} pts ({eur(t.eur(o.uplift))} per unit)"
-    if o.kind == "fixed":
-        return f"Fixed price: {u}"
-    if o.kind == "clause":
-        metals = "copper" if product == "RM6" else "copper, steel and stainless steel"
-        return f"Add a {metals} indexation clause (±{o.band:.0%}) and {u}"
-    if o.kind == "validity":
-        return f"Limit validity to {o.months} months with a fixed price, and {u}"
-    return f"{o.name}: {u}"
+    return ui_action_text(t, o)
 
+
+# the sidebar assistant answers from these inputs
+st.session_state.asst_ctx_quote = dict(product=product, h=h, price=price, tol=tol, conf=conf,
+                                       max_up=max_up, clause_ok=clause_ok, scenario=scenario,
+                                       pct=pct)
 
 st.subheader("Recommendation")
 col_q, col_a = st.columns(2)
