@@ -20,3 +20,7 @@ nav = st.navigation([
     st.Page(ROOT / "app" / "airset_page.py", title="RM AirSeT strategy"),
 ])
 nav.run()
+
+from app import assistant  # noqa: E402  (needs ROOT on sys.path)
+
+assistant.render(nav.title)
