@@ -37,7 +37,7 @@
 **What this means for Steps 6–7.**
 - **Don't sell AirSeT on leak-based TCO.** At internal carbon prices it supports a premium of only 0.4 % of the price.
 - **Sell it on "the whole fill is your liability"** (end-of-life Scope 3, stranded-asset risk, reporting), plus "no SF6 upkeep" where rules apply (New York, Australia).
-- **Price it at roughly 9 % or less above RM6 in ESG-driven segments.** The Problem 1 forecast's contribution is margin protection on that sharper price (steel/stainless clause), not cost convergence.
+- **Price it at roughly 9 % or less above RM6 in ESG-driven segments.** The Problem 1 forecast's contribution is margin protection on that sharper price (copper, steel and stainless clause), not cost convergence.
 
 ---
 

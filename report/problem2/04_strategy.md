@@ -1,6 +1,6 @@
 # Problem 2 – Strategy: roadmap, win conditions and final story (Steps 9–10)
 
-*Owner: Karin · Status: draft (Step 9), BOM v1 numbers. Step 10, the final story, is at the end.*
+*Owner: Karin · Status: done.*
 
 > **Sources:** E-numbers refer to rows of [`market_evidence/evidence.csv`](../../market_evidence/evidence.csv). "01 §3.4" means section 3.4 of [01_market_and_regulation.md](01_market_and_regulation.md); likewise for [02](02_cost_and_tco.md) and [03](03_value_and_pricing.md). H1–H6 are the hypotheses in the [problem framing](00_problem_framing.md) (§6).
 
@@ -67,7 +67,7 @@
 | **Target markets and segments** | 1. Johor–Singapore data centres · 2. Gulf (Saudi Arabia, UAE) data centres · 3. Australia colocation. Second segment: utilities in Australia, Saudi Arabia and Japan. Later: US data-centre states, UK. China opportunistic only. | 01 §3.4 |
 | **Value proposition** | "Same job, same footprint, no SF6." Sell on (1) the whole SF6 fill as a liability, 35 t CO₂e per unit; (2) no SF6 paperwork where rules apply; (3) future-proof. **Don't** sell on leak-based TCO or raw-material convergence. | 03 §6 |
 | **Pricing** | A TCO-based premium per segment: ≈ 9 % Johor–Singapore, up to ≈ 16 % Australia colocation, ≈ 8 % Australian utilities. No price competition in the Gulf. Bundles (take-back, monitoring, leasing) where the window is shut. | 03 §7 |
-| **Offer structure (Problem 1)** | Quotes up to 6 months: fixed price plus ≤ 0.6 points. 9-month quotes: copper, steel and stainless indexation clause plus a small uplift. | 03 §7.5, P1 Step 9 |
+| **Offer structure (Problem 1)** | Quotes up to 6 months: fixed price plus ≤ 0.6–0.85 points (PPI or market steel). 9-month quotes: copper, steel and stainless indexation clause plus a small uplift. | 03 §7.5, P1 Step 9 |
 | **Adoption levers** | SF6 into operators' accounting (iMasons declarations) · "SF6-free" in specifications and framework agreements · AirTrunk reference site · SEC pilot · take-back · training · channel incentives | 03 §8 |
 | **Roadmap and win conditions** | This report: §9.2–9.5 | – |
 
