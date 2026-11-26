@@ -1,6 +1,6 @@
 # Problem 2 – Value proposition, pricing and adoption levers (Steps 6–8)
 
-*Owner: Ion · Status: draft*
+*Owner: Ion · Status: done*
 
 > **Run from the repo root:**
 >

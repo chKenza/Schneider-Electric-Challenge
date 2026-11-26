@@ -1,6 +1,6 @@
 # Step 0 – Framing the problem
 
-*Owner: Karin · Status: final draft · Scope: Problem 1 only*
+*Owner: Karin · Status: done · Scope: Problem 1 only*
 
 ---
 
