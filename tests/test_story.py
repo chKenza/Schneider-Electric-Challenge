@@ -65,10 +65,12 @@ def test_claim_fixed_prices_lost_margin_in_2022(k):
 
 
 def test_claim_rm6_copper_airset_steel(k):
-    """'RM6 is a copper bet, AirSeT a steel and stainless bet.'"""
+    """'RM6 is a copper bet; AirSeT a steel + stainless and copper bet' (BOM v1)."""
     for steel in ["market", "PPI"]:
         assert k[f"rm6_copper_share_p90_9m_{steel}"] > 50
-        assert k[f"airset_steel_share_p90_9m_{steel}"] > 80
+        assert k[f"airset_steel_share_p90_9m_{steel}"] > 40
+        assert k[f"airset_copper_share_p90_9m_{steel}"] > 35
+        assert k[f"airset_steel_share_p90_9m_{steel}"] + k[f"airset_copper_share_p90_9m_{steel}"] > 90
 
 
 def test_claim_band_not_median(k):
@@ -98,7 +100,7 @@ def test_claim_rm6_9m_needs_a_clause(out):
 
 
 def test_claim_airset_clause_beats_buffer_on_past_paths(k):
-    """'AirSeT: on past paths the steel clause loses far less than a P90 buffer, and costs the customer less.'"""
+    """'AirSeT: on past paths the clause loses far less than a P90 buffer, and costs the customer less.'"""
     assert k["airset_hist_9m_clause_p95"] < 0.5 * k["airset_hist_9m_buffer_p90_p95"]
     assert k["airset_hist_9m_clause_cost_to_customer"] < k["airset_hist_9m_buffer_p90_cost_to_customer"]
 

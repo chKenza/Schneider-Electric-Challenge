@@ -1,13 +1,13 @@
 product,case,steel,horizon_m,index_p10,index_p50,index_p90,eur_increase_p90,price_adjustment_pts,risk_buffer_p90_pts,total_at_risk_p90_pts,total_at_risk_p95_pts
-RM6,RM6,market,3,92.34,100.3,107.8,61.71,0.03,0.68,0.71,1.08
-RM6,RM6,market,6,91.73,101.5,114.7,116.9,0.13,1.2,1.34,1.74
-RM6,RM6,market,9,91.41,103,120.8,165.4,0.28,1.62,1.89,2.37
-RM6,RM6,PPI,3,92.77,100.5,106.6,52.19,0.04,0.55,0.6,0.79
-RM6,RM6,PPI,6,92.36,101.2,112.8,101.5,0.11,1.05,1.16,1.44
-RM6,RM6,PPI,9,92.19,102.3,119,151.4,0.21,1.52,1.73,2.08
-AirSeT,"AirSeT epoxy low, nickel check",market,3,93.03,99.73,113,76.01,-0.02,0.74,0.72,0.93
-AirSeT,"AirSeT epoxy low, nickel check",market,6,89.37,101.2,119.4,113.2,0.07,1.01,1.08,1.35
-AirSeT,"AirSeT epoxy low, nickel check",market,9,87.96,102.1,122,128.6,0.11,1.11,1.23,1.58
-AirSeT,"AirSeT epoxy low, nickel check",PPI,3,93.77,100,108.8,51.49,0,0.49,0.49,0.69
-AirSeT,"AirSeT epoxy low, nickel check",PPI,6,90.38,101,115.3,89.42,0.06,0.79,0.85,1.08
-AirSeT,"AirSeT epoxy low, nickel check",PPI,9,89.39,101.6,118.1,105.4,0.09,0.92,1,1.36
+RM6,RM6,market,3,93.2,100,107.2,67.15,0,0.76,0.77,1.17
+RM6,RM6,market,6,92.04,101.4,114,130.3,0.15,1.34,1.49,1.92
+RM6,RM6,market,9,91.61,102.8,119.5,181.9,0.3,1.78,2.08,2.62
+RM6,RM6,PPI,3,93.6,100.2,106,55.4,0.02,0.61,0.63,0.87
+RM6,RM6,PPI,6,92.62,101.2,112.2,113.8,0.13,1.17,1.3,1.6
+RM6,RM6,PPI,9,92.36,102.3,117.9,166.3,0.25,1.66,1.9,2.34
+AirSeT,"AirSeT, nickel check",market,3,93.42,100.4,109.2,86.15,0.04,0.78,0.82,0.99
+AirSeT,"AirSeT, nickel check",market,6,91.19,101.6,115,141.2,0.14,1.21,1.35,1.67
+AirSeT,"AirSeT, nickel check",market,9,90.62,103,119.8,186.6,0.27,1.51,1.78,2.17
+AirSeT,"AirSeT, nickel check",PPI,3,94.22,100.2,106.9,65.13,0.02,0.6,0.62,0.73
+AirSeT,"AirSeT, nickel check",PPI,6,91.98,101.4,112.6,118.9,0.13,1.01,1.13,1.39
+AirSeT,"AirSeT, nickel check",PPI,9,91.37,102.7,117.5,164.4,0.24,1.33,1.57,1.92

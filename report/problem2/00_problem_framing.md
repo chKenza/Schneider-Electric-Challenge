@@ -64,17 +64,17 @@ The synthetic price benchmark (`RMU_IQI_EU_Price_Benchmark…`) has no AirSeT pr
 
 ### Raw materials alone cannot close that gap
 
-From Problem 1 Step 2 (raw-material cost per unit, Sep 2026):
+From Problem 1 Step 2 (raw-material cost per unit, Sep 2026, client BOM v1):
 
 | | RM6 (SF6) | RM AirSeT |
 |---|---|---|
-| Raw-material cost | €795 | €583 (epoxy low) – €981 (epoxy high) |
-| Gap vs RM6, % of RM6 selling price (€8,740) | – | **−2.4 to +2.1 points** |
-| Main cost drivers | Copper 61 % | Stainless + carbon steel (≈ 95 % of RM risk) |
+| Raw-material cost | €931 | €941 |
+| Gap vs RM6, % of RM6 selling price (€8,740) | – | **+0.1 points** |
+| Main cost drivers | Copper 52 % (+ brass 3 %) | Copper 38 %, carbon steel 30 %, stainless 22 % |
 
-- **Raw materials are about 9 % of the selling price**, so the RM gap is ±2 points against a ≈ 20-point price gap. **AirSeT's "higher cost structure" is mostly not raw materials**: it sits in components, the insulation process and volume.
-- **The direction still helps.** RM6 is a copper bet, and copper is at a record high (€12,974/t in Oct 2026). AirSeT has no copper in the BOM. A copper rally raises RM6's cost faster, so the raw-material outlook works in AirSeT's favour. But even +30 % copper only moves RM6's cost by about 1.7 points of price.
-- **Two open questions change this:** AirSeT's copper (none in the BOM; Eaton's teardown suggests ≈ 26 kg) and what its 86 kg of "Other" is. AirSeT's BOM is also **twice as heavy** as RM6's (629 vs 310 kg), so the two may not be the same configuration.
+- **Raw materials are about 11 % of the selling price**, and the two products cost almost the same in raw materials (a 0.1-point gap against a ≈ 20-point price gap). **AirSeT's "higher cost structure" is mostly not raw materials**: it sits in components, the insulation process and volume.
+- **The direction barely helps.** RM6 is a copper bet, and copper is at a record high (€12,974/t in Oct 2026). But AirSeT also has 28.5 kg of copper (BOM v1), against RM6's 38.75 kg, so a copper rally lifts both. Even +30 % copper widens RM6's cost over AirSeT's by only €39, about 0.4 points of price.
+- **The client's corrected BOM (v1, 25 Nov) closed the copper question:** AirSeT has 28.5 kg of copper, close to Eaton's Xiria teardown (≈ 26 kg). Its 56 kg of "Other" stays unpriced (client rule). AirSeT's BOM is still heavier than RM6's (547 vs 310 kg), so the two may not be the same configuration.
 
 → **Framing consequence:** the RM outlook is a **supporting** argument (direction and timing), not the main one. The main arguments have to be TCO, ESG and risk. We say this honestly.
 
@@ -103,7 +103,7 @@ The teardown benchmark gives the SF6 fill per unit (masses are tool-inferred, no
 
 ### Margin protection is possible on AirSeT
 
-From the Problem 1 EDA: **AirSeT's raw-material risk is almost entirely carbon steel and stainless.** Schneider already buys steel on a MEPS/CRU index, so a **steel-linked indexation clause** would remove most of that risk. This matters because AirSeT's margin is thinner, and it is what lets us offer a sharper AirSeT price without taking the raw-material gamble. The numbers come from Problem 1 Steps 8–9.
+From Problem 1 (Steps 3, 8 and 9, BOM v1): **AirSeT's raw-material risk is carbon steel, stainless and copper.** Schneider already buys steel on a MEPS/CRU index and copper on the LME, so an **indexation clause on copper, steel and stainless** would remove most of that risk. This matters because AirSeT's margin is thinner, and it is what lets us offer a sharper AirSeT price without taking the raw-material gamble. The numbers come from Problem 1 Steps 8–9.
 
 ### Supply side
 
@@ -133,7 +133,7 @@ The strategy is built by testing these hypotheses. Each one is either confirmed 
 | H1 | **Global data-centre operators apply one SF6-free standard worldwide**, so an EU win carries over to their sites in APAC, the Middle East and the Americas. | Step 2 | Their procurement or ESG policies don't mention SF6 or switchgear. **Result (22 Nov): not supported**: 9 of 11 operators never mention SF6, Google excludes it, only AirTrunk (APAC) counts it and explores SF6-free gear ([01 §7](01_market_and_regulation.md)). |
 | H2 | **Some non-EU markets are likely to regulate SF6 soon**, so "future-proof" is a real argument there. | Step 2 | No regulation is discussed or announced in the target regions. **Result (22 Nov): partly supported**: credible in US states (New York phase-out from 2027, after California) and the UK (phase-out under study); in Asia and the Middle East regulators move at high voltage and through utilities first, with no MV rule in sight before 2030 ([01 §2.1](01_market_and_regulation.md)). |
 | H3 | **TCO favours AirSeT once the whole SF6 content is valued** at a realistic or internal carbon price. | Step 4 | Break-even needs a carbon price far above what customers use. **Provisional result (22 Nov): only if the whole fill is valued**: break-even €54/t for the whole SF6 fill (EU ETS €75 and the social cost of carbon €170 exceed it, but neither applies to a non-EU data centre), €681/t for leaks only, far above the €10–22/t that actually reaches customers ([01 §6](01_market_and_regulation.md)). **Result (23 Nov): confirmed only for the whole-fill view**: full TCO break-even €54/t (whole fill), €1,657/t (leaks + end of life, discounted), €2,038/t (leaks only); at the €22/t median internal price the whole-fill view supports a ≈ 9 % premium, the leak views 0.4 % ([02 §4.4](02_cost_and_tco.md)). |
-| H4 | **The raw-material outlook narrows the cost gap** (copper rising faster than steel). | Step 5 (needs P1 Step 8) | Problem 1 forecasts show steel or stainless rising faster than copper. **Result (23 Nov): direction yes, size no**: RM6 rises more in 57 % of paths to Jun 2027; the gap narrows €10 at P50 (0.5 % of the premium), €105 at P90; with Xiria-like copper in AirSeT a copper rally widens it ([02 §5](02_cost_and_tco.md)). |
+| H4 | **The raw-material outlook narrows the cost gap** (copper rising faster than steel). | Step 5 (needs P1 Step 8) | Problem 1 forecasts show steel or stainless rising faster than copper. **Result (26 Nov, BOM v1): direction yes, size no**: RM6 rises more in 59 % of paths to Jun 2027; the gap narrows €7 at P50 (0.3 % of the premium), €41 at P90; with copper in both BOMs, closing the premium through copper would need a 16-fold copper price ([02 §5](02_cost_and_tco.md)). |
 | H5 | **AirSeT can be priced closer to RM6 without losing margin**, thanks to steel indexation and volume. | Step 7 (needs P1 Steps 8–9) | The margin left after the risk buffer falls below the floor. |
 | H6 | **The EU price convergence (2026) will repeat elsewhere** as volume grows and regulation spreads. | Steps 2, 5 | Gap drivers are structural (components, process), not volume or regulation. **Result (23 Nov): not through raw materials**: 2018–25 the premium fell €876 whReports owned by others: the edits to 00_problem_framing.md and 01_market_and_regulation.md are in Kenza and Chloe's files. Check they're happy with them.
 ile the raw-material gap moved €80; the 2026 drop (−€2,594) was regulatory. Outside the EU it needs volume (UK review: 15–30 % → 5–10 % at scale) or regulation ([02 §5.3](02_cost_and_tco.md)). |

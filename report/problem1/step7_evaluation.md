@@ -33,10 +33,10 @@
 - **The honest backtest estimate is +4.9 %, not +8.5 %.** Step 6's choices re-made at every origin from the past only score +4.9 % (mean over cells), so about 3.6 points of Step 6's figure were hindsight. Without hindsight, the procedure converges on the same choices.
 - **The value is in the band, not the median.** The median is no better than "no change" (MAE skill −4 % to +2 %). The gain comes from bands with the right coverage that are narrower than the random walk's.
 - **The band's width is right, but its centre follows the wrong regime.** In the 2023–24 decline the upside was too wide; in the 2025–26 rally it was too short (14–18 % of hold-out outcomes above P90, target 10 %).
-- **BOM cost index:**
-  - **AirSeT:** much better forecast than by the random walk (+15 to +31 % on the hold-out).
-  - **RM6:** no gain during the copper rally. Its index ended above P90 in 22 % of hold-out cases, so RM6 needs a copper indexation clause.
-  - **The Step 8 joint simulation**, which gives the CSV's BOM rows, is as good as the direct forecast. For RM6 its 6–9-month P90 was exceeded slightly more often (28–33 %), within noise.
+- **BOM cost index (client BOM v1):**
+  - **AirSeT:** better forecast than by the random walk (+15 to +16 % on the hold-out). But BOM v1 puts copper at 38 % of its cost, so the copper rally also hit it: its index ended above P90 in 17–28 % of hold-out cases.
+  - **RM6:** no gain during the copper rally. Its index ended above P90 in 22–33 % of hold-out cases, so RM6 needs a copper indexation clause.
+  - **The Step 8 joint simulation**, which gives the CSV's BOM rows, is as good as the direct forecast (hold-out skill +14 to +22 % for AirSeT). For RM6 its P90 was exceeded as often as the direct forecast's (22–33 %); for AirSeT less often (6–17 %).
 - **Stable over time:** the gain holds in both the 2022 shock and 2023–25, then fades in the hold-out.
 - **Compute is negligible:** one full Step 5 + 6 run takes 3.2 minutes and about 1.1 Wh (0.05 g CO₂ on the French grid).
 - **Sensitivity checks confirm Step 6:** the expanding window beats a 60-month sliding window, and λ = 0.97 is chosen at 53 of 57 origins.
@@ -106,17 +106,15 @@ Each material's error is weighted by its € share in the Step 2 recipe:
 
 | Product | Main weights |
 |---|---|
-| RM6 | copper 61 %, steel and stainless (S09) 34 % |
-| AirSeT (epoxy low) | steel and stainless (S09) 94 % |
-| AirSeT (epoxy high) | epoxy 42 %, steel and stainless 56 % |
+| RM6 | copper (with brass) 56 %, steel and stainless (S09) 29 %, epoxy 12 % |
+| AirSeT | steel and stainless (S09) 52 %, copper 38 %, epoxy 8 % |
 
 The random walk forecasts "no change", so its WAPE is 1 by construction, and the WAPE skill is 1 − WAPE.
 
 | WAPE skill, final model | Backtest 3 / 6 / 9 m | Hold-out 3 / 6 / 9 m |
 |---|---|---|
-| RM6 | +2 / −3 / −5 % | **+3 / +2 / +2 %** |
-| AirSeT (epoxy low) | +4 / −6 / −8 % | +7 / 0 / −5 % |
-| AirSeT (epoxy high) | +2 / −6 / −7 % | +3 / 0 / −4 % |
+| RM6 | +2 / −3 / −5 % | **+3 / +1 / +2 %** |
+| AirSeT | +2 / −4 / −6 % | +4 / +1 / +1 % |
 
 This is the **median** error, weighted by € share. It confirms section 2: the median is close to the random walk, so the gain has to come from the band.
 
@@ -184,22 +182,20 @@ The final model beat the random walk on every 12-month window until about April 
 
 | Final model recipe, pinball skill vs random walk | Backtest 3 / 6 / 9 m | Hold-out 3 / 6 / 9 m | Hold-out: share below P90 |
 |---|---|---|---|
-| RM6 | +6 / +13 / +16 % | **−5 / −5 / +4 %** | 78 / 78 / 78 % |
-| AirSeT (epoxy low) | +6 / +10 / +8 % | **+29 / +27 / +27 %** | 100 / 100 / 100 % |
-| AirSeT (epoxy high) | +18 / +22 / +18 % | **+15 / +30 / +31 %** | 83 / 94 / 100 % |
+| RM6 | +8 / +14 / +17 % | **−1 / −3 / +4 %** | 78 / 67 / 72 % |
+| AirSeT | +21 / +18 / +22 % | **+16 / +15 / +15 %** | 83 / 78 / 72 % |
 
 ![BOM skill](../../plots/step7/05_bom_skill.png)
 
-- **AirSeT: a large gain.** The random walk's band was built from history that includes the 2021 steel surge, so it was far too wide for the calm 2025–26 steel market (100 % coverage). The final model's volatility-scaled bands are much narrower and still cover. In pricing terms: **a much smaller buffer for AirSeT, with the same protection.**
-- **RM6: no gain in the copper rally.** The index ended above P90 in 22 % of hold-out cases. RM6 is mainly copper risk, so **a buffer alone is not enough: long RM6 quotes need a copper indexation clause** (Step 9).
+- **AirSeT: a clear gain, but not in the upper tail.** The random walk's band was built from history that includes the 2021 surge, so it was far too wide for 2025–26 (100 % coverage). The final model's volatility-scaled bands are narrower (+15 % skill). With BOM v1, copper is 38 % of AirSeT's cost, so the 2025–26 copper rally pushed 17–28 % of hold-out outcomes above its P90. In pricing terms: **a smaller buffer than the random walk's, but long AirSeT quotes also need a copper clause.**
+- **RM6: no gain in the copper rally.** The index ended above P90 in 22–33 % of hold-out cases. RM6 is mainly copper risk, so **a buffer alone is not enough: long RM6 quotes need a copper indexation clause** (Step 9).
 
 **Live forecast at September 2026,** as an index (September 2026 = 100), 9 months:
 
 | Product | P10 / P50 / P90 |
 |---|---|
-| RM6 | 88.8 / 100.7 / 118.2 |
-| AirSeT (epoxy low) | 94.2 / 100.5 / 117.7 |
-| AirSeT (epoxy high) | 92.1 / 100.4 / 117.8 |
+| RM6 | 88.8 / 100.7 / 117.0 |
+| AirSeT | 89.8 / 100.6 / 114.4 |
 
 **Leakage check:** 1,548 of 1,548 forecasts unchanged when the future is poisoned, across 43 origins (a permanent test).
 
@@ -218,13 +214,13 @@ Pinball skill vs the random walk, %, and share of outcomes below P90 (target 90 
 
 | Product | Backtest 3 / 6 / 9 m: direct → Step 8 | Hold-out 3 / 6 / 9 m: direct → Step 8 | Hold-out below P90: direct → Step 8 |
 |---|---|---|---|
-| RM6 | +6 / +13 / +16 → +3 / +14 / +19 | −5 / −5 / +4 → −8 / −1 / +11 | 78 / 78 / 78 → 78 / 67 / 72 |
-| AirSeT (epoxy low) | +6 / +10 / +8 → +21 / +14 / +10 | +29 / +27 / +27 → +29 / +27 / +27 | 100 / 100 / 100 → 100 / 100 / 100 |
-| AirSeT (epoxy high) | +18 / +22 / +18 → +18 / +14 / +16 | +15 / +30 / +31 → +16 / +21 / +26 | 83 / 94 / 100 → 83 / 100 / 100 |
+| RM6 | +8 / +14 / +17 → +3 / +15 / +19 | −1 / −3 / +4 → −6 / 0 / +10 | 78 / 67 / 72 → 78 / 67 / 72 |
+| AirSeT | +21 / +18 / +22 → +17 / +12 / +17 | +16 / +15 / +15 → +14 / +18 / +22 | 83 / 78 / 72 → 83 / 94 / 94 |
 
-- **The simulation is as good as the direct forecast.** Its skills are within a few points of the direct forecast's, inside the confidence intervals (e.g. RM6 at 9 months on the hold-out: +11 % [+10, +23] vs +4 % [−2, +18]). AirSeT keeps its large gain over the random walk.
-- **RM6's upper tail is a little shorter with Step 8.** At 6 and 9 months, 33 % and 28 % of hold-out outcomes ended above its P90 (direct: 22 %). Step 8 takes copper's forecast as it is, and copper's upside was underestimated in the 2025–26 rally (section 4); copper is most of RM6's cost. With 18 overlapping origins (2–3 independent windows) the difference is not significant: the 95 % interval of the 6-month share below P90 is 17–100 %.
-- **For Step 9:** RM6's Step 8 P90 is a floor, so 6–9-month RM6 quotes need a copper clause, not a buffer alone.
+- **The simulation is as good as the direct forecast.** Its skills are within a few points of the direct forecast's, inside the confidence intervals (e.g. RM6 at 9 months on the hold-out: +10 % [+10, +23] vs +4 % [−2, +19]). AirSeT keeps its gain over the random walk.
+- **RM6's upper tail is too short with both.** At 6 and 9 months, 33 % and 28 % of hold-out outcomes ended above P90 (target 10 %). Copper's upside was underestimated in the 2025–26 rally (section 4), and copper is most of RM6's cost. With 18 overlapping origins (2–3 independent windows) the 95 % interval is wide.
+- **AirSeT's tail is better covered by Step 8** (6 % above P90 at 6–9 months, against 22–28 % for the direct forecast): the simulation spreads the risk over copper, steel and nickel, which did not all rally together.
+- **For Step 9:** RM6's Step 8 P90 is a floor, so 6–9-month RM6 quotes need a copper clause, not a buffer alone. AirSeT's clause also follows copper (BOM v1).
 
 ## 7. Compute and CO₂
 
@@ -335,9 +331,9 @@ The hold-out was used for evaluation only, never left out of the final fit. Thes
 
 - **Step 8:** the joint simulation is backtested (section 6.1) and matches the direct forecast; its RM6 P90 should be read as a floor.
 - **Step 9 (pricing):**
-  - **AirSeT:** the final model's P90 gives a much smaller buffer than the random walk, with the same protection.
-  - **RM6:** the P90 was exceeded in 22 % of hold-out cases (copper), and in 28–33 % at 6–9 months with the Step 8 simulation, so pair the buffer with a **copper indexation clause** for 6–9-month quotes.
-  - **Materials:** where the forecasts failed on the hold-out, it was the upside tail, mainly copper. This affects RM6, not AirSeT (section 6.1).
+  - **AirSeT:** the final model's P90 gives a smaller buffer than the random walk. With BOM v1 it carries copper too, so its clause should follow copper as well as steel and stainless.
+  - **RM6:** the P90 was exceeded in 22–33 % of hold-out cases (copper), with both the direct forecast and the Step 8 simulation, so pair the buffer with a **copper indexation clause** for 6–9-month quotes.
+  - **Materials:** where the forecasts failed on the hold-out, it was the upside tail, mainly copper. This affects RM6 most, and AirSeT through its 28 kg of copper (section 6.1).
 - **Step 12 (README):**
   - Compute and CO₂ (section 7);
   - the "beats naive" table (section 2);
