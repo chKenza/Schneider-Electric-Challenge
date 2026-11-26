@@ -1,0 +1,11 @@
+param,label,unit,value_base,value_pessimistic,gap_pessimistic,break_even_pessimistic,value_optimistic,gap_optimistic,break_even_optimistic,swing_eur,gap_base,view
+internal_carbon_price_eur_t,Carbon price,EUR / t CO2e,22.0,13.0,1457.4596,54.3464,170.0,-4076.7904,54.3464,5534.25,1140.2096,whole_fill
+price_premium_pct,AirSeT price premium,% of SF6 price,21.98,27.0,1578.9576,66.7931,3.0,-518.6424,7.2867,2097.6,1140.2096,whole_fill
+sf6_kg_per_unit,SF6 fill per unit,kg,1.5,0.72,1543.4696,113.2216,2.5,623.2096,32.6078,920.26,1140.2096,whole_fill
+sf6_admin_cost_eur_per_year,"SF6 upkeep (checks, records)",EUR / unit / yr (RM6 only),0.0,0.0,1140.2096,54.3464,50.0,473.6241,35.4361,666.5854,1140.2096,whole_fill
+eol_recovery_cost_eur,End-of-life recovery cost,EUR / unit,80.0,35.0,1143.2147,54.4316,1000.0,1078.7716,52.6035,64.4431,1140.2096,whole_fill
+gwp_sf6,GWP of SF6,t CO2e / t,23500.0,22800.0,1163.3096,56.0149,24300.0,1113.8096,52.5572,49.5,1140.2096,whole_fill
+asset_life_years,Asset life,years,40.0,60.0,1144.1714,54.4588,30.0,1135.0426,54.1998,9.1288,1140.2096,whole_fill
+discount_rate_pct,Discount rate,%,7.0,10.7,1144.1805,54.459,5.3,1135.4139,54.2103,8.7666,1140.2096,whole_fill
+leak_rate_pct_per_year,Leak rate,%/yr,0.2,0.1,1140.2096,54.3464,0.7,1140.2096,54.3464,0.0,1140.2096,whole_fill
+eol_release_share,SF6 released at end of life,share of fill,0.1,0.015,1140.2096,54.3464,0.4,1140.2096,54.3464,0.0,1140.2096,whole_fill

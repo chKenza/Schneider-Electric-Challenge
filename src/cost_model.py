@@ -21,14 +21,18 @@ PANEL_FILE = OUT / "panel_monthly.csv"
 HORIZONS = (3, 6, 9)
 SHOCK = 0.10
 
-# Implied total masses: labelled kg ÷ share_pct in bom_materials.csv.
-RM6_TOTAL_KG = 38.8 / 0.125  # ≈ 310 kg
-AIRSET_TOTAL_KG = 327.2 / 0.52  # ≈ 629 kg
-# RM6 PEP (ENVPEP1511010_V2, 07/2023): epoxy = 0.62 % of a 255 kg unit.
-PEP_EPOXY_SHARE = 0.0062
-PEP_RM6_KG = 255
+# BOM source: the client's corrected BOM, `RM_Prices_XHEC_Challenge_v1.xlsx`, sheet
+# BOM_Materials (received 20 Nov 2026). It replaces `bom_materials.csv`: RM6 is now fully
+# labelled (310 kg) and AirSeT has copper and epoxy (547 kg). Lines the client marks as
+# unknown ("Other", "Unidentified remainder") stay unpriced, as the client asked: no
+# composition is invented for them (sensitivity in src/p2_cost_gap.py).
+BOM_SOURCE = "BOM v1"
 
-# material: (€/t level series, driver series). Plastics have no €/t level (left unpriced).
+# Brass has no series in the BOM. Proxy: 65 % copper + 35 % zinc (cartridge-type brass),
+# both LME in EUR. It moves with copper (driver D01), its main cost.
+BRASS_CU_SHARE = 0.65
+
+# material: (€/t level series, driver series). No level = unpriced (plastics, unknown lines).
 PRICES = {
     "Carbon steel FR": ("MEPS_FR_CR", "S09"),
     "Carbon steel DE": ("MEPS_DE_CR", "S09"),
@@ -40,34 +44,36 @@ PRICES = {
     "Aluminium": ("D02", "D02"),
     "Plastic": (None, "S11"),
     "Epoxy": ("EPOXY_EUR", "EPOXY_EUR"),
+    "Brass": ("BRASS_EUR", "D01"),
+    "Unidentified": (None, None),
 }
 
-# (material, kg, where the kg comes from). Unlisted slices stay unpriced.
+# (material, kg, where the kg comes from), from BOM v1.
 RM6 = [
-    (
-        "Carbon steel FR",
-        0.45 * RM6_TOTAL_KG,
-        "BOM unlabelled ~45 % slice, read as carbon steel",
-    ),
-    ("Stainless steel", 55.8, "bom_materials.csv"),
-    ("Copper", 38.8, "bom_materials.csv (PEP: ~38.7 kg)"),
-    ("Galvanised steel", 21.1, "bom_materials.csv"),
-    ("Plastic", 5.6, "bom_materials.csv (PET)"),
-    ("Aluminium", 5.0, "bom_materials.csv"),
-    ("Epoxy", PEP_EPOXY_SHARE * PEP_RM6_KG, "RM6 PEP: 0.62 % of 255 kg"),
+    ("Carbon steel FR", 144.46, BOM_SOURCE),
+    ("Stainless steel", 55.80, BOM_SOURCE),
+    ("Copper", 38.75, BOM_SOURCE),
+    ("Galvanised steel", 21.08, BOM_SOURCE),
+    ("Aluminium", 4.96, BOM_SOURCE),
+    ("Epoxy", 22.32, BOM_SOURCE),
+    ("Brass", 3.41, f"{BOM_SOURCE}; priced as 65 % Cu + 35 % Zn (proxy)"),
+    ("Plastic", 5.58 + 4.34 + 3.72, f"{BOM_SOURCE} (PET + PP + ETP), unpriced"),
+    ("Unidentified", 5.58, f"{BOM_SOURCE} 'Unidentified remainder', unpriced"),
 ]
 AIRSET = [
-    ("Carbon steel DE", 327.2, "bom_materials.csv"),
-    ("Stainless steel", 102.6, "bom_materials.csv"),
-    ("Plastic", 13.8 + 11.3, "bom_materials.csv (PBT + ETP)"),
-    ("Aluminium", 5.0, "bom_materials.csv"),
+    ("Carbon steel DE", 343.70, BOM_SOURCE),
+    ("Stainless steel", 75.30, BOM_SOURCE),
+    ("Copper", 28.46, BOM_SOURCE),
+    ("Epoxy", 16.42, BOM_SOURCE),
+    ("Aluminium", 4.90, BOM_SOURCE),
+    (
+        "Plastic",
+        10.40 + 8.10 + 1.64 + 0.55 + 0.55,
+        f"{BOM_SOURCE} (PBT + ETP + PE + PVC + PP), unpriced",
+    ),
+    ("Unidentified", 56.00, f"{BOM_SOURCE} 'Other', not priceable (client)"),
 ]
-CASES = {
-    "RM6": RM6,
-    "AirSeT epoxy low": AIRSET
-    + [("Epoxy", PEP_EPOXY_SHARE * AIRSET_TOTAL_KG, "RM6 PEP share × 629 kg")],
-    "AirSeT epoxy high": AIRSET + [("Epoxy", 85.6, "all of BOM 'Other'")],
-}
+CASES = {"RM6": RM6, "AirSeT": AIRSET}
 
 
 def split_stainless(bom: list) -> list:
@@ -85,8 +91,17 @@ def split_stainless(bom: list) -> list:
     return out
 
 
+def add_brass(panel: pd.DataFrame) -> pd.DataFrame:
+    """Add the brass proxy (65 % LME copper + 35 % LME zinc, €/t) that BOM v1 needs."""
+    panel = panel.copy()
+    panel["BRASS_EUR"] = (
+        BRASS_CU_SHARE * panel["D01"] + (1 - BRASS_CU_SHARE) * panel["S05_EUR"]
+    )
+    return panel
+
+
 def load_panel() -> pd.DataFrame:
-    return pd.read_csv(PANEL_FILE, index_col=0, parse_dates=True)
+    return add_brass(pd.read_csv(PANEL_FILE, index_col=0, parse_dates=True))
 
 
 def last_value(series: pd.Series, origin: str = ORIGIN_MONTH) -> float:
@@ -204,8 +219,8 @@ def main() -> None:
 
     panel = load_panel()
     cases = CASES | {
-        "AirSeT epoxy low, nickel check": split_stainless(CASES["AirSeT epoxy low"]),
-        "AirSeT epoxy high, nickel check": split_stainless(CASES["AirSeT epoxy high"]),
+        "RM6, nickel check": split_stainless(CASES["RM6"]),
+        "AirSeT, nickel check": split_stainless(CASES["AirSeT"]),
     }
     breakdowns, indices, shocks, history = [], {}, [], []
     for case, bom in cases.items():

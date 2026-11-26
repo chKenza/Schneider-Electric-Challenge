@@ -1,0 +1,7 @@
+segment,carbon_view,carbon_price_eur_t,ceiling_pct,max_extra_cost_pct,max_extra_cost_pct_with_entry_give,window_open_at_placeholder,carbon_to_open_at_placeholder_eur_t,carbon_for_todays_premium_eur_t
+Johor-Singapore data centres,whole_fill,22.0,8.93,8.91,9.91,False,24.71,54.35
+Gulf data centres,lifecycle,22.0,0.35,0.33,1.33,False,753.11,1656.54
+Australia colocation,whole_fill,22.0,16.56,16.53,17.53,True,5.8,35.44
+Australia utilities,lifecycle,22.0,7.98,7.95,8.95,False,176.7,1080.13
+"Gulf data centres, if they count the whole fill",whole_fill,22.0,8.93,8.91,9.91,False,24.71,54.35
+"Australia colocation, without SF6 upkeep",whole_fill,22.0,8.93,8.91,9.91,False,24.71,54.35

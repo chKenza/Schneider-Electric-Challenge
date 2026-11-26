@@ -20,7 +20,7 @@ REGIME_FILLS = ["#ecebe6", "#f5f4f0"]  # alternating so adjacent regimes stay di
 # Fixed colour per material family (colour follows the entity in every chart)
 MATERIAL_COLORS = {
     "copper": SERIES[0], "stainless": SERIES[1], "carbon_steel": SERIES[2], "galvanised": SERIES[3],
-    "aluminium": SERIES[4], "plastics": SERIES[5], "epoxy": SERIES[6],
+    "aluminium": SERIES[4], "plastics": SERIES[5], "epoxy": SERIES[6], "brass": SERIES[7],
 }
 
 
@@ -28,7 +28,7 @@ def material_family(name: str) -> str:
     n = name.lower()
     for key, fam in [("copper", "copper"), ("stainless", "stainless"), ("carbon", "carbon_steel"),
                      ("hdg", "galvanised"), ("galvan", "galvanised"), ("alu", "aluminium"),
-                     ("epoxy", "epoxy"), ("pbt", "plastics"), ("pet", "plastics"), ("etp", "plastics")]:
+                     ("epoxy", "epoxy"), ("brass", "brass"), ("pbt", "plastics"), ("pet", "plastics"), ("etp", "plastics")]:
         if key in n:
             return fam
     return "other"

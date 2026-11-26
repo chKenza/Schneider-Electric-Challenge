@@ -1,0 +1,4 @@
+horizon_m,month,p_rm6_rises_more,gap_change_p10_eur,share_of_premium_p10_pct,rm6_price_pts_p10,gap_change_p50_eur,share_of_premium_p50_pct,rm6_price_pts_p50,gap_change_p90_eur,share_of_premium_p90_pct,rm6_price_pts_p90
+3,2026-12,0.4209,-28.19,-1.4674,-0.3225,-1.474,-0.0767,-0.0169,20.18,1.0505,0.2309
+6,2027-03,0.5407,-41.1,-2.1395,-0.4703,2.501,0.1302,0.0286,33.25,1.7308,0.3804
+9,2027-06,0.5876,-45.4,-2.3633,-0.5195,6.58,0.3425,0.0753,41.26,2.1478,0.4721

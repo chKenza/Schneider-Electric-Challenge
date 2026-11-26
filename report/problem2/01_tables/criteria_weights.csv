@@ -1,0 +1,8 @@
+criterion,weight,measure
+size,0.25,"Data-centre MW (operational + under construction), log scale"
+growth,0.15,"Inventory growth, % per year"
+regulation,0.15,Regulatory trajectory: status 0 / 1 / 2 -> 0 / 0.5 / 1
+sf6_cost,0.1,"SF6 cost reaching a data centre: priced 1, reporting 0.5, none 0"
+customer,0.15,Customer pull: an operator counts SF6 there (0.5) + a utility switching voluntarily (0.5)
+competition,0.1,Fewer SF6-free MV rivals present = higher
+schneider,0.1,Schneider already sells SF6-free MV there

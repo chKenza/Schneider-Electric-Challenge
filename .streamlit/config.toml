@@ -1,0 +1,12 @@
+# Schneider Electric "Advancing Energy Tech" palette (from the client's 2026 slide theme)
+[theme]
+base = "light"
+primaryColor = "#009530"
+textColor = "#0A2F24"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F3F7F4"
+borderColor = "#D9E2DC"
+linkColor = "#009530"
+baseRadius = "0.5rem"
+headingFont = "Poppins:https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+headingFontWeights = [600, 600, 600, 600, 600, 600]

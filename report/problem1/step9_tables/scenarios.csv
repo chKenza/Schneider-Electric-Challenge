@@ -1,0 +1,109 @@
+case,steel,horizon_m,scenario,cost_today_eur,cost_eur,cost_change_eur,margin_pts_lost
+RM6,PPI,3,downside,931.2,871.6,-59.59,-0.6818
+RM6,PPI,3,baseline,931.2,933.2,2.013,0.02303
+RM6,PPI,3,upside,931.2,986.6,55.4,0.6339
+AirSeT,PPI,3,downside,940.6,896.3,-44.28,-0.4222
+AirSeT,PPI,3,baseline,940.6,941.3,0.6654,0.006344
+AirSeT,PPI,3,upside,940.6,991,50.39,0.4804
+"RM6, nickel check",PPI,3,downside,931.2,865,-66.21,-0.7576
+"RM6, nickel check",PPI,3,baseline,931.2,935.7,4.538,0.05192
+"RM6, nickel check",PPI,3,upside,931.2,1007,75.7,0.8661
+"AirSeT, nickel check",PPI,3,downside,940.6,886.2,-54.4,-0.5187
+"AirSeT, nickel check",PPI,3,baseline,940.6,943,2.363,0.02253
+"AirSeT, nickel check",PPI,3,upside,940.6,1006,65.13,0.621
+RM6 copper 13.8 kg,PPI,3,downside,617.6,590.1,-27.42,-0.3138
+RM6 copper 13.8 kg,PPI,3,baseline,617.6,615.1,-2.427,-0.02776
+RM6 copper 13.8 kg,PPI,3,upside,617.6,648.4,30.79,0.3522
+RM6 copper 8.6 kg,PPI,3,downside,552.2,530,-22.17,-0.2536
+RM6 copper 8.6 kg,PPI,3,baseline,552.2,551.1,-1.148,-0.01313
+RM6 copper 8.6 kg,PPI,3,upside,552.2,578.2,25.99,0.2973
+RM6,market,3,downside,931.2,867.9,-63.35,-0.7248
+RM6,market,3,baseline,931.2,931.6,0.371,0.004245
+RM6,market,3,upside,931.2,998.4,67.15,0.7683
+AirSeT,market,3,downside,940.6,887.9,-52.69,-0.5024
+AirSeT,market,3,baseline,940.6,938.7,-1.902,-0.01813
+AirSeT,market,3,upside,940.6,1014,73.64,0.7021
+"RM6, nickel check",market,3,downside,931.2,867.8,-63.41,-0.7255
+"RM6, nickel check",market,3,baseline,931.2,932.4,1.171,0.0134
+"RM6, nickel check",market,3,upside,931.2,1010,78.38,0.8968
+"AirSeT, nickel check",market,3,downside,940.6,878.8,-61.85,-0.5897
+"AirSeT, nickel check",market,3,baseline,940.6,944.6,4.019,0.03832
+"AirSeT, nickel check",market,3,upside,940.6,1027,86.15,0.8214
+RM6 copper 13.8 kg,market,3,downside,617.6,584.8,-32.74,-0.3746
+RM6 copper 13.8 kg,market,3,baseline,617.6,616.3,-1.286,-0.01471
+RM6 copper 13.8 kg,market,3,upside,617.6,662.6,45.06,0.5155
+RM6 copper 8.6 kg,market,3,downside,552.2,521.6,-30.64,-0.3506
+RM6 copper 8.6 kg,market,3,baseline,552.2,551,-1.204,-0.01377
+RM6 copper 8.6 kg,market,3,upside,552.2,597.7,45.47,0.5202
+RM6,PPI,6,downside,931.2,862.5,-68.71,-0.7862
+RM6,PPI,6,baseline,931.2,942.3,11.1,0.127
+RM6,PPI,6,upside,931.2,1045,113.8,1.302
+AirSeT,PPI,6,downside,940.6,883.6,-56.98,-0.5433
+AirSeT,PPI,6,baseline,940.6,951.8,11.15,0.1063
+AirSeT,PPI,6,upside,940.6,1044,103.6,0.9875
+"RM6, nickel check",PPI,6,downside,931.2,848.5,-82.73,-0.9466
+"RM6, nickel check",PPI,6,baseline,931.2,944.5,13.3,0.1522
+"RM6, nickel check",PPI,6,upside,931.2,1056,124.9,1.429
+"AirSeT, nickel check",PPI,6,downside,940.6,865.2,-75.41,-0.719
+"AirSeT, nickel check",PPI,6,baseline,940.6,953.8,13.22,0.1261
+"AirSeT, nickel check",PPI,6,upside,940.6,1059,118.9,1.133
+RM6 copper 13.8 kg,PPI,6,downside,617.6,579.9,-37.7,-0.4314
+RM6 copper 13.8 kg,PPI,6,baseline,617.6,625,7.419,0.08488
+RM6 copper 13.8 kg,PPI,6,upside,617.6,684.9,67.34,0.7705
+RM6 copper 8.6 kg,PPI,6,downside,552.2,520.2,-32.02,-0.3664
+RM6 copper 8.6 kg,PPI,6,baseline,552.2,557.8,5.61,0.06418
+RM6 copper 8.6 kg,PPI,6,upside,552.2,611.9,59.75,0.6836
+RM6,market,6,downside,931.2,857.1,-74.12,-0.848
+RM6,market,6,baseline,931.2,944.5,13.25,0.1516
+RM6,market,6,upside,931.2,1062,130.3,1.491
+AirSeT,market,6,downside,940.6,870.3,-70.36,-0.6708
+AirSeT,market,6,baseline,940.6,952.3,11.64,0.111
+AirSeT,market,6,upside,940.6,1086,145.6,1.388
+"RM6, nickel check",market,6,downside,931.2,846.4,-84.85,-0.9709
+"RM6, nickel check",market,6,baseline,931.2,945.3,14.1,0.1613
+"RM6, nickel check",market,6,upside,931.2,1066,135.3,1.548
+"AirSeT, nickel check",market,6,downside,940.6,857.8,-82.84,-0.7899
+"AirSeT, nickel check",market,6,baseline,940.6,955.4,14.74,0.1405
+"AirSeT, nickel check",market,6,upside,940.6,1082,141.2,1.346
+RM6 copper 13.8 kg,market,6,downside,617.6,571.8,-45.75,-0.5235
+RM6 copper 13.8 kg,market,6,baseline,617.6,625.1,7.535,0.08621
+RM6 copper 13.8 kg,market,6,upside,617.6,710.6,93.04,1.064
+RM6 copper 8.6 kg,market,6,downside,552.2,511.9,-40.27,-0.4607
+RM6 copper 8.6 kg,market,6,baseline,552.2,558,5.815,0.06653
+RM6 copper 8.6 kg,market,6,upside,552.2,638.8,86.56,0.9904
+RM6,PPI,9,downside,931.2,860.1,-71.11,-0.8137
+RM6,PPI,9,baseline,931.2,952.7,21.49,0.2459
+RM6,PPI,9,upside,931.2,1098,166.3,1.903
+AirSeT,PPI,9,downside,940.6,877.1,-63.54,-0.6058
+AirSeT,PPI,9,baseline,940.6,963.1,22.52,0.2147
+AirSeT,PPI,9,upside,940.6,1088,147.7,1.408
+"RM6, nickel check",PPI,9,downside,931.2,847.3,-83.91,-0.9601
+"RM6, nickel check",PPI,9,baseline,931.2,954.4,23.19,0.2654
+"RM6, nickel check",PPI,9,upside,931.2,1113,181.5,2.077
+"AirSeT, nickel check",PPI,9,downside,940.6,859.4,-81.2,-0.7742
+"AirSeT, nickel check",PPI,9,baseline,940.6,965.5,24.89,0.2373
+"AirSeT, nickel check",PPI,9,upside,940.6,1105,164.4,1.567
+RM6 copper 13.8 kg,PPI,9,downside,617.6,575.1,-42.45,-0.4857
+RM6 copper 13.8 kg,PPI,9,baseline,617.6,631.3,13.72,0.157
+RM6 copper 13.8 kg,PPI,9,upside,617.6,711.6,93.98,1.075
+RM6 copper 8.6 kg,PPI,9,downside,552.2,514.9,-37.34,-0.4273
+RM6 copper 8.6 kg,PPI,9,baseline,552.2,563.3,11.06,0.1266
+RM6 copper 8.6 kg,PPI,9,upside,552.2,634.2,82.02,0.9384
+RM6,market,9,downside,931.2,853,-78.17,-0.8944
+RM6,market,9,baseline,931.2,957.3,26.13,0.2989
+RM6,market,9,upside,931.2,1113,181.9,2.081
+AirSeT,market,9,downside,940.6,862,-78.59,-0.7494
+AirSeT,market,9,baseline,940.6,965.7,25.06,0.239
+AirSeT,market,9,upside,940.6,1128,187.7,1.79
+"RM6, nickel check",market,9,downside,931.2,843.9,-87.27,-0.9985
+"RM6, nickel check",market,9,baseline,931.2,957,25.8,0.2952
+"RM6, nickel check",market,9,upside,931.2,1121,189.7,2.171
+"AirSeT, nickel check",market,9,downside,940.6,852.4,-88.26,-0.8415
+"AirSeT, nickel check",market,9,baseline,940.6,969,28.37,0.2705
+"AirSeT, nickel check",market,9,upside,940.6,1127,186.6,1.779
+RM6 copper 13.8 kg,market,9,downside,617.6,566.3,-51.24,-0.5863
+RM6 copper 13.8 kg,market,9,baseline,617.6,632.8,15.25,0.1745
+RM6 copper 13.8 kg,market,9,upside,617.6,735.8,118.2,1.353
+RM6 copper 8.6 kg,market,9,downside,552.2,505.5,-46.73,-0.5347
+RM6 copper 8.6 kg,market,9,baseline,552.2,564.5,12.3,0.1407
+RM6 copper 8.6 kg,market,9,upside,552.2,659.2,107,1.225
