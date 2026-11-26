@@ -26,6 +26,8 @@ CSS = f"""
 .block-container {{ padding-top: 2rem; }}
 header[data-testid="stHeader"] {{ border-top: 4px solid {SE_GREEN}; }}
 h1 {{ font-size: 2.25rem !important; }}
+.st-key-assistant [data-testid="stChatMessage"] {{ padding: 0.5rem 0.25rem; gap: 0.5rem; }}
+.st-key-assistant [data-testid="stChatMessage"] p {{ font-size: 0.9rem; }}
 .st-key-card_quote, .st-key-card_airset {{ border-top: 4px solid {SE_GREEN} !important; }}
 .st-key-scenario_banner {{
   background: {SCENARIO_TINT}; border: 2px solid {SCENARIO}; border-radius: 8px;
@@ -48,6 +50,19 @@ def month_label(h: int) -> str:
 
 def eur(x: float) -> str:
     return f"€{x:,.0f}"
+
+
+def action_text(t, o) -> str:
+    """Recommended action as one sentence (t: quote_engine.Terms, o: one of its options)."""
+    u = f"raise the price by {o.uplift:.2f} pts ({eur(t.eur(o.uplift))} per unit)"
+    if o.kind == "fixed":
+        return f"Fixed price: {u}"
+    if o.kind == "clause":
+        metals = "copper" if t.product == "RM6" else "copper, steel and stainless steel"
+        return f"Add a {metals} indexation clause (±{o.band:.0%}) and {u}"
+    if o.kind == "validity":
+        return f"Limit validity to {o.months} months with a fixed price, and {u}"
+    return f"{o.name}: {u}"
 
 
 def base_fig(top: int = 12, right: int = 8) -> go.Figure:
