@@ -1,6 +1,6 @@
 # Running and contributing to this repo
 
-This guide explains how to run individual steps and propose changes. The [README](README.md) explains what the project does.
+This guide explains how to run individual modules and propose changes. The [README](README.md) explains what the project does.
 
 ## 1. Install uv
 
@@ -74,24 +74,22 @@ uv run python -m src.submission --check-only  # re-check the CSV without rebuild
 
 **Shortcuts:** if `make` is installed, `make help` lists them: `make forecast` (the full pipeline), `make csv` (rebuild the CSV from the saved model outputs), `make check`, `make test`, `make test-fast`, `make app`.
 
-## 5. Run individual steps
+## 5. Run individual modules
 
-Each step can also be run on its own, from the repo root. The command for each step is at the top of its report in `report/problem1/`.
+Each module can also be run on its own, from the repo root. The command for each report is at its top, in `report/problem1/` and `report/problem2/`.
 
 ```bash
-uv run python -m src.data_prep        # Step 1: monthly panel
-uv run python -m src.cost_model       # Step 2: raw-material cost of one unit
-uv run python -m src.external_data    # Step 4: external drivers
-uv run python -m src.features         # Step 4: feature tables
-uv run python -m src.baselines        # Step 5: baselines
-uv run python -m src.models           # Step 6: models (see --help for one model, target or horizon)
-uv run python -m src.evaluation       # Step 7: evaluation tables and charts (after Step 6)
-uv run python -m src.simulation       # Step 8: joint simulation, BOM cost index (after Step 6)
-uv run python -m src.pricing          # Step 9: quote rule and strategy comparison (after Step 8)
-uv run python -m src.submission       # Step 12: the forecast CSV (after Steps 6 and 8)
+uv run python -m src.data_prep        # monthly panel
+uv run python -m src.cost_model       # raw-material cost of one unit
+uv run python -m src.external_data    # external drivers
+uv run python -m src.features         # feature tables
+uv run python -m src.baselines        # baselines
+uv run python -m src.models           # models (see --help for one model, target or horizon)
+uv run python -m src.evaluation       # evaluation tables and charts (after models)
+uv run python -m src.simulation       # joint simulation, BOM cost index (after models)
+uv run python -m src.pricing          # quote rule and strategy comparison (after simulation)
+uv run python -m src.submission       # the forecast CSV (after models and simulation)
 ```
-
-The notebooks in `analysis/` display the tables and charts of each step.
 
 ## 6. Run the tests
 
@@ -111,15 +109,3 @@ The leakage tests re-run every model with the future replaced by noise and check
 | `--from <stage>` fails on a missing file | An earlier stage has not run on this machine: run the full pipeline once |
 | The latest origin is not 2026-09 (submission stage) | The data in `Data/` is not the challenge version; the CSV is defined for the September 2026 origin |
 | `uv: command not found` after installing | Open a new terminal, so your shell picks up uv |
-
-## 8. Proposing a change
-
-1. **Branch:** `git switch -c <short-name>` from an up-to-date `main`. Never push to `main` directly.
-2. **Code goes in `src/`**, as a module run with `uv run python -m src.<module>`; settings go in `configs/*.yaml`. No absolute paths: use `src.config.REPO_ROOT`.
-3. **New package:** `uv add <package>` (updates `pyproject.toml` and `uv.lock`), then refresh `requirements.txt`:
-   ```bash
-   uv export --frozen --format requirements-txt --no-hashes --no-dev --no-emit-project -o requirements.txt
-   ```
-4. **No future data in a forecast.** A forecast made at month *T* may only use what was published by then: read data through `src.features.info_set`, and check a new model with `uv run python -m src.models --check-leakage --model <name>`.
-5. **Before opening a pull request:** `uv run ruff check src tests`, the tests for what you changed, and `git status` to make sure nothing under `Data/` is staged.
-6. **Open a pull request into `main`** saying what changed and how to run it.
