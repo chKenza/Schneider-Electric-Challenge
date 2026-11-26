@@ -47,6 +47,15 @@ COLUMNS = ["team_id", "target_type", "target_id", "region", "origin_month", "hor
 EUR_T, INDEX = "EUR/t", "index (origin=100)"
 EUR_LEVEL_TARGETS = {"D01", "D02"}  # public EUR/t series published as price levels
 
+# The 15 material targets and their region, as in the Step 1 data dictionary. Kept here so
+# the committed CSV can be checked without Data/ (in CI); when Data/ is present the data
+# dictionary is used, and a test checks the two agree.
+MATERIAL_TARGETS = {
+    "D01": "EU", "D02": "EU", "EPOXY_EUR": "EU", "S07": "EU", "S08": "EU", "S09": "EU",
+    "S10": "EU", "S11": "EU",
+    "S01": "WW", "S02": "WW", "S03": "WW", "S04": "WW", "S05": "WW", "S12": "WW", "S13": "WW",
+}
+
 # BOM index rows: Step 8 case -> client product reference (BOM_Materials.product_ref)
 BOM_TARGETS = {"RM6": "RM6_NE_IQI_433520", "AirSeT": "RMAirSeT IIQ 24kV IEC"}
 BOM_STEEL = "PPI"     # steel at producer prices: S09 / S10, the steel series the CSV forecasts
@@ -56,8 +65,12 @@ BOM_MODEL = f"{FINAL_MODEL}+step8_joint_simulation"
 
 
 def material_targets() -> pd.DataFrame:
-    """The forecast targets of Step 1 (data dictionary), with their region."""
-    d = pd.read_csv(OUT / "data_dictionary.csv", index_col=0)
+    """The forecast targets of Step 1 (data dictionary), with their region. Without Data/
+    (e.g. in CI), the committed list MATERIAL_TARGETS."""
+    path = OUT / "data_dictionary.csv"
+    if not path.exists():
+        return pd.DataFrame({"target_region": MATERIAL_TARGETS}).rename_axis("series_id")
+    d = pd.read_csv(path, index_col=0)
     d = d[d["forecast_target"].astype(str) == "True"]
     return d[["target_region", "unit"]]
 

@@ -46,6 +46,12 @@ def test_bom_rows_match_the_step8_table(rows):
             assert r.unit == "index (origin=100)" and r.region == "EU"
 
 
+def test_committed_target_list_matches_the_data_dictionary():
+    """MATERIAL_TARGETS (used to check the CSV without Data/) = the Step 1 forecast targets."""
+    from src.submission import MATERIAL_TARGETS, material_targets
+    assert material_targets()["target_region"].to_dict() == MATERIAL_TARGETS
+
+
 def test_committed_csv_is_the_built_one(rows):
     from src.submission import SUBMISSION
     committed = pd.read_csv(SUBMISSION)

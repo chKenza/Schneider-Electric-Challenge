@@ -25,10 +25,10 @@ QUOTE_RULE = ROOT / "report" / "problem1" / "step9_tables" / "quote_rule.csv"
 
 # Target segments from Step 3 (01_market_and_regulation.md 3.4).
 SEGMENTS = {
-    "Johor-Singapore data centres": dict(country="MY", view="whole_fill", sf6_rules=False),
-    "Gulf data centres":            dict(country="SA", view="lifecycle",  sf6_rules=False),
-    "Australia colocation":         dict(country="AU", view="whole_fill", sf6_rules=True),
-    "Australia utilities":          dict(country="AU", view="lifecycle",  sf6_rules=True),
+    "Johor-Singapore data centres": {"country": "MY", "view": "whole_fill", "sf6_rules": False},
+    "Gulf data centres":            {"country": "SA", "view": "lifecycle",  "sf6_rules": False},
+    "Australia colocation":         {"country": "AU", "view": "whole_fill", "sf6_rules": True},
+    "Australia utilities":          {"country": "AU", "view": "lifecycle",  "sf6_rules": True},
 }
 
 # Problem 1 Step 9 settings for the raw-material risk on the offer

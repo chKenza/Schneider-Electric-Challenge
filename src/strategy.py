@@ -141,11 +141,11 @@ def triggers(p2: MarketEvidence) -> pd.DataFrame:
         ("RM6 - AirSeT raw-material gap",
          f"change > +EUR {gap9.cost_p90_eur:.0f} (P90) or < EUR {gap9.cost_p10_eur:.0f} (P10)",
          "P1 Step 9 outlook_2027.csv",
-         "Above: mention convergence (still < 3 % of the premium). Below: AirSeT relatively "
-         "dearer, re-check the floor"),
+         ("Above: mention convergence (still < 3 % of the premium). Below: AirSeT relatively "
+         "dearer, re-check the floor")),
         ("AirSeT extra unit cost vs RM6 (Schneider internal)",
-         f"< {js.max_extra_cost_pct:.1f} % (< {js.max_extra_cost_pct_with_entry_give:.1f} % "
-         f"with a {ENTRY_GIVE_PTS:.0f}-point entry give)",
+         (f"< {js.max_extra_cost_pct:.1f} % (< {js.max_extra_cost_pct_with_entry_give:.1f} % "
+         f"with a {ENTRY_GIVE_PTS:.0f}-point entry give)"),
          "win_conditions.csv",
          "Open Johor-Singapore at the TCO-based price (Phase 2)"),
         ("Carbon price a target customer applies to SF6",
@@ -153,8 +153,8 @@ def triggers(p2: MarketEvidence) -> pd.DataFrame:
          "win_conditions.csv",
          "Johor-Singapore window opens at today's cost; scale the ESG pitch"),
         ("Carbon price that justifies today's 22 % premium",
-         f">= EUR {tco.break_even_carbon(x0, 'whole_fill'):.0f}/t (whole fill), "
-         f"{tco.break_even_carbon(x0, 'lifecycle'):.0f}/t (lifecycle)",
+         (f">= EUR {tco.break_even_carbon(x0, 'whole_fill'):.0f}/t (whole fill), "
+         f"{tco.break_even_carbon(x0, 'lifecycle'):.0f}/t (lifecycle)"),
          "src/tco.py, 02 4.4",
          "Move ESG-led segments from TCO-based price to list price"),
         ("SF6 rule in a target market", "status 0/1 -> 2 or 3 (phase-out adopted or ban)",
