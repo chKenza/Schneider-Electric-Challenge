@@ -112,7 +112,6 @@ Format : one row per target × horizon, origin September 2026, horizons 3 / 6 / 
 - **Proxies, not purchase prices:** producer price indices and exchange prices stand in for what Schneider actually pays.
 - **Revised data:** producer price indices are today's values, not the first releases a buyer saw at the time.
 - **One regime in the hold-out:** a copper rally and calm steel. Copper ended above its 9-month P90 in 35–41 % of hold-out cases, against a 10 % target.
-- **Bill of materials:** we use Schneider's corrected bill of materials (v1, 25 Nov 2026). Lines the client marks as unknown (56 kg "Other" in RM AirSeT, 5.6 kg in RM6) and plastics have no price and are left out, so RM AirSeT's cost risk is a floor. Brass (RM6, 3.4 kg) is priced as 65 % copper + 35 % zinc. The teardown benchmark gives far less copper for RM6 (8.6–13.8 kg vs 38.75 kg); we use Schneider's figure. Only the 3-function IQI configuration is modelled.
 - **Not forecast:** electronics (no price series in the data) and the licensed MEPS / CRU steel prices.
 - **Selling prices are synthetic** (Schneider benchmark), with no AirSeT price: RM AirSeT is assumed at RM6 + 20 %, and its extra unit cost vs RM6 (10 %) is a placeholder that every Problem 2 threshold is shown against.
 - **Purchase timing is not modelled:** material is assumed bought at the end of the quote's validity, which overstates the exposure if Schneider buys earlier.
