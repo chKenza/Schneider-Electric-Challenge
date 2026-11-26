@@ -18,12 +18,12 @@ SEGMENT_COLORS = {
 
 # Roadmap phases: (label, start, end, row). Years are fractional for drawing.
 ROADMAP = [
-    ("Australia colocation: TCO-based price, AirTrunk reference", 2027.0, 2031.0, "Phase 1 - prove"),
-    ("Johor: AirTrunk entry deal", 2027.0, 2028.0, "Phase 1 - prove"),
+    ("Johor: AirTrunk lead deal", 2027.0, 2028.0, "Phase 1 - prove"),
+    ("India: extend Tata Power / BSES utility orders into frameworks", 2027.0, 2031.0, "Phase 1 - prove"),
     ("Gulf: private DC framework deals, SEC pilot (volume, not margin)", 2027.0, 2031.0, "Phase 1 - prove"),
-    ("Johor-Singapore: TCO-based price (~9 %)", 2028.0, 2031.0, "Phase 2 - scale"),
-    ("Australia utilities: TCO-based price (~8 %)", 2029.0, 2031.0, "Phase 2 - scale"),
-    ("US data-centre states, if a trigger fires", 2029.0, 2031.0, "Phase 3 - extend"),
+    ("Johor-Singapore: TCO-based price (~9 %), all operators", 2028.0, 2031.0, "Phase 2 - scale"),
+    ("Utility fleets (Australia, Saudi Arabia, Japan): fleet pitch", 2028.5, 2031.0, "Phase 2 - scale"),
+    ("US data-centre states, UK, if a trigger fires", 2029.0, 2031.0, "Phase 3 - extend"),
 ]
 
 

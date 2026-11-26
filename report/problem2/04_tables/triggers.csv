@@ -5,5 +5,8 @@ RM6 - AirSeT raw-material gap,change > +EUR 41 (P90) or < EUR -45 (P10),P1 Step 
 AirSeT extra unit cost vs RM6 (Schneider internal),< 8.9 % (< 9.9 % with a 1-point entry give),win_conditions.csv,Open Johor-Singapore at the TCO-based price (Phase 2)
 Carbon price a target customer applies to SF6,>= EUR 25/t (whole fill),win_conditions.csv,Johor-Singapore window opens at today's cost; scale the ESG pitch
 Carbon price that justifies today's 22 % premium,">= EUR 54/t (whole fill), 1657/t (lifecycle)","src/tco.py, 02 4.4",Move ESG-led segments from TCO-based price to list price
-SF6 rule in a target market,status 0/1 -> 2 or 3 (phase-out adopted or ban),market_evidence/regulation.csv,"Accelerate: future-proof pitch, list price, more sales capacity"
-"SF6-free rival price (Eaton, Chinese dry-air RMUs)",below AirSeT's TCO-based price in a target market,competitors.csv,"Defend with bundle (take-back, monitoring) before cutting price; pause if below floor"
+SF6 rule in a target market,status 0/1 -> 2 or 3 (phase-out adopted or ban),market_evidence/regulation.csv,"Accelerate: 'no SF6 obligations' pitch, list price, more sales capacity"
+"SF6-free rival price (Eaton, Chinese dry-air RMUs)",below AirSeT's TCO-based price in a target market,"competitors.csv, E180",Quote RM6 base + AirSeT option; keep the bundle for fleets; pause if below floor
+RM6 end-of-sale date,Schneider announces one for a target market,Schneider product team,Accelerate phased-build sales: expansion-proof pitch to campuses with later phases
+Taxonomy or lender criterion naming SF6,a green-loan or taxonomy rule in a target market requires or rewards SF6-free switchgear,"E182, E183",Accelerate: ESG-financed customers must comply; list price for them
+Local AirSeT production,Schneider decides to build or assemble AirSeT in India or Saudi Arabia,"E176, E178",Accelerate India and Gulf utility frameworks; re-check the extra cost and lead time
