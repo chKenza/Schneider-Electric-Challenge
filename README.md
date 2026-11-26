@@ -1,4 +1,4 @@
-# Schneider Electric × X-HEC Data Challenge 2026 – Group 6
+# Schneider Electric × X-HEC Data Challenge 2026
 
 [![CI](https://github.com/chKenza/Schneider-Electric-Challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/chKenza/Schneider-Electric-Challenge/actions/workflows/ci.yml)
 
@@ -57,12 +57,7 @@ Requirements: Python 3.12 and [uv](https://docs.astral.sh/uv/).
    ```bash
    uv run streamlit run app/streamlit_app.py   # or: make app, then open http://localhost:8501
    ```
-5. **Problem 2 tables and charts** (they read the Problem 1 outputs):
-   ```bash
-   uv run python -m src.market_evidence && uv run python -m src.market_scoring
-   uv run python -m src.tco && uv run python -m src.value_pricing && uv run python -m src.strategy
-   ```
-   Each module has a matching `_plots` module for its charts; the command for each report is at its top.
+5. **Problem 2 tables and charts:** `make problem2` (after the pipeline, whose outputs it reads).
 
 Without uv: `pip install -r requirements.txt` (pinned versions, exported from `uv.lock`, including the app's Streamlit and Plotly), then `python -m src.pipeline`.
 
