@@ -40,7 +40,7 @@ import numpy as np
 import pandas as pd
 
 from src.config import REPO_ROOT
-from src.data_prep import OUT
+from src.data_prep import ORIGIN_MONTH, OUT
 from src.feature_selection import _fit, _predict, load_tables
 from src.features import info_set, load_config, load_inputs
 
@@ -216,7 +216,7 @@ def main() -> None:
     TABLE_DIR.mkdir(parents=True, exist_ok=True)
     out["predictions"].to_csv(PRED_DIR / "predictions.csv", index=False)
     out["metrics"].round(4).to_csv(TABLE_DIR / "metrics.csv", index=False)
-    out["live"].to_csv(TABLE_DIR / "live_forecast_202609.csv", index=False)
+    out["live"].to_csv(TABLE_DIR / f"live_forecast_{ORIGIN_MONTH.replace('-', '')}.csv", index=False)
     m = out["metrics"]
     summary = (m.groupby(["window", "horizon", "model"])
                [["pinball", "pinball_skill_vs_rw", "mae_skill_vs_rw", "coverage_80"]].mean().round(3))

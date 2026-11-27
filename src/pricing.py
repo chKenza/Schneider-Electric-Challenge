@@ -19,7 +19,7 @@ import pandas as pd
 
 from src import cost_model as cm
 from src.config import REPO_ROOT
-from src.data_prep import OUT
+from src.data_prep import ORIGIN_MONTH, OUT
 from src.eda_cost import material_paths
 from src.simulation import (
     ALL_CASES,
@@ -30,7 +30,7 @@ from src.simulation import (
 )
 
 TABLE_DIR = REPO_ROOT / "report" / "problem1" / "step9_tables"
-ORIGIN = "2026-09"
+ORIGIN = ORIGIN_MONTH  # "2026-09", or SE_ORIGIN for a monthly update
 
 # ---- decision variables and assumptions (all stated in the report) ----
 TOLERATED_EROSION = [0.25, 0.5, 1.0, 2.0]  # margin points the business accepts losing
@@ -69,9 +69,9 @@ def load_paths() -> pd.DataFrame:
     """Step 8 driver ratios: index (horizon_m, path), one column per driver."""
     return pd.read_csv(OUT / "simulated_driver_ratios.csv", index_col=["horizon_m", "path"])
 
-def eur_changes(case: str, panel: pd.DataFrame, driver_ratios: pd.DataFrame):
+def eur_changes(case: str, panel: pd.DataFrame, driver_ratios: pd.DataFrame, origin: str = ORIGIN):
     """eur change per material on each simulated path, and eur cost per material at the quote."""
-    bd = cm.cost_breakdown(ALL_CASES[case], panel, ORIGIN)
+    bd = cm.cost_breakdown(ALL_CASES[case], panel, origin)
     cost0 = bd.dropna(subset=["cost_eur"]).set_index("material")["cost_eur"]
     ratios = material_ratios(bd, driver_ratios.reset_index(drop=True))
     delta = ratios[cost0.index] * cost0 - cost0

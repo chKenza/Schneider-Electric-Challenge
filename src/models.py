@@ -1024,11 +1024,15 @@ def export_residuals(cfg: dict, inputs: Inputs | None = None, model: str = STEP8
         marg[f"ratio_{c}"] = np.exp(marg[c])
     marg["sigma_T"] = marg["target"].map(sigma_T)
     marg["model"] = model
-    out["marginals_202609"] = marg.sort_values(["target", "horizon"]).reset_index(drop=True)
+    marg = marg.sort_values(["target", "horizon"]).reset_index(drop=True)
+    out["marginals_202609"] = marg  # key kept for the tests; the file is named by the origin
 
     out_dir.mkdir(parents=True, exist_ok=True)
     for name, df in out.items():
-        df.to_csv(out_dir / f"{name}.csv", index=name != "marginals_202609", index_label="month")
+        if name == "marginals_202609":
+            df.to_csv(out_dir / f"marginals_{origin:%Y%m}.csv", index=False)
+        else:
+            df.to_csv(out_dir / f"{name}.csv", index_label="month")
     return out
 
 

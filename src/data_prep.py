@@ -4,6 +4,12 @@ Run from the repo root:
 
     uv run python -m src.data_prep                  # forecast origin 2026-09 (submission)
     uv run python -m src.data_prep --origin 2026-06  # rerun as if at an earlier month
+    SE_ORIGIN=2026-10 uv run python -m src.pipeline  # monthly update: every stage at a new origin
+
+Monthly update: put each new month in Data/updates/ as a CSV in the client's format
+(the columns of rm_prices_monthly_wide.csv). Its values replace or extend the raw-material
+prices; D01 / D02 are recomputed from S01, S02 and S06. The decision tool's "Monthly update"
+page writes these files and runs the pipeline in a copy of the repo.
 
 The data files are not in the repo: put the challenge files in Data/ (see README).
 Data/data/ can be left zipped as Data/data.zip.
@@ -17,6 +23,7 @@ Outputs (in Data/processed/, not committed):
 """
 
 import argparse
+import os
 import zipfile
 from pathlib import Path
 
@@ -32,9 +39,11 @@ STEEL_FILE = DATA / "Copia de Europe Steel INDEXES.xlsx"
 LME_FILE = DATA / "LME_Copper_Aluminium_EU_Monthly_2016_2026.xlsx"
 EPOXY_FILE = DATA / "Epoxy for student.xlsx"
 RMU_FILE = DATA / "RMU_IQI_EU_Price_Benchmark_2017-2026_Synthetic.xlsx"
+UPDATES = DATA / "updates"  # new months in the client's wide format (monthly update)
 
 # Forecast origin of the submission: last month of data used (client slide 17).
-ORIGIN_MONTH = "2026-09"
+# SE_ORIGIN overrides it for a monthly update; every stage of the pipeline reads it from here.
+ORIGIN_MONTH = os.environ.get("SE_ORIGIN", "2026-09")
 
 # Month in which the snapshot was taken (RM / energy CSVs: retrieved 2026-11-12;
 # LME and steel files are snapshots of the same week).
@@ -171,10 +180,31 @@ def _read_sheet_block(sheet: str, header_rows: int, cols: dict) -> pd.DataFrame:
     return out.dropna(how="all")
 
 
+def load_updates() -> pd.DataFrame:
+    """New months from Data/updates/*.csv (client wide format), later files win."""
+    files = sorted(UPDATES.glob("*.csv")) if UPDATES.exists() else []
+    if not files:
+        return pd.DataFrame()
+    upd = pd.concat(
+        [pd.read_csv(f, parse_dates=["month"], index_col="month") for f in files]
+    )
+    upd.index = to_month_start(upd.index)
+    return upd[~upd.index.duplicated(keep="last")].drop(
+        columns=["year", "month_num"], errors="ignore"
+    )
+
+
 def load_rm_prices() -> pd.DataFrame:
     wide = read_raw_csv(
         "rm_prices_monthly_wide.csv", parse_dates=["month"], index_col="month"
     )
+    upd = load_updates()
+    if len(upd):
+        # update values win; blanks in the update keep the original value
+        wide = upd.reindex(columns=wide.columns).combine_first(wide)
+        for d, usd in (("D01", "S01"), ("D02", "S02")):  # blank in the update: formula
+            m = upd.index[upd[d].isna()] if d in upd else upd.index
+            wide.loc[m, d] = wide.loc[m, usd] / wide.loc[m, "S06"]
     wide = wide.drop(columns=["year", "month_num"]).dropna(
         axis=1, how="all"
     )  # drops empty L01–L08
@@ -316,7 +346,8 @@ def build_panel(origin: str = ORIGIN_MONTH) -> tuple[pd.DataFrame, pd.DataFrame]
         axis=1,
     )
     panel = panel.sort_index()
-    panel = panel[panel.index < DROP_FROM]  # incomplete snapshot month
+    # incomplete snapshot month; months given in Data/updates/ are kept
+    panel = panel[(panel.index < DROP_FROM) | panel.index.isin(load_updates().index)]
     panel = panel[panel.index <= pd.Timestamp(origin)]  # nothing after the origin
     panel.index.name = "month"
     panel, log_fix = fix_suspect_values(panel)

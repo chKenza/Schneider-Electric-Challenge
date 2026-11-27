@@ -18,6 +18,7 @@ st.logo(str(ROOT / "app" / "assets" / "schneider_logo.svg"), size="large")
 nav = st.navigation([
     st.Page(ROOT / "app" / "quote_page.py", title="Quote pricing", default=True),
     st.Page(ROOT / "app" / "airset_page.py", title="RM AirSeT strategy"),
+    st.Page(ROOT / "app" / "update_page.py", title="Monthly update"),
 ])
 nav.run()
 
