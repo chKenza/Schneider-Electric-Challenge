@@ -11,7 +11,7 @@ import pandas as pd
 
 from src.config import REPO_ROOT
 from src.cost_model import CASES, bom_index, cost_breakdown, load_panel, split_stainless
-from src.data_prep import OUT
+from src.data_prep import ORIGIN_MONTH, OUT
 
 STEP8 = OUT / "models" / "step8" #where bootstrapped data is in
 DRIVERS = ['D01', 'D02', 'S09', 'S10', 'S03_EUR', 'EPOXY_EUR']   
@@ -52,7 +52,7 @@ def read_historical_prices() -> tuple[pd.DataFrame, pd.DataFrame]:
     Reading forecasts (data we scale to)
     """
     residuals = pd.read_csv(STEP8 / "residuals_monthly.csv", index_col="month", parse_dates=True)
-    marginals = pd.read_csv(STEP8 / "marginals_202609.csv")
+    marginals = pd.read_csv(STEP8 / f"marginals_{ORIGIN_MONTH.replace('-', '')}.csv")
     return residuals[TARGETS].dropna(), marginals
 
 def bootstrap_prices(horizon: int, returns: pd.DataFrame,        
@@ -93,7 +93,7 @@ def scale_to_forecast(driver_ratios: pd.DataFrame, marginals: pd.DataFrame, hori
         out[d] = np.exp(y)
     return out
 
-def steel_market(driver_ratios, panel, h, origin="2026-09"):
+def steel_market(driver_ratios, panel, h, origin=ORIGIN_MONTH):
     """Steel scenario: keep the S09/S10 forecast median, but widen the spread
     to the volatility of MEPS market prices over h months (≈1.7× the PPI)."""
     out = driver_ratios.copy()
@@ -113,7 +113,7 @@ def material_ratios(bd: pd.DataFrame, driver_ratios: pd.DataFrame) -> pd.DataFra
         {row.material: driver_ratios[row.driver] for row in priced.itertuples()}
     )
 
-def simulate_cost(bom:list, panel:pd.DataFrame, driver_ratios:pd.DataFrame, origin="2026-09", price: float | None = None):
+def simulate_cost(bom:list, panel:pd.DataFrame, driver_ratios:pd.DataFrame, origin=ORIGIN_MONTH, price: float | None = None):
     """
     simulate the costs of every material 
     """
@@ -196,7 +196,7 @@ def simulate_bom(origin, marginals: pd.DataFrame, residuals: pd.DataFrame,
     return pd.DataFrame(rows)
 
 def block_sensitivity(residuals, marginals, panel, sigma, blocks=(1, 3, 6, 9), h=9,
-                      origin="2026-09", n_paths=N_PATHS, seed=SEED):
+                      origin=ORIGIN_MONTH, n_paths=N_PATHS, seed=SEED):
     """Longer blocks keep more of how materials move together over h months."""
     known = residuals.loc[:origin, TARGETS].dropna()
     hist = known.rolling(h).sum().dropna().set_axis(DRIVERS, axis=1)
@@ -224,7 +224,7 @@ def main():
           f"{len(residuals)} months, drivers {DRIVERS}")
 
     summaries, contributions = [], []
-    all_ratios = simulate_driver_ratios("2026-09", marginals, residuals, sigma=sigma)
+    all_ratios = simulate_driver_ratios(ORIGIN_MONTH, marginals, residuals, sigma=sigma)
     pd.concat(all_ratios, names=["horizon_m", "path"]).to_csv(OUT / "simulated_driver_ratios.csv")
 
     for h, ppi_ratios in all_ratios.items(): 

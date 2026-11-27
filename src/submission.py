@@ -32,11 +32,11 @@ import numpy as np
 import pandas as pd
 
 from src.config import REPO_ROOT
-from src.data_prep import OUT
+from src.data_prep import ORIGIN_MONTH, OUT
 from src.models import FINAL_MODEL, MODEL_DIR
 
 TEAM_ID = "group_6"
-ORIGIN = pd.Timestamp("2026-09-01")
+ORIGIN = pd.Timestamp(ORIGIN_MONTH)  # 2026-09, or SE_ORIGIN for a monthly update
 HORIZONS = (3, 6, 9)
 AI_TOOLS = "claude-code"  # coding assistant; no pretrained model is in the final forecast
 SUBMISSION_DIR = REPO_ROOT / "submissions"

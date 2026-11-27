@@ -65,6 +65,16 @@ Without uv: `pip install -r requirements.txt` (pinned versions, exported from `u
 
 **GitHub Actions** ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs on every push and pull request: lint, every test that needs no confidential data, and the format check of the committed CSV, which it publishes as an artifact. The full pipeline can't run there, because `Data/` is not in the repo; tests that need it skip themselves.
 
+## Monthly update (handover)
+
+Next month, without us: in the decision tool, open **Monthly update**.
+
+- **Add a new month:** download the template (the columns of Schneider's `rm_prices_monthly_wide.csv`), fill in the month and upload it (the long format also works). The app checks it against the client's data dictionary: S01–S13 filled, numbers above 0, licensed L01–L08 left empty, the month follows the data on file, each change within 4 standard deviations of the series' history. Then it reruns the whole pipeline as of that month (about 5 minutes) and shows the new forecast CSV and quote terms next to the submitted ones. Each run works in its own copy (`runs/`, not committed), so the submitted Sep 2026 results never change.
+- **Test with a held-back month:** download any recent month exactly as received and upload it. Sep 2026 reproduces `submissions/group_6_forecast_202609.csv`: tested on 27 Nov 2026, the same 51 rows, with 1 value of 153 different in the last digit (rounding between machines).
+- **Replay a past month:** quote as of any month from Jan 2023 with the forecasts made then (walk-forward, no later data), see what actually happened, and score the rule on every past month (track record).
+
+Without the app: `uv run python -m src.monthly_update new_month.csv` (add `--check` to check only, or `--held-back 2026-09` to write a test file). By hand: put the file in `Data/updates/` and run `SE_ORIGIN=2026-10 uv run python -m src.pipeline`.
+
 ## The forecast CSV
 
 Format : one row per target × horizon, origin September 2026, horizons 3 / 6 / 9 months (Dec 2026, Mar 2027, Jun 2027), P10 / P50 / P90.
